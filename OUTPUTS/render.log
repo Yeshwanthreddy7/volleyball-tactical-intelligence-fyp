@@ -1,0 +1,22 @@
+players ...
+ball ...
+  ball visible in 49% of frames, 68 tracklets
+  184 touches -> 182 labelled events: [('PASS', 55), ('SET', 44), ('SPIKE', 30), ('FREE BALL', 24), ('DIG', 24), ('BLOCK', 3), ('SERVE', 2)]
+events -> videoplayback(1)_bicausal_annotated.events.csv
+render 0/9000
+[vost#0:0/libx264 @ 000002141eba1340] Multiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv420p' will be used.
+render 600/9000
+render 1200/9000
+render 1800/9000
+render 2400/9000
+render 3000/9000
+render 3600/9000
+render 4200/9000
+render 4800/9000
+render 5400/9000
+render 6000/9000
+render 6600/9000
+render 7200/9000
+render 7800/9000
+render 8400/9000
+video -> videoplayback(1)_bicausal_annotated.mp4

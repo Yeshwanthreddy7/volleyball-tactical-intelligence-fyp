@@ -1,0 +1,69 @@
+
+============================================================
+INCEPTIONTIME
+============================================================
+  (1)       n= 126  macroF1(4)=0.441  (113s)
+  (2)       n=  60  macroF1(4)=0.561  (111s)
+  (3)       n=  93  macroF1(4)=0.663  (119s)
+  (4)       n= 130  macroF1(4)=0.564  (204s)
+  (5)       n= 106  macroF1(4)=0.556  (140s)
+  (6)       n= 143  macroF1(4)=0.473  (93s)
+  (plain)   n= 130  macroF1(4)=0.542  (123s)
+  usa       n= 157  macroF1(4)=0.426  (118s)
+  --> POOLED LOVO  macroF1(4)=0.559  acc=0.649  mean+/-SD folds=0.528+/-0.073
+  training final checkpoint on all clips -> mamba_v4_inceptiontime.pt
+
+============================================================
+TCN
+============================================================
+  (1)       n= 126  macroF1(4)=0.356  (109s)
+  (2)       n=  60  macroF1(4)=0.255  (72s)
+  (3)       n=  93  macroF1(4)=0.356  (80s)
+  (4)       n= 130  macroF1(4)=0.484  (88s)
+  (5)       n= 106  macroF1(4)=0.572  (158s)
+  (6)       n= 143  macroF1(4)=0.453  (83s)
+  (plain)   n= 130  macroF1(4)=0.449  (173s)
+  usa       n= 157  macroF1(4)=0.253  (224s)
+  --> POOLED LOVO  macroF1(4)=0.426  acc=0.490  mean+/-SD folds=0.397+/-0.105
+  training final checkpoint on all clips -> mamba_v4_tcn.pt
+
+============================================================
+BILSTM
+============================================================
+  (1)       n= 126  macroF1(4)=0.344  (118s)
+  (2)       n=  60  macroF1(4)=0.330  (137s)
+    [WARN] exit 3221226505 - see C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\deep_results_v4\logs\bilstm_3.log
+  (3)       FAILED (no confusion matrix)
+  (4)       n= 130  macroF1(4)=0.442  (102s)
+  (5)       n= 106  macroF1(4)=0.359  (76s)
+  (6)       n= 143  macroF1(4)=0.427  (64s)
+  (plain)   n= 130  macroF1(4)=0.462  (116s)
+  usa       n= 157  macroF1(4)=0.335  (159s)
+  --> POOLED LOVO  macroF1(4)=0.410  acc=0.478  mean+/-SD folds=0.386+/-0.052
+  training final checkpoint on all clips -> mamba_v4_bilstm.pt
+
+============================================================
+MAMBA
+============================================================
+  (1)       n= 126  macroF1(4)=0.220  (90s)
+  (2)       n=  60  macroF1(4)=0.398  (291s)
+  (3)       n=  93  macroF1(4)=0.453  (169s)
+  (4)       n= 130  macroF1(4)=0.367  (102s)
+  (5)       n= 106  macroF1(4)=0.460  (181s)
+  (6)       n= 143  macroF1(4)=0.359  (181s)
+  (plain)   n= 130  macroF1(4)=0.373  (162s)
+  usa       n= 157  macroF1(4)=0.375  (297s)
+  --> POOLED LOVO  macroF1(4)=0.399  acc=0.471  mean+/-SD folds=0.376+/-0.069
+  training final checkpoint on all clips -> mamba_v4_mamba.pt
+
+============================================================
+DEEP LOVO SUMMARY  (4-class macro-F1, comparable to sklearn 0.510)
+============================================================
+  arch              pooledF1  foldMean     acc
+  inceptiontime        0.559     0.528   0.649
+  tcn                  0.426     0.397   0.490
+  bilstm               0.410     0.386   0.478
+  mamba                0.399     0.376   0.471
+
+  total wall time: 84 min
+  results: deep_results_v4\deep_results.json

@@ -1,0 +1,58 @@
+[S3] Mamba metrics from this run are a COMPARISON ARM only - see the confound checklist in train() before quoting them next to the sklearn number.
+Device: cuda
+Loaded 945 samples from 'training_csv_v4' (0 skipped).
+UNSEEN-VIDEO TEST: holdout '(3)' -> 93 clips (4 classes); video keys in dataset: ['(1)', '(2)', '(3)', '(4)', '(5)', '(6)', '(plain)', '?']
+Train: 684 | Val: 168 | Test: 93
+Split distribution:
+  Spacing Breakdown      train=  87  val=  21  test=   6
+  Delayed Support        train=  80  val=  19  test=   9
+  Coordinated Attack     train= 269  val=  67  test=  33
+  Coordinated Defense    train= 248  val=  61  test=  45
+  Unclassified           train=   0  val=   0  test=   0
+Temporal architecture: mamba
+Parameters: 69,381
+Epoch   1/50  train_loss=1.5757  train_acc=0.329  val_loss=1.5632  val_acc=0.452  val_f1=0.273
+Epoch   2/50  train_loss=1.4462  train_acc=0.235  val_loss=1.4255  val_acc=0.321  val_f1=0.175
+Epoch   3/50  train_loss=1.3817  train_acc=0.370  val_loss=1.3485  val_acc=0.333  val_f1=0.211
+Epoch   4/50  train_loss=1.3270  train_acc=0.361  val_loss=1.2998  val_acc=0.363  val_f1=0.199
+Epoch   5/50  train_loss=1.2948  train_acc=0.355  val_loss=1.2744  val_acc=0.363  val_f1=0.219
+Epoch   6/50  train_loss=1.2717  train_acc=0.424  val_loss=1.2471  val_acc=0.423  val_f1=0.239
+Epoch   7/50  train_loss=1.2801  train_acc=0.348  val_loss=1.2606  val_acc=0.446  val_f1=0.277
+Epoch   8/50  train_loss=1.2581  train_acc=0.459  val_loss=1.2562  val_acc=0.464  val_f1=0.296
+Epoch   9/50  train_loss=1.2496  train_acc=0.450  val_loss=1.2483  val_acc=0.500  val_f1=0.337
+Epoch  10/50  train_loss=1.2206  train_acc=0.450  val_loss=1.2521  val_acc=0.351  val_f1=0.252
+Epoch  11/50  train_loss=1.2018  train_acc=0.513  val_loss=1.2371  val_acc=0.512  val_f1=0.360
+Epoch  12/50  train_loss=1.1848  train_acc=0.487  val_loss=1.2291  val_acc=0.482  val_f1=0.338
+Epoch  13/50  train_loss=1.1460  train_acc=0.531  val_loss=1.2789  val_acc=0.440  val_f1=0.347
+Epoch  14/50  train_loss=1.1169  train_acc=0.627  val_loss=1.3068  val_acc=0.405  val_f1=0.327
+Epoch  15/50  train_loss=1.0913  train_acc=0.623  val_loss=1.2453  val_acc=0.524  val_f1=0.399
+Epoch  16/50  train_loss=1.0384  train_acc=0.649  val_loss=1.2849  val_acc=0.524  val_f1=0.398
+Epoch  17/50  train_loss=1.0241  train_acc=0.692  val_loss=1.2190  val_acc=0.565  val_f1=0.431
+Epoch  18/50  train_loss=1.0067  train_acc=0.684  val_loss=1.2474  val_acc=0.530  val_f1=0.394
+Epoch  19/50  train_loss=0.9664  train_acc=0.706  val_loss=1.2269  val_acc=0.524  val_f1=0.371
+Epoch  20/50  train_loss=0.9202  train_acc=0.749  val_loss=1.2372  val_acc=0.548  val_f1=0.411
+Epoch  21/50  train_loss=0.9214  train_acc=0.762  val_loss=1.2616  val_acc=0.452  val_f1=0.347
+Epoch  22/50  train_loss=0.8922  train_acc=0.775  val_loss=1.2454  val_acc=0.518  val_f1=0.360
+Epoch  23/50  train_loss=0.8630  train_acc=0.781  val_loss=1.2675  val_acc=0.506  val_f1=0.352
+Epoch  24/50  train_loss=0.8285  train_acc=0.820  val_loss=1.2951  val_acc=0.488  val_f1=0.334
+Epoch  25/50  train_loss=0.8144  train_acc=0.813  val_loss=1.3861  val_acc=0.482  val_f1=0.349
+Epoch  26/50  train_loss=0.7867  train_acc=0.838  val_loss=1.3614  val_acc=0.565  val_f1=0.381
+Epoch  27/50  train_loss=0.7736  train_acc=0.822  val_loss=1.3642  val_acc=0.458  val_f1=0.330
+
+Early stopping: no val_acc improvement for 10 consecutive epochs.
+Training history saved to 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\deep_results_v4\logs\hist_mamba_3.csv'.
+
+Held-out test metrics (unseen data):
+  test_loss       : 1.2339
+  test_acc        : 0.602
+  test_macro_f1   : 0.363
+  test_balanced_acc: 0.365
+  confusion matrix (rows=true, cols=pred):
+tensor([[ 1,  2,  0,  3,  0],
+        [ 3,  3,  3,  0,  0],
+        [ 7,  2, 21,  3,  0],
+        [ 4,  8,  2, 31,  0],
+        [ 0,  0,  0,  0,  0]])
+LOVO_RESULT video=(3) n_test=93 acc=0.602 macro_f1=0.363 balanced_acc=0.365
+
+Training complete. Best val_macro_f1=0.431 at epoch 17. Checkpoint saved to 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\deep_results_v4\logs\ck_mamba_3.pt'. Test acc=0.602, macro_f1=0.363, balanced_acc=0.365.

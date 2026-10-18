@@ -1,0 +1,31 @@
+players ...
+ball ...
+  ball shown in 70% of frames (detected 41%, bridged 29%)
+render 0/9000
+render 600/9000
+render 1200/9000
+render 1800/9000
+render 2400/9000
+render 3000/9000
+render 3600/9000
+render 4200/9000
+render 4800/9000
+render 5400/9000
+render 6000/9000
+render 6600/9000
+render 7200/9000
+render 7800/9000
+render 8400/9000
+video -> ..\FINALE_OUTPUTS\videos\01_HistGradientBoosting_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\04_GradientBoosting_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\06_RandomForest_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\03_ExtraTrees_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\05_RBF-SVM_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\09_Linear_SVM_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\10_LogisticRegression_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\08_k-NN_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\07_MLP_ML.mp4
+video -> ..\FINALE_OUTPUTS\videos\02_InceptionTime_DL.mp4
+video -> ..\FINALE_OUTPUTS\videos\11_TCN_DL.mp4
+video -> ..\FINALE_OUTPUTS\videos\12_BiLSTM_Attention_DL.mp4
+video -> ..\FINALE_OUTPUTS\videos\13_Mamba_SSM_DL.mp4

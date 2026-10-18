@@ -1,0 +1,26 @@
+{
+  "n_clips": 285,
+  "n_features": 132,
+  "class_counts": {
+    "Coordinated Attack": 90,
+    "Coordinated Defense": 134,
+    "Delayed Support": 16,
+    "Spacing Breakdown": 45
+  },
+  "majority_baseline": {
+    "accuracy": 0.47017543859649125,
+    "balanced_accuracy": 0.25,
+    "macro_f1": 0.15990453460620524,
+    "weighted_f1": 0.3007327387681614,
+    "cohen_kappa": 0.0
+  },
+  "rule_engine_baseline": {
+    "accuracy": 0.43157894736842106,
+    "balanced_accuracy": 0.25613598673300164,
+    "macro_f1": 0.19256093420139658,
+    "weighted_f1": 0.38034705435807065,
+    "cohen_kappa": 0.09691931540342302,
+    "n_clips": 285,
+    "n_abstained": 24,
+    "abstain_rate": 0.0842,
+    "_pred": 

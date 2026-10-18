@@ -1,0 +1,12 @@
+image,width,height,far_left_x,far_left_y,far_right_x,far_right_y,near_right_x,near_right_y,near_left_x,near_left_y,far_left_visible,far_right_visible,near_right_visible,near_left_visible,fit_rmse_px,n_court_lines
+usa.png,1280,720,279.97,392.0,984.08,391.7,1234.73,665.63,68.6,667.19,True,True,True,True,0.831,4
+videoplayback (1).png,1280,720,385.46,272.16,890.46,272.79,1346.27,713.77,-56.72,716.59,True,True,False,False,2.438,3
+videoplayback (2).png,1280,720,280.27,385.52,1006.23,385.53,1253.96,699.7,32.88,700.13,True,True,True,True,0.465,5
+videoplayback (3).png,1920,1080,415.08,566.96,1555.5,567.33,1893.91,1029.67,23.91,1031.32,True,True,True,True,1.196,5
+videoplayback (4).png,1280,720,295.14,288.79,978.46,290.31,1173.96,705.57,104.75,703.83,True,True,True,True,0.67,5
+videoplayback (5).png,1920,1080,418.22,564.22,1539.74,568.37,1870.47,1024.07,31.45,1020.38,True,True,True,True,1.267,5
+videoplayback (6).png,1920,1080,323.95,634.96,1525.9,636.35,1854.44,1054.35,151.55,1053.22,True,True,True,True,0.604,5
+videoplayback (7).png,1280,720,290.33,412.74,1015.99,413.75,1239.64,701.89,55.17,702.02,True,True,True,True,0.906,4
+videoplayback (8).png,1280,720,285.97,405.46,1013.24,407.12,1237.17,695.95,50.29,696.45,True,True,True,True,1.079,5
+videoplayback (9).png,1280,720,275.15,414.16,1001.32,414.29,1234.17,701.64,47.88,704.52,True,True,True,True,0.914,5
+videoplayback.png,1920,1080,440.39,598.37,1530.23,599.91,1849.67,1042.1,63.06,1041.92,True,True,True,True,1.385,5

@@ -1,0 +1,1422 @@
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial filC:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+e
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 43C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+C:\Users\yashwanth\anaconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1429: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=3.
+  warnings.warn(
+videos dir : C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\Datasets
+out dir    : C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame
+found 11 videos
+
+[1/11]
+  usa.mp4: 1280x720, 86682 frames
+    dominant-shot frames selected: 88  (29.9s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\usa.png  (36.8s total)
+[2/11]
+  videoplayback (1).mp4: 1280x720, 70591 frames
+    dominant-shot frames selected: 99  (26.3s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (1).png  (33.3s total)
+[3/11]
+  videoplayback (2).mp4: 1280x720, 52809 frames
+    dominant-shot frames selected: 120  (34.1s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (2).png  (38.8s total)
+[4/11]
+  videoplayback (3).mp4: 1920x1080, 90451 frames
+    dominant-shot frames selected: 103  (103.2s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (3).png  (127.7s total)
+[5/11]
+  videoplayback (4).mp4: 1280x720, 82833 frames
+    dominant-shot frames selected: 76  (28.9s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (4).png  (35.0s total)
+[6/11]
+  videoplayback (5).mp4: 1920x1080, 120001 frames
+    dominant-shot frames selected: 120  (90.4s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (5).png  (116.1s total)
+[7/11]
+  videoplayback (6).mp4: 1920x1080, 139451 frames
+    dominant-shot frames selected: 97  (80.6s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (6).png  (101.0s total)
+[8/11]
+  videoplayback (7).mp4: 1280x720, 80581 frames
+    dominant-shot frames selected: 76  (33.8s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (7).png  (40.1s total)
+[9/11]
+  videoplayback (8).mp4: 1280x720, 73802 frames
+    dominant-shot frames selected: 114  (34.4s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (8).png  (44.7s total)
+[10/11]
+  videoplayback (9).mp4: 1280x720, 69182 frames
+    dominant-shot frames selected: 102  (37.3s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback (9).png  (51.0s total)
+[11/11]
+  videoplayback.mp4: 1920x1080, 158501 frames
+    dominant-shot frames selected: 80  (94.7s)
+    wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\BASEFRAMES\base_frame\videoplayback.png  (110.7s total)
+
+done.
+92
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file
+[h264 @ 000001d1f7856c00] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1f7856c00] missing picture in access unit with size 4392
+[h264 @ 000001d1fde68400] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d1fde68400] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d1f801e080] stream 0, offset 0x13fbc431: partial file

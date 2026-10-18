@@ -1,0 +1,132 @@
+{
+  "image": "usa.png",
+  "width": 1280,
+  "height": 720,
+  "court_size_m": [
+    9,
+    18
+  ],
+  "corners_px": {
+    "far_left": [
+      279.97,
+      392.0
+    ],
+    "far_right": [
+      984.08,
+      391.7
+    ],
+    "near_right": [
+      1234.73,
+      665.63
+    ],
+    "near_left": [
+      68.6,
+      667.19
+    ]
+  },
+  "corners_visible": {
+    "far_left": true,
+    "far_right": true,
+    "near_right": true,
+    "near_left": true
+  },
+  "corner_court_m": {
+    "far_left": [
+      0.0,
+      0.0
+    ],
+    "far_right": [
+      9.0,
+      0.0
+    ],
+    "near_right": [
+      9.0,
+      18.0
+    ],
+    "near_left": [
+      0.0,
+      18.0
+    ]
+  },
+  "homography_court_m_to_px": [
+    [
+      78.49205224,
+      -13.25439194,
+      279.9656484
+    ],
+    [
+      0.06920937,
+      0.58424891,
+      392.00105053
+    ],
+    [
+      0.00026128,
+      -0.02203889,
+      1.0
+    ]
+  ],
+  "lines_used": [
+    {
+      "court_y_m": 6.0,
+      "name": "far attack line",
+      "left_px": [
+        231.7,
+        455.0
+      ],
+      "right_px": [
+        1041.9,
+        455.0
+      ],
+      "paint_evidence": 0.375
+    },
+    {
+      "court_y_m": 9.0,
+      "name": "centre line",
+      "left_px": [
+        200.2,
+        495.9
+      ],
+      "right_px": [
+        1078.0,
+        494.4
+      ],
+      "paint_evidence": 0.988
+    },
+    {
+      "court_y_m": 12.0,
+      "name": "near attack line",
+      "left_px": [
+        163.8,
+        543.3
+      ],
+      "right_px": [
+        1122.2,
+        542.7
+      ],
+      "paint_evidence": 0.917
+    },
+    {
+      "court_y_m": 18.0,
+      "name": "near end line",
+      "left_px": [
+        68.8,
+        666.8
+      ],
+      "right_px": [
+        1234.5,
+        665.2
+      ],
+      "paint_evidence": 1.0
+    }
+  ],
+  "lines_not_seen": [
+    {
+      "court_y_m": 0.0,
+      "name": "far end line",
+      "reason": "paint evidence 0.18 (hidden / faint)"
+    }
+  ],
+  "fit_rmse_px": 0.831,
+  "sideline_mean_dev_px": 0.082,
+  "sideline_max_dev_px": 0.17
+}

@@ -1,0 +1,183 @@
+video_time,frame,action,team,actor_track_id,far_formation,near_formation
+01:00.40,1812,SERVE,Far team,18,3-Front 1-Back,2-Front 4-Back
+01:01.53,1846,SPIKE,Far team,19,3-Front 2-Back,2-Front 4-Back
+01:03.30,1899,SET,Near team,7,3-Front 3-Back,3-Front 3-Back
+01:04.23,1927,SET,Near team,3,2-Front 3-Back,5-Front 1-Back
+01:04.87,1946,PASS,Near team,5,2-Front 3-Back,4-Front 2-Back
+01:05.23,1957,PASS,Near team,7,2-Front 3-Back,5-Front 1-Back
+01:05.60,1968,FREE BALL,Near team,7,2-Front 2-Back,5-Front 1-Back
+01:14.50,2235,PASS,Far team,196,3-Front 3-Back,2-Front 4-Back
+01:16.00,2280,SET,Near team,185,2-Front 2-Back,3-Front 3-Back
+01:17.07,2312,SPIKE,Near team,193,2-Front 2-Back,5-Front 0-Back
+01:17.47,2324,DIG,Far team,275,2-Front 2-Back,5-Front 0-Back
+01:23.90,2517,PASS,Far team,393,1-Front 2-Back,1-Front 4-Back
+01:26.80,2604,FREE BALL,Far team,454,3-Front 1-Back,2-Front 4-Back
+01:27.87,2636,SET,Near team,423,3-Front 2-Back,1-Front 5-Back
+01:29.37,2681,SET,Near team,423,3-Front 2-Back,3-Front 3-Back
+01:29.80,2694,SPIKE,Near team,421,3-Front 2-Back,3-Front 3-Back
+01:30.30,2709,DIG,Far team,196,2-Front 1-Back,5-Front 1-Back
+01:32.57,2777,PASS,Near team,418,1-Front 3-Back,4-Front 0-Back
+01:34.07,2822,PASS,Far team,196,1-Front 2-Back,4-Front 1-Back
+01:34.53,2836,SET,Near team,418,1-Front 2-Back,3-Front 2-Back
+01:34.93,2848,PASS,Near team,421,1-Front 2-Back,3-Front 2-Back
+01:35.47,2864,PASS,Near team,572,0-Front 3-Back,3-Front 2-Back
+01:36.10,2883,PASS,Near team,418,0-Front 3-Back,3-Front 2-Back
+01:36.47,2894,PASS,Near team,605,0-Front 4-Back,3-Front 2-Back
+01:40.40,3012,PASS,Near team,671,1-Front 3-Back,3-Front 3-Back
+01:41.17,3035,FREE BALL,Near team,660,1-Front 3-Back,3-Front 3-Back
+01:43.03,3091,SPIKE,Far team,721,1-Front 3-Back,3-Front 3-Back
+01:44.00,3120,SPIKE,Near team,2,3-Front 1-Back,3-Front 3-Back
+01:45.17,3155,SET,Far team,637,3-Front 2-Back,3-Front 3-Back
+01:45.53,3166,SPIKE,Far team,637,3-Front 2-Back,3-Front 3-Back
+01:46.73,3202,SET,Near team,701,1-Front 2-Back,3-Front 3-Back
+01:47.83,3235,FREE BALL,Near team,2,1-Front 3-Back,6-Front 0-Back
+01:48.47,3254,DIG,Far team,777,1-Front 2-Back,6-Front 0-Back
+01:49.00,3270,SET,Near team,660,1-Front 2-Back,6-Front 0-Back
+01:49.40,3282,FREE BALL,Near team,660,1-Front 2-Back,6-Front 0-Back
+01:49.80,3294,DIG,Far team,882,1-Front 1-Back,6-Front 0-Back
+01:51.63,3349,PASS,Near team,660,1-Front 2-Back,6-Front 0-Back
+01:52.03,3361,PASS,Near team,660,0-Front 3-Back,3-Front 3-Back
+01:52.50,3375,FREE BALL,Near team,910,0-Front 3-Back,2-Front 4-Back
+01:52.87,3386,DIG,Far team,916,0-Front 3-Back,2-Front 4-Back
+01:53.23,3397,PASS,Near team,830,1-Front 3-Back,1-Front 4-Back
+01:57.33,3520,SPIKE,Far team,998,1-Front 5-Back,4-Front 2-Back
+01:57.83,3535,DIG,Near team,1025,1-Front 4-Back,4-Front 2-Back
+01:58.30,3549,PASS,Far team,998,1-Front 3-Back,3-Front 3-Back
+02:00.73,3622,PASS,Near team,1025,0-Front 4-Back,3-Front 3-Back
+02:01.43,3643,PASS,Near team,996,0-Front 2-Back,2-Front 3-Back
+02:01.80,3654,PASS,Near team,996,0-Front 3-Back,2-Front 3-Back
+02:02.27,3668,SPIKE,Near team,996,0-Front 3-Back,1-Front 3-Back
+02:08.23,3847,PASS,Far team,1173,3-Front 3-Back,2-Front 4-Back
+02:09.07,3872,PASS,Near team,1190,3-Front 1-Back,1-Front 5-Back
+02:10.47,3914,SET,Near team,1225,3-Front 3-Back,3-Front 3-Back
+02:11.50,3945,SPIKE,Near team,903,2-Front 2-Back,5-Front 1-Back
+02:22.70,4281,SET,Far team,1380,1-Front 3-Back,3-Front 2-Back
+02:23.63,4309,SET,Far team,1439,1-Front 3-Back,4-Front 2-Back
+02:25.03,4351,SPIKE,Far team,1380,1-Front 3-Back,3-Front 3-Back
+02:25.43,4363,BLOCK,Near team,1396,1-Front 3-Back,3-Front 3-Back
+02:28.20,4446,DIG,Far team,1520,3-Front 1-Back,4-Front 2-Back
+02:28.77,4463,FREE BALL,Far team,1520,3-Front 1-Back,4-Front 2-Back
+02:35.37,4661,PASS,Far team,1605,3-Front 1-Back,2-Front 4-Back
+02:40.27,4808,PASS,Near team,1669,0-Front 4-Back,5-Front 1-Back
+02:42.53,4876,PASS,Near team,1600,3-Front 3-Back,5-Front 1-Back
+02:44.90,4947,FREE BALL,Near team,1600,1-Front 1-Back,5-Front 1-Back
+02:50.57,5117,PASS,Far team,1707,3-Front 2-Back,2-Front 4-Back
+02:57.17,5315,SET,Near team,1934,0-Front 3-Back,0-Front 5-Back
+02:57.60,5328,FREE BALL,Near team,1936,0-Front 2-Back,0-Front 5-Back
+02:57.97,5339,DIG,Far team,1987,0-Front 2-Back,0-Front 5-Back
+03:04.20,5526,SPIKE,Near team,2151,1-Front 3-Back,3-Front 3-Back
+03:05.60,5568,SET,Far team,2058,0-Front 3-Back,3-Front 3-Back
+03:06.33,5590,SPIKE,Far team,2246,4-Front 1-Back,3-Front 3-Back
+03:06.73,5602,BLOCK,Near team,2209,4-Front 1-Back,3-Front 3-Back
+03:09.43,5683,PASS,Near team,2147,3-Front 1-Back,3-Front 3-Back
+03:10.10,5703,PASS,Far team,2274,2-Front 2-Back,3-Front 3-Back
+03:10.53,5716,PASS,Near team,1932,1-Front 1-Back,1-Front 3-Back
+03:11.30,5739,PASS,Near team,1932,1-Front 2-Back,1-Front 3-Back
+03:11.83,5755,PASS,Near team,2148,1-Front 2-Back,2-Front 4-Back
+03:12.20,5766,PASS,Near team,2148,2-Front 1-Back,2-Front 4-Back
+03:12.80,5784,FREE BALL,Near team,2148,2-Front 1-Back,1-Front 5-Back
+03:15.43,5863,SET,Far team,2290,1-Front 2-Back,2-Front 4-Back
+03:17.13,5914,SPIKE,Far team,2290,2-Front 2-Back,3-Front 3-Back
+03:19.90,5997,SPIKE,Near team,2352,2-Front 3-Back,4-Front 2-Back
+03:21.00,6030,DIG,Far team,2394,1-Front 2-Back,6-Front 0-Back
+03:23.97,6119,SPIKE,Far team,2482,2-Front 2-Back,4-Front 0-Back
+03:24.97,6149,DIG,Near team,2352,1-Front 3-Back,4-Front 2-Back
+03:25.37,6161,PASS,Near team,2514,1-Front 3-Back,4-Front 2-Back
+03:25.77,6173,FREE BALL,Near team,2524,0-Front 3-Back,4-Front 2-Back
+03:31.90,6357,PASS,Far team,2554,1-Front 4-Back,3-Front 3-Back
+03:39.23,6577,PASS,Near team,2148,0-Front 2-Back,3-Front 2-Back
+03:39.73,6592,SET,Far team,2664,0-Front 3-Back,3-Front 2-Back
+03:40.33,6610,SET,Far team,2767,0-Front 3-Back,3-Front 2-Back
+03:44.33,6730,FREE BALL,Far team,2826,0-Front 3-Back,3-Front 3-Back
+03:45.07,6752,DIG,Near team,2514,0-Front 3-Back,3-Front 3-Back
+03:45.63,6769,PASS,Far team,2762,1-Front 3-Back,3-Front 3-Back
+03:53.07,6992,PASS,Near team,2957,2-Front 1-Back,1-Front 5-Back
+03:53.60,7008,PASS,Near team,2819,2-Front 1-Back,2-Front 3-Back
+03:54.07,7022,PASS,Near team,2780,3-Front 1-Back,2-Front 3-Back
+03:56.40,7092,SET,Near team,2997,2-Front 1-Back,2-Front 3-Back
+03:56.80,7104,SPIKE,Near team,2999,3-Front 1-Back,4-Front 1-Back
+03:57.33,7120,DIG,Far team,3006,3-Front 1-Back,4-Front 1-Back
+03:57.70,7131,SET,Far team,3008,3-Front 1-Back,4-Front 1-Back
+03:58.13,7144,FREE BALL,Far team,3006,3-Front 3-Back,4-Front 1-Back
+03:58.80,7164,DIG,Near team,2819,3-Front 3-Back,4-Front 2-Back
+03:59.33,7180,SET,Near team,2819,3-Front 2-Back,4-Front 2-Back
+03:59.77,7193,SET,Near team,2819,2-Front 2-Back,5-Front 1-Back
+04:00.33,7210,SET,Near team,2819,2-Front 2-Back,5-Front 1-Back
+04:01.07,7232,FREE BALL,Near team,2819,1-Front 2-Back,5-Front 1-Back
+04:01.50,7245,DIG,Far team,3012,1-Front 2-Back,5-Front 1-Back
+04:01.90,7257,SET,Near team,3058,0-Front 2-Back,5-Front 1-Back
+04:02.27,7268,PASS,Near team,2879,2-Front 1-Back,4-Front 2-Back
+04:06.10,7383,PASS,Near team,3112,3-Front 1-Back,2-Front 4-Back
+04:06.57,7397,PASS,Near team,3058,3-Front 1-Back,2-Front 3-Back
+04:07.03,7411,SPIKE,Near team,3036,3-Front 1-Back,3-Front 3-Back
+04:07.40,7422,SPIKE,Far team,3142,3-Front 1-Back,3-Front 3-Back
+04:09.33,7480,SPIKE,Near team,3110,3-Front 1-Back,4-Front 2-Back
+04:09.70,7491,SET,Far team,3006,3-Front 3-Back,4-Front 2-Back
+04:10.37,7511,SPIKE,Far team,3114,3-Front 2-Back,6-Front 0-Back
+04:20.17,7805,PASS,Far team,3275,3-Front 1-Back,3-Front 3-Back
+04:22.57,7877,SPIKE,Near team,3285,3-Front 2-Back,2-Front 3-Back
+04:23.80,7914,DIG,Far team,3275,2-Front 2-Back,3-Front 1-Back
+04:24.20,7926,SET,Near team,3381,3-Front 2-Back,4-Front 1-Back
+04:24.57,7937,PASS,Near team,3381,3-Front 2-Back,4-Front 1-Back
+04:25.07,7952,SPIKE,Near team,3381,3-Front 2-Back,4-Front 1-Back
+04:25.43,7963,BLOCK,Far team,3223,3-Front 1-Back,4-Front 1-Back
+04:25.87,7976,PASS,Near team,3285,2-Front 4-Back,3-Front 2-Back
+04:26.23,7987,SET,Far team,3317,2-Front 4-Back,3-Front 2-Back
+04:26.73,8002,FREE BALL,Far team,3444,2-Front 4-Back,2-Front 2-Back
+04:27.23,8017,DIG,Near team,3358,0-Front 5-Back,2-Front 2-Back
+04:35.33,8260,PASS,Far team,3528,1-Front 4-Back,3-Front 3-Back
+04:38.63,8359,SET,Near team,3502,1-Front 4-Back,3-Front 3-Back
+04:39.03,8371,SET,Near team,3536,2-Front 3-Back,3-Front 2-Back
+04:39.43,8383,SET,Near team,3536,2-Front 3-Back,3-Front 2-Back
+04:41.10,8433,SPIKE,Near team,3584,3-Front 0-Back,5-Front 1-Back
+04:42.43,8473,SET,Far team,3680,2-Front 2-Back,5-Front 1-Back
+04:42.80,8484,PASS,Far team,3663,2-Front 3-Back,4-Front 1-Back
+04:44.73,8542,SPIKE,Far team,3590,0-Front 5-Back,3-Front 3-Back
+04:46.53,8596,SET,Near team,3536,2-Front 1-Back,3-Front 3-Back
+04:49.47,8684,SET,Near team,3536,3-Front 2-Back,3-Front 2-Back
+04:51.30,8739,PASS,Near team,3664,0-Front 4-Back,4-Front 2-Back
+04:54.63,8839,FREE BALL,Near team,3587,0-Front 5-Back,3-Front 3-Back
+04:55.30,8859,SET,Far team,3820,0-Front 5-Back,2-Front 1-Back
+04:56.00,8880,FREE BALL,Far team,3820,0-Front 4-Back,2-Front 1-Back
+04:56.37,8891,DIG,Near team,3527,0-Front 4-Back,2-Front 1-Back
+04:56.73,8902,PASS,Near team,3527,0-Front 3-Back,2-Front 3-Back
+04:57.30,8919,SET,Near team,3587,0-Front 2-Back,4-Front 2-Back
+04:58.10,8943,FREE BALL,Near team,3902,0-Front 5-Back,3-Front 2-Back
+05:02.67,9080,SET,Near team,3902,1-Front 4-Back,3-Front 3-Back
+05:04.30,9129,SPIKE,Near team,3877,0-Front 5-Back,3-Front 3-Back
+05:06.43,9193,DIG,Far team,3988,3-Front 1-Back,3-Front 3-Back
+05:06.90,9207,PASS,Far team,3900,3-Front 1-Back,3-Front 3-Back
+05:07.37,9221,PASS,Far team,4005,3-Front 1-Back,3-Front 3-Back
+05:08.17,9245,SPIKE,Far team,4009,4-Front 1-Back,3-Front 3-Back
+05:13.73,9412,PASS,Near team,3891,2-Front 2-Back,1-Front 5-Back
+05:14.20,9426,PASS,Far team,4108,3-Front 2-Back,1-Front 5-Back
+05:15.83,9475,SET,Far team,4070,3-Front 2-Back,2-Front 4-Back
+05:16.67,9500,PASS,Far team,4104,3-Front 1-Back,2-Front 4-Back
+05:17.33,9520,SET,Far team,4104,3-Front 1-Back,2-Front 4-Back
+05:18.40,9552,FREE BALL,Far team,4104,2-Front 2-Back,1-Front 4-Back
+05:18.77,9563,DIG,Near team,3899,1-Front 3-Back,1-Front 4-Back
+05:19.33,9580,SET,Near team,3527,0-Front 2-Back,1-Front 4-Back
+05:19.90,9597,SPIKE,Near team,3527,0-Front 2-Back,0-Front 4-Back
+05:26.37,9791,SERVE,Far team,4278,0-Front 3-Back,3-Front 3-Back
+05:26.77,9803,SPIKE,Far team,4232,1-Front 3-Back,3-Front 3-Back
+05:27.90,9837,DIG,Near team,4292,0-Front 4-Back,3-Front 3-Back
+05:28.53,9856,PASS,Near team,4262,0-Front 4-Back,3-Front 3-Back
+05:29.20,9876,FREE BALL,Near team,4262,0-Front 2-Back,1-Front 5-Back
+05:31.77,9953,DIG,Far team,4298,0-Front 3-Back,1-Front 5-Back
+05:32.13,9964,SPIKE,Far team,4367,0-Front 3-Back,1-Front 5-Back
+05:37.50,10125,SET,Far team,4298,3-Front 3-Back,2-Front 4-Back
+05:38.07,10142,FREE BALL,Far team,4368,3-Front 3-Back,2-Front 4-Back
+05:39.23,10177,DIG,Near team,4231,3-Front 3-Back,3-Front 3-Back
+05:41.53,10246,PASS,Far team,4477,1-Front 3-Back,3-Front 3-Back
+05:42.63,10279,SET,Near team,4379,3-Front 2-Back,4-Front 2-Back
+05:44.43,10333,FREE BALL,Near team,4262,3-Front 2-Back,2-Front 4-Back
+05:45.47,10364,SET,Far team,4551,2-Front 2-Back,1-Front 4-Back
+05:46.17,10385,PASS,Far team,4571,3-Front 1-Back,2-Front 4-Back
+05:46.53,10396,SET,Far team,4584,3-Front 1-Back,2-Front 4-Back
+05:46.97,10409,FREE BALL,Far team,4506,3-Front 1-Back,2-Front 4-Back
+05:47.53,10426,DIG,Near team,4292,3-Front 2-Back,2-Front 4-Back
+05:47.93,10438,FREE BALL,Near team,4378,3-Front 2-Back,2-Front 4-Back
+05:48.37,10451,DIG,Far team,4567,4-Front 1-Back,2-Front 4-Back
+05:54.07,10622,SET,Far team,4653,1-Front 2-Back,2-Front 4-Back
+05:55.40,10662,SET,Far team,4720,1-Front 2-Back,3-Front 3-Back
+05:57.50,10725,SPIKE,Far team,4756,1-Front 1-Back,5-Front 1-Back

@@ -1,0 +1,25 @@
+=== Building dataset index (training_csv_v4 x fyp/dataset x BASEFRAMES) ===
+  matched samples : 945
+  skipped         : 0
+  per-class matched counts:
+    [0] Spacing Breakdown   : 114
+    [1] Delayed Support     : 108
+    [2] Coordinated Attack  : 369
+    [3] Coordinated Defense : 354
+    [4] Unclassified        : 0
+
+=== Pulling a real batch (4 samples) through the dataset ===
+  [0] Coordinated_Attack__usa_clip_001.csv  <-  usa_clip_001.mp4  (base: usa.png)  pose (29, 18)  motion (30, 1, 64, 64)
+  [314] Coordinated_Attack__videoplayback (6)_clip_708.csv  <-  videoplayback (6)_clip_708.mp4  (base: videoplayback (6).png)  pose (29, 18)  motion (30, 1, 64, 64)
+  [629] Coordinated_Defense__videoplayback (6)_clip_652.csv  <-  videoplayback (6)_clip_652.mp4  (base: videoplayback (6).png)  pose (29, 18)  motion (30, 1, 64, 64)
+  [944] Spacing_Breakdown__videoplayback_clip_592.csv  <-  videoplayback_clip_592.mp4  (base: videoplayback.png)  pose (29, 18)  motion (30, 1, 64, 64)
+
+=== Forward pass through TwoStreamClassifier ===
+  logits shape: (4, 5)  OK
+  cross-entropy loss on real batch: 1.6547
+  backward() OK on real data
+
+=== Saving visual proof of the base-frame diff (one sample) ===
+  wrote sample_motion_preview.png  (clip: C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\dataset\Coordinated_Attack\usa_clip_001.mp4, label: 2)
+
+ALL REAL-DATA CHECKS PASSED

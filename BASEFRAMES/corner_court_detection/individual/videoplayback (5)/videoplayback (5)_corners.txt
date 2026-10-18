@@ -1,0 +1,15 @@
+video        : videoplayback (5).mp4
+video file   : fyp/Datasets/videoplayback (5).mp4
+base frame   : BASEFRAMES/base_frame/videoplayback (5).png  (1920x1080)
+fit error    : 1.27 px RMSE
+
+corners (pixel x, y)   court position (m)   in picture
+  1 far_left    (  418.22,   564.22)   (0, 0)      yes
+  2 far_right   ( 1539.74,   568.37)   (9, 0)      yes
+  3 near_right  ( 1870.47,  1024.07)   (9, 18)      yes
+  4 near_left   (   31.45,  1020.38)   (0, 18)      yes
+
+path (clockwise, closed): 1 far_left -> 2 far_right -> 3 near_right -> 4 near_left -> 1
+  (418.2, 564.2) -> (1539.7, 568.4) -> (1870.5, 1024.1) -> (31.4, 1020.4) -> (418.2, 564.2)
+
+SVG path: M 418.2 564.2 L 1539.7 568.4 L 1870.5 1024.1 L 31.4 1020.4 Z

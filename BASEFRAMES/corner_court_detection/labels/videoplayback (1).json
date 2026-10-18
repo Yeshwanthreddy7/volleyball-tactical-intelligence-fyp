@@ -1,0 +1,124 @@
+{
+  "image": "videoplayback (1).png",
+  "width": 1280,
+  "height": 720,
+  "court_size_m": [
+    9,
+    18
+  ],
+  "corners_px": {
+    "far_left": [
+      385.46,
+      272.16
+    ],
+    "far_right": [
+      890.46,
+      272.79
+    ],
+    "near_right": [
+      1346.27,
+      713.77
+    ],
+    "near_left": [
+      -56.72,
+      716.59
+    ]
+  },
+  "corners_visible": {
+    "far_left": true,
+    "far_right": true,
+    "near_right": false,
+    "near_left": false
+  },
+  "corner_court_m": {
+    "far_left": [
+      0.0,
+      0.0
+    ],
+    "far_right": [
+      9.0,
+      0.0
+    ],
+    "near_right": [
+      9.0,
+      18.0
+    ],
+    "near_left": [
+      0.0,
+      18.0
+    ]
+  },
+  "homography_court_m_to_px": [
+    [
+      56.47996917,
+      -22.54494511,
+      385.46031852
+    ],
+    [
+      0.18289069,
+      -0.83830386,
+      272.15755888
+    ],
+    [
+      0.00041371,
+      -0.03562563,
+      1.0
+    ]
+  ],
+  "lines_used": [
+    {
+      "court_y_m": 0.0,
+      "name": "far end line",
+      "left_px": [
+        388.2,
+        270.8
+      ],
+      "right_px": [
+        887.8,
+        271.6
+      ],
+      "paint_evidence": 0.996
+    },
+    {
+      "court_y_m": 12.0,
+      "name": "near attack line",
+      "left_px": [
+        198.9,
+        460.1
+      ],
+      "right_px": [
+        1083.3,
+        459.9
+      ],
+      "paint_evidence": 0.988
+    },
+    {
+      "court_y_m": 18.0,
+      "name": "near end line",
+      "left_px": [
+        -56.6,
+        715.7
+      ],
+      "right_px": [
+        1346.2,
+        712.8
+      ],
+      "paint_evidence": 0.996
+    }
+  ],
+  "lines_not_seen": [
+    {
+      "court_y_m": 6.0,
+      "name": "far attack line",
+      "reason": "paint evidence 0.02 (hidden / faint)"
+    },
+    {
+      "court_y_m": 9.0,
+      "name": "centre line",
+      "reason": "paint evidence 0.02 (hidden / faint)"
+    }
+  ],
+  "fit_rmse_px": 2.438,
+  "sideline_mean_dev_px": 0.57,
+  "sideline_max_dev_px": 1.027
+}

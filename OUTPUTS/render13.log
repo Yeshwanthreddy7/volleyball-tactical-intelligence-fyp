@@ -1,0 +1,33 @@
+players ...
+ball ...
+  ball visible in 65% of frames, 73 tracklets
+  147 touches -> 141 labelled events: [('SET', 61), ('SPIKE', 30), ('PASS', 19), ('DIG', 13), ('FREE BALL', 11), ('SERVE', 4), ('RECEPTION', 2), ('BLOCK', 1)]
+events -> ..\FINAL_OUTPUT\videos\videoplayback(7)_bicausal.events.csv
+render 0/9000
+render 600/9000
+render 1200/9000
+render 1800/9000
+render 2400/9000
+render 3000/9000
+render 3600/9000
+render 4200/9000
+render 4800/9000
+render 5400/9000
+render 6000/9000
+render 6600/9000
+render 7200/9000
+render 7800/9000
+render 8400/9000
+video -> ..\FINAL_OUTPUT\videos\hist_gradient_boosting__HistGradientBoosting.mp4
+video -> ..\FINAL_OUTPUT\videos\gradient_boosting__GradientBoosting.mp4
+video -> ..\FINAL_OUTPUT\videos\random_forest__RandomForest.mp4
+video -> ..\FINAL_OUTPUT\videos\extra_trees__ExtraTrees.mp4
+video -> ..\FINAL_OUTPUT\videos\rbf_svm__RBF-SVM.mp4
+video -> ..\FINAL_OUTPUT\videos\linear_svm__Linear_SVM.mp4
+video -> ..\FINAL_OUTPUT\videos\logistic_regression__LogisticRegression.mp4
+video -> ..\FINAL_OUTPUT\videos\knn__k-NN.mp4
+video -> ..\FINAL_OUTPUT\videos\mlp__MLP.mp4
+video -> ..\FINAL_OUTPUT\videos\inceptiontime__InceptionTime.mp4
+video -> ..\FINAL_OUTPUT\videos\tcn__TCN.mp4
+video -> ..\FINAL_OUTPUT\videos\bilstm__BiLSTM_Attention.mp4
+video -> ..\FINAL_OUTPUT\videos\mamba__Mamba_SSM.mp4

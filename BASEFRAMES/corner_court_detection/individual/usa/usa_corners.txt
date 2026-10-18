@@ -1,0 +1,15 @@
+video        : usa.mp4
+video file   : fyp/Datasets/usa.mp4
+base frame   : BASEFRAMES/base_frame/usa.png  (1280x720)
+fit error    : 0.83 px RMSE
+
+corners (pixel x, y)   court position (m)   in picture
+  1 far_left    (  279.97,   392.00)   (0, 0)      yes
+  2 far_right   (  984.08,   391.70)   (9, 0)      yes
+  3 near_right  ( 1234.73,   665.63)   (9, 18)      yes
+  4 near_left   (   68.60,   667.19)   (0, 18)      yes
+
+path (clockwise, closed): 1 far_left -> 2 far_right -> 3 near_right -> 4 near_left -> 1
+  (280.0, 392.0) -> (984.1, 391.7) -> (1234.7, 665.6) -> (68.6, 667.2) -> (280.0, 392.0)
+
+SVG path: M 280.0 392.0 L 984.1 391.7 L 1234.7 665.6 L 68.6 667.2 Z

@@ -1,0 +1,132 @@
+{
+  "image": "videoplayback (7).png",
+  "width": 1280,
+  "height": 720,
+  "court_size_m": [
+    9,
+    18
+  ],
+  "corners_px": {
+    "far_left": [
+      290.33,
+      412.74
+    ],
+    "far_right": [
+      1015.99,
+      413.75
+    ],
+    "near_right": [
+      1239.64,
+      701.89
+    ],
+    "near_left": [
+      55.17,
+      702.02
+    ]
+  },
+  "corners_visible": {
+    "far_left": true,
+    "far_right": true,
+    "near_right": true,
+    "near_left": true
+  },
+  "corner_court_m": {
+    "far_left": [
+      0.0,
+      0.0
+    ],
+    "far_right": [
+      9.0,
+      0.0
+    ],
+    "near_right": [
+      9.0,
+      18.0
+    ],
+    "near_left": [
+      0.0,
+      18.0
+    ]
+  },
+  "homography_court_m_to_px": [
+    [
+      81.05790726,
+      -14.25420271,
+      290.33347759
+    ],
+    [
+      0.28785498,
+      0.93574975,
+      412.73788481
+    ],
+    [
+      0.0004231,
+      -0.02156008,
+      1.0
+    ]
+  ],
+  "lines_used": [
+    {
+      "court_y_m": 0.0,
+      "name": "far end line",
+      "left_px": [
+        290.4,
+        412.5
+      ],
+      "right_px": [
+        1016.5,
+        414.5
+      ],
+      "paint_evidence": 0.887
+    },
+    {
+      "court_y_m": 9.0,
+      "name": "centre line",
+      "left_px": [
+        201.5,
+        522.0
+      ],
+      "right_px": [
+        1100.0,
+        522.0
+      ],
+      "paint_evidence": 0.983
+    },
+    {
+      "court_y_m": 12.0,
+      "name": "near attack line",
+      "left_px": [
+        160.1,
+        572.9
+      ],
+      "right_px": [
+        1139.6,
+        573.1
+      ],
+      "paint_evidence": 1.0
+    },
+    {
+      "court_y_m": 18.0,
+      "name": "near end line",
+      "left_px": [
+        55.5,
+        701.8
+      ],
+      "right_px": [
+        1239.8,
+        702.0
+      ],
+      "paint_evidence": 1.0
+    }
+  ],
+  "lines_not_seen": [
+    {
+      "court_y_m": 6.0,
+      "name": "far attack line",
+      "reason": "paint evidence 0.21 (hidden / faint)"
+    }
+  ],
+  "fit_rmse_px": 0.906,
+  "sideline_mean_dev_px": 0.042,
+  "sideline_max_dev_px": 0.1
+}

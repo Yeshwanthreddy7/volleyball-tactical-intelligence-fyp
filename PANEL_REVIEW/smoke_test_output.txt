@@ -1,0 +1,19 @@
+=== Branch 1: PoseMambaBranch (29x18 -> Mamba) ===
+  input  (4, 29, 18) -> output (4, 29, 64)  OK
+  params: 67,136
+
+=== Branch 2: VisionMambaBranch (base-frame-diffed 30 frames -> Vision Mamba) ===
+  input  (4, 30, 1, 64, 64) -> output (4, 30, 64)  OK
+  params: 93,856
+
+=== Cross Attention + Feature Fusion ===
+  pose_h (4, 29, 64) + vision_h (4, 30, 64) -> fused (4, 64)  OK
+  params: 41,792
+
+=== Full TwoStreamClassifier (end to end) ===
+  pose (4, 29, 18) + motion (4, 30, 1, 64, 64) -> logits (4, 5)  OK
+  total params: 205,029
+
+  backward() OK -- gradients reached both branches, fusion, and head
+
+ALL SHAPE + GRADIENT CHECKS PASSED

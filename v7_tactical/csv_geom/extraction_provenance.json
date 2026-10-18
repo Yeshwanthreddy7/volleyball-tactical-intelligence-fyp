@@ -1,0 +1,8 @@
+{
+  "imgsz": 1280,
+  "ball_model": "volleyball_best.pt",
+  "team_split": "geometric",
+  "court_coords": "linear",
+  "tracker": "botsort (motion+appearance, GMC sparseOptFlow, ReID off, ultralytics)",
+  "feature_version": "perm_invariant_v2"
+}

@@ -1,0 +1,139 @@
+{
+  "image": "videoplayback.png",
+  "width": 1920,
+  "height": 1080,
+  "court_size_m": [
+    9,
+    18
+  ],
+  "corners_px": {
+    "far_left": [
+      440.39,
+      598.37
+    ],
+    "far_right": [
+      1530.23,
+      599.91
+    ],
+    "near_right": [
+      1849.67,
+      1042.1
+    ],
+    "near_left": [
+      63.06,
+      1041.92
+    ]
+  },
+  "corners_visible": {
+    "far_left": true,
+    "far_right": true,
+    "near_right": true,
+    "near_left": true
+  },
+  "corner_court_m": {
+    "far_left": [
+      0.0,
+      0.0
+    ],
+    "far_right": [
+      9.0,
+      0.0
+    ],
+    "near_right": [
+      9.0,
+      18.0
+    ],
+    "near_left": [
+      0.0,
+      18.0
+    ]
+  },
+  "homography_court_m_to_px": [
+    [
+      121.64385538,
+      -22.33103272,
+      440.3863213
+    ],
+    [
+      0.38662432,
+      2.03384868,
+      598.36588687
+    ],
+    [
+      0.00035915,
+      -0.02169835,
+      1.0
+    ]
+  ],
+  "lines_used": [
+    {
+      "court_y_m": 0.0,
+      "name": "far end line",
+      "left_px": [
+        439.1,
+        599.7
+      ],
+      "right_px": [
+        1530.9,
+        600.6
+      ],
+      "paint_evidence": 0.988
+    },
+    {
+      "court_y_m": 6.0,
+      "name": "far attack line",
+      "left_px": [
+        354.3,
+        699.5
+      ],
+      "right_px": [
+        1605.1,
+        703.4
+      ],
+      "paint_evidence": 0.521
+    },
+    {
+      "court_y_m": 9.0,
+      "name": "centre line",
+      "left_px": [
+        297.4,
+        766.4
+      ],
+      "right_px": [
+        1650.5,
+        766.3
+      ],
+      "paint_evidence": 1.0
+    },
+    {
+      "court_y_m": 12.0,
+      "name": "near attack line",
+      "left_px": [
+        232.2,
+        843.1
+      ],
+      "right_px": [
+        1706.0,
+        843.2
+      ],
+      "paint_evidence": 1.0
+    },
+    {
+      "court_y_m": 18.0,
+      "name": "near end line",
+      "left_px": [
+        63.3,
+        1041.9
+      ],
+      "right_px": [
+        1849.8,
+        1042.5
+      ],
+      "paint_evidence": 1.0
+    }
+  ],
+  "lines_not_seen": [],
+  "fit_rmse_px": 1.385,
+  "sideline_mean_dev_px": 0.074,
+  "sideline_max_dev_px": 0.16
+}
