@@ -35,6 +35,9 @@ def main() -> None:
     ap.add_argument("--ball-model", default=str(HERE.parent / "fyp" / "volleyball_best.pt"))
     ap.add_argument("--imgsz", type=int, default=1280)
     ap.add_argument("--out", default=str(HERE / "cache_vp1.pkl"))
+    ap.add_argument("--checkpoint-every", type=int, default=1000,
+                     help="save partial progress to --out every N frames; rerunning "
+                          "the same command resumes from the last checkpoint")
     args = ap.parse_args()
 
     LOGGER.setLevel(logging.ERROR)
@@ -46,14 +49,40 @@ def main() -> None:
     fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
     start = int(round(args.start * fps))
     n = int(round(args.seconds * fps))
-    cap.set(cv2.CAP_PROP_POS_FRAMES, start)
 
     frames = []
+    out_path = Path(args.out)
+    if out_path.exists():
+        with open(out_path, "rb") as f:
+            prior = pickle.load(f)
+        if prior.get("video") == args.video and prior.get("start") == start:
+            frames = prior["frames"]
+            print(f"resuming from checkpoint: {len(frames)} frames already done", flush=True)
+    cap.set(cv2.CAP_PROP_POS_FRAMES, start + len(frames))
+
+    def checkpoint():
+        with open(out_path, "wb") as f:
+            pickle.dump({"video": args.video, "fps": fps, "start": start, "frames": frames}, f)
+
     t0 = time.time()
-    for i in range(n):
+    start_i = len(frames)
+    for i in range(start_i, n):
         ok, frame = cap.read()
         if not ok:
-            break
+            # a single corrupt packet mid-stream shouldn't end the whole run:
+            # re-seek a few frames forward and retry before giving up for real
+            recovered = False
+            for skip in range(1, 31):
+                cap.set(cv2.CAP_PROP_POS_FRAMES, start + i + skip)
+                ok, frame = cap.read()
+                if ok:
+                    print(f"frame {start + i} unreadable, resumed at {start + i + skip}", flush=True)
+                    frames.extend([{"people": [], "balls": []}] * skip)  # keep timing aligned
+                    recovered = True
+                    break
+            if not recovered:
+                print(f"frame {start + i}: could not recover after 30 skips, stopping", flush=True)
+                break
         r = pose.track(frame, persist=True, tracker="botsort.yaml", imgsz=args.imgsz,
                        conf=0.25, classes=[0], verbose=False)[0]
         people = []
@@ -76,13 +105,17 @@ def main() -> None:
                 balls.append((float((bx[0] + bx[2]) / 2), float((bx[1] + bx[3]) / 2),
                               float(bx[2] - bx[0]), float(c)))
         frames.append({"people": people, "balls": balls})
-        if i % 300 == 0:
+        done_this_run = i - start_i + 1
+        if done_this_run % 300 == 0:
             el = time.time() - t0
-            print(f"frame {i}/{n}  {el:.0f}s elapsed  ~{el / max(i, 1) * (n - i) / 60:.1f} min left", flush=True)
+            rate = el / done_this_run
+            print(f"frame {len(frames)}/{n}  {el:.0f}s elapsed this run  "
+                  f"~{rate * (n - len(frames)) / 60:.1f} min left", flush=True)
+        if (i + 1) % args.checkpoint_every == 0:
+            checkpoint()
 
-    with open(args.out, "wb") as f:
-        pickle.dump({"video": args.video, "fps": fps, "start": start, "frames": frames}, f)
-    print(f"saved {len(frames)} frames -> {args.out}  ({(time.time() - t0) / 60:.1f} min)")
+    checkpoint()
+    print(f"saved {len(frames)} frames -> {args.out}  ({(time.time() - t0) / 60:.1f} min this run)")
 
 
 if __name__ == "__main__":
