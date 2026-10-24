@@ -1,0 +1,291 @@
+==========================================================================
+LEARNED TACTICAL CLASSIFIER
+==========================================================================
+
+Loaded 945 clips, 132 features (mode=invariant)
+
+Class distribution:
+  Coordinated Attack    :  369  (39.0%)
+  Coordinated Defense   :  354  (37.5%)
+  Delayed Support       :  108  (11.4%)
+  Spacing Breakdown     :  114  (12.1%)
+
+Source videos (leave-one-video-out folds):
+  (1)       :  126 clips
+  (2)       :   60 clips
+  (3)       :   93 clips
+  (4)       :  130 clips
+  (5)       :  106 clips
+  (6)       :  143 clips
+  (plain)   :  130 clips
+  ?         :  157 clips
+
+--------------------------------------------------------------------------
+BASELINE LADDER - every model below must clear these
+--------------------------------------------------------------------------
+  baseline                                accuracy  macro-F1    kappa
+  majority class (no information)            0.390     0.140    0.000
+  hand-coded rule engine                     0.102     0.090    0.006
+    (rules abstained on 361/945 clips = 38%, scored as misses)
+
+  The rule-engine row is the one that matters: the labels are
+  HUMAN annotations (labels.csv -> clip folder -> target_label,
+  verified 159/159 exact), so the rule engine is an independent
+  competing predictor seeing the SAME window as the model, not
+  the source of the labels. Beating it is the evidence that the
+  learned model adds something over the hand-coded heuristic.
+
+==========================================================================
+CROSS-VALIDATION  (k-fold = optimistic, LOVO = honest)
+==========================================================================
+  done: logistic_regression      kfold_F1=0.541  lovo_F1=0.490
+  done: linear_svm               kfold_F1=0.516  lovo_F1=0.470
+  done: rbf_svm                  kfold_F1=0.580  lovo_F1=0.496
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\externals\loky\backend\context.py", line 257, in _count_physical_cores
+    cpu_info = subprocess.run(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  done: knn                      kfold_F1=0.485  lovo_F1=0.436
+  done: mlp                      kfold_F1=0.569  lovo_F1=0.471
+  done: random_forest            kfold_F1=0.486  lovo_F1=0.425
+  done: extra_trees              kfold_F1=0.497  lovo_F1=0.444
+  done: gradient_boosting        kfold_F1=0.552  lovo_F1=0.481
+  done: hist_gradient_boosting   kfold_F1=0.580  lovo_F1=0.510
+  done: xgboost                  kfold_F1=0.593  lovo_F1=0.512
+  done: lightgbm                 kfold_F1=0.595  lovo_F1=0.519
+  done: catboost                 kfold_F1=0.581  lovo_F1=0.539
+
+model                     kf_acc   kf_F1  lovo_acc  lovo_F1  lovo_bal   kappa
+-----------------------------------------------------------------------------
+catboost                   0.705   0.581     0.662    0.539     0.537   0.501
+lightgbm                   0.731   0.595     0.668    0.519     0.514   0.497
+xgboost                    0.721   0.593     0.662    0.512     0.511   0.494
+hist_gradient_boosting     0.725   0.580     0.668    0.510     0.508   0.496
+rbf_svm                    0.714   0.580     0.642    0.496     0.495   0.461
+logistic_regression        0.629   0.541     0.585    0.490     0.497   0.413
+gradient_boosting          0.703   0.552     0.646    0.481     0.482   0.461
+mlp                        0.695   0.569     0.617    0.471     0.472   0.431
+linear_svm                 0.631   0.516     0.592    0.470     0.471   0.405
+extra_trees                0.677   0.497     0.641    0.444     0.454   0.436
+knn                        0.636   0.485     0.600    0.436     0.440   0.384
+random_forest              0.680   0.486     0.635    0.425     0.443   0.424
+
+Probability-ranking quality (AUC-ROC / AUC-PR, one-vs-rest macro) and within-fold overfitting (LOVO protocol):
+model                     roc_auc   pr_auc  train_F1  test_F1     gap   flag
+----------------------------------------------------------------------------
+catboost                    0.832    0.575     0.990    0.539   0.453OVERFIT
+lightgbm                    0.834    0.568     1.000    0.519   0.480OVERFIT
+xgboost                     0.833    0.568     1.000    0.512   0.487OVERFIT
+hist_gradient_boosting      0.832    0.564     1.000    0.510   0.489OVERFIT
+rbf_svm                     0.803    0.533     1.000    0.496   0.505OVERFIT
+logistic_regression         0.770    0.503     0.794    0.490   0.296OVERFIT
+gradient_boosting           0.820    0.552     1.000    0.481   0.512OVERFIT
+mlp                         0.793    0.524     1.000    0.471   0.529OVERFIT
+linear_svm                  0.760    0.491     0.917    0.470   0.442OVERFIT
+extra_trees                 0.805    0.554     1.000    0.444   0.569OVERFIT
+knn                         0.726    0.474     1.000    0.436   0.566OVERFIT
+random_forest               0.816    0.553     1.000    0.425   0.594OVERFIT
+  AUC-PR > class prevalence means the probabilities carry usable
+  signal even for a class whose hard-label recall is near zero.
+  overfit_gap > 0.05 (flagged OVERFIT) means the model fits its own
+  training rows much better than held-out ones, independent of the
+  LOVO-vs-k-fold protocol gap reported above.
+
+Declared model (S1 - headline number, pre-registered not picked): hist_gradient_boosting
+  (the zoo's best on lovo_macro_f1 was catboost at 0.539 vs the declared model's 0.510 - reported for transparency; the declared model's number is the one quoted)
+
+Confusion matrix (leave-one-video-out, hist_gradient_boosting):
+                  Coordinat  Coordinat  Delayed S  Spacing B   <- predicted
+Coordinated At          304         32         24          9   recall 304/369 = 0.82
+Coordinated De           45        281         19          9   recall 281/354 = 0.79
+Delayed Suppor           28         41         20         19   recall 20/108 = 0.19
+Spacing Breakd           29         36         23         26   recall 26/114 = 0.23
+
+Per-class report (leave-one-video-out):
+                     precision    recall  f1-score   support
+
+ Coordinated Attack      0.749     0.824     0.785       369
+Coordinated Defense      0.721     0.794     0.755       354
+    Delayed Support      0.233     0.185     0.206       108
+  Spacing Breakdown      0.413     0.228     0.294       114
+
+           accuracy                          0.668       945
+          macro avg      0.529     0.508     0.510       945
+       weighted avg      0.639     0.668     0.648       945
+
+
+Macro-F1 aggregation (leave-one-video-out, hist_gradient_boosting):
+  pooled out-of-fold : 0.510   (headline - robust when a fold has few rare-class examples)
+  mean +/- SD of folds: 0.511 +/- 0.088
+  per fold           : 0.419  0.562  0.566  0.528  0.641  0.487  0.546  0.339
+  balanced-acc/fold  : 0.427  0.554  0.549  0.547  0.645  0.545  0.545  0.370
+
+--------------------------------------------------------------------------
+DECISION RULE - argmax vs prior-corrected  [prior: per-fold training prior (no leak)]
+--------------------------------------------------------------------------
+  rule                   acc  macroF1   balAcc   kappa   Attack  Defense  Support  Breakdo
+  ----------------------------------------------------------------------------------------
+  argmax               0.668    0.510    0.508   0.496     0.82     0.79     0.19     0.23
+  prior_corrected      0.662    0.520    0.517   0.496     0.81     0.77     0.20     0.28
+  (last 4 columns = per-class RECALL, in CLASS_NAMES order)
+
+  prior correction changes macro-F1 by +0.010 and is parameter-free,
+  so unlike a tuned threshold it cannot overfit a 16-example class.
+Fitting the winner on all data for importance + deployment...
+
+Probability calibration:
+  {'calibrated': True, 'method': 'sigmoid', 'cv_folds': 5}
+                          uncalibrated   calibrated
+  mean_confidence                1.000        0.781
+  frac_confidence_above_0.99         1.000        0.000
+  mean_entropy_bits              0.000        1.044
+  -> Calibration restored a usable confidence range, so the
+     entropy channel and the anomaly flag work again.
+
+Channel importance (macro-F1 lost when the whole channel is shuffled):
+  protocol: leave-one-video-out, permuted on the held-out video
+  held-out baseline macro-F1: 0.511
+  centroid_y             +0.0892 +/- 0.0551  ##########
+  ball_y                 +0.0457 +/- 0.0568  #####
+  speed_bot4             +0.0423 +/- 0.0539  #####
+  hull_area              +0.0300 +/- 0.0366  ###
+  spread_x               +0.0155 +/- 0.0346  #
+  n_present              +0.0151 +/- 0.0274  #
+  spread_aspect          +0.0122 +/- 0.0278  #
+  centroid_x             +0.0108 +/- 0.0262  #
+  spread_y               +0.0105 +/- 0.0308  #
+  ball_x                 +0.0105 +/- 0.0274  #
+  sync_inst              +0.0094 +/- 0.0334  #
+  max_pair_dist          +0.0069 +/- 0.0230  
+  nn_dist_mean           +0.0067 +/- 0.0281  
+  ball_offset            +0.0029 +/- 0.0364  
+  speed_diff             +0.0023 +/- 0.0267  
+
+--------------------------------------------------------------------------
+LABEL PROVENANCE
+--------------------------------------------------------------------------
+These scores are measured against HUMAN tactical annotations
+(labels.csv -> clip folder -> target_label; verified 159/159).
+They are NOT agreement-with-a-rule-engine: label_clips.py is a
+separate path that never wrote these labels, which is why it
+appears above as an independent competing baseline.
+
+Remaining honest caveat: single annotator. A second independent
+annotator would let inter-annotator agreement be quoted as the
+true ceiling for every number here:
+    python fyp/annotate.py dataset/dataset --out gold2.csv
+    python fyp/ml_classifier.py <csv_dir> --gold gold2.csv
+
+Summary written to ml_results_v5\ml_results.json
+Model saved to tactical_ml_v5.joblib
+  Serve it live with:
+    python fyp/pipeline.py video.mp4 tactical_ml_v5.joblib …
+
+Exporting every zoo model to 'ml_models_v5/' (fit-on-all + calibrated, one .joblib each):
+  logistic_regression      -> ml_models_v5\logistic_regression.joblib  (LOVO acc 0.585)
+  linear_svm               -> ml_models_v5\linear_svm.joblib  (LOVO acc 0.592)
+  rbf_svm                  -> ml_models_v5\rbf_svm.joblib  (LOVO acc 0.642)
+  knn                      -> ml_models_v5\knn.joblib  (LOVO acc 0.600)
+  mlp                      -> ml_models_v5\mlp.joblib  (LOVO acc 0.617)
+  random_forest            -> ml_models_v5\random_forest.joblib  (LOVO acc 0.635)
+  extra_trees              -> ml_models_v5\extra_trees.joblib  (LOVO acc 0.641)
+  gradient_boosting        -> ml_models_v5\gradient_boosting.joblib  (LOVO acc 0.646)
+  hist_gradient_boosting   -> ml_models_v5\hist_gradient_boosting.joblib  (LOVO acc 0.668)
+Traceback (most recent call last):
+  File "C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\ml_classifier.py", line 1763, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\ml_classifier.py", line 1750, in main
+    joblib.dump(_bundle(pipe, name), path)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 553, in dump
+    NumpyPickler(f, protocol=protocol).dump(value)
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 484, in dump
+    self.save(obj)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 557, in save
+    f(self, obj)  # Call unbound method with explicit self
+    ^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 989, in save_dict
+    self._batch_setitems(obj.items())
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 1013, in _batch_setitems
+    save(v)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 600, in save
+    self.save_reduce(obj=obj, *rv)
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 714, in save_reduce
+    save(state)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 557, in save
+    f(self, obj)  # Call unbound method with explicit self
+    ^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 989, in save_dict
+    self._batch_setitems(obj.items())
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 1013, in _batch_setitems
+    save(v)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 600, in save
+    self.save_reduce(obj=obj, *rv)
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 714, in save_reduce
+    save(state)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 557, in save
+    f(self, obj)  # Call unbound method with explicit self
+    ^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 989, in save_dict
+    self._batch_setitems(obj.items())
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 1013, in _batch_setitems
+    save(v)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 557, in save
+    f(self, obj)  # Call unbound method with explicit self
+    ^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 949, in save_list
+    self._batch_appends(obj)
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 973, in _batch_appends
+    save(x)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 557, in save
+    f(self, obj)  # Call unbound method with explicit self
+    ^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 904, in save_tuple
+    save(element)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 600, in save
+    self.save_reduce(obj=obj, *rv)
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 684, in save_reduce
+    save(cls)
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\numpy_pickle.py", line 355, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 557, in save
+    f(self, obj)  # Call unbound method with explicit self
+    ^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 1171, in save_type
+    return self.save_global(obj)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\pickle.py", line 1086, in save_global
+    raise PicklingError(
+_pickle.PicklingError: Can't pickle <class '__main__.build_models.<locals>._BalancedXGB'>: it's not found as __main__.build_models.<locals>._BalancedXGB

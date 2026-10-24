@@ -1,0 +1,23 @@
+[videoplayback.mp4] 15000 frames @ 50.00 fps
+  all events [('SET', 202), ('PASS', 108), ('SPIKE', 56), ('DIG', 47), ('FREE BALL', 39), ('BLOCK', 2), ('SERVE', 1)]
+  opponent events kept [('SPIKE', 23), ('SERVE', 1)]
+  camera / replay mask ...
+  team tactics (HGB) ...
+  per-frame tactic share {'Coordinated Attack': '32.1%', 'Coordinated Defense': '31.3%', 'Spacing Breakdown': '31.0%', 'Delayed Support': '5.5%', 'no call': '0.1%'}
+  render 0/15000
+  render 1000/15000
+  render 2000/15000
+  render 3000/15000
+  render 4000/15000
+  render 5000/15000
+  render 6000/15000
+  render 7000/15000
+  render 8000/15000
+  render 9000/15000
+  render 10000/15000
+  render 11000/15000
+  render 12000/15000
+  render 13000/15000
+  render 14000/15000
+video -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\NEW_OUTPUTS\videos\plain_team_tactics.mp4  (15000 frames = 300.0 s)
+{'video': 'videoplayback.mp4', 'frames': 15000, 'fps': 50.0, 'opp': Counter({'SPIKE': 23, 'SERVE': 1}), 'tactics': {'Delayed Support': 0.055, 'Spacing Breakdown': 0.3104, 'Coordinated Attack': 0.3213, 'Coordinated Defense': 0.3127, 'no call': 0.0006}}

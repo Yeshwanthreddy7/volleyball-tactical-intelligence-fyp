@@ -1,0 +1,34 @@
+loading cache ...
+40392 frames @ 29.97 fps
+4039 non-overlapping windows of T=10 frames
+window 0/4039  0s elapsed
+window 200/4039  4s elapsed
+window 400/4039  8s elapsed
+  wrote paper_features_shard0000.npz (500 windows)
+window 600/4039  15s elapsed
+window 800/4039  19s elapsed
+  wrote paper_features_shard0001.npz (500 windows)
+window 1000/4039  26s elapsed
+window 1200/4039  30s elapsed
+window 1400/4039  34s elapsed
+  wrote paper_features_shard0002.npz (500 windows)
+window 1600/4039  41s elapsed
+window 1800/4039  46s elapsed
+  wrote paper_features_shard0003.npz (500 windows)
+window 2000/4039  57s elapsed
+window 2200/4039  61s elapsed
+window 2400/4039  64s elapsed
+  wrote paper_features_shard0004.npz (500 windows)
+window 2600/4039  72s elapsed
+window 2800/4039  76s elapsed
+  wrote paper_features_shard0005.npz (500 windows)
+window 3000/4039  83s elapsed
+window 3200/4039  87s elapsed
+window 3400/4039  91s elapsed
+  wrote paper_features_shard0006.npz (500 windows)
+window 3600/4039  99s elapsed
+window 3800/4039  103s elapsed
+  wrote paper_features_shard0007.npz (500 windows)
+window 4000/4039  114s elapsed
+  wrote paper_features_shard0008.npz (39 windows)
+done: {'video_name': 'videoplayback (2).mp4', 'fps': 29.97002997002997, 'n_frames': 40392, 'window_T': 10, 'n_windows': 4039, 'D': 256, 'NP_MAX': 12, 'NO': 1, 'NM': 2, 'NV': 15, 'M_CLASSES': 8, 'n_shards': 9, 'note': 'Attention/Transformer weights are fixed-seed random init, NOT trained. See docstring at top of paper_features.py.'}

@@ -1,0 +1,45 @@
+[S3 WARNING] no --test-video: this is a RANDOM split, which is optimistic and not comparable to the sklearn LOVO headline. Pass --test-video '(1)' etc. for an honest cross-video number.
+[S3] Mamba metrics from this run are a COMPARISON ARM only - see the confound checklist in train() before quoting them next to the sklearn number.
+Device: cuda
+Loaded 948 samples from 'training_csv_v5_full' (0 skipped).
+Train: 807 | Val: 141 | Test: 0
+Split distribution:
+  Spacing Breakdown      train=  98  val=  17  test=   0
+  Delayed Support        train=  92  val=  16  test=   0
+  Coordinated Attack     train= 315  val=  55  test=   0
+  Coordinated Defense    train= 302  val=  53  test=   0
+  Unclassified           train=   0  val=   0  test=   0
+Temporal architecture: bilstm
+Parameters: 177,798
+Epoch   1/50  train_loss=1.4771  train_acc=0.162  val_loss=1.3985  val_acc=0.333  val_f1=0.231
+Epoch   2/50  train_loss=1.3338  train_acc=0.390  val_loss=1.3004  val_acc=0.355  val_f1=0.243
+Epoch   3/50  train_loss=1.2572  train_acc=0.475  val_loss=1.2824  val_acc=0.433  val_f1=0.288
+Epoch   4/50  train_loss=1.2306  train_acc=0.554  val_loss=1.2618  val_acc=0.468  val_f1=0.325
+Epoch   5/50  train_loss=1.1899  train_acc=0.518  val_loss=1.3235  val_acc=0.376  val_f1=0.243
+Epoch   6/50  train_loss=1.1802  train_acc=0.535  val_loss=1.2046  val_acc=0.532  val_f1=0.371
+Epoch   7/50  train_loss=1.1600  train_acc=0.589  val_loss=1.2553  val_acc=0.461  val_f1=0.322
+Epoch   8/50  train_loss=1.1011  train_acc=0.626  val_loss=1.2228  val_acc=0.567  val_f1=0.379
+Epoch   9/50  train_loss=1.1097  train_acc=0.649  val_loss=1.2419  val_acc=0.539  val_f1=0.374
+Epoch  10/50  train_loss=1.0365  train_acc=0.675  val_loss=1.2122  val_acc=0.532  val_f1=0.375
+Epoch  11/50  train_loss=1.0249  train_acc=0.682  val_loss=1.1638  val_acc=0.560  val_f1=0.397
+Epoch  12/50  train_loss=0.9978  train_acc=0.698  val_loss=1.1978  val_acc=0.589  val_f1=0.397
+Epoch  13/50  train_loss=0.9645  train_acc=0.726  val_loss=1.1874  val_acc=0.560  val_f1=0.395
+Epoch  14/50  train_loss=0.9364  train_acc=0.750  val_loss=1.2201  val_acc=0.525  val_f1=0.371
+Epoch  15/50  train_loss=0.9009  train_acc=0.762  val_loss=1.1874  val_acc=0.539  val_f1=0.389
+Epoch  16/50  train_loss=0.8784  train_acc=0.777  val_loss=1.2015  val_acc=0.596  val_f1=0.412
+Epoch  17/50  train_loss=0.8433  train_acc=0.799  val_loss=1.2161  val_acc=0.624  val_f1=0.442
+Epoch  18/50  train_loss=0.8272  train_acc=0.807  val_loss=1.2199  val_acc=0.574  val_f1=0.388
+Epoch  19/50  train_loss=0.8030  train_acc=0.810  val_loss=1.2277  val_acc=0.610  val_f1=0.430
+Epoch  20/50  train_loss=0.8070  train_acc=0.812  val_loss=1.2841  val_acc=0.518  val_f1=0.358
+Epoch  21/50  train_loss=0.7695  train_acc=0.817  val_loss=1.2605  val_acc=0.560  val_f1=0.381
+Epoch  22/50  train_loss=0.7185  train_acc=0.848  val_loss=1.2693  val_acc=0.574  val_f1=0.396
+Epoch  23/50  train_loss=0.7088  train_acc=0.855  val_loss=1.3204  val_acc=0.546  val_f1=0.378
+Epoch  24/50  train_loss=0.7243  train_acc=0.845  val_loss=1.2937  val_acc=0.518  val_f1=0.348
+Epoch  25/50  train_loss=0.6608  train_acc=0.876  val_loss=1.4085  val_acc=0.546  val_f1=0.381
+Epoch  26/50  train_loss=0.6378  train_acc=0.881  val_loss=1.3920  val_acc=0.532  val_f1=0.368
+Epoch  27/50  train_loss=0.6402  train_acc=0.881  val_loss=1.4046  val_acc=0.532  val_f1=0.358
+
+Early stopping: no val_acc improvement for 10 consecutive epochs.
+Training history saved to 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\deep_results_v6\logs\hist_bilstm_final.csv'.
+
+Training complete. Best val_macro_f1=0.442 at epoch 17. Checkpoint saved to 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\mamba_v4_bilstm.pt'.

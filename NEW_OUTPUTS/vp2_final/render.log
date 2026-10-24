@@ -1,0 +1,18 @@
+[videoplayback (2).mp4] 8991 frames @ 29.97 fps
+  opponent actions [('SPIKE', 11), ('SERVE', 6)]
+  video scan (camera mask + jersey colours) ...
+  kit hue (Lab a,b): ours [134. 126.]  opponent [135. 104.]
+  rejected tracks {'outside the sidelines (official / bench / staff)': 89, 'short track': 286, 'line judge (static at corner)': 24}
+  21998 detections on our side rejected as opponent kit; mean 5.60 of our players per frame
+  tactic share {'no call': '61.9%', 'Coordinated Defense': '16.4%', 'Spacing Breakdown': '9.7%', 'Coordinated Attack': '8.2%', 'Delayed Support': '3.7%'}
+  hand labels in segment: 15, matched 10
+  render 0/8991
+  render 1000/8991
+  render 2000/8991
+  render 3000/8991
+  render 4000/8991
+  render 5000/8991
+  render 6000/8991
+  render 7000/8991
+  render 8000/8991
+video -> ..\vp2_final\vp2_team_tactics.mp4  (8991 frames = 300.0 s)

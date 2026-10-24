@@ -42,7 +42,10 @@ from features import FEATURE_VERSION
 from interfaces import DEFAULT_IMGSZ, create_detector
 from identity import SlotManager
 from tracking import create_tracker
-from teams import TeamClassifier, TeamVoter, torso_descriptor, NEAR as TEAM_NEAR
+from teams import (
+    TeamClassifier, TeamVoter, torso_descriptor,
+    NEAR as TEAM_NEAR, FAR as TEAM_FAR,
+)
 from pipeline import (
     FEATURE_COLS,
     HAS_SUPERVISION,

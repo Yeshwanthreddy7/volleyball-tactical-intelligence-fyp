@@ -1,0 +1,522 @@
+{
+  "csv_dir": "training_csv_v5_full",
+  "architectures": {
+    "inceptiontime": {
+      "pooled_lovo_macro_f1_4class": 0.5149,
+      "pooled_lovo_accuracy": 0.619,
+      "fold_mean_macro_f1_4class": 0.4906,
+      "fold_sd": 0.068,
+      "pooled_per_class_f1": {
+        "Spacing Breakdown": 0.339,
+        "Delayed Support": 0.271,
+        "Coordinated Attack": 0.727,
+        "Coordinated Defense": 0.722
+      },
+      "pooled_confusion": [
+        [
+          48,
+          13,
+          24,
+          29
+        ],
+        [
+          31,
+          27,
+          14,
+          36
+        ],
+        [
+          54,
+          25,
+          252,
+          38
+        ],
+        [
+          36,
+          26,
+          34,
+          258
+        ]
+      ],
+      "folds": [
+        {
+          "video": "(1)",
+          "n_test": 126,
+          "macro_f1_4": 0.478,
+          "per_class_f1": [
+            0.5,
+            0.0,
+            0.747,
+            0.667
+          ]
+        },
+        {
+          "video": "(2)",
+          "n_test": 60,
+          "macro_f1_4": 0.552,
+          "per_class_f1": [
+            0.429,
+            0.286,
+            0.8,
+            0.694
+          ]
+        },
+        {
+          "video": "(3)",
+          "n_test": 93,
+          "macro_f1_4": 0.472,
+          "per_class_f1": [
+            0.286,
+            0.133,
+            0.764,
+            0.705
+          ]
+        },
+        {
+          "video": "(4)",
+          "n_test": 130,
+          "macro_f1_4": 0.476,
+          "per_class_f1": [
+            0.32,
+            0.0,
+            0.806,
+            0.778
+          ]
+        },
+        {
+          "video": "(5)",
+          "n_test": 106,
+          "macro_f1_4": 0.605,
+          "per_class_f1": [
+            0.519,
+            0.261,
+            0.8,
+            0.841
+          ]
+        },
+        {
+          "video": "(6)",
+          "n_test": 143,
+          "macro_f1_4": 0.449,
+          "per_class_f1": [
+            0.0,
+            0.413,
+            0.617,
+            0.766
+          ]
+        },
+        {
+          "video": "(plain)",
+          "n_test": 130,
+          "macro_f1_4": 0.529,
+          "per_class_f1": [
+            0.133,
+            0.485,
+            0.784,
+            0.713
+          ]
+        },
+        {
+          "video": "usa",
+          "n_test": 157,
+          "macro_f1_4": 0.363,
+          "per_class_f1": [
+            0.28,
+            0.118,
+            0.6,
+            0.456
+          ]
+        }
+      ],
+      "final_checkpoint": "mamba_v4_inceptiontime.pt"
+    },
+    "tcn": {
+      "pooled_lovo_macro_f1_4class": 0.4408,
+      "pooled_lovo_accuracy": 0.5122,
+      "fold_mean_macro_f1_4class": 0.3935,
+      "fold_sd": 0.0903,
+      "pooled_per_class_f1": {
+        "Spacing Breakdown": 0.295,
+        "Delayed Support": 0.24,
+        "Coordinated Attack": 0.65,
+        "Coordinated Defense": 0.579
+      },
+      "pooled_confusion": [
+        [
+          47,
+          19,
+          17,
+          31
+        ],
+        [
+          24,
+          29,
+          13,
+          42
+        ],
+        [
+          85,
+          19,
+          213,
+          52
+        ],
+        [
+          49,
+          67,
+          43,
+          195
+        ]
+      ],
+      "folds": [
+        {
+          "video": "(1)",
+          "n_test": 126,
+          "macro_f1_4": 0.422,
+          "per_class_f1": [
+            0.6,
+            0.0,
+            0.744,
+            0.345
+          ]
+        },
+        {
+          "video": "(2)",
+          "n_test": 60,
+          "macro_f1_4": 0.309,
+          "per_class_f1": [
+            0.0,
+            0.0,
+            0.653,
+            0.582
+          ]
+        },
+        {
+          "video": "(3)",
+          "n_test": 93,
+          "macro_f1_4": 0.344,
+          "per_class_f1": [
+            0.182,
+            0.061,
+            0.594,
+            0.538
+          ]
+        },
+        {
+          "video": "(4)",
+          "n_test": 130,
+          "macro_f1_4": 0.449,
+          "per_class_f1": [
+            0.189,
+            0.222,
+            0.784,
+            0.602
+          ]
+        },
+        {
+          "video": "(5)",
+          "n_test": 106,
+          "macro_f1_4": 0.573,
+          "per_class_f1": [
+            0.387,
+            0.348,
+            0.759,
+            0.8
+          ]
+        },
+        {
+          "video": "(6)",
+          "n_test": 143,
+          "macro_f1_4": 0.43,
+          "per_class_f1": [
+            0.0,
+            0.388,
+            0.716,
+            0.617
+          ]
+        },
+        {
+          "video": "(plain)",
+          "n_test": 130,
+          "macro_f1_4": 0.355,
+          "per_class_f1": [
+            0.0,
+            0.205,
+            0.613,
+            0.603
+          ]
+        },
+        {
+          "video": "usa",
+          "n_test": 157,
+          "macro_f1_4": 0.265,
+          "per_class_f1": [
+            0.11,
+            0.211,
+            0.443,
+            0.296
+          ]
+        }
+      ],
+      "final_checkpoint": "mamba_v4_tcn.pt"
+    },
+    "bilstm": {
+      "pooled_lovo_macro_f1_4class": 0.398,
+      "pooled_lovo_accuracy": 0.4593,
+      "fold_mean_macro_f1_4class": 0.3574,
+      "fold_sd": 0.0867,
+      "pooled_per_class_f1": {
+        "Spacing Breakdown": 0.194,
+        "Delayed Support": 0.258,
+        "Coordinated Attack": 0.597,
+        "Coordinated Defense": 0.543
+      },
+      "pooled_confusion": [
+        [
+          30,
+          16,
+          42,
+          26
+        ],
+        [
+          33,
+          39,
+          12,
+          24
+        ],
+        [
+          91,
+          38,
+          199,
+          41
+        ],
+        [
+          42,
+          101,
+          45,
+          166
+        ]
+      ],
+      "folds": [
+        {
+          "video": "(1)",
+          "n_test": 126,
+          "macro_f1_4": 0.232,
+          "per_class_f1": [
+            0.163,
+            0.0,
+            0.557,
+            0.208
+          ]
+        },
+        {
+          "video": "(2)",
+          "n_test": 60,
+          "macro_f1_4": 0.258,
+          "per_class_f1": [
+            0.143,
+            0.111,
+            0.465,
+            0.311
+          ]
+        },
+        {
+          "video": "(3)",
+          "n_test": 93,
+          "macro_f1_4": 0.395,
+          "per_class_f1": [
+            0.091,
+            0.105,
+            0.643,
+            0.742
+          ]
+        },
+        {
+          "video": "(4)",
+          "n_test": 130,
+          "macro_f1_4": 0.452,
+          "per_class_f1": [
+            0.295,
+            0.083,
+            0.743,
+            0.686
+          ]
+        },
+        {
+          "video": "(5)",
+          "n_test": 106,
+          "macro_f1_4": 0.463,
+          "per_class_f1": [
+            0.187,
+            0.19,
+            0.696,
+            0.779
+          ]
+        },
+        {
+          "video": "(6)",
+          "n_test": 143,
+          "macro_f1_4": 0.286,
+          "per_class_f1": [
+            0.0,
+            0.372,
+            0.627,
+            0.145
+          ]
+        },
+        {
+          "video": "(plain)",
+          "n_test": 130,
+          "macro_f1_4": 0.442,
+          "per_class_f1": [
+            0.231,
+            0.293,
+            0.675,
+            0.569
+          ]
+        },
+        {
+          "video": "usa",
+          "n_test": 157,
+          "macro_f1_4": 0.331,
+          "per_class_f1": [
+            0.178,
+            0.229,
+            0.427,
+            0.492
+          ]
+        }
+      ],
+      "final_checkpoint": "mamba_v4_bilstm.pt"
+    },
+    "mamba": {
+      "pooled_lovo_macro_f1_4class": 0.3901,
+      "pooled_lovo_accuracy": 0.4614,
+      "fold_mean_macro_f1_4class": 0.3683,
+      "fold_sd": 0.0891,
+      "pooled_per_class_f1": {
+        "Spacing Breakdown": 0.196,
+        "Delayed Support": 0.218,
+        "Coordinated Attack": 0.629,
+        "Coordinated Defense": 0.518
+      },
+      "pooled_confusion": [
+        [
+          35,
+          14,
+          48,
+          17
+        ],
+        [
+          30,
+          26,
+          21,
+          31
+        ],
+        [
+          92,
+          29,
+          227,
+          21
+        ],
+        [
+          87,
+          62,
+          57,
+          148
+        ]
+      ],
+      "folds": [
+        {
+          "video": "(1)",
+          "n_test": 126,
+          "macro_f1_4": 0.173,
+          "per_class_f1": [
+            0.044,
+            0.0,
+            0.513,
+            0.136
+          ]
+        },
+        {
+          "video": "(2)",
+          "n_test": 60,
+          "macro_f1_4": 0.389,
+          "per_class_f1": [
+            0.0,
+            0.333,
+            0.708,
+            0.513
+          ]
+        },
+        {
+          "video": "(3)",
+          "n_test": 93,
+          "macro_f1_4": 0.351,
+          "per_class_f1": [
+            0.105,
+            0.154,
+            0.727,
+            0.419
+          ]
+        },
+        {
+          "video": "(4)",
+          "n_test": 130,
+          "macro_f1_4": 0.421,
+          "per_class_f1": [
+            0.31,
+            0.214,
+            0.707,
+            0.452
+          ]
+        },
+        {
+          "video": "(6)",
+          "n_test": 143,
+          "macro_f1_4": 0.393,
+          "per_class_f1": [
+            0.0,
+            0.2,
+            0.659,
+            0.711
+          ]
+        },
+        {
+          "video": "(plain)",
+          "n_test": 130,
+          "macro_f1_4": 0.379,
+          "per_class_f1": [
+            0.133,
+            0.158,
+            0.843,
+            0.38
+          ]
+        },
+        {
+          "video": "usa",
+          "n_test": 157,
+          "macro_f1_4": 0.331,
+          "per_class_f1": [
+            0.229,
+            0.353,
+            0.463,
+            0.28
+          ]
+        },
+        {
+          "video": "(5)",
+          "n_test": 106,
+          "macro_f1_4": 0.509,
+          "per_class_f1": [
+            0.326,
+            0.286,
+            0.667,
+            0.76
+          ]
+        }
+      ],
+      "final_checkpoint": "mamba_v4_mamba.pt",
+      "note": "fold (5) and the final checkpoint both hit CUDA OOM on first attempt (4GB GPU); both rerun standalone and folded in (see mamba_5_retry.log, mamba_final_retry.log)."
+    }
+  }
+}

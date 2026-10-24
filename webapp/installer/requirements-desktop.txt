@@ -1,0 +1,17 @@
+# Desktop app runtime, pinned to the versions the project was built and tested with.
+# torch / torchvision are installed separately by setup_env.ps1 (CUDA or CPU build).
+ultralytics==8.4.115
+scikit-learn==1.5.1
+joblib==1.4.2
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.2
+opencv-python==4.10.0.84
+pillow==10.4.0
+imageio-ffmpeg==0.6.0
+lap==0.5.13
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+pymongo==4.19.0
+python-multipart
+pywebview==6.2.1

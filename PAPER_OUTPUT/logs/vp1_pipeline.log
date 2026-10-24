@@ -1,0 +1,175 @@
+
+=== Tue Oct 20 23:06:48 2026 ===
+$ C:\Users\yashwanth\anaconda3\python.exe C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\OUTPUTS\bicausal_extract.py C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\Datasets\videoplayback (1).mp4 --start 60.0 --seconds 20.0 --out C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\cache\cache_vp1.pkl
+frame 300/600  39s elapsed this run  ~0.6 min left
+frame 600/600  69s elapsed this run  ~0.0 min left
+saved 600 frames -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\cache\cache_vp1.pkl  (1.1 min this run)
+
+=== Tue Oct 20 23:08:09 2026 ===
+$ C:\Users\yashwanth\anaconda3\python.exe C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\code\paper_features.py --cache C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\cache\cache_vp1.pkl --video-name videoplayback (1).mp4 --out C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\features\vp1
+loading cache ...
+600 frames @ 30.00 fps
+60 non-overlapping windows of T=10 frames
+window 0/60  0s elapsed
+C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\code\paper_features.py:290: RuntimeWarning: overflow encountered in cast
+  "O": O_raw.astype(np.float16), "P": P_raw.astype(np.float16),
+  wrote paper_features_shard0000.npz (60 windows)
+done: {'video_name': 'videoplayback (1).mp4', 'fps': 30.0, 'n_frames': 600, 'window_T': 10, 'n_windows': 60, 'D': 256, 'NP_MAX': 12, 'NO': 1, 'NM': 2, 'NV': 15, 'M_CLASSES': 8, 'n_shards': 1, 'note': 'Attention/Transformer weights are fixed-seed random init, NOT trained. See docstring at top of paper_features.py.'}
+
+=== Tue Oct 20 23:08:15 2026 ===
+$ C:\Users\yashwanth\anaconda3\python.exe C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\code\paper_output_render.py --cache C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\cache\cache_vp1.pkl --features C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\features\vp1 --out C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper.mp4
+loading paper-feature window summaries ...
+60 windows, T=10
+players ...
+ball ...
+  ball visible in 55% of frames, 4 tracklets
+  13 touches -> 12 labelled events: [('SET', 3), ('SERVE', 2), ('SPIKE', 2), ('PASS', 2), ('FREE BALL', 2), ('DIG', 1)]
+events -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper.events.csv
+  closed segment 0 (600 frames)
+concatenating 1 segments ...
+ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.100 / 61. 19.100
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000293b4fa7b40] Auto-inserting h264_mp4toannexb bitstream filter
+Input #0, concat, from 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper_segments\concat_list.txt':
+  Duration: N/A, start: 0.000000, bitrate: 4167 kb/s
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1760x720, 4167 kb/s, 30 fps, 30 tbr, 15360 tbn
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Output #0, mp4, to 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper.mp4':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1760x720, q=2-31, 4167 kb/s, 30 fps, 30 tbr, 15360 tbn
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+Press [q] to stop, [?] for help
+[mp4 @ 00000293b4faf440] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 00000293b4f9d5c0] video:10175KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.077982%
+frame=  600 fps=0.0 q=-1.0 Lsize=   10183KiB time=00:00:19.93 bitrate=4184.8kbits/s speed= 625x    
+video -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper.mp4
+
+=== Wed Oct 21 00:54:10 2026 ===
+$ C:\Users\yashwanth\anaconda3\python.exe C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\OUTPUTS\bicausal_extract.py C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\Datasets\videoplayback (1).mp4 --start 0.0 --seconds 300.0 --out C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\cache\cache_vp1.pkl
+frame 300/9000  36s elapsed this run  ~17.6 min left
+frame 600/9000  67s elapsed this run  ~15.6 min left
+frame 900/9000  97s elapsed this run  ~14.6 min left
+frame 1200/9000  128s elapsed this run  ~13.9 min left
+frame 1500/9000  160s elapsed this run  ~13.3 min left
+frame 1800/9000  191s elapsed this run  ~12.7 min left
+frame 2100/9000  222s elapsed this run  ~12.2 min left
+frame 2400/9000  252s elapsed this run  ~11.6 min left
+frame 2700/9000  283s elapsed this run  ~11.0 min left
+frame 3000/9000  314s elapsed this run  ~10.5 min left
+frame 3300/9000  345s elapsed this run  ~9.9 min left
+frame 3600/9000  376s elapsed this run  ~9.4 min left
+frame 3900/9000  407s elapsed this run  ~8.9 min left
+frame 4200/9000  437s elapsed this run  ~8.3 min left
+frame 4500/9000  467s elapsed this run  ~7.8 min left
+frame 4800/9000  498s elapsed this run  ~7.3 min left
+frame 5100/9000  529s elapsed this run  ~6.7 min left
+frame 5400/9000  559s elapsed this run  ~6.2 min left
+frame 5700/9000  589s elapsed this run  ~5.7 min left
+frame 6000/9000  619s elapsed this run  ~5.2 min left
+frame 6300/9000  650s elapsed this run  ~4.6 min left
+frame 6600/9000  680s elapsed this run  ~4.1 min left
+frame 6900/9000  709s elapsed this run  ~3.6 min left
+frame 7200/9000  739s elapsed this run  ~3.1 min left
+frame 7500/9000  769s elapsed this run  ~2.6 min left
+frame 7800/9000  799s elapsed this run  ~2.0 min left
+frame 8100/9000  831s elapsed this run  ~1.5 min left
+frame 8400/9000  861s elapsed this run  ~1.0 min left
+frame 8700/9000  891s elapsed this run  ~0.5 min left
+frame 9000/9000  920s elapsed this run  ~0.0 min left
+saved 9000 frames -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\cache\cache_vp1.pkl  (15.4 min this run)
+
+=== Wed Oct 21 01:09:43 2026 ===
+$ C:\Users\yashwanth\anaconda3\python.exe C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\code\paper_features.py --cache C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\cache\cache_vp1.pkl --video-name videoplayback (1).mp4 --out C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\features\vp1
+loading cache ...
+9000 frames @ 30.00 fps
+900 non-overlapping windows of T=10 frames
+window 0/900  2s elapsed
+window 200/900  6s elapsed
+C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\code\paper_features.py:290: RuntimeWarning: overflow encountered in cast
+  "O": O_raw.astype(np.float16), "P": P_raw.astype(np.float16),
+window 400/900  11s elapsed
+  wrote paper_features_shard0000.npz (500 windows)
+window 600/900  22s elapsed
+window 800/900  26s elapsed
+  wrote paper_features_shard0001.npz (400 windows)
+done: {'video_name': 'videoplayback (1).mp4', 'fps': 30.0, 'n_frames': 9000, 'window_T': 10, 'n_windows': 900, 'D': 256, 'NP_MAX': 12, 'NO': 1, 'NM': 2, 'NV': 15, 'M_CLASSES': 8, 'n_shards': 2, 'note': 'Attention/Transformer weights are fixed-seed random init, NOT trained. See docstring at top of paper_features.py.'}
+
+=== Wed Oct 21 01:10:42 2026 ===
+$ C:\Users\yashwanth\anaconda3\python.exe C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\code\paper_output_render.py --cache C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\cache\cache_vp1.pkl --features C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\features\vp1 --out C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper.mp4
+loading paper-feature window summaries ...
+900 windows, T=10
+players ...
+ball ...
+  ball visible in 46% of frames, 68 tracklets
+  179 touches -> 176 labelled events: [('PASS', 51), ('SET', 44), ('FREE BALL', 28), ('SPIKE', 27), ('DIG', 20), ('SERVE', 4), ('BLOCK', 2)]
+events -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper.events.csv
+render 600/9000
+render 1200/9000
+render 2400/9000
+render 3000/9000
+render 3600/9000
+  closed segment 0 (4000 frames)
+render 4200/9000
+render 4800/9000
+render 5400/9000
+render 6000/9000
+render 6600/9000
+render 7200/9000
+  closed segment 1 (4000 frames)
+render 8400/9000
+  closed segment 2 (1000 frames)
+concatenating 3 segments ...
+ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.100 / 61. 19.100
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000022721ce7e00] Auto-inserting h264_mp4toannexb bitstream filter
+Input #0, concat, from 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper_segments\concat_list.txt':
+  Duration: N/A, start: 0.000000, bitrate: 4186 kb/s
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1760x720, 4186 kb/s, 30 fps, 30 tbr, 15360 tbn
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Output #0, mp4, to 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper.mp4':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1760x720, q=2-31, 4186 kb/s, 30 fps, 30 tbr, 15360 tbn
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+Press [q] to stop, [?] for help
+frame= 3451 fps=0.0 q=-1.0 size=   58880KiB time=00:01:55.06 bitrate=4191.9kbits/s speed= 220x    [mov,mp4,m4a,3gp,3g2,mj2 @ 000002272243e8c0] Auto-inserting h264_mp4toannexb bitstream filter
+frame= 7480 fps=7209 q=-1.0 size=  129024KiB time=00:04:09.26 bitrate=4240.3kbits/s speed= 240x    [mov,mp4,m4a,3gp,3g2,mj2 @ 000002272243e8c0] Auto-inserting h264_mp4toannexb bitstream filter
+[mp4 @ 0000022721cd69c0] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0000022721cde340] video:156428KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.068741%
+frame= 9000 fps=5165 q=-1.0 Lsize=  156536KiB time=00:04:59.93 bitrate=4275.4kbits/s speed= 172x    
+video -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\PAPER_OUTPUT\video\vp1_bicausal_paper.mp4

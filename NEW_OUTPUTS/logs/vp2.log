@@ -1,0 +1,13 @@
+[videoplayback (2).mp4] 8991 frames @ 29.97 fps
+  all events [('SET', 26), ('PASS', 17), ('SPIKE', 15), ('DIG', 9), ('SERVE', 7), ('FREE BALL', 6), ('RECEPTION', 1)]
+  opponent events kept [('SPIKE', 11), ('SERVE', 6)]
+  camera / replay mask ...
+  team tactics (HGB) ...
+  per-frame tactic share {'no call': '47.1%', 'Coordinated Defense': '23.8%', 'Spacing Breakdown': '13.7%', 'Delayed Support': '9.3%', 'Coordinated Attack': '6.1%'}
+  render 0/8991
+  render 1000/8991
+  render 2000/8991
+  render 3000/8991
+  render 4000/8991
+  render 5000/8991
+  render 6000/8991

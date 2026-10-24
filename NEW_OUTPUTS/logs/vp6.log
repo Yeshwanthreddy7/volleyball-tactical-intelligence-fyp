@@ -1,0 +1,12 @@
+[videoplayback (6).mp4] 15000 frames @ 50.00 fps
+  all events [('SET', 72), ('SPIKE', 32), ('PASS', 28), ('DIG', 23), ('FREE BALL', 18), ('SERVE', 5), ('RECEPTION', 3), ('BLOCK', 1)]
+  opponent events kept [('SPIKE', 17), ('SERVE', 5)]
+  camera / replay mask ...
+  team tactics (HGB) ...
+  per-frame tactic share {'Coordinated Defense': '27.8%', 'Spacing Breakdown': '26.0%', 'Coordinated Attack': '18.2%', 'no call': '14.5%', 'Delayed Support': '13.5%'}
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (2400, 1080) to (2400, 1088) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+  render 0/15000
+[ WARN:0@455.644] global cap_ffmpeg.cpp:533 cv_capture_retrieve FFmpeg: Exception is raised: OpenCV(5.0.0-pre) /build/opencv/modules/core/src/alloc.cpp:73: error: (-4:Insufficient memory) Failed to allocate 6220800 bytes in function 'OutOfMemoryError'
+
+video -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\NEW_OUTPUTS\videos\vp6_team_tactics.mp4
+{'video': 'videoplayback (6).mp4', 'frames': 15000, 'fps': 50.0, 'opp': Counter({'SPIKE': 17, 'SERVE': 5}), 'tactics': {'no call': 0.1448, 'Coordinated Defense': 0.2784, 'Coordinated Attack': 0.1818, 'Spacing Breakdown': 0.2602, 'Delayed Support': 0.1348}}

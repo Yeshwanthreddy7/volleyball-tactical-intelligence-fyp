@@ -55,3 +55,11 @@ gold_SIMULATED.csv
 # Unidentified stray download artefact, not a project file.
 zi5nYeAc
 .git-old-keshav-backup/
+
+# Regenerable caches/features (~2.4 GB)
+/PAPER_OUTPUT/cache/
+/PAPER_OUTPUT/features/
+
+# Over GitHub 100MB limit
+/ml_models_v5/extra_trees.joblib
+/ml_models_v6/extra_trees.joblib

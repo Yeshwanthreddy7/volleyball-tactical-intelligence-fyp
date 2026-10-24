@@ -50,7 +50,13 @@ def video_key(fname: str) -> str:
 
     'Coordinated_Attack__videoplayback (1)_clip_002.csv' -> '(1)'
     'Delayed_Support__videoplayback_clip_306.csv'        -> '(plain)'
+    'Coordinated_Attack__vp7_clip51725.csv'              -> 'external'
+    (vpN_clip* = hand-picked clips from the public Volleyball Activity
+    Dataset, kept in their own group so they never silently merge into
+    the 'usa' / '?' fold.)
     """
+    if _re.search(r"vp\d+_clip", str(fname)):
+        return "external"
     m = _re.search(r"videoplayback(?:\s*(\(\d+\)))?_clip", str(fname))
     if not m:
         return "?"

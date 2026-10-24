@@ -1,0 +1,48 @@
+{
+ "n_clips": 948,
+ "overall_accuracy": 0.6181434599156118,
+ "per_class": {
+  "Coordinated Attack": {
+   "n": 370,
+   "accuracy": 0.6918918918918919
+  },
+  "Coordinated Defense": {
+   "n": 355,
+   "accuracy": 0.6901408450704225
+  },
+  "Delayed Support": {
+   "n": 108,
+   "accuracy": 0.37962962962962965
+  },
+  "Spacing Breakdown": {
+   "n": 115,
+   "accuracy": 0.3826086956521739
+  }
+ },
+ "confusion_rows_true_cols_pred": [
+  [
+   256,
+   13,
+   64,
+   37
+  ],
+  [
+   35,
+   245,
+   42,
+   33
+  ],
+  [
+   7,
+   16,
+   41,
+   44
+  ],
+  [
+   14,
+   15,
+   42,
+   44
+  ]
+ ]
+}

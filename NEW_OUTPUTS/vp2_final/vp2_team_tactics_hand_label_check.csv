@@ -1,0 +1,16 @@
+time,label,predicted,match
+00:06.0,Coordinated Attack,Coordinated Attack,True
+00:22.0,Coordinated Defense,Coordinated Defense,True
+00:51.0,Coordinated Attack,Coordinated Attack,True
+01:42.0,Coordinated Defense,Coordinated Defense,True
+01:44.0,Coordinated Attack,Coordinated Attack,True
+01:56.7,Coordinated Attack,Coordinated Attack,True
+02:51.3,Coordinated Attack,Coordinated Attack,True
+03:17.0,Spacing Breakdown,no call,False
+03:39.7,Coordinated Defense,Delayed Support,False
+03:57.8,Coordinated Defense,Spacing Breakdown,False
+04:01.0,Coordinated Defense,Coordinated Defense,True
+04:15.4,Coordinated Attack,Coordinated Defense,False
+04:28.0,Coordinated Defense,Delayed Support,False
+04:44.2,Coordinated Attack,Coordinated Attack,True
+04:59.0,Coordinated Defense,Coordinated Defense,True

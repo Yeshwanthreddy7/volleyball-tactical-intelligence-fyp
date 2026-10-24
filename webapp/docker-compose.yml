@@ -1,0 +1,45 @@
+# Production stack: web app (GPU) + MongoDB + Cloudflare Tunnel.
+#   cp webapp/.env.example webapp/.env   # then fill CLOUDFLARE_TUNNEL_TOKEN
+#   docker compose -f webapp/docker-compose.yml up -d --build
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: webapp/Dockerfile
+    restart: unless-stopped
+    environment:
+      MONGODB_URI: mongodb://mongo:27017
+      VTA_DOMAIN: ${VTA_DOMAIN:-volleyballtacticalanalyze.com}
+      VTA_RETENTION_DAYS: ${VTA_RETENTION_DAYS:-14}
+    volumes:
+      - vta-data:/data
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on: [mongo]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - vta-mongo:/data/db
+
+  # Publishes the site on your own domain through Cloudflare, no open ports needed.
+  tunnel:
+    image: cloudflare/cloudflared:2024.10.1
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on: [web]
+    profiles: [public]
+
+volumes:
+  vta-data:
+  vta-mongo:

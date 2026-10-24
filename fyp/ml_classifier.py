@@ -397,6 +397,31 @@ def load_dataset(csv_dir: str, label_map: dict | None = None,
 # 3. Model zoo
 # ---------------------------------------------------------------------------
 
+try:
+    from xgboost import XGBClassifier as _XGBClassifier
+except ImportError:                                        # noqa: BLE001
+    _XGBClassifier = None
+
+if _XGBClassifier is not None:
+    class _BalancedXGB(_XGBClassifier):
+        """Module-level (not nested inside build_models()) so joblib/pickle
+        can serialize it - a nested class fails with "not found as
+        __main__.build_models.<locals>._BalancedXGB", which only surfaces at
+        --export-all-models time, after the (expensive) cross-validation has
+        already run. XGBClassifier has no constructor-level
+        class_weight='balanced' for multiclass (that is a binary-only
+        scale_pos_weight concept), so this auto-computes balanced sample
+        weights at fit time - keeping it a self-contained estimator like
+        every other entry in the zoo, so cross_validate_models() needs no
+        special-casing."""
+
+        def fit(self, X, y, sample_weight=None, **kw):
+            from sklearn.utils.class_weight import compute_sample_weight
+            if sample_weight is None:
+                sample_weight = compute_sample_weight("balanced", y)
+            return super().fit(X, y, sample_weight=sample_weight, **kw)
+
+
 def build_models(seed: int = 0) -> dict:
     """
     Candidate classifiers, each wrapped in a Pipeline that owns its own
@@ -454,6 +479,9 @@ def build_models(seed: int = 0) -> dict:
             ("clf", clf),
         ])
 
+    from lightgbm import LGBMClassifier
+    from catboost import CatBoostClassifier
+
     return {
         "logistic_regression": scaled(LogisticRegression(
             max_iter=5000, class_weight="balanced", random_state=seed)),
@@ -469,14 +497,26 @@ def build_models(seed: int = 0) -> dict:
             random_state=seed)),
         "random_forest": bare(RandomForestClassifier(
             n_estimators=500, min_samples_leaf=2, class_weight="balanced",
-            n_jobs=-1, random_state=seed)),
+            n_jobs=1, random_state=seed)),
         "extra_trees": bare(ExtraTreesClassifier(
             n_estimators=500, min_samples_leaf=2, class_weight="balanced",
-            n_jobs=-1, random_state=seed)),
+            n_jobs=1, random_state=seed)),
         "gradient_boosting": bare(GradientBoostingClassifier(
             random_state=seed)),
         "hist_gradient_boosting": bare(HistGradientBoostingClassifier(
             max_iter=300, learning_rate=0.06, random_state=seed)),
+        "xgboost": bare(_BalancedXGB(
+            n_estimators=300, max_depth=4, learning_rate=0.06,
+            subsample=0.8, colsample_bytree=0.8,
+            random_state=seed, n_jobs=1)),
+        "lightgbm": bare(LGBMClassifier(
+            n_estimators=300, max_depth=-1, learning_rate=0.06,
+            class_weight="balanced", random_state=seed, n_jobs=1,
+            verbosity=-1)),
+        "catboost": bare(CatBoostClassifier(
+            iterations=300, depth=6, learning_rate=0.06,
+            auto_class_weights="Balanced", random_state=seed,
+            verbose=False, allow_writing_files=False, thread_count=1)),
     }
 
 
@@ -768,6 +808,10 @@ def cross_validate_models(X, y, groups, seed: int = 0, n_splits: int = 5):
                 row["_pred_lovo"] = pred_l
             row["_pred_kfold"] = pred_k
         results[name] = row
+        print(f"  done: {name:<24} "
+              f"kfold_F1={row.get('kfold_macro_f1', float('nan')):.3f}  "
+              f"lovo_F1={row.get('lovo_macro_f1', float('nan')):.3f}",
+              flush=True)
 
     return results
 

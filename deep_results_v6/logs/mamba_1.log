@@ -1,0 +1,46 @@
+[S3] Mamba metrics from this run are a COMPARISON ARM only - see the confound checklist in train() before quoting them next to the sklearn number.
+Device: cuda
+Loaded 948 samples from 'training_csv_v5_full' (0 skipped).
+UNSEEN-VIDEO TEST: holdout '(1)' -> 126 clips (4 classes); video keys in dataset: ['(1)', '(2)', '(3)', '(4)', '(5)', '(6)', '(plain)', '?', 'external']
+Train: 658 | Val: 164 | Test: 126
+Split distribution:
+  Spacing Breakdown      train=  61  val=  15  test=  39
+  Delayed Support        train=  81  val=  20  test=   7
+  Coordinated Attack     train= 264  val=  66  test=  40
+  Coordinated Defense    train= 252  val=  63  test=  40
+  Unclassified           train=   0  val=   0  test=   0
+Temporal architecture: mamba
+Parameters: 69,381
+Epoch   1/50  train_loss=1.5938  train_acc=0.309  val_loss=1.5908  val_acc=0.433  val_f1=0.286
+Epoch   2/50  train_loss=1.4645  train_acc=0.126  val_loss=1.4356  val_acc=0.323  val_f1=0.202
+Epoch   3/50  train_loss=1.3741  train_acc=0.325  val_loss=1.3251  val_acc=0.439  val_f1=0.213
+Epoch   4/50  train_loss=1.3134  train_acc=0.410  val_loss=1.3184  val_acc=0.463  val_f1=0.259
+Epoch   5/50  train_loss=1.3003  train_acc=0.445  val_loss=1.3138  val_acc=0.567  val_f1=0.305
+Epoch   6/50  train_loss=1.2930  train_acc=0.438  val_loss=1.3548  val_acc=0.457  val_f1=0.252
+Epoch   7/50  train_loss=1.2807  train_acc=0.474  val_loss=1.2860  val_acc=0.457  val_f1=0.257
+Epoch   8/50  train_loss=1.2465  train_acc=0.465  val_loss=1.2878  val_acc=0.463  val_f1=0.269
+Epoch   9/50  train_loss=1.2266  train_acc=0.479  val_loss=1.4240  val_acc=0.445  val_f1=0.242
+Epoch  10/50  train_loss=1.2387  train_acc=0.460  val_loss=1.3445  val_acc=0.470  val_f1=0.305
+Epoch  11/50  train_loss=1.2054  train_acc=0.535  val_loss=1.3582  val_acc=0.488  val_f1=0.286
+Epoch  12/50  train_loss=1.1736  train_acc=0.579  val_loss=1.4534  val_acc=0.415  val_f1=0.207
+Epoch  13/50  train_loss=1.1733  train_acc=0.568  val_loss=1.4103  val_acc=0.451  val_f1=0.268
+Epoch  14/50  train_loss=1.1261  train_acc=0.619  val_loss=1.4116  val_acc=0.451  val_f1=0.277
+Epoch  15/50  train_loss=1.1037  train_acc=0.631  val_loss=1.5648  val_acc=0.427  val_f1=0.244
+
+Early stopping: no val_acc improvement for 10 consecutive epochs.
+Training history saved to 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\deep_results_v6\logs\hist_mamba_1.csv'.
+
+Held-out test metrics (unseen data):
+  test_loss       : 1.4856
+  test_acc        : 0.349
+  test_macro_f1   : 0.139
+  test_balanced_acc: 0.220
+  confusion matrix (rows=true, cols=pred):
+tensor([[ 1,  0, 37,  1,  0],
+        [ 1,  0,  6,  0,  0],
+        [ 0,  0, 40,  0,  0],
+        [ 4,  0, 33,  3,  0],
+        [ 0,  0,  0,  0,  0]])
+LOVO_RESULT video=(1) n_test=126 acc=0.349 macro_f1=0.139 balanced_acc=0.220
+
+Training complete. Best val_macro_f1=0.305 at epoch 5. Checkpoint saved to 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\deep_results_v6\logs\ck_mamba_1.pt'. Test acc=0.349, macro_f1=0.139, balanced_acc=0.220.

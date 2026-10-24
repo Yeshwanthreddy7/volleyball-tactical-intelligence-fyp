@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import math
 import pickle
 from collections import Counter, defaultdict
@@ -59,6 +60,32 @@ COURTS = {
          [32.9, 700.3], [1254.0, 699.9]],
         [[0, 0], [9, 0], [0, 6], [9, 6], [0, 9], [9, 9], [0, 12], [9, 12], [0, 18], [9, 18]]),
 }
+
+
+def _autoload_courts():
+    """Fill in any video missing from COURTS above using the per-video homography
+    already fit in BASEFRAMES/corner_court_detection/labels/<video>.json (lines_used:
+    the same visible-line-pair method used to hand-derive the entries above)."""
+    labels_dir = HERE.parent / "BASEFRAMES" / "corner_court_detection" / "labels"
+    out = {}
+    for jf in sorted(labels_dir.glob("*.json")) if labels_dir.exists() else []:
+        try:
+            d = json.loads(jf.read_text())
+        except Exception:
+            continue
+        video_name = Path(d["image"]).stem + ".mp4"
+        lines = d.get("lines_used", [])
+        if video_name in COURTS or len(lines) < 2:
+            continue
+        img_pts, crt_pts = [], []
+        for ln in lines:
+            img_pts.append(ln["left_px"]); crt_pts.append([0, ln["court_y_m"]])
+            img_pts.append(ln["right_px"]); crt_pts.append([9, ln["court_y_m"]])
+        out[video_name] = (img_pts, crt_pts)
+    return out
+
+
+COURTS.update(_autoload_courts())
 H = H_INV = None
 
 
@@ -595,6 +622,12 @@ def render_frames(cache, out_stem, labels, max_frames=0, info=None):
     video_name = Path(video).name
     set_court(video_name)
 
+    cap = cv2.VideoCapture(video)
+    global MAIN_W, MAIN_H
+    src_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)) or MAIN_W
+    src_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) or MAIN_H
+    MAIN_W, MAIN_H = src_w, src_h
+
     print("players ...", flush=True)
     players = build_players(frames)
     print("ball ...", flush=True)
@@ -632,7 +665,6 @@ def render_frames(cache, out_stem, labels, max_frames=0, info=None):
     court_far = to_img(np.float32([[0, 0], [9, 0], [9, 9], [0, 9]])).astype(np.int32)
     court_near = to_img(np.float32([[0, 9], [9, 9], [9, 18], [0, 18]])).astype(np.int32)
 
-    cap = cv2.VideoCapture(video)
     cap.set(cv2.CAP_PROP_POS_FRAMES, start)
     if info is not None:
         info.update(fps=fps, start=start, n=n, events=events, video=video, players=players)

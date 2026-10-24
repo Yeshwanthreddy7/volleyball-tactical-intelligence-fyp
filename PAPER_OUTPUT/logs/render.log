@@ -1,0 +1,133 @@
+loading paper-feature window summaries ...
+4039 windows, T=10
+players ...
+ball ...
+  ball visible in 39% of frames, 303 tracklets
+  420 touches -> 398 labelled events: [('SET', 112), ('PASS', 76), ('SPIKE', 71), ('DIG', 47), ('FREE BALL', 41), ('SERVE', 38), ('RECEPTION', 13)]
+events -> PAPER_OUTPUT\video\videoplayback(2)_bicausal_paper.events.csv
+render 0/40392
+render 600/40392
+render 1200/40392
+render 1800/40392
+render 2400/40392
+render 3000/40392
+render 3600/40392
+  closed segment 0 (4000 frames)
+render 4200/40392
+render 4800/40392
+render 5400/40392
+render 6000/40392
+render 6600/40392
+render 7200/40392
+render 7800/40392
+  closed segment 1 (4000 frames)
+render 8400/40392
+render 9000/40392
+render 9600/40392
+render 10200/40392
+render 10800/40392
+render 11400/40392
+  closed segment 2 (4000 frames)
+render 12000/40392
+render 12600/40392
+render 13200/40392
+render 13800/40392
+render 14400/40392
+render 15000/40392
+render 15600/40392
+  closed segment 3 (4000 frames)
+render 16200/40392
+render 16800/40392
+render 17400/40392
+render 18000/40392
+render 18600/40392
+render 19200/40392
+render 19800/40392
+  closed segment 4 (4000 frames)
+render 20400/40392
+render 21000/40392
+render 21600/40392
+render 22200/40392
+render 22800/40392
+render 23400/40392
+  closed segment 5 (4000 frames)
+render 24000/40392
+render 24600/40392
+render 25200/40392
+render 25800/40392
+render 26400/40392
+render 27000/40392
+render 27600/40392
+  closed segment 6 (4000 frames)
+render 28200/40392
+render 28800/40392
+render 29400/40392
+render 30000/40392
+render 30600/40392
+render 31200/40392
+render 31800/40392
+  closed segment 7 (4000 frames)
+render 32400/40392
+render 33000/40392
+render 33600/40392
+render 34200/40392
+render 34800/40392
+render 35400/40392
+  closed segment 8 (4000 frames)
+render 36000/40392
+render 36600/40392
+render 37200/40392
+render 37800/40392
+render 38400/40392
+render 39000/40392
+render 39600/40392
+  closed segment 9 (3608 frames)
+concatenating 10 segments ...
+ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.100 / 61. 19.100
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000020fc10282c0] Auto-inserting h264_mp4toannexb bitstream filter
+Input #0, concat, from 'PAPER_OUTPUT\video\videoplayback(2)_bicausal_paper_segments\concat_list.txt':
+  Duration: N/A, start: 0.000000, bitrate: 6592 kb/s
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1760x720, 6592 kb/s, 29.97 fps, 29.97 tbr, 11988 tbn
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+Output #0, mp4, to 'PAPER_OUTPUT\video\videoplayback(2)_bicausal_paper.mp4':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1760x720, q=2-31, 6592 kb/s, 29.97 fps, 29.97 tbr, 11988 tbn
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+Press [q] to stop, [?] for help
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000020fc10ded00] Auto-inserting h264_mp4toannexb bitstream filter
+frame= 5605 fps=0.0 q=-1.0 size=  148736KiB time=00:03:06.95 bitrate=6517.4kbits/s speed= 367x    [mov,mp4,m4a,3gp,3g2,mj2 @ 0000020fc10ded00] Auto-inserting h264_mp4toannexb bitstream filter
+frame=11728 fps=11517 q=-1.0 size=  305408KiB time=00:06:31.25 bitrate=6394.5kbits/s speed= 384x    [mov,mp4,m4a,3gp,3g2,mj2 @ 0000020fc10ded00] Auto-inserting h264_mp4toannexb bitstream filter
+    Last message repeated 1 times
+frame=18008 fps=11647 q=-1.0 size=  469504KiB time=00:10:00.80 bitrate=6401.8kbits/s speed= 389x    [mov,mp4,m4a,3gp,3g2,mj2 @ 0000020fc10ded00] Auto-inserting h264_mp4toannexb bitstream filter
+frame=24000 fps=11670 q=-1.0 size=  622848KiB time=00:13:20.73 bitrate=6372.1kbits/s speed= 389x    [mov,mp4,m4a,3gp,3g2,mj2 @ 0000020fc10ded00] Auto-inserting h264_mp4toannexb bitstream filter
+    Last message repeated 1 times
+frame=29839 fps=11611 q=-1.0 size=  773632KiB time=00:16:35.56 bitrate=6365.8kbits/s speed= 387x    [mov,mp4,m4a,3gp,3g2,mj2 @ 0000020fc10ded00] Auto-inserting h264_mp4toannexb bitstream filter
+    Last message repeated 1 times
+frame=36542 fps=11852 q=-1.0 size=  945920KiB time=00:20:19.21 bitrate=6355.7kbits/s speed= 395x    [mp4 @ 0000020fc10393c0] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0000020fc101e140] video:1025476KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.046659%
+frame=39608 fps=4179 q=-1.0 Lsize= 1025954KiB time=00:22:01.52 bitrate=6359.8kbits/s speed= 139x    
+video -> PAPER_OUTPUT/video/videoplayback(2)_bicausal_paper.mp4
+[h264 @ 000001d40aa8ebc0] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d40aa8ebc0] missing picture in access unit with size 4392
+[h264 @ 000001d40af41d80] Invalid NAL unit size (41700 > 4388).
+[h264 @ 000001d40af41d80] Error splitting the input into NAL units.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d40a9a7100] stream 0, offset 0x13fbc431: partial file

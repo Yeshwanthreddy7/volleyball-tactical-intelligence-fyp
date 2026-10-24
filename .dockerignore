@@ -1,0 +1,40 @@
+# Whitelist: only what the website needs goes into the image (the repo holds
+# ~10 GB of videos, caches and checkpoints that must not).
+*
+
+!OUTPUTS/bicausal_extract.py
+!OUTPUTS/bicausal_render.py
+!OUTPUTS/yolo11m-pose.pt
+!NEW_OUTPUTS/code/*.py
+!fyp/*.py
+!fyp/volleyball_best.pt
+!BASEFRAMES/*.py
+!BASEFRAMES/corner_court_detection/labels
+!BASEFRAMES/_contact_sheet.png
+!tactical_ml_v6.joblib
+!ml_results_v6
+!deep_results_v6/deep_results.json
+
+# documentation portal
+!*.md
+!ALL_13_MODELS/README.md
+!BINARY_ATTACK_DEFENSE/README.md
+!FINALE_OUTPUTS/README.md
+!PANEL_REVIEW/README.md
+!PANEL_REVIEW/architecture_diagram.svg
+!figures_atlas
+!figures_perclass_f1
+!figures_workflow
+!model_comparison
+!lovo_metrics_chart.png
+!train_test_split_chart.png
+!PAPER_OUTPUT/action_examples
+
+# web application
+!webapp/backend
+!webapp/frontend
+!webapp/scripts
+!webapp/storage/demos
+webapp/frontend/node_modules
+webapp/frontend/dist
+**/__pycache__

@@ -1,0 +1,204 @@
+==========================================================================
+LEARNED TACTICAL CLASSIFIER
+==========================================================================
+
+Loaded 948 clips, 132 features (mode=invariant)
+
+Class distribution:
+  Coordinated Attack    :  370  (39.0%)
+  Coordinated Defense   :  355  (37.4%)
+  Delayed Support       :  108  (11.4%)
+  Spacing Breakdown     :  115  (12.1%)
+
+Source videos (leave-one-video-out folds):
+  (1)       :  126 clips
+  (2)       :   60 clips
+  (3)       :   93 clips
+  (4)       :  130 clips
+  (5)       :  106 clips
+  (6)       :  143 clips
+  (plain)   :  130 clips
+  ?         :  160 clips
+
+--------------------------------------------------------------------------
+BASELINE LADDER - every model below must clear these
+--------------------------------------------------------------------------
+  baseline                                accuracy  macro-F1    kappa
+  majority class (no information)            0.390     0.140    0.000
+  hand-coded rule engine                     0.101     0.090    0.005
+    (rules abstained on 361/948 clips = 38%, scored as misses)
+
+  The rule-engine row is the one that matters: the labels are
+  HUMAN annotations (labels.csv -> clip folder -> target_label,
+  verified 159/159 exact), so the rule engine is an independent
+  competing predictor seeing the SAME window as the model, not
+  the source of the labels. Beating it is the evidence that the
+  learned model adds something over the hand-coded heuristic.
+
+==========================================================================
+CROSS-VALIDATION  (k-fold = optimistic, LOVO = honest)
+==========================================================================
+  done: logistic_regression      kfold_F1=0.531  lovo_F1=0.489
+  done: linear_svm               kfold_F1=0.519  lovo_F1=0.477
+  done: rbf_svm                  kfold_F1=0.562  lovo_F1=0.499
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\externals\loky\backend\context.py", line 257, in _count_physical_cores
+    cpu_info = subprocess.run(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  done: knn                      kfold_F1=0.481  lovo_F1=0.434
+  done: mlp                      kfold_F1=0.544  lovo_F1=0.487
+  done: random_forest            kfold_F1=0.477  lovo_F1=0.416
+  done: extra_trees              kfold_F1=0.496  lovo_F1=0.456
+  done: gradient_boosting        kfold_F1=0.566  lovo_F1=0.498
+  done: hist_gradient_boosting   kfold_F1=0.577  lovo_F1=0.510
+  done: xgboost                  kfold_F1=0.594  lovo_F1=0.519
+  done: lightgbm                 kfold_F1=0.569  lovo_F1=0.512
+  done: catboost                 kfold_F1=0.590  lovo_F1=0.526
+
+model                     kf_acc   kf_F1  lovo_acc  lovo_F1  lovo_bal   kappa
+-----------------------------------------------------------------------------
+catboost                   0.708   0.590     0.655    0.526     0.524   0.490
+xgboost                    0.719   0.594     0.670    0.519     0.517   0.503
+lightgbm                   0.715   0.569     0.672    0.512     0.510   0.502
+hist_gradient_boosting     0.720   0.577     0.670    0.510     0.507   0.498
+rbf_svm                    0.695   0.562     0.645    0.499     0.497   0.464
+gradient_boosting          0.717   0.566     0.652    0.498     0.497   0.474
+logistic_regression        0.626   0.531     0.585    0.489     0.495   0.413
+mlp                        0.680   0.544     0.618    0.487     0.486   0.435
+linear_svm                 0.629   0.519     0.599    0.477     0.479   0.416
+extra_trees                0.681   0.496     0.648    0.456     0.463   0.446
+knn                        0.643   0.481     0.597    0.434     0.438   0.381
+random_forest              0.673   0.477     0.630    0.416     0.436   0.417
+
+Probability-ranking quality (AUC-ROC / AUC-PR, one-vs-rest macro) and within-fold overfitting (LOVO protocol):
+model                     roc_auc   pr_auc  train_F1  test_F1     gap   flag
+----------------------------------------------------------------------------
+catboost                    0.831    0.566     0.991    0.526   0.461OVERFIT
+xgboost                     0.837    0.575     1.000    0.519   0.478OVERFIT
+lightgbm                    0.836    0.570     1.000    0.512   0.484OVERFIT
+hist_gradient_boosting      0.836    0.569     1.000    0.510   0.488OVERFIT
+rbf_svm                     0.802    0.530     1.000    0.499   0.501OVERFIT
+gradient_boosting           0.821    0.550     1.000    0.498   0.493OVERFIT
+logistic_regression         0.765    0.499     0.795    0.489   0.299OVERFIT
+mlp                         0.794    0.529     1.000    0.487   0.505OVERFIT
+linear_svm                  0.760    0.488     0.918    0.477   0.431OVERFIT
+extra_trees                 0.806    0.556     1.000    0.456   0.536OVERFIT
+knn                         0.726    0.479     1.000    0.434   0.568OVERFIT
+random_forest               0.815    0.552     1.000    0.416   0.590OVERFIT
+  AUC-PR > class prevalence means the probabilities carry usable
+  signal even for a class whose hard-label recall is near zero.
+  overfit_gap > 0.05 (flagged OVERFIT) means the model fits its own
+  training rows much better than held-out ones, independent of the
+  LOVO-vs-k-fold protocol gap reported above.
+
+Declared model (S1 - headline number, pre-registered not picked): hist_gradient_boosting
+  (the zoo's best on lovo_macro_f1 was catboost at 0.526 vs the declared model's 0.510 - reported for transparency; the declared model's number is the one quoted)
+
+Confusion matrix (leave-one-video-out, hist_gradient_boosting):
+                  Coordinat  Coordinat  Delayed S  Spacing B   <- predicted
+Coordinated At          307         30         23         10   recall 307/370 = 0.83
+Coordinated De           46        283         20          6   recall 283/355 = 0.80
+Delayed Suppor           28         46         18         16   recall 18/108 = 0.17
+Spacing Breakd           29         37         22         27   recall 27/115 = 0.23
+
+Per-class report (leave-one-video-out):
+                     precision    recall  f1-score   support
+
+ Coordinated Attack      0.749     0.830     0.787       370
+Coordinated Defense      0.715     0.797     0.754       355
+    Delayed Support      0.217     0.167     0.188       108
+  Spacing Breakdown      0.458     0.235     0.310       115
+
+           accuracy                          0.670       948
+          macro avg      0.534     0.507     0.510       948
+       weighted avg      0.640     0.670     0.649       948
+
+
+Macro-F1 aggregation (leave-one-video-out, hist_gradient_boosting):
+  pooled out-of-fold : 0.510   (headline - robust when a fold has few rare-class examples)
+  mean +/- SD of folds: 0.512 +/- 0.087
+  per fold           : 0.417  0.562  0.567  0.560  0.630  0.493  0.526  0.342
+  balanced-acc/fold  : 0.427  0.554  0.549  0.565  0.630  0.553  0.531  0.373
+
+--------------------------------------------------------------------------
+DECISION RULE - argmax vs prior-corrected  [prior: per-fold training prior (no leak)]
+--------------------------------------------------------------------------
+  rule                   acc  macroF1   balAcc   kappa   Attack  Defense  Support  Breakdo
+  ----------------------------------------------------------------------------------------
+  argmax               0.670    0.510    0.507   0.498     0.83     0.80     0.17     0.23
+  prior_corrected      0.667    0.527    0.524   0.503     0.81     0.77     0.24     0.27
+  (last 4 columns = per-class RECALL, in CLASS_NAMES order)
+
+  prior correction changes macro-F1 by +0.017 and is parameter-free,
+  so unlike a tuned threshold it cannot overfit a 16-example class.
+Fitting the winner on all data for importance + deployment...
+
+Probability calibration:
+  {'calibrated': True, 'method': 'sigmoid', 'cv_folds': 5}
+                          uncalibrated   calibrated
+  mean_confidence                1.000        0.775
+  frac_confidence_above_0.99         1.000        0.000
+  mean_entropy_bits              0.000        1.065
+  -> Calibration restored a usable confidence range, so the
+     entropy channel and the anomaly flag work again.
+
+Channel importance (macro-F1 lost when the whole channel is shuffled):
+  protocol: leave-one-video-out, permuted on the held-out video
+  held-out baseline macro-F1: 0.512
+  centroid_y             +0.0881 +/- 0.0527  ##########
+  speed_bot4             +0.0502 +/- 0.0457  ######
+  hull_area              +0.0355 +/- 0.0361  ####
+  ball_y                 +0.0323 +/- 0.0455  ###
+  spread_x               +0.0116 +/- 0.0322  #
+  n_present              +0.0086 +/- 0.0173  #
+  max_pair_dist          +0.0073 +/- 0.0207  
+  nn_dist_mean           +0.0068 +/- 0.0243  
+  spread_y               +0.0059 +/- 0.0289  
+  centroid_x             +0.0056 +/- 0.0217  
+  ball_offset            +0.0046 +/- 0.0327  
+  speed_ratio            +0.0037 +/- 0.0174  
+  speed_diff             +0.0030 +/- 0.0203  
+  spread_aspect          +0.0016 +/- 0.0283  
+  ball_x                 +0.0015 +/- 0.0260  
+
+--------------------------------------------------------------------------
+LABEL PROVENANCE
+--------------------------------------------------------------------------
+These scores are measured against HUMAN tactical annotations
+(labels.csv -> clip folder -> target_label; verified 159/159).
+They are NOT agreement-with-a-rule-engine: label_clips.py is a
+separate path that never wrote these labels, which is why it
+appears above as an independent competing baseline.
+
+Remaining honest caveat: single annotator. A second independent
+annotator would let inter-annotator agreement be quoted as the
+true ceiling for every number here:
+    python fyp/annotate.py dataset/dataset --out gold2.csv
+    python fyp/ml_classifier.py <csv_dir> --gold gold2.csv
+
+Summary written to ml_results_v6\ml_results.json
+Model saved to tactical_ml_v6.joblib
+  Serve it live with:
+    python fyp/pipeline.py video.mp4 tactical_ml_v6.joblib …
+
+Exporting every zoo model to 'ml_models_v6/' (fit-on-all + calibrated, one .joblib each):
+  logistic_regression      -> ml_models_v6\logistic_regression.joblib  (LOVO acc 0.585)
+  linear_svm               -> ml_models_v6\linear_svm.joblib  (LOVO acc 0.599)
+  rbf_svm                  -> ml_models_v6\rbf_svm.joblib  (LOVO acc 0.645)
+  knn                      -> ml_models_v6\knn.joblib  (LOVO acc 0.597)
+  mlp                      -> ml_models_v6\mlp.joblib  (LOVO acc 0.618)
+  random_forest            -> ml_models_v6\random_forest.joblib  (LOVO acc 0.630)
+  extra_trees              -> ml_models_v6\extra_trees.joblib  (LOVO acc 0.648)
+  gradient_boosting        -> ml_models_v6\gradient_boosting.joblib  (LOVO acc 0.652)
+  hist_gradient_boosting   -> ml_models_v6\hist_gradient_boosting.joblib  (LOVO acc 0.670)
+  xgboost                  -> ml_models_v6\xgboost.joblib  (LOVO acc 0.670)
+  lightgbm                 -> ml_models_v6\lightgbm.joblib  (LOVO acc 0.672)
+  catboost                 -> ml_models_v6\catboost.joblib  (LOVO acc 0.655)
+  Render each:  for m in ml_models_v6/*.joblib; do python fyp/pipeline.py VIDEO.mp4 "$m" --strict-render --auto-court --output-video "annot_$(basename "$m" .joblib).mp4"; done

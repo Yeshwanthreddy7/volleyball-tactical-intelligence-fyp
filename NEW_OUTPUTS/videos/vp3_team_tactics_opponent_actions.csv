@@ -1,0 +1,26 @@
+video_time,frame,action,team,actor_track_id
+00:03.1,156,SERVE,Far team (opponent),12
+00:13.7,686,SPIKE,Far team (opponent),263
+00:20.2,1008,SERVE,Far team (opponent),378
+00:22.3,1114,SPIKE,Far team (opponent),375
+00:37.8,1891,SPIKE,Far team (opponent),649
+00:49.9,2495,SPIKE,Far team (opponent),901
+01:06.3,3313,SERVE,Far team (opponent),1317
+01:09.6,3480,SPIKE,Far team (opponent),1429
+01:29.9,4493,SPIKE,Far team (opponent),1800
+01:32.5,4625,SPIKE,Far team (opponent),1866
+01:40.9,5044,SERVE,Far team (opponent),2103
+01:42.5,5126,SPIKE,Far team (opponent),2196
+02:06.1,6305,SPIKE,Far team (opponent),2637
+02:14.6,6729,SPIKE,Far team (opponent),2895
+02:24.2,7211,SERVE,Far team (opponent),3036
+02:42.8,8142,SPIKE,Far team (opponent),3435
+03:03.9,9193,SERVE,Far team (opponent),3926
+03:26.6,10331,SPIKE,Far team (opponent),4281
+03:52.8,11638,SPIKE,Far team (opponent),4744
+04:00.0,12002,SERVE,Far team (opponent),5125
+04:13.3,12663,SPIKE,Far team (opponent),5273
+04:21.8,13092,SPIKE,Far team (opponent),5516
+04:44.7,14236,SPIKE,Far team (opponent),5867
+04:46.1,14307,BLOCK,Far team (opponent),5953
+04:52.1,14603,SPIKE,Far team (opponent),6170

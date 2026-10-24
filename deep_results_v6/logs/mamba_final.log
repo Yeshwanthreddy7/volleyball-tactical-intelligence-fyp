@@ -1,0 +1,42 @@
+[S3 WARNING] no --test-video: this is a RANDOM split, which is optimistic and not comparable to the sklearn LOVO headline. Pass --test-video '(1)' etc. for an honest cross-video number.
+[S3] Mamba metrics from this run are a COMPARISON ARM only - see the confound checklist in train() before quoting them next to the sklearn number.
+Device: cuda
+Loaded 948 samples from 'training_csv_v5_full' (0 skipped).
+Train: 807 | Val: 141 | Test: 0
+Split distribution:
+  Spacing Breakdown      train=  98  val=  17  test=   0
+  Delayed Support        train=  92  val=  16  test=   0
+  Coordinated Attack     train= 315  val=  55  test=   0
+  Coordinated Defense    train= 302  val=  53  test=   0
+  Unclassified           train=   0  val=   0  test=   0
+Temporal architecture: mamba
+Parameters: 69,381
+Epoch   1/50  train_loss=1.5675  train_acc=0.292  val_loss=1.5433  val_acc=0.319  val_f1=0.175
+Epoch   2/50  train_loss=1.4328  train_acc=0.175  val_loss=1.4037  val_acc=0.213  val_f1=0.159
+Epoch   3/50  train_loss=1.3719  train_acc=0.340  val_loss=1.3162  val_acc=0.319  val_f1=0.180
+Epoch   4/50  train_loss=1.3075  train_acc=0.321  val_loss=1.2730  val_acc=0.567  val_f1=0.321
+Epoch   5/50  train_loss=1.2955  train_acc=0.378  val_loss=1.2830  val_acc=0.383  val_f1=0.263
+Epoch   6/50  train_loss=1.2695  train_acc=0.455  val_loss=1.3073  val_acc=0.418  val_f1=0.272
+Epoch   7/50  train_loss=1.2489  train_acc=0.509  val_loss=1.3090  val_acc=0.397  val_f1=0.275
+Epoch   8/50  train_loss=1.2224  train_acc=0.458  val_loss=1.3124  val_acc=0.433  val_f1=0.308
+Epoch   9/50  train_loss=1.1891  train_acc=0.509  val_loss=1.2983  val_acc=0.504  val_f1=0.329
+Traceback (most recent call last):
+  File "C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\train_mamba.py", line 785, in <module>
+    train(_parse_args())
+  File "C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\train_mamba.py", line 574, in train
+    train_loss, train_acc = _run_epoch(model, train_loader, criterion, optimizer, device)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\train_mamba.py", line 369, in _run_epoch
+    loss.backward()
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\torch\_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\torch\autograd\graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

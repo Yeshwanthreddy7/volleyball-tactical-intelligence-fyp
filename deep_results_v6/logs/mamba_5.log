@@ -1,0 +1,37 @@
+[S3] Mamba metrics from this run are a COMPARISON ARM only - see the confound checklist in train() before quoting them next to the sklearn number.
+Device: cuda
+Loaded 948 samples from 'training_csv_v5_full' (0 skipped).
+UNSEEN-VIDEO TEST: holdout '(5)' -> 106 clips (4 classes); video keys in dataset: ['(1)', '(2)', '(3)', '(4)', '(5)', '(6)', '(plain)', '?', 'external']
+Train: 675 | Val: 167 | Test: 106
+Split distribution:
+  Spacing Breakdown      train=  84  val=  20  test=  11
+  Delayed Support        train=  76  val=  19  test=  13
+  Coordinated Attack     train= 275  val=  68  test=  27
+  Coordinated Defense    train= 240  val=  60  test=  55
+  Unclassified           train=   0  val=   0  test=   0
+Temporal architecture: mamba
+Parameters: 69,381
+Epoch   1/50  train_loss=1.5798  train_acc=0.317  val_loss=1.5734  val_acc=0.377  val_f1=0.255
+Epoch   2/50  train_loss=1.4510  train_acc=0.215  val_loss=1.4255  val_acc=0.329  val_f1=0.208
+Epoch   3/50  train_loss=1.3933  train_acc=0.262  val_loss=1.3455  val_acc=0.329  val_f1=0.190
+Epoch   4/50  train_loss=1.3310  train_acc=0.446  val_loss=1.2618  val_acc=0.557  val_f1=0.283
+Traceback (most recent call last):
+  File "C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\train_mamba.py", line 785, in <module>
+    train(_parse_args())
+  File "C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\train_mamba.py", line 574, in train
+    train_loss, train_acc = _run_epoch(model, train_loader, criterion, optimizer, device)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\fyp\train_mamba.py", line 369, in _run_epoch
+    loss.backward()
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\torch\_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\torch\autograd\graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

@@ -1,0 +1,77 @@
+
+============================================================
+INCEPTIONTIME
+============================================================
+  (1)       n= 126  macroF1(4)=0.478  (162s)
+  (2)       n=  60  macroF1(4)=0.552  (170s)
+  (3)       n=  93  macroF1(4)=0.472  (112s)
+  (4)       n= 130  macroF1(4)=0.476  (204s)
+  (5)       n= 106  macroF1(4)=0.605  (217s)
+  (6)       n= 143  macroF1(4)=0.449  (126s)
+  (plain)   n= 130  macroF1(4)=0.529  (128s)
+  usa       n= 157  macroF1(4)=0.363  (195s)
+  --> POOLED LOVO  macroF1(4)=0.515  acc=0.619  mean+/-SD folds=0.491+/-0.068
+  training final checkpoint on all clips -> mamba_v4_inceptiontime.pt
+
+============================================================
+TCN
+============================================================
+  (1)       n= 126  macroF1(4)=0.422  (131s)
+  (2)       n=  60  macroF1(4)=0.309  (121s)
+  (3)       n=  93  macroF1(4)=0.344  (134s)
+  (4)       n= 130  macroF1(4)=0.449  (107s)
+  (5)       n= 106  macroF1(4)=0.573  (328s)
+  (6)       n= 143  macroF1(4)=0.430  (100s)
+  (plain)   n= 130  macroF1(4)=0.355  (103s)
+  usa       n= 157  macroF1(4)=0.265  (179s)
+  --> POOLED LOVO  macroF1(4)=0.441  acc=0.512  mean+/-SD folds=0.393+/-0.090
+  training final checkpoint on all clips -> mamba_v4_tcn.pt
+
+============================================================
+BILSTM
+============================================================
+  (1)       n= 126  macroF1(4)=0.232  (105s)
+  (2)       n=  60  macroF1(4)=0.258  (139s)
+  (3)       n=  93  macroF1(4)=0.395  (120s)
+  (4)       n= 130  macroF1(4)=0.452  (104s)
+  (5)       n= 106  macroF1(4)=0.463  (159s)
+  (6)       n= 143  macroF1(4)=0.286  (95s)
+  (plain)   n= 130  macroF1(4)=0.442  (201s)
+  usa       n= 157  macroF1(4)=0.331  (141s)
+  --> POOLED LOVO  macroF1(4)=0.398  acc=0.459  mean+/-SD folds=0.357+/-0.087
+  training final checkpoint on all clips -> mamba_v4_bilstm.pt
+
+============================================================
+MAMBA
+============================================================
+  (1)       n= 126  macroF1(4)=0.173  (126s)
+  (2)       n=  60  macroF1(4)=0.389  (231s)
+  (3)       n=  93  macroF1(4)=0.351  (195s)
+  (4)       n= 130  macroF1(4)=0.421  (401s)
+    [WARN] exit 1 - see C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\deep_results_v6\logs\mamba_5.log
+  (5)       FAILED (no confusion matrix)
+  (6)       n= 143  macroF1(4)=0.393  (280s)
+  (plain)   n= 130  macroF1(4)=0.379  (361s)
+  usa       n= 157  macroF1(4)=0.331  (349s)
+  --> POOLED LOVO  macroF1(4)=0.370  acc=0.443  mean+/-SD folds=0.348+/-0.076
+  training final checkpoint on all clips -> mamba_v4_mamba.pt
+    [WARN] exit 1 - see C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\deep_results_v6\logs\mamba_final.log
+
+============================================================
+DEEP LOVO SUMMARY  (4-class macro-F1, comparable to sklearn 0.510)
+============================================================
+  arch              pooledF1  foldMean     acc
+  inceptiontime        0.515     0.491   0.619
+  tcn                  0.441     0.394   0.512
+  bilstm               0.398     0.357   0.459
+  mamba                0.370     0.348   0.443
+
+  total wall time: 103 min
+  results: deep_results_v6\deep_results.json
+
+CORRECTION (post-hoc, after standalone retry of mamba fold(5) + final checkpoint,
+both of which hit CUDA OOM on the 4GB GPU during the sweep):
+  mamba corrected pooled macroF1(4)=0.390  acc=0.461  (was 0.370/0.443 missing fold (5))
+  mamba_v4_mamba.pt redeployed from the retry (full 25-epoch early-stop run,
+  best val_macro_f1=0.422 at epoch 21 -- the in-sweep attempt only reached epoch 9
+  before OOM). deep_results_v6/deep_results.json updated to match.
