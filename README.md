@@ -15,6 +15,7 @@ Detect and track every player and the ball, map them onto the court, and label e
 [![Live demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://volleyballanalyzer.dpdns.org)
 
 [**Live demo**](https://volleyballanalyzer.dpdns.org) ·
+[**Hugging Face Space**](https://huggingface.co/spaces/yeshwanthkumarreddy/volleyball-tactical-analysis) ·
 [**Installation**](docs/INSTALLATION.md) ·
 [**Usage**](docs/USAGE.md) ·
 [**Architecture**](docs/ARCHITECTURE.md) ·
@@ -239,7 +240,7 @@ More recipes — other models, re-rendering without re-detection, training, repr
 
 `webapp/` runs the pipeline as a service. Upload a match, follow progress, and download the annotated video, reports and per-tactic clips.
 
-**Try it:** [volleyballanalyzer.dpdns.org](https://volleyballanalyzer.dpdns.org)
+**Try it:** [volleyballanalyzer.dpdns.org](https://volleyballanalyzer.dpdns.org) · also on [Hugging Face Spaces](https://huggingface.co/spaces/yeshwanthkumarreddy/volleyball-tactical-analysis)
 
 | Part | Technology |
 |---|---|

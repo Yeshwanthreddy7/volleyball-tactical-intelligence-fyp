@@ -5,6 +5,7 @@ All notable changes to this project are listed here. The format follows [Keep a 
 ## [Unreleased]
 
 ### Added
+- Hugging Face Space ([yeshwanthkumarreddy/volleyball-tactical-analysis](https://huggingface.co/spaces/yeshwanthkumarreddy/volleyball-tactical-analysis)): free static Space (`webapp/hf_static_space/`) that shows the live website.
 - Website walkthrough video (`docs/assets/ui_walkthrough.mp4`): screen recording of an upload, the live analysis and the results; linked from the README and shown first on the website's Demos page.
 - Always-on Azure analysis server: shared CPU Docker image (`webapp/hfspace/`) and one-command deploy script (`webapp/azure/deploy_azure.ps1`).
 - Team photos on the web app's Team page; cloud-aware upload page.
