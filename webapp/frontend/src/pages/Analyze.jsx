@@ -27,7 +27,7 @@ export default function Analyze() {
   const [meta, setMeta] = useState(null);
   const [preview, setPreview] = useState(null);
   const [drag, setDrag] = useState(false);
-  const [mode, setMode] = useState("accurate");
+  const [mode, setMode] = useState(null); // user must choose before continuing
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [err, setErr] = useState(null);
@@ -61,11 +61,14 @@ export default function Analyze() {
   const analysedSec = meta?.duration ? Math.max(0, Math.min(e ?? meta.duration, meta.duration) - (s ?? 0)) : null;
   // measured on the project's RTX 3050 laptop GPU: detection about 9 frames/s
   // at 1280 px (13 at 960 px), rendering about 9 frames/s, plus ~1.5 min setup
+  // on the free cloud server (CPU only) detection is roughly 15-20x slower
+  const cpu = health && health.gpu && !health.gpu.available;
+  const fps = cpu ? (mode === "accurate" ? 0.45 : 0.75) : (mode === "accurate" ? 9 : 13);
   const estMin = analysedSec
-    ? Math.ceil((analysedSec * 30 * (1 / (mode === "accurate" ? 9 : 13) + 1 / 9)) / 60 + 1.5) : null;
+    ? Math.ceil((analysedSec * 30 * (1 / fps + (cpu ? 1 / 6 : 1 / 9))) / 60 + 1.5) : null;
 
   const submit = async () => {
-    if (!file || timeErr) return;
+    if (!file || !mode || timeErr) return;
     setErr(null);
     abort.current = new AbortController();
     const t0 = performance.now();
@@ -91,11 +94,12 @@ export default function Analyze() {
     return (
       <div className="container section">
         <div className="eyebrow">Analyze a match</div>
-        <h1>Video analysis runs on a GPU</h1>
+        <h1>Analysis server is offline</h1>
         <p className="lead">
-          This online version is the project portal. Analysing a match needs an NVIDIA GPU and up to 500 MB
-          uploads, so it runs in the desktop app or on the project's analysis server.
+          Video upload opens here automatically whenever the project's GPU analysis server is online.
+          It is switched off right now - please try again later, or use the desktop app.
         </p>
+        <button className="btn" onClick={() => window.location.reload()}>↻ Check again</button>
         <div className="grid cols-2" style={{ marginTop: 26 }}>
           <div className="card">
             <div className="icon-badge">💻</div>
@@ -116,7 +120,7 @@ export default function Analyze() {
             </p>
             {health.live_url
               ? <a className="btn secondary" href={health.live_url} target="_blank" rel="noreferrer">Open the live server ↗</a>
-              : <span className="pill">Ask the team for the current live link</span>}
+              : <span className="pill">Offline - upload appears on this page when it is back</span>}
           </div>
         </div>
         <div className="section tight">
@@ -143,9 +147,15 @@ export default function Analyze() {
         in several qualities, a timestamped team tactical report and an opponent action report.
       </p>
 
+      {health?.via && (
+        <div className="alert info" style={{ margin: "16px 0" }}>
+          🟢 Connected to the project's GPU analysis server. Your video is processed there and the results open here.
+        </div>
+      )}
       {health && !health.gpu?.available && (
         <div className="alert warn" style={{ margin: "16px 0" }}>
-          The analysis server has no GPU right now, so processing will be slow.
+          This analysis server runs on a free cloud CPU (no GPU), so processing is slow: use short clips
+          (up to about 1 minute, choose the part with the time range) and Fast mode.
         </div>
       )}
 
@@ -215,14 +225,19 @@ export default function Analyze() {
           </div>
 
           <div className="field" style={{ marginTop: 18 }}>
-            <span className="label">Processing mode</span>
+            <span className="label">Processing mode <span style={{ color: "var(--accent)" }}>*</span> (choose one to continue)</span>
             <div className="seg">
               <button className={mode === "accurate" ? "on" : ""} onClick={() => setMode("accurate")}>Accurate · 1280 px</button>
               <button className={mode === "fast" ? "on" : ""} onClick={() => setMode("fast")}>Fast · 960 px</button>
             </div>
-            <span className="small muted">Accurate uses the resolution the models were trained at (best ball recall).</span>
+            {mode
+              ? <span className="small muted">{mode === "accurate"
+                  ? "Accurate: the resolution the models were trained at (best ball recall). Recommended."
+                  : "Fast: smaller frames, quicker detection, slightly fewer ball detections."}</span>
+              : <span className="small" style={{ color: "var(--accent-2)" }}>Select Accurate or Fast to continue.</span>}
           </div>
 
+          {mode && <>
           <div className="field" style={{ marginTop: 18 }}>
             <span className="label">Part of the video to analyse (optional)</span>
             <div className="row" style={{ flexWrap: "nowrap" }}>
@@ -240,8 +255,9 @@ export default function Analyze() {
           </div>
 
           <button className="btn" style={{ width: "100%", marginTop: 22 }} disabled={!file || !!up || !!timeErr} onClick={submit}>
-            {up ? "Uploading…" : "Upload and analyse"}
+            {up ? "Uploading…" : file ? "Upload and analyse" : "Choose a video first"}
           </button>
+          </>}
           <p className="small faint" style={{ marginTop: 12 }}>
             Videos and results are kept for 14 days and are only listed in this browser.
           </p>

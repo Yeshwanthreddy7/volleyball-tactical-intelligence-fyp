@@ -1,12 +1,33 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { api, fileUrl } from "../api.js";
+import { api, clientId, fileUrl, setClientId, VALID_CODE } from "../api.js";
 import { TACTIC_HEX } from "../content.js";
 import { StatusPill } from "./Analysis.jsx";
 
 export default function History() {
   const [items, setItems] = useState(null);
   const [err, setErr] = useState(null);
+  const [code, setCode] = useState(clientId());
+  const [entry, setEntry] = useState("");
+  const [note, setNote] = useState(null);
+
+  const switchTo = (next, msg) => {
+    setCode(setClientId(next));
+    setItems(null);
+    setErr(null);
+    setEntry("");
+    setNote(msg);
+  };
+  const restore = () => {
+    const c = entry.trim();
+    if (!VALID_CODE.test(c)) return setNote("That does not look like a history code.");
+    switchTo(c, "History restored.");
+  };
+  const fresh = () => {
+    if (window.confirm("Start a fresh, empty history in this browser? Keep your current code if you want to come back to the old uploads."))
+      switchTo(null, "Fresh history started.");
+  };
+  const copy = () => navigator.clipboard?.writeText(code).then(() => setNote("Code copied."), () => {});
 
   useEffect(() => {
     let alive = true, timer;
@@ -19,7 +40,7 @@ export default function History() {
       .catch((e) => alive && setErr(e.message));
     load();
     return () => { alive = false; clearTimeout(timer); };
-  }, []);
+  }, [code]);
 
   return (
     <div className="container section">
@@ -28,6 +49,22 @@ export default function History() {
         <h1 style={{ margin: 0 }}>My analyses</h1>
         <span className="spacer" />
         <Link className="btn" to="/analyze">+ New analysis</Link>
+      </div>
+      <div className="card" style={{ marginBottom: 20 }}>
+        <div className="small muted">
+          Uploads are saved to this browser. Use your history code to open them on another device, or start fresh.
+        </div>
+        <div className="row" style={{ marginTop: 10, gap: 8 }}>
+          <code style={{ userSelect: "all", wordBreak: "break-all" }}>{code}</code>
+          <button className="btn secondary" onClick={copy}>Copy code</button>
+          <button className="btn secondary" onClick={fresh}>Start fresh</button>
+        </div>
+        <div className="row" style={{ marginTop: 10, gap: 8 }}>
+          <input value={entry} onChange={(e) => setEntry(e.target.value)} placeholder="Paste a history code"
+                 onKeyDown={(e) => e.key === "Enter" && restore()} style={{ flex: 1, minWidth: 200 }} />
+          <button className="btn secondary" onClick={restore}>Restore</button>
+        </div>
+        {note && <div className="small" style={{ marginTop: 8 }}>{note}</div>}
       </div>
       {err && <div className="alert err">{err}</div>}
       {!items && !err && <div className="empty"><span className="spinner" /></div>}

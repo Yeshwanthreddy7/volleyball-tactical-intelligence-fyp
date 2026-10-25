@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { api } from "../api.js";
-import { TACTIC_HEX } from "../content.js";
+import { TACTICS, TACTIC_HEX } from "../content.js";
 import { Gallery } from "./Methodology.jsx";
 
 const pct = (v) => (v == null ? "-" : `${(v * 100).toFixed(1)}%`);
@@ -11,6 +12,69 @@ function Meter({ v, max = 1, hi }) {
     <div className="meter">
       <div className="track"><div className={`fill ${hi ? "hi" : ""}`} style={{ width: `${(100 * v) / max}%` }} /></div>
       <span className="num small">{v.toFixed(3)}</span>
+    </div>
+  );
+}
+
+// The visitor's most recent finished analysis, so the page reflects their own upload.
+function LatestAnalysis() {
+  const [job, setJob] = useState(undefined);
+  const [err, setErr] = useState(null);
+  useEffect(() => {
+    api.analyses()
+      .then((j) => setJob(j.find((x) => x.status === "done" && x.result?.summary) || null))
+      .catch((e) => setErr(e.message));
+  }, []);
+  if (err) return <div className="alert warn" style={{ margin: "20px 0" }}>Your analyses: {err}</div>;
+  if (job === undefined) return null;
+  if (!job) {
+    return (
+      <div className="card row" style={{ margin: "24px 0" }}>
+        <div style={{ flex: "1 1 300px" }}>
+          <h3>Your results</h3>
+          <p className="muted small" style={{ margin: 0 }}>Upload a match and the tactics found in your video will appear here.</p>
+        </div>
+        <Link className="btn" to="/analyze">Analyse a video</Link>
+      </div>
+    );
+  }
+  const s = job.result.summary;
+  return (
+    <div className="card" style={{ margin: "24px 0", borderColor: "var(--accent)" }}>
+      <div className="row">
+        <div>
+          <div className="eyebrow" style={{ marginBottom: 4 }}>Your latest analysis</div>
+          <h3 style={{ margin: 0, overflowWrap: "anywhere" }}>{job.original_name}</h3>
+          <div className="small muted">{new Date(job.created_at).toLocaleString()}</div>
+        </div>
+        <span className="spacer" />
+        <Link className="btn sm" to={`/analysis/${job.id}`}>Open full results →</Link>
+      </div>
+      <div className="grid cols-2" style={{ marginTop: 16 }}>
+        <div>
+          <b className="small">Your team's tactics (share of live play)</b>
+          {TACTICS.map((t) => {
+            const x = s.tactics?.[t.name] || { share: 0, seconds: 0 };
+            return (
+              <div key={t.name} style={{ margin: "10px 0" }}>
+                <div className="row small"><span>{t.name}</span><span className="spacer" /><span className="num">{(x.share * 100).toFixed(1)}% · {x.seconds.toFixed(1)} s</span></div>
+                <div className="bar" style={{ height: 8 }}><span style={{ width: `${x.share * 100}%`, background: t.hex }} /></div>
+              </div>
+            );
+          })}
+        </div>
+        <div>
+          <b className="small">Summary</b>
+          <dl className="kv" style={{ marginTop: 10 }}>
+            <dt>Dominant tactic</dt><dd style={{ color: s.dominant_tactic ? TACTIC_HEX[s.dominant_tactic] : undefined }}>{s.dominant_tactic || "-"}</dd>
+            <dt>Tactic segments</dt><dd>{s.tactic_segments}</dd>
+            <dt>Live play</dt><dd>{s.live_seconds?.toFixed(0)} s of {s.analysed_seconds?.toFixed(0)} s</dd>
+            <dt>Opponent serves</dt><dd>{s.opponent_actions?.SERVE ?? 0}</dd>
+            <dt>Opponent spikes</dt><dd>{s.opponent_actions?.SPIKE ?? 0}</dd>
+            <dt>Opponent blocks</dt><dd>{s.opponent_actions?.BLOCK ?? 0}</dd>
+          </dl>
+        </div>
+      </div>
     </div>
   );
 }
@@ -29,13 +93,16 @@ export default function Results() {
   return (
     <div className="container section">
       <div className="eyebrow">Results</div>
-      <h1>Model comparison</h1>
+      <h1>Results</h1>
       <p className="lead">
         {m.models.length} models trained on {m.n_clips} labelled clips and evaluated with
         leave-one-video-out (LOVO) validation: each match is held out in turn, so the score shows
         how the model does on a match it has never seen. Read live from <code>ml_results_v6</code> and <code>deep_results_v6</code>.
       </p>
 
+      <LatestAnalysis />
+
+      <h2>Model comparison</h2>
       <div className="grid cols-4" style={{ margin: "26px 0" }}>
         {m.models.filter((x) => x.deployed).map((x) => (
           <div key="d" className="stat" style={{ borderColor: "var(--accent)" }}>

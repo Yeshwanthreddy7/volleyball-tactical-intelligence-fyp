@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { api, fileUrl } from "../api.js";
+import { api, apiUrl, fileUrl } from "../api.js";
 import { OPP_HEX, TACTICS, TACTIC_HEX } from "../content.js";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import Notepad from "../components/Notepad.jsx";
@@ -251,7 +251,7 @@ function Results({ job, onDelete }) {
                 ? <>Court found automatically from the lines: <b>{r.court.lines.join(", ")}</b>{r.court.fit_rmse_px != null && ` (fit error ${r.court.fit_rmse_px.toFixed(2)} px)`}.</>
                 : "The court lines could not be found in this video, so a generic end-court model was used. Positions and tactics may be less accurate."}
             </p>
-            {r.court.annotated && <img src={`/api/analyses/${job.id}/court.png`} alt="Detected court lines on the empty-court base frame" style={{ borderRadius: 10 }} />}
+            {r.court.annotated && <img src={apiUrl(`/api/analyses/${job.id}/court.png`)} alt="Detected court lines on the empty-court base frame" style={{ borderRadius: 10 }} />}
           </div>
         )}
       </div>

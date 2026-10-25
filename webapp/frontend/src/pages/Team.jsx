@@ -1,6 +1,6 @@
 import { TEAM } from "../content.js";
 
-const initials = (n) => n.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+const initials = (n) => n.replace(/^Dr\.\s*/, "").split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
 
 export default function Team({ github }) {
   return (
@@ -8,13 +8,13 @@ export default function Team({ github }) {
       <div className="eyebrow">Team details</div>
       <h1>{TEAM.group}</h1>
       <p className="lead">{TEAM.department}</p>
-      <div className="grid cols-4" style={{ marginTop: 26 }}>
+      <div className="grid cols-3" style={{ marginTop: 26 }}>
         {TEAM.members.map((m) => (
           <div key={m.name} className="card center">
             <div className="avatar" style={{ margin: "0 auto 12px" }}>{initials(m.name)}</div>
             <h3>{m.name}</h3>
-            <div className="muted small">{m.role}</div>
-            <div className="faint small">{m.id}</div>
+            {m.role && <div className="muted small">{m.role}</div>}
+            <div className="faint small" style={{ fontFamily: "var(--mono)" }}>{m.id}</div>
           </div>
         ))}
       </div>

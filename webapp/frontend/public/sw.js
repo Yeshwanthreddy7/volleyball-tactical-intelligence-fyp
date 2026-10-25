@@ -1,7 +1,7 @@
 // Minimal service worker: makes the site installable as an app and keeps the
 // app shell available offline. API calls, uploads and videos always go to the
 // network (they must be live).
-const CACHE = "vta-shell-v1";
+const CACHE = "vta-shell-v2";
 const SHELL = ["/", "/favicon.svg", "/icon-192.png", "/icon-512.png", "/manifest.webmanifest"];
 
 self.addEventListener("install", (e) => {

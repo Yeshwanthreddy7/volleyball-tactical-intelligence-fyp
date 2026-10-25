@@ -9,7 +9,7 @@ function makeId() {
 let memoryId = null;
 export function clientId() {
   try {
-    let id = localStorage.getItem("vta-client-id");
+    let id = localStorage.getItem("vta-client-id") || memoryId;
     if (!id) {
       id = makeId();
       localStorage.setItem("vta-client-id", id);
@@ -21,8 +21,61 @@ export function clientId() {
   }
 }
 
+// The client id doubles as a "history code": entering it on another device
+// shows the same uploads; resetting it starts a fresh, empty history.
+export const VALID_CODE = /^[A-Za-z0-9-]{16,64}$/;
+export function setClientId(id) {
+  const next = id || makeId();
+  memoryId = next;
+  try { localStorage.setItem("vta-client-id", next); } catch { /* memory only */ }
+  return next;
+}
+
+// On the static (Vercel) site, uploads and analyses go to the project's GPU
+// laptop when it is online: its tunnel URL is published as live_url in
+// /api/health. Portal pages always come from the site itself.
+let LIVE = "";
+export const OFFLINE =
+  "The analysis server is not running. Start it with webapp\\run_website.bat (or open the Desktop app), then refresh this page.";
+const ANALYSIS = /^\/api\/(analyses|uploads)(\/|$|\?)/;
+const base = (path) => (LIVE && ANALYSIS.test(path) ? LIVE : "") + path;
+export const apiUrl = base;
+
+async function probeLive(url) {
+  try {
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), 25000); // a sleeping cloud server needs time to wake
+    const r = await fetch(url.replace(/\/$/, "") + "/api/health", { signal: ctl.signal });
+    clearTimeout(t);
+    const h = await r.json();
+    return h.status === "ok" ? h : null;
+  } catch {
+    return null;
+  }
+}
+
+// resolves once we know whether a live analysis server is reachable
+export const ready = (async () => {
+  try {
+    const h = await (await fetch("/api/health")).json();
+    if (h.status === "static" && h.live_url) {
+      const live = await probeLive(h.live_url);
+      if (live) {
+        LIVE = h.live_url.replace(/\/$/, "");
+        return { ...live, via: LIVE };
+      }
+    }
+    return h;
+  } catch {
+    return null;
+  }
+})();
+
 async function request(path, { method = "GET", body, headers = {} } = {}) {
-  const res = await fetch(path, {
+  if (ANALYSIS.test(path)) await ready;
+  let res;
+  try {
+    res = await fetch(base(path), {
     method,
     headers: {
       "X-Client-Id": clientId(),
@@ -30,7 +83,10 @@ async function request(path, { method = "GET", body, headers = {} } = {}) {
       ...headers,
     },
     body: body !== undefined ? JSON.stringify(body) : undefined,
-  });
+    });
+  } catch {
+    throw new Error(OFFLINE);
+  }
   if (res.status === 204) return null;
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
@@ -41,7 +97,7 @@ async function request(path, { method = "GET", body, headers = {} } = {}) {
 }
 
 export const api = {
-  health: () => request("/api/health"),
+  health: () => ready.then((h) => h || request("/api/health")),
   info: () => request("/api/project/info"),
   metrics: () => request("/api/project/metrics"),
   docs: () => request("/api/project/docs"),
@@ -56,13 +112,13 @@ export const api = {
 };
 
 export const fileUrl = (id, name, download = false) =>
-  `/api/analyses/${id}/files/${name}${download ? "?download=1" : ""}`;
+  base(`/api/analyses/${id}/files/${name}${download ? "?download=1" : ""}`);
 export const repoFile = (path) => `/api/project/file?path=${encodeURIComponent(path)}`;
 
 function putChunk(url, blob, onProgress, signal) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    xhr.open("PUT", url);
+    xhr.open("PUT", base(url));
     xhr.setRequestHeader("X-Client-Id", clientId());
     xhr.setRequestHeader("Content-Type", "application/octet-stream");
     xhr.upload.onprogress = (e) => e.lengthComputable && onProgress(e.loaded);
@@ -84,6 +140,7 @@ function putChunk(url, blob, onProgress, signal) {
 // Uploads `file` in chunks (Cloudflare caps a single request at 100 MB),
 // retrying each chunk up to 4 times. onProgress(bytesSent, total).
 export async function uploadFile(file, onProgress, signal) {
+  await ready;
   const init = await request("/api/uploads", { method: "POST", body: { filename: file.name, size: file.size } });
   const { upload_id: uid, chunk_bytes: size, chunks } = init;
   let done = 0;

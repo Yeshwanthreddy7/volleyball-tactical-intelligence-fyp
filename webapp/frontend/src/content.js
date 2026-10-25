@@ -83,20 +83,20 @@ export const MILESTONES = [
   { date: "Oct 21, 2026", title: "v6 retrain on 948 clips",
     text: "Full re-extraction and retraining on 948 labelled clips; HistGradientBoosting deployed (LOVO accuracy 67%, macro F1 0.51).", state: "done" },
   { date: "Oct 24, 2026", title: "Web application and documentation portal",
-    text: "Full-stack website: upload up to 500 MB, GPU analysis queue, multi-quality annotated MP4, timestamped action and tactical reports, MongoDB, deployment.", state: "now" },
-  { date: "Next", title: "More matches and labelled clips",
-    text: "Grow Delayed Support and Spacing Breakdown (the two minority classes) and add new courts to improve generalisation.", state: "next" },
+    text: "Full-stack website: upload up to 500 MB, GPU analysis queue, multi-quality annotated MP4, timestamped tactical and opponent reports, MongoDB, desktop app, Windows installer and Vercel deployment.", state: "done" },
+  { date: "Now", title: "More matches and labelled clips",
+    text: "Grow Delayed Support and Spacing Breakdown (the two minority classes) and add new courts to improve generalisation.", state: "now" },
 ];
 
-// Replace with your real team details.
 export const TEAM = {
   group: "Group 56",
   department: "Department of Computer Science and Engineering",
   members: [
-    { name: "Team member 1", role: "Computer vision and tracking", id: "Roll no." },
-    { name: "Team member 2", role: "Machine learning and evaluation", id: "Roll no." },
-    { name: "Team member 3", role: "Court calibration and rendering", id: "Roll no." },
-    { name: "Team member 4", role: "Web application and deployment", id: "Roll no." },
+    { name: "Keshavramprakash D", id: "CB.SC.U4CSE23425" },
+    { name: "K. Surya Sekhar", id: "CB.SC.U4CSE23420" },
+    { name: "G. Bharath Chandra", id: "CB.SC.U4CSE23414" },
+    { name: "V. Punith Sai", id: "CB.SC.U4CSE23768" },
+    { name: "U. Yeshwanth Kumar Reddy", id: "CB.SC.U4CS23453" },
   ],
-  guide: { name: "Project guide", role: "Designation, Department of CSE" },
+  guide: { name: "Dr. Divya Singh", role: "Assistant Professor, Department of CSE" },
 };
