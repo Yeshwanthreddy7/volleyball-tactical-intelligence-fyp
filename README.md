@@ -19,7 +19,8 @@ Detect and track every player and the ball, map them onto the court, and label e
 [**Usage**](docs/USAGE.md) ·
 [**Architecture**](docs/ARCHITECTURE.md) ·
 [**Full report**](docs/PROJECT_DOCUMENTATION.md) ·
-[**Changelog**](CHANGELOG.md)
+[**Changelog**](CHANGELOG.md) ·
+[**🎥 UI walkthrough video**](#demo-videos)
 
 <img src="docs/assets/demo.gif" width="860" alt="Annotated match: the near team's formation graph, the detected tactic and the opponent action timeline">
 
@@ -31,6 +32,7 @@ Detect and track every player and the ball, map them onto the court, and label e
 
 ## Table of contents
 
+- [Demo videos](#demo-videos)
 - [Overview](#overview)
 - [Key features](#key-features)
 - [Results](#results)
@@ -43,6 +45,27 @@ Detect and track every player and the ball, map them onto the court, and label e
 - [Limitations and future work](#limitations-and-future-work)
 - [Team](#team)
 - [Citation](#citation) · [License](#license) · [References](#references)
+
+---
+
+## Demo videos
+
+### Website walkthrough (screen recording of the UI in use)
+
+[![Website walkthrough: upload, live analysis, results](docs/assets/ui_walkthrough.jpg)](docs/assets/ui_walkthrough.mp4)
+
+**▶ [Watch the walkthrough (MP4, 3 min 17 s)](docs/assets/ui_walkthrough.mp4)** · also on the website's [Demos page](https://volleyballanalyzer.dpdns.org/demos) and attached to the [v1.0.0 release](https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp/releases/tag/v1.0.0)
+
+| Time | What the recording shows |
+|---|---|
+| 0:00 | Home page: project summary, problem statement, objectives |
+| 0:20 | **Analyze video**: choose a 25-second match clip, preview it, pick *Accurate · 1280 px*, upload |
+| 0:35 | **Live progress**: court calibration → player and ball detection → tactics → rendering → reports (the ~4 min GPU wait is shortened) |
+| 1:15 | **Results**: annotated video with the near-team formation graph and tactic panel, summary cards, tactic timeline |
+| 1:45 | Team tactical report, opponent action report, tactic segments, opponent actions, court calibration |
+| 2:15 | My analyses, Demos, Methodology, Results, Documentation and Team pages |
+
+The recording was made on the project laptop (RTX 3050 GPU) at `http://volleyballtactics.localhost`; the same interface runs at [volleyballanalyzer.dpdns.org](https://volleyballanalyzer.dpdns.org).
 
 ---
 

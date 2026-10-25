@@ -98,6 +98,8 @@ print(result.label, result.confidence, result.probs)
 
 Start it with `webapp\run_website.bat` (Windows) or `uvicorn` (see [INSTALLATION.md §6](INSTALLATION.md#6-install-the-web-application)), or use the hosted version at **https://volleyballanalyzer.dpdns.org**.
 
+🎥 A screen recording of every step below is in [assets/ui_walkthrough.mp4](assets/ui_walkthrough.mp4) (3 min 17 s).
+
 1. Open **Analyze**, choose a video (up to 500 MB) and a time range.
 2. Choose the processing mode and start. Progress shows each stage.
 3. When it finishes, the **Results** page offers:
