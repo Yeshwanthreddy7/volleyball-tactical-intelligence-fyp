@@ -1,5 +1,8 @@
 frontend/node_modules/
 frontend/dist/
-storage/
+# runtime data stays local; the demo videos shown on the Demos page are committed
+storage/*
+!storage/demos/
+storage/demos/team_tactics_vp3.mp4
 .env
 **/__pycache__/

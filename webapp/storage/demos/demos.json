@@ -1,0 +1,44 @@
+[
+ {
+  "file": "ui_walkthrough.mp4",
+  "poster": "ui_walkthrough.jpg",
+  "title": "Website walkthrough: using the UI end to end",
+  "description": "Screen recording of the website in use: upload a 25-second match clip, choose the processing mode, follow the live analysis stages, then browse the annotated video, the team tactical and opponent action reports, tactic segments, court calibration, demos, documentation and team pages. The GPU wait (about 4 minutes) is shortened.",
+  "source": "Screen recording of http://volleyballtactics.localhost (RTX 3050 laptop GPU)"
+ },
+ {
+  "file": "extra0.mp4",
+  "poster": "extra0.jpg",
+  "title": "Website output: team tactics + opponent actions",
+  "description": "Produced by this website from a 25-second upload: your team's tactic on the near side (hull, relation graph, class probabilities) and only the opponent's serves, spikes and blocks, with timestamps.",
+  "source": "annotated_ultra.mp4"
+ },
+ {
+  "file": "bicausal_vp1.mp4",
+  "poster": "bicausal_vp1.jpg",
+  "title": "Bi-Causal view: relations and interactions",
+  "description": "Team relation graphs (R), the player-ball interaction (I), formations and timestamped actions, with the t1-t2-t3 causal side panel.",
+  "source": "DEMOO\\videoplayback(1)_15min_bicausal_annotated.mp4"
+ },
+ {
+  "file": "paper_vp7.mp4",
+  "poster": "paper_vp7.jpg",
+  "title": "Paper feature read-out (videoplayback 7)",
+  "description": "The same view with the live Bi-Causal paper features (O, P, K, E, I, R, Z) computed per 10-frame window.",
+  "source": "PAPER_OUTPUT\\video\\vp7_bicausal_paper.mp4"
+ },
+ {
+  "file": "paper_vp9.mp4",
+  "poster": "paper_vp9.jpg",
+  "title": "Another match and court (videoplayback 9)",
+  "description": "The same pipeline on a different match, court colour and camera position.",
+  "source": "PAPER_OUTPUT\\video\\vp9_bicausal_paper.mp4"
+ },
+ {
+  "file": "paper_usa.mp4",
+  "poster": "paper_usa.jpg",
+  "title": "Paper feature read-out (USA match)",
+  "description": "A different broadcast, court colour and camera height, processed by the same pipeline.",
+  "source": "PAPER_OUTPUT\\video\\usa_bicausal_paper.mp4"
+ }
+]

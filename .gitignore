@@ -66,3 +66,5 @@ zi5nYeAc
 
 # Small demo videos for the README (screen recording of the web app)
 !docs/assets/*.mp4
+!webapp/storage/demos/*.mp4
+webapp/storage/demos/team_tactics_vp3.mp4
