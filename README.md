@@ -291,7 +291,7 @@ volleyball-tactical-intelligence-fyp/
 └── .github/                  CI workflow, issue and pull-request templates
 ```
 
-**Not in the repository** (GitHub size limits): the source match videos and rendered outputs (~37 GB), regenerable feature caches, two `extra_trees.joblib` files over 100 MB, and stock YOLO weights (downloaded automatically by Ultralytics).
+**Not in the repository** (GitHub size limits): the source match videos and rendered outputs (~37 GB), regenerable feature caches, and stock YOLO weights (downloaded automatically by Ultralytics). The `extra_trees.joblib` models are over GitHub's 100 MB file limit, so they are attached to the [v1.0.0 release](https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp/releases/tag/v1.0.0) instead. Save each one as `extra_trees.joblib`: `extra_trees_v6` in `ml_models_v6/`, `extra_trees_v5` in `ml_models_v5/`, `extra_trees_v4_ALL_13_MODELS` in `ALL_13_MODELS/ML_models/` and `ml_models_all/`.
 
 ---
 

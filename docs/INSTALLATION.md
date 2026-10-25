@@ -133,7 +133,7 @@ Expected result: the usage text with flags such as `--auto-court`, `--team-split
 | File / folder | What it is |
 |---|---|
 | `tactical_ml_v6.joblib` | Deployed 4-class classifier (HistGradientBoosting) |
-| `ml_models_v6/` | All 12 scikit-learn models from the latest run (except `extra_trees.joblib`, which is over GitHub's 100 MB limit) |
+| `ml_models_v6/` | All 12 scikit-learn models from the latest run (`extra_trees.joblib` is over GitHub's 100 MB limit: download `extra_trees_v6.joblib` from the [v1.0.0 release](https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp/releases/tag/v1.0.0) and save it as `ml_models_v6/extra_trees.joblib`) |
 | `mamba_v4_*.pt` | Deep models: InceptionTime, TCN, BiLSTM + Attention, Mamba SSM |
 | `ALL_13_MODELS/`, `BINARY_ATTACK_DEFENSE/` | 13-model bundle and the 2-class Attack/Defense models |
 | `fyp/volleyball_best.pt` | Fine-tuned YOLO ball detector |
