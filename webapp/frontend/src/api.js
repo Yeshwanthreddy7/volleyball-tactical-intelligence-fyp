@@ -160,3 +160,36 @@ export async function uploadFile(file, onProgress, signal) {
   }
   return uid;
 }
+
+// ---- keep-alive: an analysis runs only while the website is open somewhere.
+// Every open page sends a heartbeat for this browser's unfinished analyses;
+// the server cancels an analysis when the heartbeats stop (website closed).
+const ACTIVE_KEY = "vta-active-jobs";
+
+function readActive() {
+  try { return JSON.parse(localStorage.getItem(ACTIVE_KEY) || "[]"); } catch { return []; }
+}
+function writeActive(ids) {
+  try { localStorage.setItem(ACTIVE_KEY, JSON.stringify([...new Set(ids)].slice(-20))); } catch { /* private mode */ }
+}
+export function trackJob(id) {
+  writeActive([...readActive(), id]);
+}
+
+export async function sendHeartbeat() {
+  const ids = readActive();
+  if (!ids.length) return;
+  try {
+    const r = await request("/api/analyses/heartbeat", { method: "POST", body: { ids } });
+    const still = ids.filter((id) => ["queued", "processing"].includes(r.status?.[id]));
+    writeActive(still);
+  } catch { /* server offline: try again on the next beat */ }
+}
+
+export function startHeartbeat() {
+  sendHeartbeat();
+  const t = setInterval(sendHeartbeat, 20000);
+  const onVisible = () => document.visibilityState === "visible" && sendHeartbeat();
+  document.addEventListener("visibilitychange", onVisible);
+  return () => { clearInterval(t); document.removeEventListener("visibilitychange", onVisible); };
+}

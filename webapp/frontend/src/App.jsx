@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, Route, Routes, useLocation } from "react-router-dom";
-import { api } from "./api.js";
+import { api, startHeartbeat } from "./api.js";
 import Home from "./pages/Home.jsx";
 import Analyze from "./pages/Analyze.jsx";
 import Analysis from "./pages/Analysis.jsx";
@@ -42,6 +42,7 @@ export default function App() {
   const loc = useLocation();
   useEffect(() => { setOpen(false); window.scrollTo(0, 0); }, [loc.pathname]);
   useEffect(() => { api.info().then((i) => i.github && setGithub(i.github)).catch(() => {}); }, []);
+  useEffect(() => startHeartbeat(), []);
 
   return (
     <>

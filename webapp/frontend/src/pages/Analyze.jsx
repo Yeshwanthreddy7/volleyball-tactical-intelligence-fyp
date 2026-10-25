@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api, uploadFile } from "../api.js";
+import { api, trackJob, sendHeartbeat, uploadFile } from "../api.js";
 import { TACTICS } from "../content.js";
 
 const MB = 1024 * 1024;
@@ -79,6 +79,8 @@ export default function Analyze() {
         setUp({ sent, total, rate: secs > 0.5 ? sent / secs : 0 });
       }, abort.current.signal);
       const job = await api.create({ upload_id: uid, mode, start: s ?? 0, end: e ?? null });
+      trackJob(job.id);
+      sendHeartbeat();
       nav(`/analysis/${job.id}`);
     } catch (ex) {
       setUp(null);
@@ -261,7 +263,8 @@ export default function Analyze() {
           </button>
           </>}
           <p className="small faint" style={{ marginTop: 12 }}>
-            Videos and results are kept for 14 days and are only listed in this browser.
+            Keep this website open until the analysis finishes: if every page of the site is closed, the
+            analysis is cancelled after a few minutes. Results are kept for 7 days and listed only in this browser.
           </p>
         </div>
       </div>

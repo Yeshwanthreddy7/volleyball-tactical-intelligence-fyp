@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { api, apiUrl, fileUrl } from "../api.js";
+import { api, apiUrl, fileUrl, trackJob } from "../api.js";
 import { OPP_HEX, TACTICS, TACTIC_HEX } from "../content.js";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import Notepad from "../components/Notepad.jsx";
@@ -66,7 +66,8 @@ function Progress({ job, onCancel }) {
         ))}
       </div>
       <p className="small faint" style={{ marginTop: 18 }}>
-        You can close this page - the analysis keeps running on the server and appears under "My analyses" in this browser.
+        Keep this website open (any page of it) until the analysis finishes. If you close the website, the
+        analysis is cancelled automatically after a few minutes so it does not hold up other users.
       </p>
       <button className="btn danger sm" onClick={onCancel}>Cancel analysis</button>
     </div>
@@ -287,7 +288,10 @@ export default function Analysis() {
         const j = await api.analysis(id);
         if (!alive) return;
         setJob(j);
-        if (j.status === "queued" || j.status === "processing") timer = setTimeout(tick, 2000);
+        if (j.status === "queued" || j.status === "processing") {
+          trackJob(j.id); // this page keeps the analysis alive while it is open
+          timer = setTimeout(tick, 2000);
+        }
       } catch (e) {
         if (alive) setErr(e.message);
       }

@@ -172,6 +172,10 @@ def create_analysis(body: AnalysisCreate, x_client_id: str | None = Header(None)
         raise HTTPException(400, "End time must be after start time.")
     if worker.queue_length() >= MAX_QUEUE:
         raise HTTPException(429, "The analysis queue is full. Please try again later.")
+    # one unfinished analysis per browser: a new upload replaces the previous one
+    for old in store.find_status(["queued", "processing"]):
+        if old.get("owner") == owner:
+            worker.cancel(old["id"], "Replaced by a newer upload from the same browser")
     job_id = uuid.uuid4().hex
     video_file = _safe_name(meta["filename"])
     doc = {"id": job_id, "owner": owner, "original_name": meta["filename"], "size": meta["size"],
@@ -188,6 +192,28 @@ def create_analysis(body: AnalysisCreate, x_client_id: str | None = Header(None)
         "mode": body.mode, "start": body.start, "end": body.end}))
     worker.submit(job_id)
     return _public(store.get(job_id))
+
+
+class Heartbeat(BaseModel):
+    ids: list[str] = Field(default_factory=list, max_length=50)
+
+
+@app.post("/api/analyses/heartbeat")
+def heartbeat(body: Heartbeat, x_client_id: str | None = Header(None)):
+    """Called every 20 s by every open page of the website for its unfinished analyses."""
+    owner = _owner(x_client_id)
+    alive, status = [], {}
+    for jid in body.ids:
+        if not re.fullmatch(r"[0-9a-f]{32}", jid):
+            continue
+        job = store.get(jid)
+        if not job or job.get("owner") != owner:
+            continue
+        status[jid] = job["status"]
+        if job["status"] in ("queued", "processing"):
+            alive.append(jid)
+    worker.touch(alive)
+    return {"status": status}
 
 
 @app.get("/api/analyses")

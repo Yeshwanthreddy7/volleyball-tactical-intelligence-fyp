@@ -16,6 +16,10 @@ from . import config
 from .db import now_iso, store
 
 RETENTION_DAYS = float(os.environ.get("VTA_RETENTION_DAYS", "14"))
+# An open website sends a heartbeat for its unfinished analyses every 20 s; a job
+# nobody has watched for this long (tab / browser closed) is cancelled so it
+# does not block the queue for everyone else.
+ABANDON_SECONDS = float(os.environ.get("VTA_ABANDON_SECONDS", "300"))
 
 
 def _kill_tree(proc: subprocess.Popen) -> None:
@@ -39,11 +43,13 @@ class Worker(threading.Thread):
         self._lock = threading.Lock()
         self.current: str | None = None
         self._proc: subprocess.Popen | None = None
+        self._seen: dict[str, float] = {}
 
     # ------------------------------------------------------------ public API
     def submit(self, job_id: str) -> None:
         with self._lock:
             self._pending.append(job_id)
+            self._seen[job_id] = time.time()
         self._q.put(job_id)
 
     def position(self, job_id: str) -> int | None:
@@ -54,7 +60,19 @@ class Worker(threading.Thread):
         with self._lock:
             return len(self._pending) + (1 if self.current else 0)
 
-    def cancel(self, job_id: str) -> None:
+    def touch(self, job_ids) -> None:
+        """Heartbeat from an open browser tab: these analyses are still wanted."""
+        now = time.time()
+        with self._lock:
+            for j in job_ids:
+                if j in self._pending or j == self.current:
+                    self._seen[j] = now
+
+    def active_ids(self) -> list[str]:
+        with self._lock:
+            return list(self._pending) + ([self.current] if self.current else [])
+
+    def cancel(self, job_id: str, message: str = "Cancelled by user") -> None:
         with self._lock:
             if job_id in self._pending:
                 self._pending.remove(job_id)
@@ -62,8 +80,10 @@ class Worker(threading.Thread):
             (config.JOBS_DIR / job_id / "CANCEL").touch()
             if self._proc is not None:
                 _kill_tree(self._proc)
+        with self._lock:
+            self._seen.pop(job_id, None)
         store.update(job_id, {"status": "cancelled", "stage": "cancelled",
-                              "message": "Cancelled by user", "finished_at": now_iso()})
+                              "message": message, "finished_at": now_iso()})
 
     def recover(self) -> None:
         """Re-queue work interrupted by a server restart (detection resumes from its checkpoint)."""
@@ -75,6 +95,7 @@ class Worker(threading.Thread):
     # ------------------------------------------------------------ loop
     def run(self) -> None:
         threading.Thread(target=self._janitor, daemon=True, name="janitor").start()
+        threading.Thread(target=self._watchdog, daemon=True, name="watchdog").start()
         while True:
             job_id = self._q.get()
             with self._lock:
@@ -147,6 +168,17 @@ class Worker(threading.Thread):
             store.update(job_id, {"stage": p.get("stage"), "progress": p.get("progress", 0),
                                   "message": p.get("message", "")})
         return raw
+
+    def _watchdog(self) -> None:
+        """Cancel analyses whose website was closed (no heartbeat for ABANDON_SECONDS)."""
+        while True:
+            time.sleep(15)
+            now = time.time()
+            for j in self.active_ids():
+                with self._lock:
+                    seen = self._seen.setdefault(j, now)
+                if now - seen > ABANDON_SECONDS:
+                    self.cancel(j, "Cancelled automatically: the website was closed before the analysis finished")
 
     def _janitor(self) -> None:
         """Delete analyses (files + DB rows) older than VTA_RETENTION_DAYS and stale uploads."""
