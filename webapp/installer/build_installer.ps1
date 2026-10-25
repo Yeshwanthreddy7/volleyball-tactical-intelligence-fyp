@@ -55,6 +55,7 @@ Copy-Rel "ml_results_v6\ml_results.json"
 Copy-Rel "deep_results_v6\deep_results.json"
 # documentation portal
 Get-ChildItem "$repo\*.md" | ForEach-Object { Copy-Rel $_.Name }
+Copy-Rel "docs"
 foreach ($r in "ALL_13_MODELS\README.md", "BINARY_ATTACK_DEFENSE\README.md", "FINALE_OUTPUTS\README.md",
                "PANEL_REVIEW\README.md", "PANEL_REVIEW\architecture_diagram.svg", "figures_atlas",
                "figures_perclass_f1", "figures_workflow", "model_comparison", "lovo_metrics_chart.png",

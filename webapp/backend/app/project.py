@@ -10,20 +10,20 @@ from pathlib import Path
 from . import config
 
 DOCS = [
-    ("project-documentation", "Project documentation (full)", "PROJECT_DOCUMENTATION.md"),
+    ("project-documentation", "Project documentation (full)", "docs/PROJECT_DOCUMENTATION.md"),
     ("readme", "Project README", "README.md"),
-    ("methodology", "Methodology", "METHODOLOGY.md"),
-    ("training", "Training guide", "TRAINING.md"),
+    ("methodology", "Methodology", "docs/METHODOLOGY.md"),
+    ("training", "Training guide", "docs/TRAINING.md"),
     ("all-13-models", "All 13 models", "ALL_13_MODELS/README.md"),
     ("binary-attack-defense", "Binary attack / defense models", "BINARY_ATTACK_DEFENSE/README.md"),
     ("final-outputs", "Final outputs", "FINALE_OUTPUTS/README.md"),
     ("panel-review", "Panel review: two-stream model", "PANEL_REVIEW/README.md"),
     ("data-atlas", "Data atlas (figures)", "figures_atlas/README.md"),
-    ("glossary", "Glossary", "GLOSSARY_MASTER.md"),
-    ("defense", "Viva / defense notes", "DEFENSE_MASTER.md"),
-    ("technical-review", "Technical review and Q&A", "Technical_Review_and_QA.md"),
-    ("audit", "Audit findings", "AUDIT_FINDINGS.md"),
-    ("fix-plan", "Fix plan", "FIX_PLAN.md"),
+    ("glossary", "Glossary", "docs/GLOSSARY_MASTER.md"),
+    ("defense", "Viva / defense notes", "docs/DEFENSE_MASTER.md"),
+    ("technical-review", "Technical review and Q&A", "docs/Technical_Review_and_QA.md"),
+    ("audit", "Audit findings", "docs/AUDIT_FINDINGS.md"),
+    ("fix-plan", "Fix plan", "docs/FIX_PLAN.md"),
 ]
 
 FIGURES = [

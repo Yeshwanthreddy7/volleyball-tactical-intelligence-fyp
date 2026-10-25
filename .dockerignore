@@ -17,6 +17,7 @@
 
 # documentation portal
 !*.md
+!docs/*.md
 !ALL_13_MODELS/README.md
 !BINARY_ATTACK_DEFENSE/README.md
 !FINALE_OUTPUTS/README.md
