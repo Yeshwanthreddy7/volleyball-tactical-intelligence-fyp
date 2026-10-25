@@ -6,7 +6,7 @@ Final Year Project · Group 56 · Department of Computer Science and Engineering
 
 | Item | Details |
 |---|---|
-| **Team** | Keshavramprakash D (CB.SC.U4CSE23425) · K. Surya Sekhar (CB.SC.U4CSE23420) · G. Bharath Chandra (CB.SC.U4CSE23414) · V. Punith Sai (CB.SC.U4CSE23768) · U. Yeshwanth Kumar Reddy (CB.SC.U4CS23453) |
+| **Team** | Keshavramprakash D (CB.SC.U4CSE23425) · K. Surya Sekhar (CB.SC.U4CSE23420) · G. Bharath Chandra (CB.SC.U4CSE23415) · V. Punith Sai (CB.SC.U4CSE23768) · U. Yeshwanth Kumar Reddy (CB.SC.U4CS23453) |
 | **Guide** | Dr. Divya Singh, Assistant Professor, Department of CSE |
 | **Website** | https://volleyanalyzer.vercel.app (portal) · http://volleyballtactics.localhost (full app with upload, on the project laptop) |
 | **Source code** | https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp |

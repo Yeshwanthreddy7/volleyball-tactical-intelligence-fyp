@@ -92,11 +92,11 @@ export const TEAM = {
   group: "Group 56",
   department: "Department of Computer Science and Engineering",
   members: [
-    { name: "Keshavramprakash D", id: "CB.SC.U4CSE23425" },
-    { name: "K. Surya Sekhar", id: "CB.SC.U4CSE23420" },
-    { name: "G. Bharath Chandra", id: "CB.SC.U4CSE23414" },
-    { name: "V. Punith Sai", id: "CB.SC.U4CSE23768" },
-    { name: "U. Yeshwanth Kumar Reddy", id: "CB.SC.U4CS23453" },
+    { name: "Keshavramprakash D", id: "CB.SC.U4CSE23425", photo: "/team/keshav.jpg" },
+    { name: "K. Surya Sekhar", id: "CB.SC.U4CSE23420", photo: "/team/suryasekhar.jpg" },
+    { name: "G. Bharath Chandra", id: "CB.SC.U4CSE23415", photo: "/team/bharathchandra.jpg" },
+    { name: "V. Punith Sai", id: "CB.SC.U4CSE23768", photo: "/team/punithsai.jpg" },
+    { name: "U. Yeshwanth Kumar Reddy", id: "CB.SC.U4CS23453", photo: "/team/yeshwanthkumarreddy.jpg" },
   ],
   guide: { name: "Dr. Divya Singh", role: "Assistant Professor, Department of CSE" },
 };

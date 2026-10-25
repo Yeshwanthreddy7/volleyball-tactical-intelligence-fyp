@@ -149,13 +149,15 @@ export default function Analyze() {
 
       {health?.via && (
         <div className="alert info" style={{ margin: "16px 0" }}>
-          🟢 Connected to the project's GPU analysis server. Your video is processed there and the results open here.
+          🟢 Connected to the project's analysis server{health.gpu?.available ? " (GPU)" : " (cloud)"}. Your video is processed
+          there and the results open here.
         </div>
       )}
       {health && !health.gpu?.available && (
         <div className="alert warn" style={{ margin: "16px 0" }}>
-          This analysis server runs on a free cloud CPU (no GPU), so processing is slow: use short clips
-          (up to about 1 minute, choose the part with the time range) and Fast mode.
+          This analysis server runs on a cloud CPU (no GPU), so processing is slow: about 1 minute per second
+          of video in Fast mode. Any video up to 500 MB is accepted; for quicker results choose Fast mode and
+          analyse only the part you need with the time range.
         </div>
       )}
 

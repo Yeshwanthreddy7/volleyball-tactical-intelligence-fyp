@@ -321,7 +321,7 @@ python reproduce.py                # regenerate metrics/figures; non-zero exit i
 |---|---|
 | Keshavramprakash D | CB.SC.U4CSE23425 |
 | K. Surya Sekhar | CB.SC.U4CSE23420 |
-| G. Bharath Chandra | CB.SC.U4CSE23414 |
+| G. Bharath Chandra | CB.SC.U4CSE23415 |
 | V. Punith Sai | CB.SC.U4CSE23768 |
 | U. Yeshwanth Kumar Reddy | CB.SC.U4CS23453 |
 
