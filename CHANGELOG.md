@@ -2,6 +2,17 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Always-on Azure analysis server: shared CPU Docker image (`webapp/hfspace/`) and one-command deploy script (`webapp/azure/deploy_azure.ps1`).
+- Team photos on the web app's Team page; cloud-aware upload page.
+- Result files for the 2-class models (`BINARY_ATTACK_DEFENSE/results/`) and the full-match run (`v7_tactical/results/`).
+
+### Fixed
+- G. Bharath Chandra's roll number (CB.SC.U4CSE23415).
+- `.gitignore` rule `results/` hid every results folder; it now ignores only the root `/results/` written by `reproduce.py`.
+
 ## [1.0.0] - 2026-10-25
 
 First public release of the complete project.
