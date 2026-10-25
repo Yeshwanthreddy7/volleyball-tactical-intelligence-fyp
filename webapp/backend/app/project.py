@@ -12,6 +12,7 @@ from . import config
 DOCS = [
     ("project-documentation", "Project documentation (full)", "docs/PROJECT_DOCUMENTATION.md"),
     ("readme", "Project README", "README.md"),
+    ("installation", "Installation guide", "docs/INSTALLATION.md"),
     ("methodology", "Methodology", "docs/METHODOLOGY.md"),
     ("training", "Training guide", "docs/TRAINING.md"),
     ("all-13-models", "All 13 models", "ALL_13_MODELS/README.md"),

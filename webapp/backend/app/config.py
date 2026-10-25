@@ -49,6 +49,6 @@ BALL_MODEL = REPO_ROOT / "fyp" / "volleyball_best.pt"
 TACTICAL_MODEL = Path(os.environ.get("VTA_TACTICAL_MODEL", REPO_ROOT / "tactical_ml_v6.joblib"))
 
 SITE_NAME = "Volleyball Tactical Analysis"
-SITE_DOMAIN = os.environ.get("VTA_DOMAIN", "volleyballtacticalanalyze.com")
+SITE_DOMAIN = os.environ.get("VTA_DOMAIN", "volleyballanalyzer.dpdns.org")
 GITHUB_URL = os.environ.get(
     "VTA_GITHUB_URL", "https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp")
