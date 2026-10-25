@@ -49,7 +49,9 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(Path.home() / "vta_build" / "vercel"))
     ap.add_argument("--desktop-url", default="", help="download link of VolleyballTacticalAnalysis-Setup.exe")
-    ap.add_argument("--live-url", default="", help="URL of a running analysis server (e.g. a tunnel link)")
+    # the always-on Azure analysis server (webapp/azure/); pass --live-url "" to publish offline
+    ap.add_argument("--live-url", default="https://20-197-61-218.sslip.io",
+                    help="URL of the running analysis server (Azure VM by default, or a tunnel link)")
     a = ap.parse_args()
     out = Path(a.out)
     if out.exists():
@@ -123,8 +125,14 @@ def main() -> None:
          "destination": "/repo/:p"},
         {"source": "/((?!api/|assets/|static-api/|repo/|demos/).*)", "destination": "/index.html"},
     ]
+    # history lives in per-origin localStorage, so send every alias to one host
+    redirects = [{"source": "/:path*", "has": [{"type": "host", "value": host}],
+                  "destination": "https://volleyballanalyzer.dpdns.org/:path*", "permanent": False}
+                 for host in ("volleyballtactics.vercel.app", "volleyanalyzer.vercel.app", "volleytactix.vercel.app",
+                              "volleyballtacticalanalysis.vercel.app")]
     vercel = {
         "cleanUrls": False,
+        "redirects": redirects,
         "rewrites": rewrites,
         "headers": [
             {"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]},

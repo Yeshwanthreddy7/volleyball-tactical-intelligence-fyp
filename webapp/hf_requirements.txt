@@ -1,0 +1,16 @@
+# Hugging Face Space runtime: the desktop app's tested pins, headless OpenCV,
+# no pywebview. torch/torchvision (CPU) are installed first by Dockerfile.hf.
+ultralytics==8.4.115
+scikit-learn==1.5.1
+joblib==1.4.2
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.2
+opencv-python-headless==4.10.0.84
+pillow==10.4.0
+imageio-ffmpeg==0.6.0
+lap==0.5.13
+fastapi==0.162.0
+uvicorn[standard]==0.54.0
+pymongo==4.19.0
+python-multipart

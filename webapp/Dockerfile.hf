@@ -1,0 +1,35 @@
+# Volleyball Tactical Analysis - Hugging Face Spaces image (free CPU tier).
+# Same app as webapp/Dockerfile, but CPU-only torch, port 7860 and a
+# non-root user, as Spaces requires. Staged and uploaded by
+# webapp/scripts/build_hf_space.py - not built from the repo directly.
+
+# ---------- 1. frontend
+FROM node:20-alpine AS web
+WORKDIR /web
+COPY webapp/frontend/package.json webapp/frontend/package-lock.json* ./
+RUN npm ci --include=dev || npm install --include=dev
+COPY webapp/frontend/ ./
+RUN npm run build
+
+# ---------- 2. backend + research code
+FROM python:3.11-slim
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        fonts-dejavu-core libgl1 libglib2.0-0 && rm -rf /var/lib/apt/lists/*
+RUN useradd -m -u 1000 user
+ENV HOME=/home/user PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 LOKY_MAX_CPU_COUNT=2 \
+    VTA_FORCE_CPU=1 YOLO_CONFIG_DIR=/home/user/.yolo \
+    VTA_REPO_ROOT=/app VTA_STORAGE_DIR=/home/user/storage VTA_DEMOS_DIR=/app/webapp/storage/demos \
+    VTA_FRONTEND_DIST=/app/webapp/frontend/dist
+WORKDIR /app
+RUN pip install torch==2.4.1 torchvision==0.19.1 --index-url https://download.pytorch.org/whl/cpu
+COPY webapp/hf_requirements.txt /tmp/req.txt
+RUN pip install -r /tmp/req.txt
+
+COPY --chown=user . /app
+COPY --from=web --chown=user /web/dist /app/webapp/frontend/dist
+
+USER user
+RUN mkdir -p /home/user/storage /home/user/.yolo
+WORKDIR /app/webapp/backend
+EXPOSE 7860
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860", "--proxy-headers", "--forwarded-allow-ips", "*"]

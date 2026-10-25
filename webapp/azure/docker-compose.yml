@@ -1,0 +1,31 @@
+# Volleyball Tactical Analysis - Azure VM (CPU). Public: https://20-197-61-218.sslip.io
+services:
+  app:
+    build: ./src
+    restart: always
+    environment:
+      VTA_STORAGE_DIR: /data
+      MONGODB_URI: mongodb://mongo:27017
+      VTA_MAX_VIDEO_SECONDS: "90"
+      VTA_RETENTION_DAYS: "7"
+      OMP_NUM_THREADS: "2"
+    volumes:
+      - /srv/vta/data:/data
+    depends_on: [mongo]
+  mongo:
+    image: mongo:7
+    restart: always
+    command: ["--wiredTigerCacheSizeGB", "0.25"]
+    volumes:
+      - mongo-data:/data/db
+  caddy:
+    image: caddy:2
+    restart: always
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    depends_on: [app]
+volumes:
+  mongo-data:
+  caddy-data:
