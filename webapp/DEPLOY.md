@@ -14,6 +14,20 @@ Full-stack app in `webapp/`:
 The analysis needs an NVIDIA GPU. About 9 frames/s for detection plus 9 frames/s for
 rendering on an RTX 3050 laptop GPU, so 5 minutes of 30 fps video takes roughly 35 minutes.
 
+## 0. Live public deployment (current)
+
+| Part | Where |
+|---|---|
+| Website (all devices, 24/7) | https://volleyballanalyzer.dpdns.org (Vercel, also volleyballtactics.vercel.app) |
+| Analysis server (uploads, 24/7) | Azure for Students VM `vta-server` (resource group `vta-rg`, Central India, Standard_B2als_v2: 2 vCPU, 4 GB + 4 GB swap, Ubuntu 24.04) |
+| Server address | https://20-197-61-218.sslip.io (Caddy auto-HTTPS, docker compose: app + MongoDB 7 + Caddy, in `/srv/vta`) |
+| Config | `webapp/azure/docker-compose.yml`, `webapp/azure/Caddyfile`; image built from `webapp/hfspace/Dockerfile` (CPU PyTorch) |
+| Update everything | `powershell -ExecutionPolicy Bypass -File webappzure\deploy_azure.ps1` |
+| SSH | `ssh -i %USERPROFILE%\.sshta_azure azureuser@20.197.61.218` |
+
+The server has no GPU: about 1 minute of processing per second of video in Fast mode, so the cloud
+limits analysis to 90 s of video per upload. Cost: about $27/month from the $100 student credit.
+
 ## 1. Run on this PC (Windows)
 
 1. MongoDB: start Docker Desktop, then once

@@ -98,7 +98,8 @@ try {
     }
 } finally {
     if ($proc -and -not $proc.HasExited) { Stop-Process $proc -Force }
-    Write-Host "Going offline: removing the live link from the website..." -ForegroundColor Cyan
-    Publish "" | Out-Null
+    # back to the always-on Azure analysis server (webapp/azure/), not offline
+    Write-Host "Laptop offline: pointing the website back at the Azure server..." -ForegroundColor Cyan
+    Publish "https://20-197-61-218.sslip.io" | Out-Null
     Stop-Transcript | Out-Null
 }

@@ -6,7 +6,7 @@ services:
     environment:
       VTA_STORAGE_DIR: /data
       MONGODB_URI: mongodb://mongo:27017
-      VTA_MAX_VIDEO_SECONDS: "90"
+      VTA_MAX_VIDEO_SECONDS: "14400"
       VTA_RETENTION_DAYS: "7"
       OMP_NUM_THREADS: "2"
     volumes:
