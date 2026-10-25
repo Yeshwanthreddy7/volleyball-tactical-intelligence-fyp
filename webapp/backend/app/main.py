@@ -250,6 +250,17 @@ def analysis_file(job_id: str, name: str, download: bool = False):
     return FileResponse(p, media_type=media, headers=headers)
 
 
+@app.get("/api/analyses/{job_id}/clips/{tactic}/{name}")
+def analysis_clip(job_id: str, tactic: str, name: str):
+    _job(job_id)
+    if not re.fullmatch(r"[a-z_]{3,40}", tactic) or not re.fullmatch(r"clip_\d{2}\.mp4", name):
+        raise HTTPException(404, "Clip not found.")
+    p = config.JOBS_DIR / job_id / "output" / "clips" / tactic / name
+    if not p.exists():
+        raise HTTPException(404, "Clip not found.")
+    return FileResponse(p, media_type="video/mp4", headers={"Cache-Control": "private, max-age=3600"})
+
+
 @app.get("/api/analyses/{job_id}/court.png")
 def analysis_court(job_id: str):
     job = _job(job_id)

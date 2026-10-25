@@ -38,7 +38,7 @@ import cv2
 import imageio_ffmpeg
 from PIL import ImageFont
 
-from . import config, reports
+from . import clips, config, reports
 
 for _p in (config.RENDER_DIR, config.REPO_ROOT / "OUTPUTS", config.REPO_ROOT / "fyp",
            config.REPO_ROOT / "BASEFRAMES"):
@@ -309,6 +309,8 @@ def run(job_dir: Path) -> dict:
     }
     result["summary"] = reports.summarise(result)
     reports.write_all(result, job_dir / "output", params.get("original_name", video.name))
+    progress.set("reporting", 99.5, "Cutting example clips for each tactic")
+    result["clips"] = clips.make_clips(job_dir, result)
     (job_dir / "result.json").write_text(json.dumps(result, indent=1), encoding="utf-8")
     cache.unlink(missing_ok=True)       # hundreds of MB, only needed while rendering
     progress.set("done", 100, "Analysis complete")

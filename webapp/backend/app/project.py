@@ -10,6 +10,7 @@ from pathlib import Path
 from . import config
 
 DOCS = [
+    ("project-documentation", "Project documentation (full)", "PROJECT_DOCUMENTATION.md"),
     ("readme", "Project README", "README.md"),
     ("methodology", "Methodology", "METHODOLOGY.md"),
     ("training", "Training guide", "TRAINING.md"),
@@ -79,10 +80,16 @@ def metrics() -> dict:
     }
 
 
+def _doc_path(rel: str) -> Path:
+    # on Hugging Face the root README.md is the Space card; the project README is kept as PROJECT_README.md
+    alt = config.REPO_ROOT / "PROJECT_README.md"
+    return alt if rel == "README.md" and alt.exists() else config.REPO_ROOT / rel
+
+
 def docs_index() -> list[dict]:
     out = []
     for slug, title, rel in DOCS:
-        p = config.REPO_ROOT / rel
+        p = _doc_path(rel)
         if p.exists():
             out.append({"slug": slug, "title": title, "path": rel, "bytes": p.stat().st_size})
     return out
@@ -91,7 +98,7 @@ def docs_index() -> list[dict]:
 def doc(slug: str) -> dict | None:
     for s, title, rel in DOCS:
         if s == slug:
-            p = config.REPO_ROOT / rel
+            p = _doc_path(rel)
             if not p.exists():
                 return None
             return {"slug": s, "title": title, "path": rel,
