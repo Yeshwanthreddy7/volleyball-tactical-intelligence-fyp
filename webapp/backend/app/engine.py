@@ -112,7 +112,8 @@ def calibrate_court(video: Path, job_dir: Path, w: int, h: int, bc) -> dict:
     # ROOT is pointed at the job folder before rendering
     bf_dir = job_dir / "BASEFRAMES" / "base_frame"
     bf_dir.mkdir(parents=True, exist_ok=True)
-    ebf.process_video(video, bf_dir, n_sample=400, n_clusters=8, n_keep=120, overwrite=True)
+    n = config.BASEFRAME_SAMPLES
+    ebf.process_video(video, bf_dir, n_sample=n, n_clusters=8, n_keep=max(40, n * 3 // 10), overwrite=True)
     png = bf_dir / f"{video.stem}.png"
     if png.exists():
         try:
@@ -139,11 +140,11 @@ def calibrate_court(video: Path, job_dir: Path, w: int, h: int, bc) -> dict:
 
 # ---------------------------------------------------------------- 2. detection
 def run_extract(video: Path, job_dir: Path, start: float, seconds: float, imgsz: int,
-                progress: Progress, lo: float, hi: float) -> Path:
+                progress: Progress, lo: float, hi: float, pose_model: Path = config.POSE_MODEL) -> Path:
     cache = job_dir / "cache.pkl"
     cmd = [config.PYTHON_EXE, "-u", str(config.EXTRACT_SCRIPT), str(video),
            "--start", f"{start:.3f}", "--seconds", f"{seconds:.3f}", "--imgsz", str(imgsz),
-           "--pose-model", str(config.POSE_MODEL), "--ball-model", str(config.BALL_MODEL),
+           "--pose-model", str(pose_model), "--ball-model", str(config.BALL_MODEL),
            "--out", str(cache), "--checkpoint-every", "1500"]
     pat = re.compile(r"frame (\d+)/(\d+)")
     with open(job_dir / "extract.log", "a", encoding="utf-8") as log:
@@ -263,7 +264,9 @@ def run(job_dir: Path) -> dict:
     params = json.loads((job_dir / "params.json").read_text(encoding="utf-8"))
     progress = Progress(job_dir)
     video = job_dir / params["video_file"]
-    imgsz = 1280 if params.get("mode", "accurate") == "accurate" else 960
+    mode = params.get("mode", "accurate") if params.get("mode") in ("accurate", "fast") else "accurate"
+    imgsz = config.IMGSZ_BY_MODE[mode]
+    pose_model = config.POSE_MODEL_BY_MODE[mode]
 
     progress.set("probing", 1, "Reading video")
     meta = probe(video)
@@ -285,7 +288,7 @@ def run(job_dir: Path) -> dict:
     bc.COURTS[video.name] = (court["img"], court["court"])
 
     progress.set("detecting", 6, "Loading detection models")
-    cache = run_extract(video, job_dir, start, seconds, imgsz, progress, 6, 62)
+    cache = run_extract(video, job_dir, start, seconds, imgsz, progress, 6, 62, pose_model)
 
     raw, summary, tac_csv, opp_csv = render_video(cache, job_dir, progress, 62, 94)
     fps = float(summary["fps"])

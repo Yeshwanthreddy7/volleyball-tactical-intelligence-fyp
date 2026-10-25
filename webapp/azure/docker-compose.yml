@@ -9,6 +9,12 @@ services:
       VTA_MAX_VIDEO_SECONDS: "14400"
       VTA_RETENTION_DAYS: "7"
       OMP_NUM_THREADS: "2"
+      # lighter cloud mode (CPU, no GPU) - benchmarked on this VM
+      VTA_POSE_FAST: OUTPUTS/yolo11n-pose.pt
+      VTA_POSE_ACCURATE: OUTPUTS/yolo11s-pose.pt
+      VTA_IMGSZ_FAST: "960"
+      VTA_IMGSZ_ACCURATE: "960"
+      VTA_BASEFRAME_SAMPLES: "150"
     volumes:
       - /srv/vta/data:/data
     depends_on: [mongo]

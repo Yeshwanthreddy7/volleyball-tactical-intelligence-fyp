@@ -20,6 +20,7 @@ SPACE = "volleyballanalyzer"
 # research code, models and portal content the app needs (same set as the installer)
 FILES = [
     "OUTPUTS/bicausal_extract.py", "OUTPUTS/bicausal_render.py", "OUTPUTS/yolo11m-pose.pt",
+    "OUTPUTS/yolo11s-pose.pt", "OUTPUTS/yolo11n-pose.pt",
     "fyp/volleyball_best.pt", "tactical_ml_v6.joblib", "ml_results_v6/ml_results.json",
     "deep_results_v6/deep_results.json", "PANEL_REVIEW/architecture_diagram.svg",
     "BASEFRAMES/_contact_sheet.png", "lovo_metrics_chart.png", "train_test_split_chart.png",

@@ -63,9 +63,9 @@ export default function Analyze() {
   // at 1280 px (13 at 960 px), rendering about 9 frames/s, plus ~1.5 min setup
   // on the free cloud server (CPU only) detection is roughly 15-20x slower
   const cpu = health && health.gpu && !health.gpu.available;
-  const fps = cpu ? (mode === "accurate" ? 0.45 : 0.75) : (mode === "accurate" ? 9 : 13);
+  const fps = cpu ? (mode === "accurate" ? 1.6 : 2.8) : (mode === "accurate" ? 9 : 13);
   const estMin = analysedSec
-    ? Math.ceil((analysedSec * 30 * (1 / fps + (cpu ? 1 / 6 : 1 / 9))) / 60 + 1.5) : null;
+    ? Math.ceil((analysedSec * 30 * (1 / fps + (cpu ? 1 / 15 : 1 / 9))) / 60 + 1.5) : null;
 
   const submit = async () => {
     if (!file || !mode || timeErr) return;
@@ -157,9 +157,9 @@ export default function Analyze() {
       )}
       {health && !health.gpu?.available && (
         <div className="alert warn" style={{ margin: "16px 0" }}>
-          This analysis server runs on a cloud CPU (no GPU), so processing is slow: about 1 minute per second
-          of video in Fast mode. Any video up to 500 MB is accepted; for quicker results choose Fast mode and
-          analyse only the part you need with the time range.
+          This analysis server runs on a cloud CPU (no GPU) with lighter detection models: about 15 minutes per
+          minute of video in Fast mode (25 in Accurate). Any video up to 500 MB is accepted; for quicker results
+          choose Fast mode and analyse only the part you need with the time range.
         </div>
       )}
 

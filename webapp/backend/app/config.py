@@ -45,6 +45,20 @@ EXTRACT_SCRIPT = REPO_ROOT / "OUTPUTS" / "bicausal_extract.py"
 # focus-team tactics + opponent SERVE / SPIKE / BLOCK renderer (new_render.py, team_tactics.py)
 RENDER_DIR = REPO_ROOT / "NEW_OUTPUTS" / "code"
 POSE_MODEL = REPO_ROOT / "OUTPUTS" / "yolo11m-pose.pt"
+# Per processing mode: pose weights and inference size. The defaults are the
+# research settings (GPU laptop). The CPU-only cloud server sets lighter ones
+# (webapp/azure/docker-compose.yml): measured there, nano pose @960 runs 4.1x
+# and small pose @960 2.3x faster than medium, with 93% / 97% of the players found.
+POSE_MODEL_BY_MODE = {
+    "accurate": REPO_ROOT / os.environ.get("VTA_POSE_ACCURATE", "OUTPUTS/yolo11m-pose.pt"),
+    "fast": REPO_ROOT / os.environ.get("VTA_POSE_FAST", "OUTPUTS/yolo11m-pose.pt"),
+}
+IMGSZ_BY_MODE = {
+    "accurate": int(os.environ.get("VTA_IMGSZ_ACCURATE", "1280")),
+    "fast": int(os.environ.get("VTA_IMGSZ_FAST", "960")),
+}
+# frames sampled to build the empty-court base frame (fewer = faster calibration)
+BASEFRAME_SAMPLES = int(os.environ.get("VTA_BASEFRAME_SAMPLES", "400"))
 BALL_MODEL = REPO_ROOT / "fyp" / "volleyball_best.pt"
 TACTICAL_MODEL = Path(os.environ.get("VTA_TACTICAL_MODEL", REPO_ROOT / "tactical_ml_v6.joblib"))
 
