@@ -1,0 +1,6 @@
+# Research pipeline (detection, tracking, features, classifiers, tests).
+# The web application has its own list: webapp/backend/requirements.txt
+-r fyp/requirements.txt
+
+# Figures and the data atlas (make_data_atlas.py, generate_*_chart.py)
+matplotlib>=3.7

@@ -32,6 +32,12 @@ lapx>=0.5.11
 scikit-learn>=1.3.0
 joblib>=1.3.0
 
+# Boosted-tree members of the model zoo (ml_classifier.build_models imports
+# LightGBM and CatBoost directly; XGBoost is used when installed)
+xgboost>=2.0
+lightgbm>=4.0
+catboost>=1.2
+
 # Unit tests
 pytest>=7.0.0
 

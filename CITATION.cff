@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "Volleyball Tactical Intelligence: Automated Team-Tactic Analysis from Broadcast Video"
+type: software
+version: 1.0.0
+date-released: 2026-10-25
+license: MIT
+repository-code: "https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp"
+url: "https://volleyballanalyzer.dpdns.org"
+authors:
+  - given-names: Keshavramprakash
+    family-names: D
+  - given-names: Surya Sekhar
+    family-names: K.
+  - given-names: Bharath Chandra
+    family-names: G.
+  - given-names: Punith Sai
+    family-names: V.
+  - given-names: Yeshwanth Kumar Reddy
+    family-names: U.
+keywords:
+  - volleyball
+  - sports analytics
+  - computer vision
+  - multi-object tracking
+  - YOLO
+  - time-series classification
+  - tactical analysis
+abstract: >-
+  An end-to-end pipeline that turns single-camera broadcast volleyball video
+  into a second-by-second reading of a team's collective tactic (Coordinated
+  Attack, Coordinated Defense, Delayed Support, Spacing Breakdown). It combines
+  YOLO11 detection, BoT-SORT tracking, automatic court calibration, colour-based
+  team separation and an 18-channel permutation-invariant formation descriptor,
+  classified by gradient-boosted trees and deep sequence models evaluated
+  leave-one-video-out.
