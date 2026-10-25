@@ -1,35 +1,94 @@
-# Volleyball Tactical Intelligence
+<div align="center">
 
-**Automated team-tactic analysis from a single broadcast camera.**
+# 🏐 Volleyball Tactical Intelligence
 
-This project takes raw volleyball match video and produces a second-by-second tactical reading of each team. It detects and tracks every player and the ball, projects them onto the court, separates the two teams, and builds a formation descriptor. A learned classifier then labels every 1-second window with the team's collective tactic.
+**Automated team-tactic analysis from a single broadcast camera**
 
-Final Year Project, Group 56.
+Detect and track every player and the ball, map them onto the court, and label each second of play with the team's collective tactic.
 
-<p align="center">
-  <img src="FINALE_OUTPUTS/accuracy/model_accuracy_chart.png" width="780" alt="Cross-video accuracy of the 13 tactical classifiers">
-</p>
+[![tests](https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp/actions/workflows/tests.yml/badge.svg)](https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-ee4c2c.svg)](https://pytorch.org/)
+[![YOLO11](https://img.shields.io/badge/Ultralytics-YOLO11-0b23a9.svg)](https://docs.ultralytics.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-React%2018-009688.svg)](webapp/)
+[![Live demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://volleyballanalyzer.dpdns.org)
+
+[**Live demo**](https://volleyballanalyzer.dpdns.org) ·
+[**Installation**](docs/INSTALLATION.md) ·
+[**Usage**](docs/USAGE.md) ·
+[**Architecture**](docs/ARCHITECTURE.md) ·
+[**Full report**](docs/PROJECT_DOCUMENTATION.md) ·
+[**Changelog**](CHANGELOG.md)
+
+<img src="docs/assets/demo.gif" width="860" alt="Annotated match: the near team's formation graph, the detected tactic and the opponent action timeline">
+
+<sub>Output on an unseen match: near-team formation graph, tactic banner, per-class accuracy and the opponent SERVE / SPIKE / BLOCK timeline.</sub>
+
+</div>
 
 ---
 
-## Highlights
+## Table of contents
 
-- **End-to-end pipeline** from video to annotated MP4, per-window CSV and coordination report. It uses YOLOv11 detection, BoT-SORT tracking, automatic court calibration and jersey-colour team separation.
-- **Human-labelled dataset** of 948 one-second clips from 8 international matches, in 4 tactical classes.
-- **25+ trained models.** There are 12 scikit-learn models (including XGBoost, LightGBM and CatBoost) and 4 deep sequence models (InceptionTime, TCN, BiLSTM+Attention and Mamba SSM). A 2-class Attack/Defense variant was also trained.
-- **Honest evaluation.** Every headline number is leave-one-video-out (LOVO): the test match is never seen during training.
-- **Full-stack web app** (FastAPI + React + MongoDB). You upload a match, a GPU worker analyses it, and you get the annotated video back.
-- **Reproducible.** `python reproduce.py` regenerates the metrics and figures, and exits non-zero if any reported property fails.
+- [Overview](#overview)
+- [Key features](#key-features)
+- [Results](#results)
+- [How it works](#how-it-works)
+- [Quick start](#quick-start)
+- [Web application](#web-application)
+- [Project structure](#project-structure)
+- [Documentation](#documentation)
+- [Testing and reproducibility](#testing-and-reproducibility)
+- [Limitations and future work](#limitations-and-future-work)
+- [Team](#team)
+- [Citation](#citation) · [License](#license) · [References](#references)
 
-## Results at a glance
+---
 
-All numbers are LOVO on 948 clips from 8 source videos. The majority-class baseline scores 39.0% accuracy.
+## Overview
+
+Coaches need fast, objective feedback on how a team coordinates. Manual video notation is slow and subjective, and most sports-analytics tools describe single actions or the ball path, not the *collective* behaviour of six players.
+
+This project turns raw broadcast video into a second-by-second tactical reading of a team. Every 1-second window of live play is labelled as one of four tactics:
+
+| Class | What it means |
+|---|---|
+| 🟧 **Coordinated Attack** | Front-court attackers approach fast while base players hold near the net |
+| 🟩 **Coordinated Defense** | The team shifts as one rigid unit |
+| 🟪 **Delayed Support** | The nearest player reacts late after ball contact |
+| 🟦 **Spacing Breakdown** | The formation is too spread out or too clustered |
+
+Dead-ball and out-of-play windows are marked **Transition**. The opponent's **SERVE**, **SPIKE** and **BLOCK** actions are time-stamped separately.
+
+**Why it is hard.** The ball is only 15–20 px wide in 720p video. At the net both teams stand within a metre of each other. Broadcast video cuts to replays and close-ups. Tracker IDs swap during occlusions. And there is one uncalibrated camera, different in every match.
+
+---
+
+## Key features
+
+- **End-to-end pipeline** — video in; annotated MP4, per-window CSV and coordination report out.
+- **Dual detector** — stock YOLO11 for players, a fine-tuned YOLO for the ball, both at 1280 px.
+- **Automatic court calibration** — court corners found from the painted lines of an empty-court base frame; homography and camera-motion compensation.
+- **Robust team separation** — jersey-colour clustering, each cluster assigned to a team by its median court side.
+- **Permutation-invariant features** — 18 scale-invariant channels per frame, so the descriptor does not depend on player order or camera scale.
+- **25+ trained models** — 12 scikit-learn models (HGB, XGBoost, LightGBM, CatBoost, SVMs, forests, …) and 4 deep sequence models (InceptionTime, TCN, BiLSTM + Attention, Mamba SSM) behind one interface.
+- **Honest evaluation** — every headline number is leave-one-video-out (LOVO): the test match is never seen in training.
+- **Provenance guard** — each model stores the extraction flags it was trained with; a mismatch at inference stops the run instead of producing confident wrong labels.
+- **Full-stack web app** — FastAPI + React + MongoDB, with upload, job queue, multi-quality video, reports, per-tactic clips, desktop app, Windows installer and cloud deployment.
+- **Reproducible** — `python reproduce.py` regenerates the metrics and fails if any reported property does not hold; 257 unit tests run in CI.
+
+---
+
+## Results
+
+**Dataset:** 948 human-labelled 1-second clips from 8 international matches. **Protocol:** leave-one-video-out. **Majority-class baseline:** 39.0% accuracy.
 
 ### 4-class tactic classifier
 
 | Model | Type | Accuracy | Macro-F1 | Cohen κ |
-|---|---|---|---|---|
-| **HistGradientBoosting** (deployed, `tactical_ml_v6.joblib`) | ML | **67.0%** | 0.510 | 0.498 |
+|---|---|:---:|:---:|:---:|
+| **HistGradientBoosting** (deployed) | ML | **67.0%** | 0.510 | 0.498 |
 | LightGBM | ML | 67.0% | 0.507 | 0.500 |
 | XGBoost | ML | 66.7% | 0.519 | 0.498 |
 | CatBoost | ML | 64.7% | **0.520** | 0.478 |
@@ -38,15 +97,13 @@ All numbers are LOVO on 948 clips from 8 source videos. The majority-class basel
 | TCN | DL | 51.2% | 0.441 | – |
 | Mamba SSM | DL | 46.1% | 0.390 | – |
 | BiLSTM + Attention | DL | 45.9% | 0.398 | – |
-| Majority class | baseline | 39.0% | 0.140 | 0.000 |
-| Hand-coded rule engine | baseline | 10.1% | 0.090 | 0.005 |
+| *Majority class* | baseline | 39.0% | 0.140 | 0.000 |
+| *Hand-coded rule engine* | baseline | 10.1% | 0.090 | 0.005 |
 
-HistGradientBoosting was chosen as the deployed model **before** the results were seen. It was not picked as the best of many runs. The Mamba SSM is kept as a comparison arm.
-
-Per-class accuracy shows where the difficulty is:
+HistGradientBoosting was chosen as the deployed model **before** the results were seen, not picked as the best of many runs. The deep models are comparison arms.
 
 | Class | Clips | LOVO accuracy |
-|---|---|---|
+|---|:---:|:---:|
 | Coordinated Attack | 370 | 69% |
 | Coordinated Defense | 355 | 69% |
 | Delayed Support | 108 | 38% |
@@ -54,113 +111,81 @@ Per-class accuracy shows where the difficulty is:
 
 ### 2-class Attack / Defense classifier
 
-The two minority classes are sparse and subjective. When the task is reduced to the two well-defined classes, accuracy rises sharply (723 clips, majority baseline 51%):
+Reducing the task to the two well-defined classes (723 clips, majority baseline 51%):
 
 | Model | Accuracy | Macro-F1 | ROC-AUC |
-|---|---|---|---|
+|---|:---:|:---:|:---:|
 | **InceptionTime** | **89.5%** | 0.895 | 0.957 |
 | TCN | 88.0% | 0.879 | 0.950 |
 | BiLSTM + Attention | 87.8% | 0.878 | 0.942 |
 | Mamba SSM | 84.8% | 0.847 | 0.924 |
 | Best ML (RBF-SVM) | 83.7% | 0.837 | 0.921 |
 
-A weighted ensemble of InceptionTime, BiLSTM and TCN reaches **0.906 LOVO macro-F1**. It annotated a full unseen 45-minute match (`v7_tactical/`), with HMM smoothing and scoreboard-based rally-break detection.
+A weighted InceptionTime + BiLSTM + TCN ensemble reaches **0.906 LOVO macro-F1** and annotated a full unseen 45-minute match with HMM smoothing (`v7_tactical/`).
 
-Full tables: [FINALE_OUTPUTS/README.md](FINALE_OUTPUTS/README.md), [BINARY_ATTACK_DEFENSE/README.md](BINARY_ATTACK_DEFENSE/README.md), `ml_results_v6/`, `deep_results_v6/`.
+<p align="center">
+  <img src="FINALE_OUTPUTS/accuracy/model_accuracy_chart.png" width="760" alt="Cross-video accuracy of the 13 tactical classifiers">
+</p>
 
----
-
-## Tactical classes
-
-| # | Class | What it means |
-|---|---|---|
-| 1 | Coordinated Attack | Front-court attackers approach fast while base players hold near the net |
-| 2 | Coordinated Defense | The team shifts as one rigid unit |
-| 3 | Delayed Support | The nearest player reacts late after ball contact |
-| 4 | Spacing Breakdown | The formation is too spread out or too clustered |
-| 0 | Transition | Dead ball, too few players visible, or out of play |
+Full tables: [FINALE_OUTPUTS](FINALE_OUTPUTS/README.md) · [BINARY_ATTACK_DEFENSE](BINARY_ATTACK_DEFENSE/README.md) · `ml_results_v6/` · `deep_results_v6/`.
 
 ---
 
 ## How it works
 
+```mermaid
+flowchart LR
+    V[Broadcast video] --> P[Preflight gate]
+    P --> D[Detection<br/>YOLO11 players + ball]
+    D --> C[Court calibration<br/>auto corners + homography]
+    C --> T[Tracking<br/>BoT-SORT + identity slots]
+    T --> S[Team separation<br/>colour + court side]
+    S --> F[18 features / frame]
+    F --> W[29 x 18 window]
+    W --> M{Classifier<br/>.joblib or .pt}
+    M --> O[Annotated MP4<br/>CSV + report]
 ```
-broadcast video (1280x720, 30 fps)
-   │
-   ├─ Preflight gate      checks the player population, aborts on bad input     fyp/preflight.py
-   ▼
-Detection                players: YOLOv11 (COCO)  ·  ball: fine-tuned YOLOv11   fyp/interfaces.py
-   ▼                     both at imgsz 1280 (the ball is ~15 px)
-Court calibration        auto court-corner detection, camera-motion              fyp/court.py
-   ▼                     compensation, in-court mask                             BASEFRAMES/
-Tracking                 BoT-SORT + persistent player slots across occlusion     fyp/tracking.py, identity.py
-   ▼
-Team separation          jersey-colour k-means, labelled by median court side    fyp/teams.py
-   ▼
-Features                 18 permutation-invariant channels per frame             fyp/features.py
-   ▼                     (centroid, spread, hull, spacing, speeds, sync, ball)
-Windowing                29-frame (≈1 s) windows → (29 × 18) tensor
-   ▼
-Classifier               scikit-learn (.joblib)  or  PyTorch (.pt)               fyp/ml_classifier.py
-   ▼                     same interface, chosen by file extension                fyp/mamba_model.py
-Output                   annotated MP4 · per-window CSV · coordination report
-```
+
+| Stage | Module | Key idea |
+|---|---|---|
+| Preflight | `fyp/preflight.py` | Abort on unusable input instead of producing a wrong answer |
+| Detection | `fyp/interfaces.py` | Stock YOLO11 finds 14–23 players/frame; the ball fine-tune lifts ball recall from 16% to 67% |
+| Court | `fyp/court.py`, `BASEFRAMES/` | Verified court-model fit on painted lines (0.5–2.4 px RMSE on all 11 videos) |
+| Tracking | `fyp/tracking.py`, `fyp/identity.py` | BoT-SORT + persistent slots that survive occlusion |
+| Teams | `fyp/teams.py` | k = 4 colour clusters (each team has a libero), labelled by median court side: 10.7 → 5.8 players/frame |
+| Features | `fyp/features.py` | Centroid, spread, hull, spacing, speeds, synchrony, ball — scale- and permutation-invariant |
+| Classifier | `fyp/ml_classifier.py`, `fyp/mamba_model.py` | Same `(29, 18)` contract for every model, chosen by file extension |
 
 <p align="center">
-  <img src="figures_workflow/workflow_hgb.png" width="780" alt="Workflow of the deployed HistGradientBoosting model">
+  <img src="BASEFRAMES/corner_court_detection/annotated/usa.png" width="420" alt="Automatic court-corner detection on an empty-court base frame">
+  <img src="figures_workflow/workflow_hgb.png" width="420" alt="Workflow of the deployed HistGradientBoosting model">
 </p>
 
-### Key design decisions
-
-- **Two detectors.** Stock YOLOv11 finds 14–23 players per frame. A small fine-tune collapsed to 0.3 players per frame on unseen footage. The fine-tune is much better for the ball: 67% recall against 16% for the stock model. So players come from stock weights and the ball from the fine-tune.
-- **Resolution matters.** With the same weights, ball recall goes from 15% at 640 px to 77% at 1280 px.
-- **Teams by colour and geometry.** Colour is reliable from frame to frame but carries no team meaning. Court side is reliable on average but ambiguous at the net. Each colour cluster gets its team from its members' median court side. `k = 4` clusters, because each team also has a libero in a different colour. Result: 10.7 → 5.8 players per frame (a team has 6).
-- **Scale-invariant features.** Without a calibrated homography, absolute distances leak camera identity. Dimensionless ratios and per-clip z-scored shapes lower within-video scores but raise cross-video scores. That trade is the one that matters.
-- **Permutation invariance.** A formation is a *set* of players, so the descriptor does not depend on player order.
-
-The full mathematical formulation is in [METHODOLOGY.md](METHODOLOGY.md).
+More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (modules, data contracts, API) and [docs/METHODOLOGY.md](docs/METHODOLOGY.md) (formal method).
 
 ---
 
-## Web application
+## Quick start
 
-`webapp/` is a complete site that runs the research pipeline as a service.
+> Full instructions, GPU setup and troubleshooting: **[docs/INSTALLATION.md](docs/INSTALLATION.md)**
 
-| Part | Stack |
-|---|---|
-| Frontend | React 18 + Vite (documentation portal, upload and results UI) |
-| API | FastAPI + Uvicorn |
-| Database | MongoDB 7 (falls back to a JSON file if MongoDB is down) |
-| Engine | `OUTPUTS/bicausal_extract.py` + `NEW_OUTPUTS/code/new_render.py` + `tactical_ml_v6.joblib` |
-| Worker | One GPU job at a time; the queue survives restarts |
-| Access | Cloudflare Tunnel, PWA install, Windows desktop app and installer |
-
-Quick start on Windows:
-
-```bash
-pip install -r webapp/backend/requirements.txt
-webapp\run_website.bat          # then open http://localhost:8000
-```
-
-Docker, public link and installer instructions are in [webapp/DEPLOY.md](webapp/DEPLOY.md). Analysis needs an NVIDIA GPU: on an RTX 3050 laptop, 5 minutes of video takes about 35 minutes.
-
----
-
-## Getting started
-
-### 1. Install
+**1. Install**
 
 ```bash
 git clone https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp.git
 cd volleyball-tactical-intelligence-fyp
 python -m venv .venv
-.venv\Scripts\activate            # Linux/macOS: source .venv/bin/activate
-pip install -r fyp/requirements.txt
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-For GPU support, install the CUDA build of PyTorch from [pytorch.org](https://pytorch.org/get-started/locally/).
+**2. Check the install** (no GPU or video needed)
 
-### 2. Analyse a match
+```bash
+python -m pytest fyp/tests -q      # expected: 257 passed
+```
+
+**3. Analyse a match**
 
 ```bash
 python fyp/pipeline.py "match.mp4" tactical_ml_v6.joblib \
@@ -169,102 +194,169 @@ python fyp/pipeline.py "match.mp4" tactical_ml_v6.joblib \
   --output-video annotated.mp4 --output-csv predictions.csv
 ```
 
-Any model in `ml_models_v6/`, `ALL_13_MODELS/` or `BINARY_ATTACK_DEFENSE/` can replace `tactical_ml_v6.joblib`. To load one in Python:
+**4. Use a model from Python**
 
 ```python
-import sys; sys.path.insert(0, "fyp")
+import sys, numpy as np
+sys.path.insert(0, "fyp")
 from interfaces import create_temporal_classifier
-model = create_temporal_classifier("ml_models_v6/hist_gradient_boosting.joblib")  # or a .pt file
+
+model = create_temporal_classifier("tactical_ml_v6.joblib")   # any .joblib or .pt in the repo
+result = model.classify(np.zeros((29, 18), dtype=np.float32))
+print(result.label, result.confidence)
 ```
 
-### 3. Reproduce the metrics
+More recipes — other models, re-rendering without re-detection, training, reproducing results: **[docs/USAGE.md](docs/USAGE.md)**.
 
-```bash
-python reproduce.py
-```
-
-### 4. Train from scratch
-
-> **Important:** the feature flags (`--yolo-model`, `--imgsz`, `--team-split`, `--auto-court`, `--court-coords`, `--tracker`) must be identical in extraction and inference. If they differ, the model fails silently. See [TRAINING.md](TRAINING.md).
-
-```bash
-bash run_shards.sh 4                                                   # extract features from the clips
-python fyp/ml_classifier.py training_csv_v5_full --features invariant \
-  --save-model tactical_ml_v6.joblib                                   # train and evaluate the ML zoo (LOVO)
-python fyp/train_deep_lovo.py training_csv_v5_full --out-dir deep_results_v6   # deep models (InceptionTime, TCN, BiLSTM, Mamba)
-```
-
-GPU notebooks: `kaggle_retrain_after_detector_fix.ipynb` and `colab_train_volleyball_yolov11.ipynb` (ball detector fine-tune).
-
-### 5. Run the tests
-
-```bash
-python -m pytest fyp/tests -q
-```
-
-Many tests replay real failures the project hit (half-court homography, slot starvation, detector blindness, crowd-captured colour clusters). Most run without a GPU.
+> ⚠️ The feature flags (`--yolo-model`, `--ball-model`, `--imgsz`, `--team-split`, `--auto-court`, `--court-coords`, `--tracker`) must match training. The values above match every model shipped here.
 
 ---
 
-## Repository map
+## Web application
 
-| Path | Contents |
+`webapp/` runs the pipeline as a service. Upload a match, follow progress, and download the annotated video, reports and per-tactic clips.
+
+**Try it:** [volleyballanalyzer.dpdns.org](https://volleyballanalyzer.dpdns.org)
+
+| Part | Technology |
 |---|---|
-| `fyp/` | Core library: pipeline, detection, court, tracking, teams, features, classifiers, training, tests |
-| `webapp/` | FastAPI + React + MongoDB website, desktop app and Windows installer |
-| `reproduce.py` | One command to regenerate the metrics and figures |
-| `training_csv*/` | Extracted per-clip feature CSVs (the training data) |
-| `ml_models_v6/`, `tactical_ml_v6.joblib` | Latest 12 scikit-learn models and the deployed model |
-| `mamba_v4_*.pt` | Deep models (InceptionTime, TCN, BiLSTM, Mamba) |
-| `ALL_13_MODELS/` | One-stop copy of 13 classifiers with a loader example |
-| `BINARY_ATTACK_DEFENSE/` | 2-class Attack/Defense models and results |
-| `ml_results_v*/`, `deep_results_v*/` | Metrics JSON and training logs per run |
-| `FINALE_OUTPUTS/` | 13-model comparison on an unseen match, with code and accuracy |
-| `v7_tactical/` | Full-match Attack/Defense annotation with HMM smoothing |
-| `NEW_OUTPUTS/` | Team-graph renderer with per-team tactics and opponent actions |
-| `PAPER_OUTPUT/`, `OUTPUTS/` | Bi-causal relation/action renderer, ball tracking |
-| `BASEFRAMES/` | Empty-court base frames and automatic court-corner detection |
-| `figures_atlas/`, `figures_workflow/`, `model_comparison/` | Data atlas and result figures |
-| `volleyball-detections/`, `volleyball_tracking_annotation/` | Detection and tracking annotation sets |
-| `METHODOLOGY.md` | Formal method specification |
-| `TRAINING.md` | Ordered training runbook |
-| `Technical_Review_and_QA.md` | Audit log: every bug, its root cause and its fix |
-| `DEFENSE_MASTER.md`, `GLOSSARY_MASTER.md`, `PANEL_REVIEW/` | Viva preparation and review material |
-| `README_ORIGINAL.md` | Earlier README with the first 3-video study and full method discussion |
+| Frontend | React 18 + Vite, installable PWA |
+| API | FastAPI + Uvicorn, chunked uploads (≤ 500 MB) |
+| Database | MongoDB 7, automatic JSON-file fallback |
+| Engine | Court detection → extraction → `NEW_OUTPUTS` renderer → `tactical_ml_v6.joblib` → ffmpeg renditions |
+| Outputs | Annotated MP4 (original / 720p / 480p / 360p), team and opponent reports (TXT / CSV / JSON), tactic clips |
+| Delivery | Windows desktop app and installer, Docker (GPU), Azure VM with Caddy HTTPS, static portal on Vercel |
 
-### Not in this repository
+```bash
+pip install -r webapp/backend/requirements.txt
+webapp\run_website.bat            # Windows; or: cd webapp/backend && uvicorn app.main:app --port 8000
+```
 
-GitHub's file-size limits keep these out of the repository:
-
-- **Match videos and rendered outputs** (`*.mp4`, about 37 GB)
-- **Feature caches** (`PAPER_OUTPUT/cache/`, `PAPER_OUTPUT/features/`). Your scripts can make them again.
-- **`extra_trees.joblib`** in `ml_models_v5/` and `ml_models_v6/` (over 100 MB each)
-- **Stock YOLO weights.** Ultralytics downloads them automatically.
+Hosting options: [webapp/DEPLOY.md](webapp/DEPLOY.md).
 
 ---
 
-## Limitations
+## Project structure
 
-1. **Single annotator.** The labels are human, and they were checked to match the clip folders with zero mismatches. But all labels come from one person, so the true ceiling is unknown. `fyp/annotate.py` supports a blind second-annotator pass to measure it.
-2. **Minority classes are weak.** Delayed Support and Spacing Breakdown have about 110 clips each and reach about 38% accuracy.
-3. **Few source videos.** With 8 matches, cross-video drift between cameras is still the main error source (see `fyp/drift.py`).
-4. **Distances are relative** unless a per-camera homography is available. The linear fallback keeps ratios, not metres.
-5. **Train/test gap.** Tree models fit their training data perfectly. Only the LOVO columns are meaningful.
+```text
+volleyball-tactical-intelligence-fyp/
+├── fyp/                      Core library: pipeline, detection, court, tracking, teams,
+│   │                         features, classifiers, training scripts
+│   ├── tests/                257 unit tests (most replay a real past failure)
+│   ├── labels.csv            Human labels: video, timestamp, tactic
+│   └── volleyball_best.pt    Fine-tuned YOLO ball detector
+├── webapp/                   FastAPI backend, React frontend, desktop app, installer, Docker
+├── BASEFRAMES/               Empty-court base frames + automatic court-corner detection
+├── OUTPUTS/                  Bi-Causal style relation/action renderer, offline ball tracking
+├── NEW_OUTPUTS/              Team-tactics renderer used by the web app
+├── PAPER_OUTPUT/             Paper-feature renderer and action examples
+├── training_csv_v4/ …_v5_full/   Extracted per-clip features (training data)
+├── tactical_ml_v6.joblib     Deployed classifier (HistGradientBoosting)
+├── ml_models_v6/             12 scikit-learn models
+├── mamba_v4_*.pt             Deep models (InceptionTime, TCN, BiLSTM, Mamba)
+├── ALL_13_MODELS/            9 ML + 4 DL models with a loader example
+├── BINARY_ATTACK_DEFENSE/    2-class Attack/Defense models and results
+├── FINALE_OUTPUTS/           13-model comparison on an unseen match
+├── v7_tactical/              Full-match annotation with HMM smoothing
+├── ml_results_v*/ deep_results_v*/   Metrics and logs for each training run
+├── figures_atlas/ figures_workflow/ model_comparison/   Figures and the data atlas
+├── docs/                     Installation, usage, architecture, methodology, report, reviews
+├── logs/                     Training and extraction logs
+├── reproduce.py              One command to regenerate the metrics and figures
+├── requirements.txt          Python dependencies
+├── CHANGELOG.md · CONTRIBUTING.md · CITATION.cff · LICENSE
+└── .github/                  CI workflow, issue and pull-request templates
+```
 
-## Future work
-
-- More source matches, from different broadcasters and camera angles
-- A second annotator, to measure inter-annotator agreement as the performance ceiling
-- Per-frame keyframe homography, to remove camera-motion drift
-- Pose features (`fyp/pose.py`), to give the minority classes more signal
+**Not in the repository** (GitHub size limits): the source match videos and rendered outputs (~37 GB), regenerable feature caches, two `extra_trees.joblib` files over 100 MB, and stock YOLO weights (downloaded automatically by Ultralytics).
 
 ---
+
+## Documentation
+
+| Document | Purpose |
+|---|---|
+| [docs/INSTALLATION.md](docs/INSTALLATION.md) | Step-by-step install for the pipeline, web app and Docker, with checks and troubleshooting |
+| [docs/USAGE.md](docs/USAGE.md) | Analysing videos, reading outputs, switching models, Python API, web app, training |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Stages, modules, data contracts, REST API, design decisions |
+| [docs/METHODOLOGY.md](docs/METHODOLOGY.md) | Formal specification of every stage |
+| [docs/TRAINING.md](docs/TRAINING.md) | Ordered retraining runbook |
+| [docs/PROJECT_DOCUMENTATION.md](docs/PROJECT_DOCUMENTATION.md) | Full project report |
+| [docs/Technical_Review_and_QA.md](docs/Technical_Review_and_QA.md) | Every bug, root cause, evidence and fix |
+| [docs/README.md](docs/README.md) | Index of all documents |
+
+---
+
+## Testing and reproducibility
+
+```bash
+python -m pytest fyp/tests -q      # 257 tests, ~20 s, CPU only
+python reproduce.py                # regenerate metrics/figures; non-zero exit if a claim fails
+```
+
+- The test suite runs on every push through [GitHub Actions](.github/workflows/tests.yml).
+- Many tests replay real failures the project hit: half-court homography, slot starvation, detector blindness, crowd-captured colour clusters.
+- Every model carries its extraction provenance, checked at inference time.
+- The audit trail of every fix is in [docs/Technical_Review_and_QA.md](docs/Technical_Review_and_QA.md) and [docs/AUDIT_FINDINGS.md](docs/AUDIT_FINDINGS.md).
+
+---
+
+## Limitations and future work
+
+| Limitation | Planned work |
+|---|---|
+| Labels come from a single annotator, so the true ceiling is unknown | Blind second-annotator pass (`fyp/annotate.py`) to measure agreement |
+| Delayed Support and Spacing Breakdown have ~110 clips each and reach ~38% | More matches; pose features (`fyp/pose.py`) for extra signal |
+| 8 source matches; cross-camera drift is the main error source (`fyp/drift.py`) | Footage from more broadcasters and camera angles |
+| Without a per-camera homography, distances are relative | Per-frame keyframe homography |
+| Tree models fit training data perfectly | Only LOVO numbers are reported as results |
+
+---
+
+## Team
+
+**Final Year Project — Group 56**, Department of Computer Science and Engineering
+
+| Member | Roll number |
+|---|---|
+| Keshavramprakash D | CB.SC.U4CSE23425 |
+| K. Surya Sekhar | CB.SC.U4CSE23420 |
+| G. Bharath Chandra | CB.SC.U4CSE23414 |
+| V. Punith Sai | CB.SC.U4CSE23768 |
+| U. Yeshwanth Kumar Reddy | CB.SC.U4CS23453 |
+
+**Guide:** Dr. Divya Singh, Assistant Professor, Department of CSE
+
+---
+
+## Citation
+
+If you use this work, please cite it (GitHub also offers **"Cite this repository"** from [CITATION.cff](CITATION.cff)):
+
+```bibtex
+@software{volleyball_tactical_intelligence_2026,
+  title   = {Volleyball Tactical Intelligence: Automated Team-Tactic Analysis from Broadcast Video},
+  author  = {D, Keshavramprakash and K., Surya Sekhar and G., Bharath Chandra and V., Punith Sai and U., Yeshwanth Kumar Reddy},
+  year    = {2026},
+  version = {1.0.0},
+  url     = {https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp}
+}
+```
+
+## License
+
+Released under the [MIT License](LICENSE). The project depends on [Ultralytics YOLO](https://github.com/ultralytics/ultralytics) (AGPL-3.0); the fine-tuned ball detector `fyp/volleyball_best.pt` is derived from it and follows that licence.
+
+## Contributing
+
+Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, commit style and the pull-request checklist.
 
 ## References
 
 - Gu, A. & Dao, T. (2023). *Mamba: Linear-Time Sequence Modeling with Selective State Spaces.* arXiv:2312.00752
-- Ismail Fawaz, H. et al. (2020). *InceptionTime: Finding AlexNet for Time Series Classification.* DMKD
+- Ismail Fawaz, H. et al. (2020). *InceptionTime: Finding AlexNet for Time Series Classification.* Data Mining and Knowledge Discovery
 - Bai, S., Kolter, J. Z. & Koltun, V. (2018). *An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling.* arXiv:1803.01271
 - Aharon, N. et al. (2022). *BoT-SORT: Robust Associations Multi-Pedestrian Tracking.* arXiv:2206.14651
 - Zhang, Y. et al. (2022). *ByteTrack: Multi-Object Tracking by Associating Every Detection Box.* ECCV
+- Grinsztajn, L., Oyallon, E. & Varoquaux, G. (2022). *Why do tree-based models still outperform deep learning on tabular data?* NeurIPS Datasets and Benchmarks
 - Jocher, G. et al. *Ultralytics YOLO.* https://docs.ultralytics.com
