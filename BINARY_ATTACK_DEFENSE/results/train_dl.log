@@ -1,0 +1,129 @@
+device=cuda  N=723  channels=18  attack=369 defense=354
+  (1)      n=  80  bal_acc=0.787  macroF1=0.777  A_f1=0.825 D_f1=0.730  (37s)
+  (2)      n=  48  bal_acc=0.889  macroF1=0.871  A_f1=0.893 D_f1=0.850  (61s)
+  (3)      n=  78  bal_acc=0.917  macroF1=0.920  A_f1=0.906 D_f1=0.935  (80s)
+  (4)      n=  96  bal_acc=0.932  macroF1=0.927  A_f1=0.932 D_f1=0.921  (132s)
+  (5)      n=  82  bal_acc=0.890  macroF1=0.890  A_f1=0.852 D_f1=0.927  (159s)
+  (6)      n= 113  bal_acc=0.872  macroF1=0.874  A_f1=0.857 D_f1=0.891  (177s)
+  (plain)  n= 101  bal_acc=0.931  macroF1=0.929  A_f1=0.919 D_f1=0.939  (194s)
+  ?        n= 125  bal_acc=0.859  macroF1=0.886  A_f1=0.941 D_f1=0.831  (210s)
+
+=== POOLED LOVO (binary) ===
+  accuracy             0.8949
+  balanced_accuracy    0.8947
+  macro_f1             0.8948
+  attack_f1            0.8978
+  attack_precision     0.8907
+  attack_recall        0.9051
+  defense_f1           0.8917
+  defense_precision    0.8994
+  defense_recall       0.8842
+  roc_auc              0.9565
+  n                    723
+  confusion [true D/A x pred D/A]: [[313, 41], [35, 334]]
+  -> results\lovo_inceptiontime.json
+
+=== FINAL ENSEMBLE (all clips) ===
+  seed0: val_bal_acc=0.963 @ep16  -> inceptiontime_seed0.pt
+  seed1: val_bal_acc=0.935 @ep47  -> inceptiontime_seed1.pt
+  seed2: val_bal_acc=0.963 @ep54  -> inceptiontime_seed2.pt
+  servable: DL_models/inceptiontime.pt  (+3 ensemble seeds)
+
+total 256s
+device=cuda  N=723  channels=18  attack=369 defense=354
+  (1)      n=  80  bal_acc=0.750  macroF1=0.733  A_f1=0.800 D_f1=0.667  (36s)
+  (2)      n=  48  bal_acc=0.856  macroF1=0.831  A_f1=0.852 D_f1=0.809  (67s)
+  (3)      n=  78  bal_acc=0.948  macroF1=0.948  A_f1=0.939 D_f1=0.956  (93s)
+  (4)      n=  96  bal_acc=0.970  macroF1=0.968  A_f1=0.972 D_f1=0.965  (122s)
+  (5)      n=  82  bal_acc=0.872  macroF1=0.844  A_f1=0.806 D_f1=0.882  (147s)
+  (6)      n= 113  bal_acc=0.863  macroF1=0.865  A_f1=0.845 D_f1=0.884  (177s)
+  (plain)  n= 101  bal_acc=0.908  macroF1=0.900  A_f1=0.891 D_f1=0.909  (197s)
+  ?        n= 125  bal_acc=0.813  macroF1=0.841  A_f1=0.920 D_f1=0.762  (218s)
+
+=== POOLED LOVO (binary) ===
+  accuracy             0.8797
+  balanced_accuracy    0.8788
+  macro_f1             0.8793
+  attack_f1            0.8863
+  attack_precision     0.8561
+  attack_recall        0.9187
+  defense_f1           0.8722
+  defense_precision    0.9083
+  defense_recall       0.839
+  roc_auc              0.9502
+  n                    723
+  confusion [true D/A x pred D/A]: [[297, 57], [30, 339]]
+  -> results\lovo_tcn.json
+
+=== FINAL ENSEMBLE (all clips) ===
+  seed0: val_bal_acc=0.981 @ep27  -> tcn_seed0.pt
+  seed1: val_bal_acc=0.972 @ep23  -> tcn_seed1.pt
+  seed2: val_bal_acc=0.981 @ep53  -> tcn_seed2.pt
+  servable: DL_models/tcn.pt  (+3 ensemble seeds)
+
+total 244s
+device=cuda  N=723  channels=18  attack=369 defense=354
+  (1)      n=  80  bal_acc=0.713  macroF1=0.687  A_f1=0.777 D_f1=0.597  (26s)
+  (2)      n=  48  bal_acc=0.889  macroF1=0.871  A_f1=0.893 D_f1=0.850  (48s)
+  (3)      n=  78  bal_acc=0.936  macroF1=0.935  A_f1=0.925 D_f1=0.944  (62s)
+  (4)      n=  96  bal_acc=0.877  macroF1=0.865  A_f1=0.866 D_f1=0.863  (80s)
+  (5)      n=  82  bal_acc=0.936  macroF1=0.920  A_f1=0.897 D_f1=0.943  (102s)
+  (6)      n= 113  bal_acc=0.908  macroF1=0.910  A_f1=0.900 D_f1=0.921  (119s)
+  (plain)  n= 101  bal_acc=0.896  macroF1=0.890  A_f1=0.879 D_f1=0.901  (139s)
+  ?        n= 125  bal_acc=0.819  macroF1=0.850  A_f1=0.925 D_f1=0.774  (156s)
+
+=== POOLED LOVO (binary) ===
+  accuracy             0.8783
+  balanced_accuracy    0.8776
+  macro_f1             0.878
+  attack_f1            0.8842
+  attack_precision     0.8593
+  attack_recall        0.9106
+  defense_f1           0.8717
+  defense_precision    0.9006
+  defense_recall       0.8446
+  roc_auc              0.9421
+  n                    723
+  confusion [true D/A x pred D/A]: [[299, 55], [33, 336]]
+  -> results\lovo_bilstm.json
+
+=== FINAL ENSEMBLE (all clips) ===
+  seed0: val_bal_acc=0.944 @ep15  -> bilstm_seed0.pt
+  seed1: val_bal_acc=0.954 @ep22  -> bilstm_seed1.pt
+  seed2: val_bal_acc=0.935 @ep52  -> bilstm_seed2.pt
+  servable: DL_models/bilstm.pt  (+3 ensemble seeds)
+
+total 176s
+device=cuda  N=723  channels=18  attack=369 defense=354
+  (1)      n=  80  bal_acc=0.700  macroF1=0.670  A_f1=0.769 D_f1=0.571  (259s)
+  (2)      n=  48  bal_acc=0.733  macroF1=0.706  A_f1=0.731 D_f1=0.682  (413s)
+  (3)      n=  78  bal_acc=0.914  macroF1=0.909  A_f1=0.899 D_f1=0.919  (627s)
+  (4)      n=  96  bal_acc=0.836  macroF1=0.832  A_f1=0.846 D_f1=0.818  (840s)
+  (5)      n=  82  bal_acc=0.917  macroF1=0.906  A_f1=0.877 D_f1=0.935  (1025s)
+  (6)      n= 113  bal_acc=0.871  macroF1=0.873  A_f1=0.854 D_f1=0.892  (1221s)
+  (plain)  n= 101  bal_acc=0.867  macroF1=0.860  A_f1=0.848 D_f1=0.873  (1411s)
+  ?        n= 125  bal_acc=0.811  macroF1=0.847  A_f1=0.926 D_f1=0.767  (1613s)
+
+=== POOLED LOVO (binary) ===
+  accuracy             0.8479
+  balanced_accuracy    0.847
+  macro_f1             0.8474
+  attack_f1            0.856
+  attack_precision     0.8278
+  attack_recall        0.8862
+  defense_f1           0.8387
+  defense_precision    0.872
+  defense_recall       0.8079
+  roc_auc              0.924
+  n                    723
+  confusion [true D/A x pred D/A]: [[286, 68], [42, 327]]
+  -> results\lovo_mamba.json
+
+=== FINAL ENSEMBLE (all clips) ===
+  seed0: val_bal_acc=0.917 @ep34  -> mamba_seed0.pt
+  seed1: val_bal_acc=0.944 @ep69  -> mamba_seed1.pt
+  seed2: val_bal_acc=0.907 @ep83  -> mamba_seed2.pt
+  servable: DL_models/mamba.pt  (+3 ensemble seeds)
+
+total 1901s
+ALL DL DONE

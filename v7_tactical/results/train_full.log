@@ -1,0 +1,34 @@
+device=cuda  N=723  channels=18  attack=369 defense=354
+  (1)      n=  80  bal_acc=0.762  macroF1=0.754  A_f1=0.800 D_f1=0.708  (89s)
+  (2)      n=  48  bal_acc=0.889  macroF1=0.871  A_f1=0.893 D_f1=0.850  (187s)
+  (3)      n=  78  bal_acc=0.952  macroF1=0.948  A_f1=0.941 D_f1=0.955  (248s)
+  (4)      n=  96  bal_acc=0.982  macroF1=0.979  A_f1=0.981 D_f1=0.977  (314s)
+  (5)      n=  82  bal_acc=0.945  macroF1=0.933  A_f1=0.912 D_f1=0.953  (359s)
+  (6)      n= 113  bal_acc=0.899  macroF1=0.901  A_f1=0.889 D_f1=0.913  (456s)
+  (plain)  n= 101  bal_acc=0.908  macroF1=0.900  A_f1=0.891 D_f1=0.909  (505s)
+  ?        n= 125  bal_acc=0.846  macroF1=0.846  A_f1=0.909 D_f1=0.784  (544s)
+
+=== POOLED LOVO (binary) ===
+  accuracy             0.899
+  balanced_accuracy    0.8987
+  macro_f1             0.8989
+  attack_f1            0.9025
+  attack_precision     0.8895
+  attack_recall        0.916
+  defense_f1           0.8953
+  defense_precision    0.9096
+  defense_recall       0.8814
+  roc_auc              0.955
+  n                    723
+  confusion [true D/A x pred D/A]: [[312, 42], [31, 338]]
+  -> v7_tactical/results\lovo_binary.json
+
+=== FINAL ENSEMBLE (all clips) ===
+  seed0: val_bal_acc=0.963 @ep29  -> binary_incept_seed0.pt
+  seed1: val_bal_acc=0.954 @ep49  -> binary_incept_seed1.pt
+  seed2: val_bal_acc=0.944 @ep46  -> binary_incept_seed2.pt
+  seed3: val_bal_acc=0.954 @ep30  -> binary_incept_seed3.pt
+  seed4: val_bal_acc=0.944 @ep23  -> binary_incept_seed4.pt
+  servable: v7_tactical/models/binary_incept.pt  (+5 ensemble seeds)
+
+total 630s

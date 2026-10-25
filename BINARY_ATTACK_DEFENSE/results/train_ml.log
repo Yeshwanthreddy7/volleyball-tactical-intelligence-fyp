@@ -1,0 +1,11 @@
+clips=723  attack=369  defense=354  features=132  videos=['(1)', '(2)', '(3)', '(4)', '(5)', '(6)', '(plain)', '?']  skipped=0
+  logistic_regression      LOVO acc 0.831  macroF1 0.831  AUC 0.892  train acc 0.939  (1s)
+  linear_svm               LOVO acc 0.812  macroF1 0.812  AUC 0.870  train acc 0.945  (4s)
+  rbf_svm                  LOVO acc 0.837  macroF1 0.837  AUC 0.921  train acc 1.000  (6s)
+  knn                      LOVO acc 0.813  macroF1 0.813  AUC 0.873  train acc 1.000  (6s)
+  mlp                      LOVO acc 0.835  macroF1 0.835  AUC 0.907  train acc 1.000  (19s)
+  random_forest            LOVO acc 0.809  macroF1 0.809  AUC 0.914  train acc 1.000  (32s)
+  extra_trees              LOVO acc 0.824  macroF1 0.824  AUC 0.918  train acc 1.000  (42s)
+  gradient_boosting        LOVO acc 0.830  macroF1 0.830  AUC 0.912  train acc 1.000  (75s)
+  hist_gradient_boosting   LOVO acc 0.831  macroF1 0.831  AUC 0.918  train acc 1.000  (96s)
+done

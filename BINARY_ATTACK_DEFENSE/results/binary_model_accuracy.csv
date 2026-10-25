@@ -1,0 +1,14 @@
+rank,model,family,file,test_accuracy,test_macro_f1,balanced_accuracy,roc_auc,attack_f1,defense_f1,train_accuracy
+1,InceptionTime,Deep learning,DL_models/inceptiontime.pt,0.8949,0.8948,0.8947,0.9565,0.8978,0.8917,
+2,TCN,Deep learning,DL_models/tcn.pt,0.8797,0.8793,0.8788,0.9502,0.8863,0.8722,
+3,BiLSTM+Attention,Deep learning,DL_models/bilstm.pt,0.8783,0.878,0.8776,0.9421,0.8842,0.8717,
+4,Mamba (SSM),Deep learning,DL_models/mamba.pt,0.8479,0.8474,0.847,0.924,0.856,0.8387,
+5,RBF-SVM,Machine learning,ML_models/rbf_svm.joblib,0.8368,0.8368,0.837,0.9209,0.8379,0.8357,1.0
+6,MLP,Machine learning,ML_models/mlp.joblib,0.8354,0.8354,0.8358,0.9068,0.835,0.8359,1.0
+7,HistGradientBoosting,Machine learning,ML_models/hist_gradient_boosting.joblib,0.8313,0.8313,0.8316,0.9176,0.831,0.8315,1.0
+8,LogisticRegression,Machine learning,ML_models/logistic_regression.joblib,0.8313,0.8312,0.8318,0.8924,0.8296,0.8329,0.9391
+9,GradientBoosting,Machine learning,ML_models/gradient_boosting.joblib,0.8299,0.8299,0.8301,0.9123,0.8313,0.8285,1.0
+10,ExtraTrees,Machine learning,ML_models/extra_trees.joblib,0.8243,0.8239,0.8237,0.9179,0.8327,0.8151,1.0
+11,k-NN,Machine learning,ML_models/knn.joblib,0.8133,0.8129,0.8127,0.8727,0.8217,0.8041,1.0
+12,Linear SVM,Machine learning,ML_models/linear_svm.joblib,0.8119,0.8119,0.8123,0.8703,0.8116,0.8122,0.9447
+13,RandomForest,Machine learning,ML_models/random_forest.joblib,0.8091,0.8086,0.8084,0.9142,0.8184,0.7988,1.0

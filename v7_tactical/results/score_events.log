@@ -1,0 +1,17 @@
+  0/80581
+  6000/80581
+  12000/80581
+  18000/80581
+  24000/80581
+  30000/80581
+  36000/80581
+  42000/80581
+  48000/80581
+  54000/80581
+  60000/80581
+  66000/80581
+  72000/80581
+  78000/80581
+96 score-change events over 80581 frames (45 min) -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\v7_tactical\results\vp7_score_events.json
+  inter-event gap: median 26s  p10 12s  p90 43s
+  first few (s): [20, 48, 78, 106, 154, 173, 196, 216, 236, 264, 292, 318]

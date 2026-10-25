@@ -1,0 +1,756 @@
+Removed 0 existing CSV files from 'C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\v7_tactical\csv_geom'.
+No court corners supplied. Using linear pixel-to-court scaling.
+Loading detector model: yolo11n.pt
+Loading ball model    : fyp/volleyball_best.pt
+  Backend: dual(players=ultralytics:yolo11n.pt@1280, ball=ultralytics:fyp/volleyball_best.pt@1280)
+  Team split: geometric
+[tracking] BoT-SORT: Kalman process noise Q scaled x4 (measurement noise R unchanged).
+  Extraction provenance written to C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\v7_tactical\csv_geom\extraction_provenance.json
+  Detector classes: {0: 'person', 1: 'bicycle', 2: 'car', 3: 'motorcycle', 4: 'airplane', 5: 'bus', 6: 'train', 7: 'truck', 8: 'boat', 9: 'traffic light', 10: 'fire hydrant', 11: 'stop sign', 12: 'parking meter', 13: 'bench', 14: 'bird', 15: 'cat', 16: 'dog', 17: 'horse', 18: 'sheep', 19: 'cow', 20: 'elephant', 21: 'bear', 22: 'zebra', 23: 'giraffe', 24: 'backpack', 25: 'umbrella', 26: 'handbag', 27: 'tie', 28: 'suitcase', 29: 'frisbee', 30: 'skis', 31: 'snowboard', 32: 'sports ball', 33: 'kite', 34: 'baseball bat', 35: 'baseball glove', 36: 'skateboard', 37: 'surfboard', 38: 'tennis racket', 39: 'bottle', 40: 'wine glass', 41: 'cup', 42: 'fork', 43: 'knife', 44: 'spoon', 45: 'bowl', 46: 'banana', 47: 'apple', 48: 'sandwich', 49: 'orange', 50: 'broccoli', 51: 'carrot', 52: 'hot dog', 53: 'pizza', 54: 'donut', 55: 'cake', 56: 'chair', 57: 'couch', 58: 'potted plant', 59: 'bed', 60: 'dining table', 61: 'toilet', 62: 'tv', 63: 'laptop', 64: 'mouse', 65: 'remote', 66: 'keyboard', 67: 'cell phone', 68: 'microwave', 69: 'oven', 70: 'toaster', 71: 'sink', 72: 'refrigerator', 73: 'book', 74: 'clock', 75: 'vase', 76: 'scissors', 77: 'teddy bear', 78: 'hair drier', 79: 'toothbrush'} -> person_id=0 ball_id=0
+Preparing 744 clips -> C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\finalyearproject\v7_tactical\csv_geom
+[1/744] OK   videoplayback (1)_clip_234.mp4 -> Coordinated_Defense__videoplayback (1)_clip_234.csv
+[2/744] OK   videoplayback_clip_556.mp4 -> Coordinated_Attack__videoplayback_clip_556.csv
+[3/744] OK   videoplayback (6)_clip_718.mp4 -> Coordinated_Attack__videoplayback (6)_clip_718.csv
+[4/744] OK   videoplayback_clip_575.mp4 -> Coordinated_Defense__videoplayback_clip_575.csv
+[5/744] OK   videoplayback (4)_clip_867.mp4 -> Coordinated_Attack__videoplayback (4)_clip_867.csv
+[6/744] OK   videoplayback (4)_clip_864.mp4 -> Coordinated_Defense__videoplayback (4)_clip_864.csv
+[7/744] OK   videoplayback_clip_584.mp4 -> Coordinated_Defense__videoplayback_clip_584.csv
+[8/744] SKIP videoplayback (2)_clip_369.mp4: could not extract frames
+[9/744] OK   videoplayback_clip_504.mp4 -> Coordinated_Defense__videoplayback_clip_504.csv
+[10/744] OK   videoplayback_clip_537.mp4 -> Coordinated_Attack__videoplayback_clip_537.csv
+[11/744] OK   videoplayback (3)_clip_403.mp4 -> Coordinated_Attack__videoplayback (3)_clip_403.csv
+[12/744] OK   videoplayback (2)_clip_323.mp4 -> Coordinated_Attack__videoplayback (2)_clip_323.csv
+[13/744] OK   videoplayback (3)_clip_419.mp4 -> Coordinated_Defense__videoplayback (3)_clip_419.csv
+[14/744] OK   videoplayback (2)_clip_329.mp4 -> Coordinated_Defense__videoplayback (2)_clip_329.csv
+[15/744] OK   videoplayback (5)_clip_764.mp4 -> Coordinated_Attack__videoplayback (5)_clip_764.csv
+[16/744] OK   videoplayback (5)_clip_771.mp4 -> Coordinated_Attack__videoplayback (5)_clip_771.csv
+[17/744] OK   videoplayback (6)_clip_613.mp4 -> Coordinated_Defense__videoplayback (6)_clip_613.csv
+[18/744] OK   videoplayback (2)_clip_308.mp4 -> Coordinated_Attack__videoplayback (2)_clip_308.csv
+[19/744] OK   videoplayback (4)_clip_932.mp4 -> Coordinated_Attack__videoplayback (4)_clip_932.csv
+[20/744] OK   videoplayback_clip_513.mp4 -> Coordinated_Defense__videoplayback_clip_513.csv
+[21/744] OK   videoplayback (4)_clip_900.mp4 -> Coordinated_Defense__videoplayback (4)_clip_900.csv
+[22/744] OK   videoplayback_clip_514.mp4 -> Coordinated_Defense__videoplayback_clip_514.csv
+[23/744] OK   videoplayback (4)_clip_936.mp4 -> Coordinated_Defense__videoplayback (4)_clip_936.csv
+[24/744] OK   usa_clip_038.mp4 -> Coordinated_Attack__usa_clip_038.csv
+[25/744] OK   videoplayback (5)_clip_736.mp4 -> Coordinated_Defense__videoplayback (5)_clip_736.csv
+[26/744] OK   usa_clip_052.mp4 -> Coordinated_Defense__usa_clip_052.csv
+[27/744] OK   videoplayback (6)_clip_610.mp4 -> Coordinated_Defense__videoplayback (6)_clip_610.csv
+[28/744] OK   videoplayback (2)_clip_324.mp4 -> Coordinated_Defense__videoplayback (2)_clip_324.csv
+[29/744] OK   videoplayback_clip_512.mp4 -> Coordinated_Attack__videoplayback_clip_512.csv
+[30/744] OK   videoplayback (5)_clip_777.mp4 -> Coordinated_Attack__videoplayback (5)_clip_777.csv
+[31/744] OK   videoplayback (2)_clip_311.mp4 -> Coordinated_Attack__videoplayback (2)_clip_311.csv
+[32/744] OK   videoplayback (5)_clip_813.mp4 -> Coordinated_Defense__videoplayback (5)_clip_813.csv
+[33/744] OK   videoplayback (5)_clip_827.mp4 -> Coordinated_Attack__videoplayback (5)_clip_827.csv
+[34/744] OK   usa_clip_011.mp4 -> Coordinated_Attack__usa_clip_011.csv
+[35/744] OK   videoplayback (5)_clip_803.mp4 -> Coordinated_Defense__videoplayback (5)_clip_803.csv
+[36/744] OK   videoplayback (5)_clip_738.mp4 -> Coordinated_Defense__videoplayback (5)_clip_738.csv
+[37/744] OK   videoplayback (4)_clip_966.mp4 -> Coordinated_Defense__videoplayback (4)_clip_966.csv
+[38/744] OK   videoplayback (5)_clip_762.mp4 -> Coordinated_Defense__videoplayback (5)_clip_762.csv
+[39/744] OK   videoplayback (3)_clip_392.mp4 -> Coordinated_Attack__videoplayback (3)_clip_392.csv
+[40/744] OK   usa_clip_141.mp4 -> Coordinated_Attack__usa_clip_141.csv
+[41/744] OK   videoplayback_clip_587.mp4 -> Coordinated_Attack__videoplayback_clip_587.csv
+[42/744] OK   videoplayback (5)_clip_785.mp4 -> Coordinated_Defense__videoplayback (5)_clip_785.csv
+[43/744] OK   usa_clip_126.mp4 -> Coordinated_Attack__usa_clip_126.csv
+[44/744] OK   videoplayback (4)_clip_845.mp4 -> Coordinated_Defense__videoplayback (4)_clip_845.csv
+[45/744] OK   videoplayback (6)_clip_652.mp4 -> Coordinated_Defense__videoplayback (6)_clip_652.csv
+[46/744] OK   usa_clip_002.mp4 -> Coordinated_Defense__usa_clip_002.csv
+[47/744] OK   videoplayback (4)_clip_971.mp4 -> Coordinated_Attack__videoplayback (4)_clip_971.csv
+[48/744] OK   videoplayback (6)_clip_662.mp4 -> Coordinated_Attack__videoplayback (6)_clip_662.csv
+[49/744] OK   videoplayback (4)_clip_922.mp4 -> Coordinated_Attack__videoplayback (4)_clip_922.csv
+[50/744] OK   usa_clip_066.mp4 -> Coordinated_Attack__usa_clip_066.csv
+[51/744] OK   videoplayback (5)_clip_818.mp4 -> Coordinated_Attack__videoplayback (5)_clip_818.csv
+[52/744] OK   videoplayback_clip_538.mp4 -> Coordinated_Defense__videoplayback_clip_538.csv
+[53/744] OK   videoplayback (4)_clip_920.mp4 -> Coordinated_Defense__videoplayback (4)_clip_920.csv
+[54/744] OK   videoplayback (6)_clip_617.mp4 -> Coordinated_Defense__videoplayback (6)_clip_617.csv
+[55/744] OK   videoplayback (5)_clip_819.mp4 -> Coordinated_Defense__videoplayback (5)_clip_819.csv
+[56/744] OK   videoplayback (4)_clip_970.mp4 -> Coordinated_Defense__videoplayback (4)_clip_970.csv
+[57/744] OK   usa_clip_067.mp4 -> Coordinated_Attack__usa_clip_067.csv
+[58/744] OK   usa_clip_104.mp4 -> Coordinated_Attack__usa_clip_104.csv
+[59/744] OK   videoplayback (6)_clip_704.mp4 -> Coordinated_Attack__videoplayback (6)_clip_704.csv
+[60/744] OK   videoplayback (3)_clip_400.mp4 -> Coordinated_Defense__videoplayback (3)_clip_400.csv
+[61/744] OK   usa_clip_058.mp4 -> Coordinated_Attack__usa_clip_058.csv
+[62/744] OK   videoplayback (6)_clip_663.mp4 -> Coordinated_Attack__videoplayback (6)_clip_663.csv
+[63/744] OK   videoplayback_clip_464.mp4 -> Coordinated_Defense__videoplayback_clip_464.csv
+[64/744] OK   videoplayback (5)_clip_812.mp4 -> Coordinated_Attack__videoplayback (5)_clip_812.csv
+[65/744] OK   videoplayback (4)_clip_919.mp4 -> Coordinated_Attack__videoplayback (4)_clip_919.csv
+[66/744] OK   videoplayback (6)_clip_630.mp4 -> Coordinated_Attack__videoplayback (6)_clip_630.csv
+[67/744] OK   videoplayback (3)_clip_409.mp4 -> Coordinated_Defense__videoplayback (3)_clip_409.csv
+[68/744] OK   videoplayback (1)_clip_166.mp4 -> Coordinated_Attack__videoplayback (1)_clip_166.csv
+[69/744] OK   videoplayback_clip_465.mp4 -> Coordinated_Defense__videoplayback_clip_465.csv
+[70/744] OK   videoplayback (4)_clip_877.mp4 -> Coordinated_Attack__videoplayback (4)_clip_877.csv
+[71/744] OK   videoplayback (6)_clip_733.mp4 -> Coordinated_Defense__videoplayback (6)_clip_733.csv
+[72/744] OK   videoplayback (5)_clip_832.mp4 -> Coordinated_Defense__videoplayback (5)_clip_832.csv
+[73/744] OK   videoplayback_clip_508.mp4 -> Coordinated_Defense__videoplayback_clip_508.csv
+[74/744] OK   videoplayback (2)_clip_334.mp4 -> Coordinated_Attack__videoplayback (2)_clip_334.csv
+[75/744] OK   videoplayback (1)_clip_182.mp4 -> Coordinated_Defense__videoplayback (1)_clip_182.csv
+[76/744] OK   usa_clip_075.mp4 -> Coordinated_Defense__usa_clip_075.csv
+[77/744] OK   videoplayback (5)_clip_784.mp4 -> Coordinated_Defense__videoplayback (5)_clip_784.csv
+[78/744] OK   videoplayback (3)_clip_425.mp4 -> Coordinated_Defense__videoplayback (3)_clip_425.csv
+[79/744] OK   videoplayback (1)_clip_186.mp4 -> Coordinated_Attack__videoplayback (1)_clip_186.csv
+[80/744] OK   usa_clip_148.mp4 -> Coordinated_Attack__usa_clip_148.csv
+[81/744] OK   videoplayback (5)_clip_772.mp4 -> Coordinated_Defense__videoplayback (5)_clip_772.csv
+[82/744] OK   videoplayback (3)_clip_450.mp4 -> Coordinated_Defense__videoplayback (3)_clip_450.csv
+[83/744] OK   videoplayback_clip_590.mp4 -> Coordinated_Attack__videoplayback_clip_590.csv
+[84/744] OK   videoplayback (4)_clip_904.mp4 -> Coordinated_Defense__videoplayback (4)_clip_904.csv
+[85/744] SKIP videoplayback (2)_clip_348.mp4: could not extract frames
+[86/744] SKIP videoplayback (2)_clip_355.mp4: could not extract frames
+[87/744] OK   usa_clip_057.mp4 -> Coordinated_Attack__usa_clip_057.csv
+[88/744] OK   videoplayback (2)_clip_337.mp4 -> Coordinated_Defense__videoplayback (2)_clip_337.csv
+[89/744] OK   videoplayback (6)_clip_611.mp4 -> Coordinated_Defense__videoplayback (6)_clip_611.csv
+[90/744] OK   videoplayback (4)_clip_929.mp4 -> Coordinated_Defense__videoplayback (4)_clip_929.csv
+[91/744] OK   videoplayback (4)_clip_879.mp4 -> Coordinated_Defense__videoplayback (4)_clip_879.csv
+[92/744] OK   videoplayback (1)_clip_198.mp4 -> Coordinated_Attack__videoplayback (1)_clip_198.csv
+[93/744] OK   videoplayback (3)_clip_398.mp4 -> Coordinated_Defense__videoplayback (3)_clip_398.csv
+[94/744] OK   videoplayback (3)_clip_374.mp4 -> Coordinated_Defense__videoplayback (3)_clip_374.csv
+[95/744] OK   usa_clip_021.mp4 -> Coordinated_Defense__usa_clip_021.csv
+[96/744] OK   videoplayback (3)_clip_430.mp4 -> Coordinated_Defense__videoplayback (3)_clip_430.csv
+[97/744] OK   usa_clip_083.mp4 -> Coordinated_Attack__usa_clip_083.csv
+[98/744] OK   usa_clip_004.mp4 -> Coordinated_Defense__usa_clip_004.csv
+[99/744] OK   usa_clip_108.mp4 -> Coordinated_Defense__usa_clip_108.csv
+[100/744] OK   videoplayback (1)_clip_180.mp4 -> Coordinated_Attack__videoplayback (1)_clip_180.csv
+[101/744] OK   videoplayback (4)_clip_843.mp4 -> Coordinated_Attack__videoplayback (4)_clip_843.csv
+[102/744] OK   videoplayback_clip_547.mp4 -> Coordinated_Attack__videoplayback_clip_547.csv
+[103/744] OK   videoplayback (1)_clip_213.mp4 -> Coordinated_Attack__videoplayback (1)_clip_213.csv
+[104/744] OK   videoplayback (6)_clip_619.mp4 -> Coordinated_Defense__videoplayback (6)_clip_619.csv
+[105/744] OK   usa_clip_157.mp4 -> Coordinated_Attack__usa_clip_157.csv
+[106/744] OK   videoplayback (2)_clip_288.mp4 -> Coordinated_Attack__videoplayback (2)_clip_288.csv
+[107/744] OK   usa_clip_107.mp4 -> Coordinated_Attack__usa_clip_107.csv
+[108/744] OK   videoplayback (6)_clip_658.mp4 -> Coordinated_Attack__videoplayback (6)_clip_658.csv
+[109/744] OK   usa_clip_012.mp4 -> Coordinated_Attack__usa_clip_012.csv
+[110/744] OK   videoplayback (2)_clip_287.mp4 -> Coordinated_Defense__videoplayback (2)_clip_287.csv
+[111/744] OK   videoplayback (2)_clip_301.mp4 -> Coordinated_Attack__videoplayback (2)_clip_301.csv
+[112/744] OK   videoplayback (6)_clip_731.mp4 -> Coordinated_Attack__videoplayback (6)_clip_731.csv
+[113/744] OK   videoplayback_clip_505.mp4 -> Coordinated_Defense__videoplayback_clip_505.csv
+[114/744] OK   videoplayback (3)_clip_404.mp4 -> Coordinated_Attack__videoplayback (3)_clip_404.csv
+[115/744] OK   videoplayback (3)_clip_375.mp4 -> Coordinated_Attack__videoplayback (3)_clip_375.csv
+[116/744] OK   videoplayback (6)_clip_641.mp4 -> Coordinated_Attack__videoplayback (6)_clip_641.csv
+[117/744] OK   videoplayback (6)_clip_631.mp4 -> Coordinated_Defense__videoplayback (6)_clip_631.csv
+[118/744] OK   videoplayback (2)_clip_297.mp4 -> Coordinated_Attack__videoplayback (2)_clip_297.csv
+[119/744] OK   videoplayback (6)_clip_709.mp4 -> Coordinated_Attack__videoplayback (6)_clip_709.csv
+[120/744] OK   usa_clip_129.mp4 -> Coordinated_Attack__usa_clip_129.csv
+[121/744] OK   videoplayback (1)_clip_235.mp4 -> Coordinated_Attack__videoplayback (1)_clip_235.csv
+[122/744] OK   usa_clip_100.mp4 -> Coordinated_Attack__usa_clip_100.csv
+[123/744] OK   videoplayback (6)_clip_606.mp4 -> Coordinated_Attack__videoplayback (6)_clip_606.csv
+[124/744] OK   videoplayback (4)_clip_938.mp4 -> Coordinated_Attack__videoplayback (4)_clip_938.csv
+[125/744] OK   videoplayback (1)_clip_266.mp4 -> Coordinated_Attack__videoplayback (1)_clip_266.csv
+[126/744] OK   videoplayback (6)_clip_635.mp4 -> Coordinated_Defense__videoplayback (6)_clip_635.csv
+[127/744] OK   videoplayback_clip_468.mp4 -> Coordinated_Defense__videoplayback_clip_468.csv
+[128/744] OK   videoplayback (1)_clip_211.mp4 -> Coordinated_Attack__videoplayback (1)_clip_211.csv
+[129/744] OK   videoplayback_clip_545.mp4 -> Coordinated_Attack__videoplayback_clip_545.csv
+[130/744] OK   videoplayback (6)_clip_694.mp4 -> Coordinated_Attack__videoplayback (6)_clip_694.csv
+[131/744] OK   videoplayback (1)_clip_160.mp4 -> Coordinated_Defense__videoplayback (1)_clip_160.csv
+[132/744] OK   usa_clip_019.mp4 -> Coordinated_Attack__usa_clip_019.csv
+[133/744] OK   videoplayback_clip_506.mp4 -> Coordinated_Defense__videoplayback_clip_506.csv
+[134/744] OK   videoplayback (1)_clip_273.mp4 -> Coordinated_Attack__videoplayback (1)_clip_273.csv
+[135/744] OK   usa_clip_029.mp4 -> Coordinated_Attack__usa_clip_029.csv
+[136/744] OK   videoplayback (3)_clip_444.mp4 -> Coordinated_Defense__videoplayback (3)_clip_444.csv
+[137/744] OK   videoplayback (4)_clip_942.mp4 -> Coordinated_Attack__videoplayback (4)_clip_942.csv
+[138/744] OK   videoplayback_clip_585.mp4 -> Coordinated_Attack__videoplayback_clip_585.csv
+[139/744] OK   videoplayback (1)_clip_241.mp4 -> Coordinated_Attack__videoplayback (1)_clip_241.csv
+[140/744] OK   videoplayback (2)_clip_315.mp4 -> Coordinated_Attack__videoplayback (2)_clip_315.csv
+[141/744] OK   videoplayback (6)_clip_633.mp4 -> Coordinated_Attack__videoplayback (6)_clip_633.csv
+[142/744] OK   videoplayback_clip_483.mp4 -> Coordinated_Attack__videoplayback_clip_483.csv
+[143/744] OK   videoplayback (1)_clip_195.mp4 -> Coordinated_Attack__videoplayback (1)_clip_195.csv
+[144/744] OK   videoplayback (1)_clip_224.mp4 -> Coordinated_Defense__videoplayback (1)_clip_224.csv
+[145/744] OK   usa_clip_088.mp4 -> Coordinated_Attack__usa_clip_088.csv
+[146/744] OK   videoplayback (6)_clip_616.mp4 -> Coordinated_Defense__videoplayback (6)_clip_616.csv
+[147/744] OK   videoplayback (2)_clip_333.mp4 -> Coordinated_Attack__videoplayback (2)_clip_333.csv
+[148/744] OK   videoplayback (4)_clip_890.mp4 -> Coordinated_Attack__videoplayback (4)_clip_890.csv
+[149/744] OK   videoplayback_clip_562.mp4 -> Coordinated_Defense__videoplayback_clip_562.csv
+[150/744] OK   videoplayback (3)_clip_453.mp4 -> Coordinated_Defense__videoplayback (3)_clip_453.csv
+[151/744] OK   usa_clip_142.mp4 -> Coordinated_Defense__usa_clip_142.csv
+[152/744] OK   videoplayback_clip_521.mp4 -> Coordinated_Defense__videoplayback_clip_521.csv
+[153/744] OK   usa_clip_155.mp4 -> Coordinated_Attack__usa_clip_155.csv
+[154/744] OK   videoplayback (5)_clip_743.mp4 -> Coordinated_Defense__videoplayback (5)_clip_743.csv
+[155/744] OK   videoplayback (5)_clip_779.mp4 -> Coordinated_Defense__videoplayback (5)_clip_779.csv
+[156/744] OK   usa_clip_055.mp4 -> Coordinated_Attack__usa_clip_055.csv
+[157/744] OK   usa_clip_114.mp4 -> Coordinated_Defense__usa_clip_114.csv
+[158/744] OK   usa_clip_009.mp4 -> Coordinated_Defense__usa_clip_009.csv
+[159/744] OK   usa_clip_090.mp4 -> Coordinated_Attack__usa_clip_090.csv
+[160/744] OK   videoplayback (1)_clip_159.mp4 -> Coordinated_Attack__videoplayback (1)_clip_159.csv
+[161/744] OK   videoplayback (5)_clip_740.mp4 -> Coordinated_Defense__videoplayback (5)_clip_740.csv
+[162/744] OK   usa_clip_053.mp4 -> Coordinated_Attack__usa_clip_053.csv
+[163/744] OK   videoplayback (5)_clip_761.mp4 -> Coordinated_Attack__videoplayback (5)_clip_761.csv
+[164/744] OK   videoplayback (1)_clip_178.mp4 -> Coordinated_Defense__videoplayback (1)_clip_178.csv
+[165/744] OK   videoplayback (2)_clip_300.mp4 -> Coordinated_Defense__videoplayback (2)_clip_300.csv
+[166/744] SKIP videoplayback (2)_clip_344.mp4: could not extract frames
+[167/744] OK   videoplayback (5)_clip_769.mp4 -> Coordinated_Attack__videoplayback (5)_clip_769.csv
+[168/744] OK   videoplayback (3)_clip_414.mp4 -> Coordinated_Defense__videoplayback (3)_clip_414.csv
+[169/744] OK   videoplayback (4)_clip_888.mp4 -> Coordinated_Attack__videoplayback (4)_clip_888.csv
+[170/744] OK   videoplayback (3)_clip_402.mp4 -> Coordinated_Attack__videoplayback (3)_clip_402.csv
+[171/744] OK   videoplayback (6)_clip_723.mp4 -> Coordinated_Defense__videoplayback (6)_clip_723.csv
+[172/744] OK   videoplayback (3)_clip_390.mp4 -> Coordinated_Defense__videoplayback (3)_clip_390.csv
+[173/744] OK   videoplayback (4)_clip_901.mp4 -> Coordinated_Defense__videoplayback (4)_clip_901.csv
+[174/744] OK   videoplayback (1)_clip_243.mp4 -> Coordinated_Attack__videoplayback (1)_clip_243.csv
+[175/744] OK   videoplayback (4)_clip_848.mp4 -> Coordinated_Attack__videoplayback (4)_clip_848.csv
+[176/744] OK   videoplayback (6)_clip_690.mp4 -> Coordinated_Defense__videoplayback (6)_clip_690.csv
+[177/744] OK   videoplayback (2)_clip_340.mp4 -> Coordinated_Attack__videoplayback (2)_clip_340.csv
+[178/744] OK   videoplayback_clip_489.mp4 -> Coordinated_Defense__videoplayback_clip_489.csv
+[179/744] OK   videoplayback (1)_clip_203.mp4 -> Coordinated_Defense__videoplayback (1)_clip_203.csv
+[180/744] OK   videoplayback (1)_clip_169.mp4 -> Coordinated_Attack__videoplayback (1)_clip_169.csv
+[181/744] OK   usa_clip_070.mp4 -> Coordinated_Attack__usa_clip_070.csv
+[182/744] OK   videoplayback (3)_clip_397.mp4 -> Coordinated_Attack__videoplayback (3)_clip_397.csv
+[183/744] OK   videoplayback (1)_clip_170.mp4 -> Coordinated_Defense__videoplayback (1)_clip_170.csv
+[184/744] OK   videoplayback (5)_clip_775.mp4 -> Coordinated_Attack__videoplayback (5)_clip_775.csv
+[185/744] OK   usa_clip_071.mp4 -> Coordinated_Defense__usa_clip_071.csv
+[186/744] OK   videoplayback_clip_533.mp4 -> Coordinated_Attack__videoplayback_clip_533.csv
+[187/744] OK   videoplayback (1)_clip_276.mp4 -> Coordinated_Attack__videoplayback (1)_clip_276.csv
+[188/744] OK   videoplayback_clip_578.mp4 -> Coordinated_Attack__videoplayback_clip_578.csv
+[189/744] OK   videoplayback (3)_clip_422.mp4 -> Coordinated_Defense__videoplayback (3)_clip_422.csv
+[190/744] OK   videoplayback (5)_clip_752.mp4 -> Coordinated_Defense__videoplayback (5)_clip_752.csv
+[191/744] OK   videoplayback_clip_550.mp4 -> Coordinated_Defense__videoplayback_clip_550.csv
+[192/744] OK   videoplayback (6)_clip_686.mp4 -> Coordinated_Attack__videoplayback (6)_clip_686.csv
+[193/744] OK   videoplayback (4)_clip_946.mp4 -> Coordinated_Defense__videoplayback (4)_clip_946.csv
+[194/744] OK   videoplayback (3)_clip_411.mp4 -> Coordinated_Attack__videoplayback (3)_clip_411.csv
+[195/744] OK   videoplayback (5)_clip_751.mp4 -> Coordinated_Defense__videoplayback (5)_clip_751.csv
+[196/744] OK   usa_clip_113.mp4 -> Coordinated_Attack__usa_clip_113.csv
+[197/744] OK   videoplayback (6)_clip_689.mp4 -> Coordinated_Attack__videoplayback (6)_clip_689.csv
+[198/744] OK   videoplayback (5)_clip_837.mp4 -> Coordinated_Attack__videoplayback (5)_clip_837.csv
+[199/744] OK   videoplayback (3)_clip_381.mp4 -> Coordinated_Defense__videoplayback (3)_clip_381.csv
+[200/744] OK   usa_clip_035.mp4 -> Coordinated_Attack__usa_clip_035.csv
+[201/744] OK   videoplayback (1)_clip_232.mp4 -> Coordinated_Defense__videoplayback (1)_clip_232.csv
+[202/744] OK   videoplayback (4)_clip_915.mp4 -> Coordinated_Defense__videoplayback (4)_clip_915.csv
+[203/744] OK   videoplayback (1)_clip_205.mp4 -> Coordinated_Attack__videoplayback (1)_clip_205.csv
+[204/744] OK   videoplayback_clip_476.mp4 -> Coordinated_Attack__videoplayback_clip_476.csv
+[205/744] OK   videoplayback (4)_clip_913.mp4 -> Coordinated_Defense__videoplayback (4)_clip_913.csv
+[206/744] OK   usa_clip_123.mp4 -> Coordinated_Attack__usa_clip_123.csv
+[207/744] OK   videoplayback (5)_clip_776.mp4 -> Coordinated_Defense__videoplayback (5)_clip_776.csv
+[208/744] OK   videoplayback (5)_clip_831.mp4 -> Coordinated_Defense__videoplayback (5)_clip_831.csv
+[209/744] SKIP videoplayback (2)_clip_356.mp4: could not extract frames
+[210/744] OK   videoplayback (3)_clip_429.mp4 -> Coordinated_Defense__videoplayback (3)_clip_429.csv
+[211/744] OK   videoplayback (6)_clip_725.mp4 -> Coordinated_Defense__videoplayback (6)_clip_725.csv
+[212/744] OK   videoplayback (5)_clip_747.mp4 -> Coordinated_Attack__videoplayback (5)_clip_747.csv
+[213/744] OK   videoplayback (6)_clip_643.mp4 -> Coordinated_Attack__videoplayback (6)_clip_643.csv
+[214/744] OK   videoplayback (4)_clip_878.mp4 -> Coordinated_Defense__videoplayback (4)_clip_878.csv
+[215/744] OK   videoplayback (5)_clip_778.mp4 -> Coordinated_Defense__videoplayback (5)_clip_778.csv
+[216/744] OK   videoplayback (3)_clip_410.mp4 -> Coordinated_Defense__videoplayback (3)_clip_410.csv
+[217/744] OK   videoplayback (6)_clip_674.mp4 -> Coordinated_Defense__videoplayback (6)_clip_674.csv
+[218/744] OK   usa_clip_017.mp4 -> Coordinated_Attack__usa_clip_017.csv
+[219/744] OK   videoplayback (4)_clip_965.mp4 -> Coordinated_Defense__videoplayback (4)_clip_965.csv
+[220/744] OK   videoplayback (4)_clip_885.mp4 -> Coordinated_Attack__videoplayback (4)_clip_885.csv
+[221/744] OK   videoplayback_clip_542.mp4 -> Coordinated_Attack__videoplayback_clip_542.csv
+[222/744] OK   videoplayback (5)_clip_806.mp4 -> Coordinated_Attack__videoplayback (5)_clip_806.csv
+[223/744] OK   videoplayback (2)_clip_339.mp4 -> Coordinated_Attack__videoplayback (2)_clip_339.csv
+[224/744] OK   videoplayback (1)_clip_194.mp4 -> Coordinated_Attack__videoplayback (1)_clip_194.csv
+[225/744] OK   usa_clip_016.mp4 -> Coordinated_Defense__usa_clip_016.csv
+[226/744] OK   videoplayback (1)_clip_174.mp4 -> Coordinated_Defense__videoplayback (1)_clip_174.csv
+[227/744] OK   videoplayback (1)_clip_269.mp4 -> Coordinated_Attack__videoplayback (1)_clip_269.csv
+[228/744] OK   videoplayback (4)_clip_868.mp4 -> Coordinated_Attack__videoplayback (4)_clip_868.csv
+[229/744] OK   videoplayback (6)_clip_668.mp4 -> Coordinated_Attack__videoplayback (6)_clip_668.csv
+[230/744] OK   videoplayback (4)_clip_869.mp4 -> Coordinated_Defense__videoplayback (4)_clip_869.csv
+[231/744] OK   usa_clip_154.mp4 -> Coordinated_Defense__usa_clip_154.csv
+[232/744] OK   videoplayback (2)_clip_303.mp4 -> Coordinated_Attack__videoplayback (2)_clip_303.csv
+[233/744] OK   videoplayback (6)_clip_661.mp4 -> Coordinated_Attack__videoplayback (6)_clip_661.csv
+[234/744] OK   usa_clip_095.mp4 -> Coordinated_Attack__usa_clip_095.csv
+[235/744] OK   videoplayback (1)_clip_274.mp4 -> Coordinated_Defense__videoplayback (1)_clip_274.csv
+[236/744] OK   videoplayback (6)_clip_682.mp4 -> Coordinated_Attack__videoplayback (6)_clip_682.csv
+[237/744] SKIP videoplayback (2)_clip_351.mp4: could not extract frames
+[238/744] OK   videoplayback (6)_clip_659.mp4 -> Coordinated_Defense__videoplayback (6)_clip_659.csv
+[239/744] OK   videoplayback (6)_clip_684.mp4 -> Coordinated_Defense__videoplayback (6)_clip_684.csv
+[240/744] OK   videoplayback (5)_clip_773.mp4 -> Coordinated_Attack__videoplayback (5)_clip_773.csv
+[241/744] OK   videoplayback (5)_clip_808.mp4 -> Coordinated_Attack__videoplayback (5)_clip_808.csv
+[242/744] OK   videoplayback (3)_clip_440.mp4 -> Coordinated_Defense__videoplayback (3)_clip_440.csv
+[243/744] OK   videoplayback_clip_573.mp4 -> Coordinated_Attack__videoplayback_clip_573.csv
+[244/744] OK   videoplayback (5)_clip_744.mp4 -> Coordinated_Defense__videoplayback (5)_clip_744.csv
+[245/744] OK   usa_clip_073.mp4 -> Coordinated_Defense__usa_clip_073.csv
+[246/744] OK   videoplayback (5)_clip_767.mp4 -> Coordinated_Defense__videoplayback (5)_clip_767.csv
+[247/744] OK   videoplayback (2)_clip_319.mp4 -> Coordinated_Attack__videoplayback (2)_clip_319.csv
+[248/744] OK   usa_clip_026.mp4 -> Coordinated_Attack__usa_clip_026.csv
+[249/744] OK   videoplayback (2)_clip_284.mp4 -> Coordinated_Attack__videoplayback (2)_clip_284.csv
+[250/744] OK   videoplayback (4)_clip_850.mp4 -> Coordinated_Defense__videoplayback (4)_clip_850.csv
+[251/744] OK   videoplayback (4)_clip_914.mp4 -> Coordinated_Attack__videoplayback (4)_clip_914.csv
+[252/744] OK   videoplayback (2)_clip_310.mp4 -> Coordinated_Defense__videoplayback (2)_clip_310.csv
+[253/744] OK   videoplayback (2)_clip_286.mp4 -> Coordinated_Attack__videoplayback (2)_clip_286.csv
+[254/744] OK   videoplayback_clip_490.mp4 -> Coordinated_Defense__videoplayback_clip_490.csv
+[255/744] OK   videoplayback (6)_clip_667.mp4 -> Coordinated_Defense__videoplayback (6)_clip_667.csv
+[256/744] OK   videoplayback (4)_clip_928.mp4 -> Coordinated_Attack__videoplayback (4)_clip_928.csv
+[257/744] OK   videoplayback (2)_clip_342.mp4 -> Coordinated_Defense__videoplayback (2)_clip_342.csv
+[258/744] OK   videoplayback (3)_clip_457.mp4 -> Coordinated_Defense__videoplayback (3)_clip_457.csv
+[259/744] OK   videoplayback (3)_clip_431.mp4 -> Coordinated_Defense__videoplayback (3)_clip_431.csv
+[260/744] OK   videoplayback (1)_clip_226.mp4 -> Coordinated_Defense__videoplayback (1)_clip_226.csv
+[261/744] SKIP videoplayback (2)_clip_350.mp4: could not extract frames
+[262/744] OK   videoplayback_clip_566.mp4 -> Coordinated_Defense__videoplayback_clip_566.csv
+[263/744] OK   videoplayback_clip_518.mp4 -> Coordinated_Attack__videoplayback_clip_518.csv
+[264/744] OK   videoplayback (5)_clip_822.mp4 -> Coordinated_Defense__videoplayback (5)_clip_822.csv
+[265/744] OK   videoplayback (1)_clip_236.mp4 -> Coordinated_Attack__videoplayback (1)_clip_236.csv
+[266/744] OK   videoplayback (2)_clip_321.mp4 -> Coordinated_Defense__videoplayback (2)_clip_321.csv
+[267/744] OK   videoplayback (1)_clip_204.mp4 -> Coordinated_Defense__videoplayback (1)_clip_204.csv
+[268/744] OK   videoplayback (5)_clip_781.mp4 -> Coordinated_Attack__videoplayback (5)_clip_781.csv
+[269/744] OK   videoplayback_clip_477.mp4 -> Coordinated_Defense__videoplayback_clip_477.csv
+[270/744] OK   videoplayback (3)_clip_451.mp4 -> Coordinated_Defense__videoplayback (3)_clip_451.csv
+[271/744] OK   videoplayback (4)_clip_948.mp4 -> Coordinated_Attack__videoplayback (4)_clip_948.csv
+[272/744] OK   videoplayback (5)_clip_787.mp4 -> Coordinated_Defense__videoplayback (5)_clip_787.csv
+[273/744] OK   videoplayback (5)_clip_834.mp4 -> Coordinated_Defense__videoplayback (5)_clip_834.csv
+[274/744] OK   videoplayback_clip_529.mp4 -> Coordinated_Attack__videoplayback_clip_529.csv
+[275/744] OK   videoplayback (6)_clip_670.mp4 -> Coordinated_Attack__videoplayback (6)_clip_670.csv
+[276/744] OK   videoplayback (6)_clip_636.mp4 -> Coordinated_Attack__videoplayback (6)_clip_636.csv
+[277/744] OK   videoplayback (5)_clip_794.mp4 -> Coordinated_Attack__videoplayback (5)_clip_794.csv
+[278/744] OK   usa_clip_062.mp4 -> Coordinated_Defense__usa_clip_062.csv
+[279/744] SKIP videoplayback (2)_clip_364.mp4: could not extract frames
+[280/744] OK   videoplayback_clip_522.mp4 -> Coordinated_Defense__videoplayback_clip_522.csv
+[281/744] OK   videoplayback (5)_clip_821.mp4 -> Coordinated_Defense__videoplayback (5)_clip_821.csv
+[282/744] OK   videoplayback_clip_475.mp4 -> Coordinated_Attack__videoplayback_clip_475.csv
+[283/744] OK   videoplayback_clip_510.mp4 -> Coordinated_Defense__videoplayback_clip_510.csv
+[284/744] OK   videoplayback (5)_clip_829.mp4 -> Coordinated_Defense__videoplayback (5)_clip_829.csv
+[285/744] OK   videoplayback (1)_clip_167.mp4 -> Coordinated_Defense__videoplayback (1)_clip_167.csv
+[286/744] OK   videoplayback (6)_clip_622.mp4 -> Coordinated_Attack__videoplayback (6)_clip_622.csv
+[287/744] OK   videoplayback (5)_clip_754.mp4 -> Coordinated_Attack__videoplayback (5)_clip_754.csv
+[288/744] OK   videoplayback (6)_clip_688.mp4 -> Coordinated_Defense__videoplayback (6)_clip_688.csv
+[289/744] OK   videoplayback (3)_clip_385.mp4 -> Coordinated_Defense__videoplayback (3)_clip_385.csv
+[290/744] OK   videoplayback (1)_clip_280.mp4 -> Coordinated_Defense__videoplayback (1)_clip_280.csv
+[291/744] OK   videoplayback (6)_clip_720.mp4 -> Coordinated_Attack__videoplayback (6)_clip_720.csv
+[292/744] OK   videoplayback (4)_clip_862.mp4 -> Coordinated_Attack__videoplayback (4)_clip_862.csv
+[293/744] OK   videoplayback_clip_557.mp4 -> Coordinated_Defense__videoplayback_clip_557.csv
+[294/744] OK   videoplayback (5)_clip_807.mp4 -> Coordinated_Defense__videoplayback (5)_clip_807.csv
+[295/744] OK   videoplayback_clip_479.mp4 -> Coordinated_Defense__videoplayback_clip_479.csv
+[296/744] OK   videoplayback (6)_clip_660.mp4 -> Coordinated_Attack__videoplayback (6)_clip_660.csv
+[297/744] OK   usa_clip_097.mp4 -> Coordinated_Defense__usa_clip_097.csv
+[298/744] OK   videoplayback (6)_clip_593.mp4 -> Coordinated_Attack__videoplayback (6)_clip_593.csv
+[299/744] OK   videoplayback (3)_clip_407.mp4 -> Coordinated_Attack__videoplayback (3)_clip_407.csv
+[300/744] OK   videoplayback (5)_clip_838.mp4 -> Coordinated_Defense__videoplayback (5)_clip_838.csv
+[301/744] OK   videoplayback (3)_clip_436.mp4 -> Coordinated_Defense__videoplayback (3)_clip_436.csv
+[302/744] OK   videoplayback (5)_clip_820.mp4 -> Coordinated_Defense__videoplayback (5)_clip_820.csv
+[303/744] OK   usa_clip_098.mp4 -> Coordinated_Attack__usa_clip_098.csv
+[304/744] OK   usa_clip_133.mp4 -> Coordinated_Attack__usa_clip_133.csv
+[305/744] OK   videoplayback (1)_clip_220.mp4 -> Coordinated_Attack__videoplayback (1)_clip_220.csv
+[306/744] OK   usa_clip_059.mp4 -> Coordinated_Defense__usa_clip_059.csv
+[307/744] OK   videoplayback (1)_clip_240.mp4 -> Coordinated_Defense__videoplayback (1)_clip_240.csv
+[308/744] OK   videoplayback (1)_clip_237.mp4 -> Coordinated_Defense__videoplayback (1)_clip_237.csv
+[309/744] OK   videoplayback (1)_clip_279.mp4 -> Coordinated_Defense__videoplayback (1)_clip_279.csv
+[310/744] OK   videoplayback_clip_540.mp4 -> Coordinated_Attack__videoplayback_clip_540.csv
+[311/744] OK   videoplayback (2)_clip_307.mp4 -> Coordinated_Defense__videoplayback (2)_clip_307.csv
+[312/744] OK   videoplayback (4)_clip_968.mp4 -> Coordinated_Defense__videoplayback (4)_clip_968.csv
+[313/744] OK   videoplayback (1)_clip_255.mp4 -> Coordinated_Defense__videoplayback (1)_clip_255.csv
+[314/744] OK   videoplayback (5)_clip_802.mp4 -> Coordinated_Attack__videoplayback (5)_clip_802.csv
+[315/744] OK   videoplayback_clip_492.mp4 -> Coordinated_Defense__videoplayback_clip_492.csv
+[316/744] OK   videoplayback (3)_clip_438.mp4 -> Coordinated_Defense__videoplayback (3)_clip_438.csv
+[317/744] OK   usa_clip_005.mp4 -> Coordinated_Defense__usa_clip_005.csv
+[318/744] OK   videoplayback (3)_clip_405.mp4 -> Coordinated_Attack__videoplayback (3)_clip_405.csv
+[319/744] OK   videoplayback (1)_clip_192.mp4 -> Coordinated_Attack__videoplayback (1)_clip_192.csv
+[320/744] OK   videoplayback (6)_clip_614.mp4 -> Coordinated_Defense__videoplayback (6)_clip_614.csv
+[321/744] OK   videoplayback (1)_clip_201.mp4 -> Coordinated_Defense__videoplayback (1)_clip_201.csv
+[322/744] OK   videoplayback (6)_clip_724.mp4 -> Coordinated_Attack__videoplayback (6)_clip_724.csv
+[323/744] OK   videoplayback (6)_clip_642.mp4 -> Coordinated_Defense__videoplayback (6)_clip_642.csv
+[324/744] OK   videoplayback (1)_clip_225.mp4 -> Coordinated_Attack__videoplayback (1)_clip_225.csv
+[325/744] OK   usa_clip_089.mp4 -> Coordinated_Defense__usa_clip_089.csv
+[326/744] OK   videoplayback_clip_520.mp4 -> Coordinated_Defense__videoplayback_clip_520.csv
+[327/744] OK   videoplayback (4)_clip_884.mp4 -> Coordinated_Attack__videoplayback (4)_clip_884.csv
+[328/744] OK   videoplayback (6)_clip_703.mp4 -> Coordinated_Defense__videoplayback (6)_clip_703.csv
+[329/744] OK   videoplayback (6)_clip_651.mp4 -> Coordinated_Attack__videoplayback (6)_clip_651.csv
+[330/744] OK   videoplayback (4)_clip_969.mp4 -> Coordinated_Attack__videoplayback (4)_clip_969.csv
+[331/744] OK   videoplayback (4)_clip_912.mp4 -> Coordinated_Attack__videoplayback (4)_clip_912.csv
+[332/744] OK   usa_clip_020.mp4 -> Coordinated_Defense__usa_clip_020.csv
+[333/744] OK   videoplayback (3)_clip_428.mp4 -> Coordinated_Defense__videoplayback (3)_clip_428.csv
+[334/744] OK   videoplayback (6)_clip_609.mp4 -> Coordinated_Attack__videoplayback (6)_clip_609.csv
+[335/744] OK   videoplayback (4)_clip_849.mp4 -> Coordinated_Attack__videoplayback (4)_clip_849.csv
+[336/744] OK   videoplayback_clip_563.mp4 -> Coordinated_Attack__videoplayback_clip_563.csv
+[337/744] OK   usa_clip_105.mp4 -> Coordinated_Defense__usa_clip_105.csv
+[338/744] OK   videoplayback (3)_clip_462.mp4 -> Coordinated_Attack__videoplayback (3)_clip_462.csv
+[339/744] OK   usa_clip_060.mp4 -> Coordinated_Attack__usa_clip_060.csv
+[340/744] OK   videoplayback (1)_clip_229.mp4 -> Coordinated_Attack__videoplayback (1)_clip_229.csv
+[341/744] OK   videoplayback (2)_clip_298.mp4 -> Coordinated_Defense__videoplayback (2)_clip_298.csv
+[342/744] OK   usa_clip_079.mp4 -> Coordinated_Attack__usa_clip_079.csv
+[343/744] OK   videoplayback (6)_clip_653.mp4 -> Coordinated_Defense__videoplayback (6)_clip_653.csv
+[344/744] OK   usa_clip_081.mp4 -> Coordinated_Attack__usa_clip_081.csv
+[345/744] OK   usa_clip_146.mp4 -> Coordinated_Defense__usa_clip_146.csv
+[346/744] OK   usa_clip_118.mp4 -> Coordinated_Defense__usa_clip_118.csv
+[347/744] OK   videoplayback (6)_clip_626.mp4 -> Coordinated_Attack__videoplayback (6)_clip_626.csv
+[348/744] OK   videoplayback (6)_clip_707.mp4 -> Coordinated_Attack__videoplayback (6)_clip_707.csv
+[349/744] OK   usa_clip_152.mp4 -> Coordinated_Attack__usa_clip_152.csv
+[350/744] OK   videoplayback (1)_clip_215.mp4 -> Coordinated_Defense__videoplayback (1)_clip_215.csv
+[351/744] OK   videoplayback (3)_clip_382.mp4 -> Coordinated_Attack__videoplayback (3)_clip_382.csv
+[352/744] OK   videoplayback_clip_574.mp4 -> Coordinated_Attack__videoplayback_clip_574.csv
+[353/744] OK   videoplayback (5)_clip_839.mp4 -> Coordinated_Defense__videoplayback (5)_clip_839.csv
+[354/744] OK   videoplayback (4)_clip_886.mp4 -> Coordinated_Attack__videoplayback (4)_clip_886.csv
+[355/744] OK   videoplayback (5)_clip_750.mp4 -> Coordinated_Attack__videoplayback (5)_clip_750.csv
+[356/744] OK   videoplayback (1)_clip_239.mp4 -> Coordinated_Defense__videoplayback (1)_clip_239.csv
+[357/744] OK   videoplayback_clip_579.mp4 -> Coordinated_Defense__videoplayback_clip_579.csv
+[358/744] OK   videoplayback (5)_clip_817.mp4 -> Coordinated_Defense__videoplayback (5)_clip_817.csv
+[359/744] OK   videoplayback (3)_clip_391.mp4 -> Coordinated_Attack__videoplayback (3)_clip_391.csv
+[360/744] OK   usa_clip_091.mp4 -> Coordinated_Defense__usa_clip_091.csv
+[361/744] OK   videoplayback (4)_clip_953.mp4 -> Coordinated_Attack__videoplayback (4)_clip_953.csv
+[362/744] OK   videoplayback (4)_clip_959.mp4 -> Coordinated_Attack__videoplayback (4)_clip_959.csv
+[363/744] OK   videoplayback (3)_clip_415.mp4 -> Coordinated_Defense__videoplayback (3)_clip_415.csv
+[364/744] OK   videoplayback (6)_clip_598.mp4 -> Coordinated_Defense__videoplayback (6)_clip_598.csv
+[365/744] OK   usa_clip_101.mp4 -> Coordinated_Attack__usa_clip_101.csv
+[366/744] OK   videoplayback (6)_clip_649.mp4 -> Coordinated_Defense__videoplayback (6)_clip_649.csv
+[367/744] OK   videoplayback (6)_clip_640.mp4 -> Coordinated_Defense__videoplayback (6)_clip_640.csv
+[368/744] OK   videoplayback (3)_clip_376.mp4 -> Coordinated_Attack__videoplayback (3)_clip_376.csv
+[369/744] OK   videoplayback (4)_clip_859.mp4 -> Coordinated_Attack__videoplayback (4)_clip_859.csv
+[370/744] OK   videoplayback (2)_clip_294.mp4 -> Coordinated_Defense__videoplayback (2)_clip_294.csv
+[371/744] OK   usa_clip_068.mp4 -> Coordinated_Attack__usa_clip_068.csv
+[372/744] OK   videoplayback (5)_clip_793.mp4 -> Coordinated_Attack__videoplayback (5)_clip_793.csv
+[373/744] OK   usa_clip_130.mp4 -> Coordinated_Defense__usa_clip_130.csv
+[374/744] OK   videoplayback_clip_539.mp4 -> Coordinated_Defense__videoplayback_clip_539.csv
+[375/744] OK   usa_clip_049.mp4 -> Coordinated_Attack__usa_clip_049.csv
+[376/744] OK   videoplayback (5)_clip_795.mp4 -> Coordinated_Defense__videoplayback (5)_clip_795.csv
+[377/744] OK   videoplayback_clip_589.mp4 -> Coordinated_Attack__videoplayback_clip_589.csv
+[378/744] OK   videoplayback_clip_488.mp4 -> Coordinated_Defense__videoplayback_clip_488.csv
+[379/744] OK   videoplayback (1)_clip_221.mp4 -> Coordinated_Defense__videoplayback (1)_clip_221.csv
+[380/744] OK   videoplayback_clip_530.mp4 -> Coordinated_Defense__videoplayback_clip_530.csv
+[381/744] SKIP videoplayback (2)_clip_365.mp4: could not extract frames
+[382/744] OK   videoplayback (3)_clip_372.mp4 -> Coordinated_Defense__videoplayback (3)_clip_372.csv
+[383/744] OK   videoplayback (4)_clip_853.mp4 -> Coordinated_Attack__videoplayback (4)_clip_853.csv
+[384/744] OK   videoplayback (5)_clip_739.mp4 -> Coordinated_Defense__videoplayback (5)_clip_739.csv
+[385/744] OK   videoplayback (2)_clip_327.mp4 -> Coordinated_Attack__videoplayback (2)_clip_327.csv
+[386/744] OK   videoplayback (6)_clip_700.mp4 -> Coordinated_Defense__videoplayback (6)_clip_700.csv
+[387/744] OK   usa_clip_137.mp4 -> Coordinated_Attack__usa_clip_137.csv
+[388/744] OK   usa_clip_150.mp4 -> Coordinated_Attack__usa_clip_150.csv
+[389/744] OK   usa_clip_096.mp4 -> Coordinated_Defense__usa_clip_096.csv
+[390/744] OK   videoplayback (4)_clip_921.mp4 -> Coordinated_Defense__videoplayback (4)_clip_921.csv
+[391/744] OK   usa_clip_040.mp4 -> Coordinated_Attack__usa_clip_040.csv
+[392/744] OK   videoplayback (4)_clip_847.mp4 -> Coordinated_Defense__videoplayback (4)_clip_847.csv
+[393/744] OK   videoplayback (6)_clip_701.mp4 -> Coordinated_Defense__videoplayback (6)_clip_701.csv
+[394/744] OK   videoplayback_clip_517.mp4 -> Coordinated_Defense__videoplayback_clip_517.csv
+[395/744] SKIP videoplayback (2)_clip_345.mp4: could not extract frames
+[396/744] OK   videoplayback (6)_clip_665.mp4 -> Coordinated_Defense__videoplayback (6)_clip_665.csv
+[397/744] OK   videoplayback (3)_clip_383.mp4 -> Coordinated_Attack__videoplayback (3)_clip_383.csv
+[398/744] OK   videoplayback (3)_clip_380.mp4 -> Coordinated_Attack__videoplayback (3)_clip_380.csv
+[399/744] OK   videoplayback (4)_clip_875.mp4 -> Coordinated_Defense__videoplayback (4)_clip_875.csv
+[400/744] OK   usa_clip_140.mp4 -> Coordinated_Attack__usa_clip_140.csv
+[401/744] OK   videoplayback (6)_clip_648.mp4 -> Coordinated_Defense__videoplayback (6)_clip_648.csv
+[402/744] OK   usa_clip_014.mp4 -> Coordinated_Attack__usa_clip_014.csv
+[403/744] OK   videoplayback (5)_clip_814.mp4 -> Coordinated_Defense__videoplayback (5)_clip_814.csv
+[404/744] OK   videoplayback (6)_clip_656.mp4 -> Coordinated_Attack__videoplayback (6)_clip_656.csv
+[405/744] OK   videoplayback (3)_clip_437.mp4 -> Coordinated_Attack__videoplayback (3)_clip_437.csv
+[406/744] OK   videoplayback (1)_clip_208.mp4 -> Coordinated_Attack__videoplayback (1)_clip_208.csv
+[407/744] OK   videoplayback (6)_clip_644.mp4 -> Coordinated_Defense__videoplayback (6)_clip_644.csv
+[408/744] OK   videoplayback (5)_clip_824.mp4 -> Coordinated_Attack__videoplayback (5)_clip_824.csv
+[409/744] OK   videoplayback (3)_clip_426.mp4 -> Coordinated_Attack__videoplayback (3)_clip_426.csv
+[410/744] OK   videoplayback (4)_clip_891.mp4 -> Coordinated_Attack__videoplayback (4)_clip_891.csv
+[411/744] OK   videoplayback (6)_clip_712.mp4 -> Coordinated_Defense__videoplayback (6)_clip_712.csv
+[412/744] OK   videoplayback (4)_clip_924.mp4 -> Coordinated_Attack__videoplayback (4)_clip_924.csv
+[413/744] OK   videoplayback (6)_clip_726.mp4 -> Coordinated_Attack__videoplayback (6)_clip_726.csv
+[414/744] OK   videoplayback_clip_565.mp4 -> Coordinated_Attack__videoplayback_clip_565.csv
+[415/744] OK   videoplayback_clip_577.mp4 -> Coordinated_Defense__videoplayback_clip_577.csv
+[416/744] OK   videoplayback_clip_473.mp4 -> Coordinated_Attack__videoplayback_clip_473.csv
+[417/744] OK   videoplayback (6)_clip_603.mp4 -> Coordinated_Defense__videoplayback (6)_clip_603.csv
+[418/744] OK   videoplayback (3)_clip_427.mp4 -> Coordinated_Defense__videoplayback (3)_clip_427.csv
+[419/744] OK   usa_clip_018.mp4 -> Coordinated_Defense__usa_clip_018.csv
+[420/744] OK   videoplayback (4)_clip_925.mp4 -> Coordinated_Defense__videoplayback (4)_clip_925.csv
+[421/744] OK   videoplayback (6)_clip_629.mp4 -> Coordinated_Attack__videoplayback (6)_clip_629.csv
+[422/744] OK   videoplayback (3)_clip_412.mp4 -> Coordinated_Attack__videoplayback (3)_clip_412.csv
+[423/744] SKIP videoplayback (2)_clip_353.mp4: could not extract frames
+[424/744] OK   videoplayback (6)_clip_620.mp4 -> Coordinated_Attack__videoplayback (6)_clip_620.csv
+[425/744] OK   videoplayback (2)_clip_290.mp4 -> Coordinated_Attack__videoplayback (2)_clip_290.csv
+[426/744] OK   videoplayback_clip_527.mp4 -> Coordinated_Attack__videoplayback_clip_527.csv
+[427/744] OK   videoplayback (1)_clip_206.mp4 -> Coordinated_Attack__videoplayback (1)_clip_206.csv
+[428/744] OK   usa_clip_043.mp4 -> Coordinated_Attack__usa_clip_043.csv
+[429/744] OK   usa_clip_044.mp4 -> Coordinated_Attack__usa_clip_044.csv
+[430/744] OK   usa_clip_028.mp4 -> Coordinated_Attack__usa_clip_028.csv
+[431/744] OK   videoplayback_clip_558.mp4 -> Coordinated_Defense__videoplayback_clip_558.csv
+[432/744] OK   usa_clip_144.mp4 -> Coordinated_Attack__usa_clip_144.csv
+[433/744] OK   usa_clip_109.mp4 -> Coordinated_Attack__usa_clip_109.csv
+[434/744] OK   videoplayback (3)_clip_396.mp4 -> Coordinated_Attack__videoplayback (3)_clip_396.csv
+[435/744] OK   videoplayback (6)_clip_729.mp4 -> Coordinated_Attack__videoplayback (6)_clip_729.csv
+[436/744] OK   videoplayback_clip_471.mp4 -> Coordinated_Defense__videoplayback_clip_471.csv
+[437/744] OK   videoplayback (1)_clip_171.mp4 -> Coordinated_Defense__videoplayback (1)_clip_171.csv
+[438/744] OK   videoplayback (4)_clip_964.mp4 -> Coordinated_Defense__videoplayback (4)_clip_964.csv
+[439/744] OK   videoplayback_clip_469.mp4 -> Coordinated_Attack__videoplayback_clip_469.csv
+[440/744] OK   usa_clip_124.mp4 -> Coordinated_Attack__usa_clip_124.csv
+[441/744] OK   videoplayback (2)_clip_289.mp4 -> Coordinated_Attack__videoplayback (2)_clip_289.csv
+[442/744] OK   videoplayback (1)_clip_238.mp4 -> Coordinated_Defense__videoplayback (1)_clip_238.csv
+[443/744] OK   videoplayback (4)_clip_941.mp4 -> Coordinated_Defense__videoplayback (4)_clip_941.csv
+[444/744] OK   usa_clip_122.mp4 -> Coordinated_Defense__usa_clip_122.csv
+[445/744] OK   usa_clip_145.mp4 -> Coordinated_Defense__usa_clip_145.csv
+[446/744] OK   videoplayback (4)_clip_916.mp4 -> Coordinated_Attack__videoplayback (4)_clip_916.csv
+[447/744] OK   videoplayback (2)_clip_309.mp4 -> Coordinated_Attack__videoplayback (2)_clip_309.csv
+[448/744] OK   usa_clip_030.mp4 -> Coordinated_Attack__usa_clip_030.csv
+[449/744] OK   videoplayback_clip_583.mp4 -> Coordinated_Defense__videoplayback_clip_583.csv
+[450/744] OK   videoplayback (6)_clip_708.mp4 -> Coordinated_Attack__videoplayback (6)_clip_708.csv
+[451/744] OK   videoplayback (4)_clip_854.mp4 -> Coordinated_Attack__videoplayback (4)_clip_854.csv
+[452/744] OK   videoplayback (1)_clip_231.mp4 -> Coordinated_Defense__videoplayback (1)_clip_231.csv
+[453/744] OK   videoplayback (4)_clip_954.mp4 -> Coordinated_Attack__videoplayback (4)_clip_954.csv
+[454/744] OK   usa_clip_094.mp4 -> Coordinated_Attack__usa_clip_094.csv
+[455/744] OK   videoplayback_clip_564.mp4 -> Coordinated_Defense__videoplayback_clip_564.csv
+[456/744] OK   videoplayback_clip_535.mp4 -> Coordinated_Attack__videoplayback_clip_535.csv
+[457/744] OK   videoplayback_clip_554.mp4 -> Coordinated_Defense__videoplayback_clip_554.csv
+[458/744] OK   videoplayback (2)_clip_338.mp4 -> Coordinated_Attack__videoplayback (2)_clip_338.csv
+[459/744] OK   videoplayback (1)_clip_267.mp4 -> Coordinated_Defense__videoplayback (1)_clip_267.csv
+[460/744] OK   videoplayback_clip_524.mp4 -> Coordinated_Defense__videoplayback_clip_524.csv
+[461/744] OK   videoplayback_clip_480.mp4 -> Coordinated_Defense__videoplayback_clip_480.csv
+[462/744] OK   videoplayback (6)_clip_681.mp4 -> Coordinated_Attack__videoplayback (6)_clip_681.csv
+[463/744] OK   usa_clip_111.mp4 -> Coordinated_Attack__usa_clip_111.csv
+[464/744] OK   videoplayback_clip_553.mp4 -> Coordinated_Defense__videoplayback_clip_553.csv
+[465/744] OK   usa_clip_093.mp4 -> Coordinated_Attack__usa_clip_093.csv
+[466/744] OK   videoplayback (6)_clip_683.mp4 -> Coordinated_Attack__videoplayback (6)_clip_683.csv
+[467/744] OK   videoplayback (3)_clip_421.mp4 -> Coordinated_Defense__videoplayback (3)_clip_421.csv
+[468/744] OK   videoplayback_clip_516.mp4 -> Coordinated_Attack__videoplayback_clip_516.csv
+[469/744] OK   videoplayback (5)_clip_796.mp4 -> Coordinated_Defense__videoplayback (5)_clip_796.csv
+[470/744] SKIP videoplayback (2)_clip_352.mp4: could not extract frames
+[471/744] OK   videoplayback (6)_clip_706.mp4 -> Coordinated_Defense__videoplayback (6)_clip_706.csv
+[472/744] OK   videoplayback_clip_499.mp4 -> Coordinated_Defense__videoplayback_clip_499.csv
+[473/744] SKIP videoplayback (2)_clip_359.mp4: could not extract frames
+[474/744] OK   videoplayback (1)_clip_218.mp4 -> Coordinated_Attack__videoplayback (1)_clip_218.csv
+[475/744] OK   videoplayback (3)_clip_456.mp4 -> Coordinated_Defense__videoplayback (3)_clip_456.csv
+[476/744] SKIP videoplayback (2)_clip_354.mp4: could not extract frames
+[477/744] OK   videoplayback (4)_clip_873.mp4 -> Coordinated_Attack__videoplayback (4)_clip_873.csv
+[478/744] OK   videoplayback_clip_525.mp4 -> Coordinated_Attack__videoplayback_clip_525.csv
+[479/744] OK   videoplayback (4)_clip_858.mp4 -> Coordinated_Attack__videoplayback (4)_clip_858.csv
+[480/744] OK   usa_clip_022.mp4 -> Coordinated_Attack__usa_clip_022.csv
+[481/744] OK   usa_clip_121.mp4 -> Coordinated_Attack__usa_clip_121.csv
+[482/744] OK   videoplayback_clip_582.mp4 -> Coordinated_Attack__videoplayback_clip_582.csv
+[483/744] OK   videoplayback (3)_clip_395.mp4 -> Coordinated_Defense__videoplayback (3)_clip_395.csv
+[484/744] OK   usa_clip_077.mp4 -> Coordinated_Attack__usa_clip_077.csv
+[485/744] OK   videoplayback (6)_clip_671.mp4 -> Coordinated_Defense__videoplayback (6)_clip_671.csv
+[486/744] OK   videoplayback (6)_clip_597.mp4 -> Coordinated_Attack__videoplayback (6)_clip_597.csv
+[487/744] OK   videoplayback (1)_clip_188.mp4 -> Coordinated_Attack__videoplayback (1)_clip_188.csv
+[488/744] OK   videoplayback (4)_clip_872.mp4 -> Coordinated_Attack__videoplayback (4)_clip_872.csv
+[489/744] OK   videoplayback (1)_clip_165.mp4 -> Coordinated_Defense__videoplayback (1)_clip_165.csv
+[490/744] OK   videoplayback (1)_clip_270.mp4 -> Coordinated_Defense__videoplayback (1)_clip_270.csv
+[491/744] OK   videoplayback (1)_clip_175.mp4 -> Coordinated_Defense__videoplayback (1)_clip_175.csv
+[492/744] OK   videoplayback_clip_576.mp4 -> Coordinated_Defense__videoplayback_clip_576.csv
+[493/744] OK   usa_clip_051.mp4 -> Coordinated_Attack__usa_clip_051.csv
+[494/744] OK   videoplayback (4)_clip_945.mp4 -> Coordinated_Attack__videoplayback (4)_clip_945.csv
+[495/744] OK   videoplayback_clip_559.mp4 -> Coordinated_Defense__videoplayback_clip_559.csv
+[496/744] SKIP videoplayback (2)_clip_347.mp4: could not extract frames
+[497/744] OK   videoplayback (3)_clip_371.mp4 -> Coordinated_Attack__videoplayback (3)_clip_371.csv
+[498/744] OK   videoplayback (5)_clip_749.mp4 -> Coordinated_Attack__videoplayback (5)_clip_749.csv
+[499/744] OK   usa_clip_041.mp4 -> Coordinated_Attack__usa_clip_041.csv
+[500/744] OK   videoplayback (4)_clip_931.mp4 -> Coordinated_Defense__videoplayback (4)_clip_931.csv
+[501/744] OK   usa_clip_001.mp4 -> Coordinated_Attack__usa_clip_001.csv
+[502/744] OK   usa_clip_024.mp4 -> Coordinated_Defense__usa_clip_024.csv
+[503/744] OK   videoplayback (6)_clip_675.mp4 -> Coordinated_Attack__videoplayback (6)_clip_675.csv
+[504/744] OK   videoplayback (4)_clip_876.mp4 -> Coordinated_Defense__videoplayback (4)_clip_876.csv
+[505/744] OK   videoplayback (2)_clip_313.mp4 -> Coordinated_Defense__videoplayback (2)_clip_313.csv
+[506/744] OK   videoplayback_clip_474.mp4 -> Coordinated_Defense__videoplayback_clip_474.csv
+[507/744] OK   videoplayback_clip_502.mp4 -> Coordinated_Defense__videoplayback_clip_502.csv
+[508/744] OK   videoplayback (5)_clip_804.mp4 -> Coordinated_Attack__videoplayback (5)_clip_804.csv
+[509/744] OK   videoplayback (3)_clip_446.mp4 -> Coordinated_Defense__videoplayback (3)_clip_446.csv
+[510/744] OK   videoplayback (4)_clip_935.mp4 -> Coordinated_Defense__videoplayback (4)_clip_935.csv
+[511/744] OK   videoplayback_clip_549.mp4 -> Coordinated_Attack__videoplayback_clip_549.csv
+[512/744] OK   videoplayback_clip_581.mp4 -> Coordinated_Defense__videoplayback_clip_581.csv
+[513/744] OK   usa_clip_120.mp4 -> Coordinated_Attack__usa_clip_120.csv
+[514/744] OK   videoplayback (2)_clip_293.mp4 -> Coordinated_Defense__videoplayback (2)_clip_293.csv
+[515/744] OK   videoplayback (3)_clip_379.mp4 -> Coordinated_Attack__videoplayback (3)_clip_379.csv
+[516/744] OK   usa_clip_086.mp4 -> Coordinated_Attack__usa_clip_086.csv
+[517/744] OK   videoplayback (1)_clip_207.mp4 -> Coordinated_Defense__videoplayback (1)_clip_207.csv
+[518/744] OK   usa_clip_153.mp4 -> Coordinated_Defense__usa_clip_153.csv
+[519/744] OK   usa_clip_063.mp4 -> Coordinated_Attack__usa_clip_063.csv
+[520/744] OK   videoplayback (3)_clip_461.mp4 -> Coordinated_Defense__videoplayback (3)_clip_461.csv
+[521/744] OK   usa_clip_025.mp4 -> Coordinated_Defense__usa_clip_025.csv
+[522/744] OK   videoplayback (6)_clip_721.mp4 -> Coordinated_Defense__videoplayback (6)_clip_721.csv
+[523/744] OK   videoplayback (4)_clip_905.mp4 -> Coordinated_Attack__videoplayback (4)_clip_905.csv
+[524/744] OK   videoplayback (6)_clip_627.mp4 -> Coordinated_Defense__videoplayback (6)_clip_627.csv
+[525/744] SKIP videoplayback (2)_clip_363.mp4: could not extract frames
+[526/744] OK   videoplayback_clip_497.mp4 -> Coordinated_Attack__videoplayback_clip_497.csv
+[527/744] OK   videoplayback (3)_clip_455.mp4 -> Coordinated_Attack__videoplayback (3)_clip_455.csv
+[528/744] OK   videoplayback_clip_482.mp4 -> Coordinated_Defense__videoplayback_clip_482.csv
+[529/744] OK   videoplayback (6)_clip_634.mp4 -> Coordinated_Defense__videoplayback (6)_clip_634.csv
+[530/744] OK   videoplayback (1)_clip_191.mp4 -> Coordinated_Defense__videoplayback (1)_clip_191.csv
+[531/744] OK   videoplayback (5)_clip_809.mp4 -> Coordinated_Defense__videoplayback (5)_clip_809.csv
+[532/744] OK   videoplayback_clip_528.mp4 -> Coordinated_Defense__videoplayback_clip_528.csv
+[533/744] OK   videoplayback (2)_clip_299.mp4 -> Coordinated_Attack__videoplayback (2)_clip_299.csv
+[534/744] OK   videoplayback (4)_clip_958.mp4 -> Coordinated_Defense__videoplayback (4)_clip_958.csv
+[535/744] OK   videoplayback (6)_clip_685.mp4 -> Coordinated_Defense__videoplayback (6)_clip_685.csv
+[536/744] OK   videoplayback_clip_551.mp4 -> Coordinated_Attack__videoplayback_clip_551.csv
+[537/744] OK   videoplayback (3)_clip_394.mp4 -> Coordinated_Defense__videoplayback (3)_clip_394.csv
+[538/744] OK   videoplayback (4)_clip_957.mp4 -> Coordinated_Attack__videoplayback (4)_clip_957.csv
+[539/744] OK   videoplayback (2)_clip_306.mp4 -> Coordinated_Attack__videoplayback (2)_clip_306.csv
+[540/744] OK   videoplayback (6)_clip_623.mp4 -> Coordinated_Attack__videoplayback (6)_clip_623.csv
+[541/744] OK   videoplayback (5)_clip_811.mp4 -> Coordinated_Defense__videoplayback (5)_clip_811.csv
+[542/744] OK   videoplayback (5)_clip_836.mp4 -> Coordinated_Defense__videoplayback (5)_clip_836.csv
+[543/744] OK   usa_clip_147.mp4 -> Coordinated_Attack__usa_clip_147.csv
+[544/744] OK   videoplayback (2)_clip_335.mp4 -> Coordinated_Defense__videoplayback (2)_clip_335.csv
+[545/744] OK   usa_clip_031.mp4 -> Coordinated_Attack__usa_clip_031.csv
+[546/744] OK   videoplayback (2)_clip_341.mp4 -> Coordinated_Attack__videoplayback (2)_clip_341.csv
+[547/744] OK   videoplayback (5)_clip_765.mp4 -> Coordinated_Defense__videoplayback (5)_clip_765.csv
+[548/744] OK   usa_clip_092.mp4 -> Coordinated_Defense__usa_clip_092.csv
+[549/744] OK   videoplayback (6)_clip_596.mp4 -> Coordinated_Defense__videoplayback (6)_clip_596.csv
+[550/744] OK   videoplayback (6)_clip_699.mp4 -> Coordinated_Attack__videoplayback (6)_clip_699.csv
+[551/744] OK   videoplayback (6)_clip_711.mp4 -> Coordinated_Defense__videoplayback (6)_clip_711.csv
+[552/744] OK   videoplayback (1)_clip_172.mp4 -> Coordinated_Defense__videoplayback (1)_clip_172.csv
+[553/744] SKIP videoplayback (2)_clip_367.mp4: could not extract frames
+[554/744] OK   usa_clip_032.mp4 -> Coordinated_Attack__usa_clip_032.csv
+[555/744] OK   videoplayback (3)_clip_399.mp4 -> Coordinated_Attack__videoplayback (3)_clip_399.csv
+[556/744] OK   videoplayback (1)_clip_281.mp4 -> Coordinated_Defense__videoplayback (1)_clip_281.csv
+[557/744] OK   videoplayback (1)_clip_261.mp4 -> Coordinated_Attack__videoplayback (1)_clip_261.csv
+[558/744] OK   videoplayback_clip_543.mp4 -> Coordinated_Defense__videoplayback_clip_543.csv
+[559/744] OK   videoplayback (4)_clip_881.mp4 -> Coordinated_Defense__videoplayback (4)_clip_881.csv
+[560/744] OK   videoplayback_clip_532.mp4 -> Coordinated_Attack__videoplayback_clip_532.csv
+[561/744] OK   videoplayback (3)_clip_370.mp4 -> Coordinated_Attack__videoplayback (3)_clip_370.csv
+[562/744] SKIP videoplayback (2)_clip_361.mp4: could not extract frames
+[563/744] OK   usa_clip_110.mp4 -> Coordinated_Attack__usa_clip_110.csv
+[564/744] OK   videoplayback (6)_clip_691.mp4 -> Coordinated_Defense__videoplayback (6)_clip_691.csv
+[565/744] OK   videoplayback (3)_clip_386.mp4 -> Coordinated_Attack__videoplayback (3)_clip_386.csv
+[566/744] SKIP videoplayback (2)_clip_366.mp4: could not extract frames
+[567/744] OK   videoplayback_clip_572.mp4 -> Coordinated_Attack__videoplayback_clip_572.csv
+[568/744] OK   videoplayback (5)_clip_758.mp4 -> Coordinated_Defense__videoplayback (5)_clip_758.csv
+[569/744] OK   videoplayback (4)_clip_856.mp4 -> Coordinated_Attack__videoplayback (4)_clip_856.csv
+[570/744] OK   videoplayback (5)_clip_791.mp4 -> Coordinated_Defense__videoplayback (5)_clip_791.csv
+[571/744] OK   videoplayback (5)_clip_759.mp4 -> Coordinated_Defense__videoplayback (5)_clip_759.csv
+[572/744] OK   usa_clip_074.mp4 -> Coordinated_Attack__usa_clip_074.csv
+[573/744] SKIP videoplayback (2)_clip_358.mp4: could not extract frames
+[574/744] OK   videoplayback (3)_clip_432.mp4 -> Coordinated_Defense__videoplayback (3)_clip_432.csv
+[575/744] OK   videoplayback (5)_clip_810.mp4 -> Coordinated_Defense__videoplayback (5)_clip_810.csv
+[576/744] OK   videoplayback (3)_clip_406.mp4 -> Coordinated_Attack__videoplayback (3)_clip_406.csv
+[577/744] OK   videoplayback (1)_clip_259.mp4 -> Coordinated_Defense__videoplayback (1)_clip_259.csv
+[578/744] OK   videoplayback_clip_548.mp4 -> Coordinated_Attack__videoplayback_clip_548.csv
+[579/744] OK   videoplayback (6)_clip_702.mp4 -> Coordinated_Defense__videoplayback (6)_clip_702.csv
+[580/744] OK   usa_clip_131.mp4 -> Coordinated_Attack__usa_clip_131.csv
+[581/744] OK   videoplayback (4)_clip_899.mp4 -> Coordinated_Attack__videoplayback (4)_clip_899.csv
+[582/744] OK   usa_clip_128.mp4 -> Coordinated_Attack__usa_clip_128.csv
+[583/744] OK   videoplayback (6)_clip_650.mp4 -> Coordinated_Defense__videoplayback (6)_clip_650.csv
+[584/744] OK   videoplayback (6)_clip_676.mp4 -> Coordinated_Defense__videoplayback (6)_clip_676.csv
+[585/744] OK   videoplayback (1)_clip_227.mp4 -> Coordinated_Defense__videoplayback (1)_clip_227.csv
+[586/744] OK   videoplayback (4)_clip_934.mp4 -> Coordinated_Defense__videoplayback (4)_clip_934.csv
+[587/744] OK   usa_clip_046.mp4 -> Coordinated_Attack__usa_clip_046.csv
+[588/744] OK   usa_clip_115.mp4 -> Coordinated_Attack__usa_clip_115.csv
+[589/744] OK   videoplayback (4)_clip_883.mp4 -> Coordinated_Attack__videoplayback (4)_clip_883.csv
+[590/744] OK   videoplayback (3)_clip_384.mp4 -> Coordinated_Defense__videoplayback (3)_clip_384.csv
+[591/744] OK   videoplayback (1)_clip_278.mp4 -> Coordinated_Attack__videoplayback (1)_clip_278.csv
+[592/744] OK   videoplayback (3)_clip_424.mp4 -> Coordinated_Attack__videoplayback (3)_clip_424.csv
+[593/744] OK   videoplayback (4)_clip_846.mp4 -> Coordinated_Attack__videoplayback (4)_clip_846.csv
+[594/744] OK   usa_clip_045.mp4 -> Coordinated_Attack__usa_clip_045.csv
+[595/744] OK   usa_clip_069.mp4 -> Coordinated_Attack__usa_clip_069.csv
+[596/744] OK   videoplayback_clip_509.mp4 -> Coordinated_Defense__videoplayback_clip_509.csv
+[597/744] OK   usa_clip_006.mp4 -> Coordinated_Defense__usa_clip_006.csv
+[598/744] OK   videoplayback (6)_clip_680.mp4 -> Coordinated_Defense__videoplayback (6)_clip_680.csv
+[599/744] OK   videoplayback_clip_486.mp4 -> Coordinated_Defense__videoplayback_clip_486.csv
+[600/744] OK   videoplayback (1)_clip_268.mp4 -> Coordinated_Attack__videoplayback (1)_clip_268.csv
+[601/744] OK   videoplayback (6)_clip_669.mp4 -> Coordinated_Defense__videoplayback (6)_clip_669.csv
+[602/744] OK   videoplayback (6)_clip_664.mp4 -> Coordinated_Defense__videoplayback (6)_clip_664.csv
+[603/744] OK   videoplayback (6)_clip_698.mp4 -> Coordinated_Defense__videoplayback (6)_clip_698.csv
+[604/744] OK   usa_clip_054.mp4 -> Coordinated_Attack__usa_clip_054.csv
+[605/744] OK   videoplayback_clip_523.mp4 -> Coordinated_Defense__videoplayback_clip_523.csv
+[606/744] OK   videoplayback (4)_clip_908.mp4 -> Coordinated_Defense__videoplayback (4)_clip_908.csv
+[607/744] OK   videoplayback (5)_clip_770.mp4 -> Coordinated_Defense__videoplayback (5)_clip_770.csv
+[608/744] OK   usa_clip_084.mp4 -> Coordinated_Attack__usa_clip_084.csv
+[609/744] OK   videoplayback (4)_clip_895.mp4 -> Coordinated_Attack__videoplayback (4)_clip_895.csv
+[610/744] OK   videoplayback (2)_clip_328.mp4 -> Coordinated_Attack__videoplayback (2)_clip_328.csv
+[611/744] OK   videoplayback_clip_515.mp4 -> Coordinated_Defense__videoplayback_clip_515.csv
+[612/744] OK   videoplayback_clip_496.mp4 -> Coordinated_Defense__videoplayback_clip_496.csv
+[613/744] OK   videoplayback (1)_clip_230.mp4 -> Coordinated_Defense__videoplayback (1)_clip_230.csv
+[614/744] OK   videoplayback (6)_clip_693.mp4 -> Coordinated_Defense__videoplayback (6)_clip_693.csv
+[615/744] OK   videoplayback (3)_clip_388.mp4 -> Coordinated_Attack__videoplayback (3)_clip_388.csv
+[616/744] OK   usa_clip_007.mp4 -> Coordinated_Defense__usa_clip_007.csv
+[617/744] OK   videoplayback (4)_clip_898.mp4 -> Coordinated_Attack__videoplayback (4)_clip_898.csv
+[618/744] OK   videoplayback (1)_clip_254.mp4 -> Coordinated_Attack__videoplayback (1)_clip_254.csv
+[619/744] OK   videoplayback (5)_clip_833.mp4 -> Coordinated_Attack__videoplayback (5)_clip_833.csv
+[620/744] OK   usa_clip_037.mp4 -> Coordinated_Attack__usa_clip_037.csv
+[621/744] OK   videoplayback (4)_clip_962.mp4 -> Coordinated_Attack__videoplayback (4)_clip_962.csv
+[622/744] OK   videoplayback (3)_clip_443.mp4 -> Coordinated_Attack__videoplayback (3)_clip_443.csv
+[623/744] OK   videoplayback_clip_503.mp4 -> Coordinated_Attack__videoplayback_clip_503.csv
+[624/744] OK   videoplayback (6)_clip_687.mp4 -> Coordinated_Defense__videoplayback (6)_clip_687.csv
+[625/744] OK   videoplayback (3)_clip_408.mp4 -> Coordinated_Defense__videoplayback (3)_clip_408.csv
+[626/744] OK   videoplayback (1)_clip_248.mp4 -> Coordinated_Attack__videoplayback (1)_clip_248.csv
+[627/744] OK   videoplayback (6)_clip_735.mp4 -> Coordinated_Attack__videoplayback (6)_clip_735.csv
+[628/744] OK   usa_clip_151.mp4 -> Coordinated_Attack__usa_clip_151.csv
+[629/744] OK   videoplayback_clip_567.mp4 -> Coordinated_Attack__videoplayback_clip_567.csv
+[630/744] OK   videoplayback (3)_clip_417.mp4 -> Coordinated_Defense__videoplayback (3)_clip_417.csv
+[631/744] OK   videoplayback (2)_clip_305.mp4 -> Coordinated_Defense__videoplayback (2)_clip_305.csv
+[632/744] OK   videoplayback (6)_clip_599.mp4 -> Coordinated_Attack__videoplayback (6)_clip_599.csv
+[633/744] OK   videoplayback (5)_clip_782.mp4 -> Coordinated_Defense__videoplayback (5)_clip_782.csv
+[634/744] OK   videoplayback (1)_clip_209.mp4 -> Coordinated_Defense__videoplayback (1)_clip_209.csv
+[635/744] OK   videoplayback (5)_clip_805.mp4 -> Coordinated_Defense__videoplayback (5)_clip_805.csv
+[636/744] OK   videoplayback (4)_clip_889.mp4 -> Coordinated_Attack__videoplayback (4)_clip_889.csv
+[637/744] OK   videoplayback (4)_clip_950.mp4 -> Coordinated_Attack__videoplayback (4)_clip_950.csv
+[638/744] OK   videoplayback (4)_clip_861.mp4 -> Coordinated_Defense__videoplayback (4)_clip_861.csv
+[639/744] OK   videoplayback (6)_clip_602.mp4 -> Coordinated_Attack__videoplayback (6)_clip_602.csv
+[640/744] OK   videoplayback (4)_clip_874.mp4 -> Coordinated_Defense__videoplayback (4)_clip_874.csv
+[641/744] OK   usa_clip_102.mp4 -> Coordinated_Defense__usa_clip_102.csv
+[642/744] OK   videoplayback (6)_clip_692.mp4 -> Coordinated_Defense__videoplayback (6)_clip_692.csv
+[643/744] OK   videoplayback (6)_clip_715.mp4 -> Coordinated_Defense__videoplayback (6)_clip_715.csv
+[644/744] OK   usa_clip_072.mp4 -> Coordinated_Attack__usa_clip_072.csv
+[645/744] OK   videoplayback (2)_clip_336.mp4 -> Coordinated_Attack__videoplayback (2)_clip_336.csv
+[646/744] OK   videoplayback (2)_clip_295.mp4 -> Coordinated_Attack__videoplayback (2)_clip_295.csv
+[647/744] OK   videoplayback (1)_clip_173.mp4 -> Coordinated_Attack__videoplayback (1)_clip_173.csv
+[648/744] OK   usa_clip_127.mp4 -> Coordinated_Attack__usa_clip_127.csv
+[649/744] OK   videoplayback (3)_clip_377.mp4 -> Coordinated_Defense__videoplayback (3)_clip_377.csv
+[650/744] OK   videoplayback_clip_498.mp4 -> Coordinated_Defense__videoplayback_clip_498.csv
+[651/744] OK   videoplayback (6)_clip_595.mp4 -> Coordinated_Defense__videoplayback (6)_clip_595.csv
+[652/744] OK   usa_clip_064.mp4 -> Coordinated_Attack__usa_clip_064.csv
+[653/744] OK   videoplayback (3)_clip_434.mp4 -> Coordinated_Attack__videoplayback (3)_clip_434.csv
+[654/744] OK   videoplayback (3)_clip_439.mp4 -> Coordinated_Attack__videoplayback (3)_clip_439.csv
+[655/744] OK   videoplayback (3)_clip_420.mp4 -> Coordinated_Attack__videoplayback (3)_clip_420.csv
+[656/744] OK   videoplayback (6)_clip_645.mp4 -> Coordinated_Attack__videoplayback (6)_clip_645.csv
+[657/744] OK   videoplayback (4)_clip_960.mp4 -> Coordinated_Attack__videoplayback (4)_clip_960.csv
+[658/744] OK   videoplayback (5)_clip_774.mp4 -> Coordinated_Defense__videoplayback (5)_clip_774.csv
+[659/744] OK   videoplayback (6)_clip_716.mp4 -> Coordinated_Attack__videoplayback (6)_clip_716.csv
+[660/744] OK   videoplayback_clip_591.mp4 -> Coordinated_Defense__videoplayback_clip_591.csv
+[661/744] OK   videoplayback (5)_clip_815.mp4 -> Coordinated_Defense__videoplayback (5)_clip_815.csv
+[662/744] OK   videoplayback (6)_clip_719.mp4 -> Coordinated_Defense__videoplayback (6)_clip_719.csv
+[663/744] OK   videoplayback (2)_clip_292.mp4 -> Coordinated_Defense__videoplayback (2)_clip_292.csv
+[664/744] OK   videoplayback (6)_clip_637.mp4 -> Coordinated_Attack__videoplayback (6)_clip_637.csv
+[665/744] OK   videoplayback (5)_clip_797.mp4 -> Coordinated_Defense__videoplayback (5)_clip_797.csv
+[666/744] OK   videoplayback (6)_clip_697.mp4 -> Coordinated_Defense__videoplayback (6)_clip_697.csv
+[667/744] OK   videoplayback (5)_clip_828.mp4 -> Coordinated_Defense__videoplayback (5)_clip_828.csv
+[668/744] OK   videoplayback (4)_clip_865.mp4 -> Coordinated_Attack__videoplayback (4)_clip_865.csv
+[669/744] OK   videoplayback (4)_clip_926.mp4 -> Coordinated_Defense__videoplayback (4)_clip_926.csv
+[670/744] OK   videoplayback_clip_485.mp4 -> Coordinated_Attack__videoplayback_clip_485.csv
+[671/744] OK   videoplayback (4)_clip_937.mp4 -> Coordinated_Defense__videoplayback (4)_clip_937.csv
+[672/744] OK   videoplayback (1)_clip_282.mp4 -> Coordinated_Attack__videoplayback (1)_clip_282.csv
+[673/744] OK   videoplayback (6)_clip_647.mp4 -> Coordinated_Attack__videoplayback (6)_clip_647.csv
+[674/744] OK   videoplayback (4)_clip_952.mp4 -> Coordinated_Defense__videoplayback (4)_clip_952.csv
+[675/744] OK   videoplayback (6)_clip_672.mp4 -> Coordinated_Attack__videoplayback (6)_clip_672.csv
+[676/744] OK   videoplayback (1)_clip_222.mp4 -> Coordinated_Attack__videoplayback (1)_clip_222.csv
+[677/744] OK   videoplayback (3)_clip_413.mp4 -> Coordinated_Defense__videoplayback (3)_clip_413.csv
+[678/744] OK   videoplayback (3)_clip_441.mp4 -> Coordinated_Defense__videoplayback (3)_clip_441.csv
+[679/744] OK   videoplayback (6)_clip_722.mp4 -> Coordinated_Attack__videoplayback (6)_clip_722.csv
+[680/744] OK   usa_clip_149.mp4 -> Coordinated_Attack__usa_clip_149.csv
+[681/744] OK   videoplayback (1)_clip_183.mp4 -> Coordinated_Attack__videoplayback (1)_clip_183.csv
+[682/744] OK   videoplayback (2)_clip_296.mp4 -> Coordinated_Defense__videoplayback (2)_clip_296.csv
+[683/744] OK   videoplayback (4)_clip_933.mp4 -> Coordinated_Defense__videoplayback (4)_clip_933.csv
+[684/744] OK   videoplayback (2)_clip_317.mp4 -> Coordinated_Attack__videoplayback (2)_clip_317.csv
+[685/744] OK   videoplayback (4)_clip_955.mp4 -> Coordinated_Attack__videoplayback (4)_clip_955.csv
+[686/744] OK   videoplayback (4)_clip_902.mp4 -> Coordinated_Attack__videoplayback (4)_clip_902.csv
+[687/744] OK   videoplayback (5)_clip_757.mp4 -> Coordinated_Defense__videoplayback (5)_clip_757.csv
+[688/744] OK   videoplayback (3)_clip_445.mp4 -> Coordinated_Attack__videoplayback (3)_clip_445.csv
+[689/744] OK   usa_clip_119.mp4 -> Coordinated_Attack__usa_clip_119.csv
+[690/744] OK   videoplayback_clip_463.mp4 -> Coordinated_Attack__videoplayback_clip_463.csv
+[691/744] OK   videoplayback (4)_clip_967.mp4 -> Coordinated_Attack__videoplayback (4)_clip_967.csv
+[692/744] OK   videoplayback_clip_487.mp4 -> Coordinated_Attack__videoplayback_clip_487.csv
+[693/744] OK   videoplayback (3)_clip_418.mp4 -> Coordinated_Defense__videoplayback (3)_clip_418.csv
+[694/744] OK   videoplayback (5)_clip_841.mp4 -> Coordinated_Defense__videoplayback (5)_clip_841.csv
+[695/744] OK   usa_clip_008.mp4 -> Coordinated_Attack__usa_clip_008.csv
+[696/744] OK   videoplayback (6)_clip_628.mp4 -> Coordinated_Defense__videoplayback (6)_clip_628.csv
+[697/744] OK   videoplayback (6)_clip_727.mp4 -> Coordinated_Defense__videoplayback (6)_clip_727.csv
+[698/744] OK   usa_clip_143.mp4 -> Coordinated_Defense__usa_clip_143.csv
+[699/744] OK   videoplayback (1)_clip_187.mp4 -> Coordinated_Attack__videoplayback (1)_clip_187.csv
+[700/744] OK   usa_clip_034.mp4 -> Coordinated_Attack__usa_clip_034.csv
+[701/744] OK   videoplayback (4)_clip_940.mp4 -> Coordinated_Defense__videoplayback (4)_clip_940.csv
+[702/744] OK   usa_clip_117.mp4 -> Coordinated_Attack__usa_clip_117.csv
+[703/744] OK   videoplayback (5)_clip_790.mp4 -> Coordinated_Attack__videoplayback (5)_clip_790.csv
+[704/744] OK   videoplayback (4)_clip_851.mp4 -> Coordinated_Defense__videoplayback (4)_clip_851.csv
+[705/744] OK   videoplayback (2)_clip_285.mp4 -> Coordinated_Defense__videoplayback (2)_clip_285.csv
+[706/744] OK   videoplayback_clip_571.mp4 -> Coordinated_Defense__videoplayback_clip_571.csv
+[707/744] OK   videoplayback (4)_clip_956.mp4 -> Coordinated_Defense__videoplayback (4)_clip_956.csv
+[708/744] OK   videoplayback (4)_clip_866.mp4 -> Coordinated_Attack__videoplayback (4)_clip_866.csv
+[709/744] OK   videoplayback (6)_clip_666.mp4 -> Coordinated_Defense__videoplayback (6)_clip_666.csv
+[710/744] OK   videoplayback (5)_clip_840.mp4 -> Coordinated_Defense__videoplayback (5)_clip_840.csv
+[711/744] OK   videoplayback (6)_clip_713.mp4 -> Coordinated_Attack__videoplayback (6)_clip_713.csv
+[712/744] OK   videoplayback (1)_clip_247.mp4 -> Coordinated_Defense__videoplayback (1)_clip_247.csv
+[713/744] OK   videoplayback_clip_561.mp4 -> Coordinated_Attack__videoplayback_clip_561.csv
+[714/744] OK   videoplayback (1)_clip_200.mp4 -> Coordinated_Attack__videoplayback (1)_clip_200.csv
+[715/744] OK   videoplayback (5)_clip_737.mp4 -> Coordinated_Defense__videoplayback (5)_clip_737.csv
+[716/744] SKIP videoplayback (2)_clip_368.mp4: could not extract frames
+[717/744] OK   videoplayback_clip_481.mp4 -> Coordinated_Attack__videoplayback_clip_481.csv
+[718/744] OK   videoplayback_clip_495.mp4 -> Coordinated_Defense__videoplayback_clip_495.csv
+[719/744] OK   usa_clip_135.mp4 -> Coordinated_Attack__usa_clip_135.csv
+[720/744] OK   videoplayback (1)_clip_196.mp4 -> Coordinated_Attack__videoplayback (1)_clip_196.csv
+[721/744] OK   videoplayback (6)_clip_696.mp4 -> Coordinated_Attack__videoplayback (6)_clip_696.csv
+[722/744] OK   videoplayback (2)_clip_330.mp4 -> Coordinated_Attack__videoplayback (2)_clip_330.csv
+[723/744] OK   videoplayback (5)_clip_825.mp4 -> Coordinated_Defense__videoplayback (5)_clip_825.csv
+[724/744] OK   videoplayback_clip_534.mp4 -> Coordinated_Defense__videoplayback_clip_534.csv
+[725/744] OK   videoplayback (4)_clip_903.mp4 -> Coordinated_Defense__videoplayback (4)_clip_903.csv
+[726/744] OK   videoplayback (5)_clip_756.mp4 -> Coordinated_Attack__videoplayback (5)_clip_756.csv
+[727/744] OK   videoplayback (6)_clip_612.mp4 -> Coordinated_Defense__videoplayback (6)_clip_612.csv
+[728/744] OK   videoplayback (1)_clip_190.mp4 -> Coordinated_Attack__videoplayback (1)_clip_190.csv
+[729/744] OK   videoplayback (2)_clip_314.mp4 -> Coordinated_Attack__videoplayback (2)_clip_314.csv
+[730/744] OK   videoplayback (6)_clip_625.mp4 -> Coordinated_Attack__videoplayback (6)_clip_625.csv
+[731/744] OK   videoplayback (2)_clip_312.mp4 -> Coordinated_Attack__videoplayback (2)_clip_312.csv
+[732/744] OK   videoplayback (3)_clip_435.mp4 -> Coordinated_Defense__videoplayback (3)_clip_435.csv
+[733/744] OK   videoplayback (4)_clip_893.mp4 -> Coordinated_Attack__videoplayback (4)_clip_893.csv
+[734/744] OK   videoplayback (5)_clip_789.mp4 -> Coordinated_Defense__videoplayback (5)_clip_789.csv
+[735/744] OK   videoplayback_clip_568.mp4 -> Coordinated_Attack__videoplayback_clip_568.csv
+[736/744] OK   videoplayback (3)_clip_378.mp4 -> Coordinated_Defense__videoplayback (3)_clip_378.csv
+[737/744] OK   videoplayback (6)_clip_679.mp4 -> Coordinated_Attack__videoplayback (6)_clip_679.csv
+[738/744] OK   videoplayback (1)_clip_162.mp4 -> Coordinated_Defense__videoplayback (1)_clip_162.csv
+[739/744] OK   videoplayback (3)_clip_401.mp4 -> Coordinated_Defense__videoplayback (3)_clip_401.csv
+[740/744] OK   videoplayback (3)_clip_448.mp4 -> Coordinated_Defense__videoplayback (3)_clip_448.csv
+[741/744] OK   videoplayback (5)_clip_783.mp4 -> Coordinated_Attack__videoplayback (5)_clip_783.csv
+[742/744] OK   usa_clip_076.mp4 -> Coordinated_Attack__usa_clip_076.csv
+[743/744] OK   videoplayback (1)_clip_210.mp4 -> Coordinated_Defense__videoplayback (1)_clip_210.csv
+[744/744] OK   usa_clip_087.mp4 -> Coordinated_Defense__usa_clip_087.csv
+
+Done. CSV prepared: 723, skipped: 21
