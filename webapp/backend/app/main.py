@@ -10,6 +10,7 @@ import mimetypes
 import re
 import shutil
 import subprocess
+import threading
 import uuid
 from pathlib import Path
 
@@ -18,11 +19,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
-from . import config, project
+from . import config, project, validate
 from .db import now_iso, store
 from .worker import worker
 
 MAX_QUEUE = 20
+# one volleyball check at a time: each loads a detector model (RAM on the cloud VM)
+_check_lock = threading.Lock()
 mimetypes.add_type("application/manifest+json", ".webmanifest")
 mimetypes.add_type("text/javascript", ".js")
 OUTPUT_FILES = {
@@ -138,15 +141,23 @@ async def upload_chunk(uid: str, index: int, request: Request, x_client_id: str 
     offset = index * config.CHUNK_BYTES
     expected = min(config.CHUNK_BYTES, meta["size"] - offset)
     written = 0
+    head = b""
     with open(d / "data.part", "r+b") as f:
         f.seek(offset)
         async for part in request.stream():
+            if index == 0 and len(head) < 16:
+                head += part[:16 - len(head)]
             written += len(part)
             if written > expected:
                 raise HTTPException(413, "Chunk larger than declared.")
             f.write(part)
     if written != expected:
         raise HTTPException(400, f"Chunk incomplete ({written} of {expected} bytes).")
+    # a renamed text file / image / document: refused on its first chunk, before the rest is uploaded
+    if index == 0 and not validate.sniff_container(head):
+        shutil.rmtree(d, ignore_errors=True)
+        raise HTTPException(415, f"\"{meta['filename']}\" is not a video file. "
+                                 "Please upload a volleyball match video (MP4, MOV, AVI, MKV or WebM).")
     meta = json.loads((d / "meta.json").read_text())
     if index not in meta["received"]:
         meta["received"].append(index)
@@ -162,6 +173,21 @@ class AnalysisCreate(BaseModel):
     end: float | None = Field(None, ge=0)
 
 
+def _check_volleyball(video: Path, start: float, end: float | None) -> dict:
+    """Runs app.validate in its own process; the upload is refused unless it is a volleyball match."""
+    with _check_lock:
+        try:
+            out = subprocess.run([config.PYTHON_EXE, "-m", "app.validate", str(video), str(start), str(end or "")],
+                                 cwd=str(config.BACKEND_DIR), capture_output=True, text=True, timeout=300,
+                                 creationflags=config.NO_WINDOW)
+        except subprocess.TimeoutExpired:
+            raise HTTPException(503, "Checking the video took too long. Please try again.")
+    for line in reversed(out.stdout.splitlines()):
+        if line.startswith("{"):
+            return json.loads(line)
+    raise HTTPException(500, "The video could not be checked: " + (out.stderr.strip().splitlines() or ["unknown error"])[-1])
+
+
 @app.post("/api/analyses", status_code=201)
 def create_analysis(body: AnalysisCreate, x_client_id: str | None = Header(None)):
     owner = _owner(x_client_id)
@@ -172,6 +198,10 @@ def create_analysis(body: AnalysisCreate, x_client_id: str | None = Header(None)
         raise HTTPException(400, "End time must be after start time.")
     if worker.queue_length() >= MAX_QUEUE:
         raise HTTPException(429, "The analysis queue is full. Please try again later.")
+    check = _check_volleyball(d / "data.part", body.start, body.end)
+    if not check.get("ok"):
+        shutil.rmtree(d, ignore_errors=True)
+        raise HTTPException(422, check.get("reason") or validate.NOT_VOLLEYBALL)
     # one unfinished analysis per browser: a new upload replaces the previous one
     for old in store.find_status(["queued", "processing"]):
         if old.get("owner") == owner:

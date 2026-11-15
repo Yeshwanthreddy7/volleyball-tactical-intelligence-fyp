@@ -21,7 +21,7 @@ FRONTEND_DIST = Path(os.environ.get("VTA_FRONTEND_DIST", WEBAPP_DIR / "frontend"
 for _d in (UPLOAD_DIR, JOBS_DIR, DEMOS_DIR):
     _d.mkdir(parents=True, exist_ok=True)
 
-MAX_UPLOAD_BYTES = int(os.environ.get("VTA_MAX_UPLOAD_MB", "500")) * 1024 * 1024
+MAX_UPLOAD_BYTES = int(os.environ.get("VTA_MAX_UPLOAD_MB", "1024")) * 1024 * 1024
 # Cloudflare (free plan) rejects request bodies over 100 MB, so the browser
 # sends the file in chunks no bigger than this.
 CHUNK_BYTES = 32 * 1024 * 1024

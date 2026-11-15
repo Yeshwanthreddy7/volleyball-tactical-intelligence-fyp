@@ -137,6 +137,32 @@ function EventsTable({ events, onSeek }) {
   );
 }
 
+function AllActions({ segments, events, onSeek }) {
+  const rows = useMemo(() => [
+    ...segments.map((g) => ({ time: g.start, end: g.end, name: g.tactic, team: "Your team", hex: TACTIC_HEX[g.tactic] })),
+    ...events.map((e) => ({ time: e.time, end: null, name: e.action, team: "Opponent", hex: OPP_HEX[e.action] })),
+  ].sort((a, b) => a.time - b.time), [segments, events]);
+  return (
+    <div className="table-wrap" style={{ maxHeight: 520, overflowY: "auto" }}>
+      <table>
+        <thead><tr><th>#</th><th>Time</th><th>Team</th><th>Action</th><th /></tr></thead>
+        <tbody>
+          {rows.length === 0 && <tr><td colSpan={5} className="muted">No team tactic or opponent serve, spike or block was found.</td></tr>}
+          {rows.map((r, i) => (
+            <tr key={i}>
+              <td className="num">{i + 1}</td>
+              <td className="num"><a href="#player" onClick={(ev) => { ev.preventDefault(); onSeek(r.time); }}>{ts(r.time)}{r.end != null && ` - ${ts(r.end)}`}</a></td>
+              <td>{r.team}</td>
+              <td><span className="chip-tactic"><i className="dot" style={{ background: r.hex }} />{r.name}</span></td>
+              <td><button className="btn ghost sm" onClick={() => onSeek(r.time)}>▶ Play</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function TacticTable({ segments, onSeek }) {
   return (
     <div className="table-wrap" style={{ maxHeight: 520, overflowY: "auto" }}>
@@ -164,7 +190,7 @@ function TacticTable({ segments, onSeek }) {
 function Results({ job, onDelete }) {
   const r = job.result;
   const player = useRef(null);
-  const [tab, setTab] = useState("tactical");
+  const [tab, setTab] = useState("all");
   const [cur, setCur] = useState(0);
   const off = r.video.analysed_start;
   const dur = r.video.analysed_end - off;
@@ -223,10 +249,11 @@ function Results({ job, onDelete }) {
 
       <div style={{ marginTop: 28 }}>
         <div className="tabs">
-          {[["tactical", "📄 Team tactical report"], ["actions", "📄 Opponent action report"], ["segments", "Tactic segments"], ["table", "Opponent actions"], ["court", "Court calibration"]].map(([k, l]) => (
+          {[["all", "All actions"], ["tactical", "📄 Team tactical report"], ["actions", "📄 Opponent action report"], ["segments", "Tactic segments"], ["table", "Opponent actions"], ["court", "Court calibration"]].map(([k, l]) => (
             <button key={k} className={tab === k ? "on" : ""} onClick={() => setTab(k)}>{l}</button>
           ))}
         </div>
+        {tab === "all" && <AllActions segments={r.tactics.segments} events={r.events} onSeek={seek} />}
         {tab === "tactical" && (
           <Notepad title="tactical_report.txt" url={fileUrl(job.id, "tactical_report.txt")} onSeek={seek}
             downloads={[
@@ -250,7 +277,9 @@ function Results({ job, onDelete }) {
             <p>
               {r.court.method === "auto"
                 ? <>Court found automatically from the lines: <b>{r.court.lines.join(", ")}</b>{r.court.fit_rmse_px != null && ` (fit error ${r.court.fit_rmse_px.toFixed(2)} px)`}.</>
-                : "The court lines could not be found in this video, so a generic end-court model was used. Positions and tactics may be less accurate."}
+                : r.court.method === "known venue"
+                  ? <>This venue matches a court already verified in the project dataset ({r.court.venue}), so its checked court lines were used: <b>{r.court.lines.join(", ")}</b>.</>
+                  : "The court lines could not be found in this video, so a generic end-court model was used. Positions and tactics may be less accurate."}
             </p>
             {r.court.annotated && <img src={apiUrl(`/api/analyses/${job.id}/court.png`)} alt="Detected court lines on the empty-court base frame" style={{ borderRadius: 10 }} />}
           </div>

@@ -3,7 +3,7 @@ Group 56 Final Year Project
 ==========================================================================
 
 WHAT IT DOES
-  Upload a volleyball match video (up to 500 MB). The app tracks the players
+  Upload a volleyball match video (up to 1 GB). The app tracks the players
   and the ball and gives you back:
     * an annotated MP4 video (Ultra / 720p / 480p / 360p, plays in any player)
     * a TEAM TACTICAL REPORT for the team on the near side (bottom of the

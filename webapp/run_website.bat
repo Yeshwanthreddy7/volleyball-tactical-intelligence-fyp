@@ -23,6 +23,8 @@ if not exist "frontend\dist\index.html" (
   call npm run build || goto :err
   popd
 )
+REM detection (YOLO pose + ball) runs on the GPU when this python's torch sees CUDA
+python -c "import sys,torch; print('Python  :', sys.executable); print('GPU     :', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'NONE - CUDA not available, analysis will run on the CPU (slow)')"
 echo Storage : %VTA_STORAGE_DIR%
 if "%VTA_PORT%"=="80" (echo Open    : http://volleyballtactics.localhost) else (echo Open    : http://volleyballtactics.localhost:%VTA_PORT%)
 cd backend

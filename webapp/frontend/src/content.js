@@ -48,7 +48,7 @@ export const PROBLEM = {
 
 export const PIPELINE = [
   { title: "Upload and probe", code: "webapp/backend/app/main.py",
-    text: "The video (up to 500 MB) is uploaded in chunks, checked, and queued for the GPU worker." },
+    text: "The video (up to 1 GB) is uploaded in chunks, checked, and queued for the GPU worker." },
   { title: "Court calibration", code: "BASEFRAMES/extract_base_frames.py, detect_court_corners.py",
     text: "A median 'empty court' base frame is built from the dominant camera shot; the court lines (end, attack and centre lines) are found and fitted to a homography." },
   { title: "Player and ball detection", code: "OUTPUTS/bicausal_extract.py",
@@ -83,7 +83,7 @@ export const MILESTONES = [
   { date: "Oct 21, 2026", title: "v6 retrain on 948 clips",
     text: "Full re-extraction and retraining on 948 labelled clips; HistGradientBoosting deployed (LOVO accuracy 67%, macro F1 0.51).", state: "done" },
   { date: "Oct 24, 2026", title: "Web application and documentation portal",
-    text: "Full-stack website: upload up to 500 MB, GPU analysis queue, multi-quality annotated MP4, timestamped tactical and opponent reports, MongoDB, desktop app, Windows installer and Vercel deployment.", state: "done" },
+    text: "Full-stack website: upload up to 1 GB, GPU analysis queue, multi-quality annotated MP4, timestamped tactical and opponent reports, MongoDB, desktop app, Windows installer and Vercel deployment.", state: "done" },
   { date: "Now", title: "More matches and labelled clips",
     text: "Grow Delayed Support and Spacing Breakdown (the two minority classes) and add new courts to improve generalisation.", state: "now" },
 ];

@@ -79,7 +79,7 @@ changes every time.
      `docker compose -f webapp/docker-compose.yml --profile public up -d --build`.
 
 Uploads go through Cloudflare in 32 MB chunks, so the 100 MB per-request limit of the free plan does not
-block 500 MB videos.
+block 1 GB videos.
 
 ## 3. Cloud GPU server (always on)
 Any Linux VM with an NVIDIA GPU (e.g. AWS g4dn.xlarge, GCP T4, RunPod, Lambda) with Docker and the
@@ -99,7 +99,7 @@ docker compose -f webapp/docker-compose.yml --profile public up -d --build
 |---|---|---|
 | `MONGODB_URI` | `mongodb://localhost:27017` | MongoDB connection |
 | `VTA_STORAGE_DIR` | `webapp/storage` | uploads and results (keep outside OneDrive) |
-| `VTA_MAX_UPLOAD_MB` | `500` | upload limit |
+| `VTA_MAX_UPLOAD_MB` | `1024` | upload limit |
 | `VTA_MAX_VIDEO_SECONDS` | `3600` | longest part of a video that can be analysed |
 | `VTA_RETENTION_DAYS` | `14` | analyses older than this are deleted |
 

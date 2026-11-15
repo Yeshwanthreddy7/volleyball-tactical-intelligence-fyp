@@ -61,8 +61,12 @@ def summarise(result: dict) -> dict:
 def _header(title: str, result: dict, video_name: str) -> list[str]:
     v = result["video"]
     court = result["court"]
-    cal = (f"automatic ({', '.join(court['lines'])})" if court["method"] == "auto"
-           else "generic end-court model (court lines not found)")
+    if court["method"] == "auto":
+        cal = f"automatic ({', '.join(court['lines'])})"
+    elif court["method"] == "known venue":
+        cal = f"known venue, verified court lines ({court.get('venue')})"
+    else:
+        cal = "generic end-court model (court lines not found)"
     return [
         RULE, title.center(78), "Volleyball Tactical Analysis  -  volleyballtacticalanalyze.com".center(78), RULE,
         f"Video            : {video_name}",
@@ -128,7 +132,7 @@ def opponent_report_txt(result: dict, video_name: str) -> str:
     L += ["", THIN, "Notes",
           "  * Actions come from ball-touch events (sharp changes in the ball path next to a player),",
           "    the volleyball touch order and pose (contact above the head).",
-          "  * PLAYER is the tracker id of the opponent player in the annotated video.",
+          "  * PLAYER is the tracker id of the opponent player (opponents are not marked in the video).",
           RULE]
     return "\r\n".join(L) + "\r\n"
 

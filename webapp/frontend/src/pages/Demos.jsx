@@ -127,7 +127,7 @@ export default function Demos() {
         </div>
       )}
       <div className="card row" style={{ marginTop: 20 }}>
-        <div style={{ flex: "1 1 300px" }}><h3>Try it on your own match</h3><p className="muted small" style={{ margin: 0 }}>Upload up to 500 MB and get the same output for your video.</p></div>
+        <div style={{ flex: "1 1 300px" }}><h3>Try it on your own match</h3><p className="muted small" style={{ margin: 0 }}>Upload up to 1 GB and get the same output for your video.</p></div>
         <Link className="btn" to="/analyze">Analyse a video</Link>
       </div>
     </div>

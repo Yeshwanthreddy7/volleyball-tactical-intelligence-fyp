@@ -10,10 +10,11 @@ It drives the project's own research code, unmodified:
               BASEFRAMES/detect_court_corners.py court lines -> homography
   2. detect   OUTPUTS/bicausal_extract.py        YOLO11m-pose + BoT-SORT and the
                                                  volleyball ball model
-  3. render   NEW_OUTPUTS/code/new_render.py     near (focus) team: the four
-              NEW_OUTPUTS/code/team_tactics.py   tactics from tactical_ml_v6.joblib;
-                                                 far (opponent) team: SERVE / SPIKE /
-                                                 BLOCK only (bicausal_render rules)
+  3. render   NEW_OUTPUTS/code/new_render.py     video: near team's in-court players
+              NEW_OUTPUTS/code/team_tactics.py   (ring of links) + continuous ball only;
+                                                 CSVs: near team's four tactics
+                                                 (tactical_ml_v6.joblib) and the far
+                                                 team's SERVE / SPIKE / BLOCK
   4. encode   ffmpeg: master MP4 (H.264 + original AAC audio, faststart) and
               720p / 480p / 360p renditions
   5. reports  app/reports.py: team tactical report + opponent action report
@@ -36,6 +37,7 @@ from pathlib import Path
 
 import cv2
 import imageio_ffmpeg
+import numpy as np
 from PIL import ImageFont
 
 from . import clips, config, reports
@@ -103,6 +105,49 @@ def probe(video: Path) -> dict:
 
 
 # ---------------------------------------------------------------- 1. court
+KNOWN_VENUE_SIM = 0.95      # dataset videos score 0.98+ against their own venue, <= 0.88 otherwise
+
+
+def _frame_sig(img):
+    g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) if img.ndim == 3 else img
+    g = cv2.GaussianBlur(cv2.resize(g, (160, 90), interpolation=cv2.INTER_AREA).astype(np.float32), (5, 5), 0)
+    return (g - g.mean()) / (g.std() + 1e-6)
+
+
+def known_venue_court(png: Path, w: int, h: int):
+    """Verified court lines of a dataset venue whose empty-court frame matches this one.
+
+    The automatic line labelling can lock onto the wrong lines on multi-sport
+    floors; a venue already checked by hand is taken from its stored label."""
+    base_dir = config.REPO_ROOT / "BASEFRAMES" / "base_frame"
+    lab_dir = config.REPO_ROOT / "BASEFRAMES" / "corner_court_detection" / "labels"
+    q = _frame_sig(cv2.imread(str(png)))
+    best = None
+    for ref in sorted(base_dir.glob("*.png")):
+        lab = lab_dir / f"{ref.stem}.json"
+        img = cv2.imread(str(ref))
+        if img is None or not lab.exists():
+            continue
+        sim = float((q * _frame_sig(img)).mean())
+        if best is None or sim > best[0]:
+            best = (sim, ref, lab, img.shape[1], img.shape[0])
+    if best is None or best[0] < KNOWN_VENUE_SIM:
+        return None
+    sim, ref, lab_path, rw, rh = best
+    lines = json.loads(lab_path.read_text(encoding="utf-8"))["lines_used"]
+    if len(lines) < 2:
+        return None
+    sx, sy = w / rw, h / rh
+    img_pts, crt_pts = [], []
+    for ln in lines:
+        img_pts.append([ln["left_px"][0] * sx, ln["left_px"][1] * sy]); crt_pts.append([0, ln["court_y_m"]])
+        img_pts.append([ln["right_px"][0] * sx, ln["right_px"][1] * sy]); crt_pts.append([9, ln["court_y_m"]])
+    print(f"court: known venue {ref.stem} (similarity {sim:.3f})", flush=True)
+    return {"method": "known venue", "img": img_pts, "court": crt_pts,
+            "lines": [ln["name"] for ln in lines], "fit_rmse_px": None, "annotated": None,
+            "venue": ref.stem, "similarity": round(sim, 3)}
+
+
 def calibrate_court(video: Path, job_dir: Path, w: int, h: int, bc) -> dict:
     """Court homography points for this video, in the format bicausal_render.COURTS uses."""
     import detect_court_corners as dcc
@@ -116,6 +161,9 @@ def calibrate_court(video: Path, job_dir: Path, w: int, h: int, bc) -> dict:
     ebf.process_video(video, bf_dir, n_sample=n, n_clusters=8, n_keep=max(40, n * 3 // 10), overwrite=True)
     png = bf_dir / f"{video.stem}.png"
     if png.exists():
+        known = known_venue_court(png, w, h)
+        if known is not None:
+            return known
         try:
             lab = dcc.process(png, job_dir / "court")
             lines = lab["lines_used"]
@@ -303,7 +351,7 @@ def run(job_dir: Path) -> dict:
                   "analysed_end": (start_frame + n_frames) / fps, "analysed_frames": n_frames},
         "team": "near",
         "mode": params.get("mode", "accurate"),
-        "court": {k: court[k] for k in ("method", "lines", "fit_rmse_px", "annotated")},
+        "court": {k: court.get(k) for k in ("method", "lines", "fit_rmse_px", "annotated", "venue")},
         "events": events,
         "tactics": {"model": "HistGradientBoosting, tactical_ml_v6.joblib (NEW_OUTPUTS/code/team_tactics.py)",
                     "segments": segments,

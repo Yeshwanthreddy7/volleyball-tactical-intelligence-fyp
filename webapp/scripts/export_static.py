@@ -61,7 +61,7 @@ def main() -> None:
 
     write_json(api / "health.json", {
         "status": "static", "database": "none (static site)", "gpu": {"available": False, "name": None},
-        "queue": 0, "max_upload_mb": 500, "allowed_extensions": sorted(config.ALLOWED_EXTENSIONS),
+        "queue": 0, "max_upload_mb": 1024, "allowed_extensions": sorted(config.ALLOWED_EXTENSIONS),
         "desktop_url": a.desktop_url, "live_url": a.live_url})
     write_json(api / "info.json", {"name": config.SITE_NAME, "domain": config.SITE_DOMAIN,
                                    "github": config.GITHUB_URL, "static": True,

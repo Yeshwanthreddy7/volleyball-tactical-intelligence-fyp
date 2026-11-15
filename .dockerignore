@@ -10,6 +10,7 @@
 !fyp/volleyball_best.pt
 !BASEFRAMES/*.py
 !BASEFRAMES/corner_court_detection/labels
+!BASEFRAMES/base_frame/*.png
 !BASEFRAMES/_contact_sheet.png
 !tactical_ml_v6.joblib
 !ml_results_v6

@@ -33,7 +33,7 @@ export default function Analyze() {
   const [err, setErr] = useState(null);
   const [up, setUp] = useState(null); // {sent,total,rate}
 
-  const maxMb = health?.max_upload_mb || 500;
+  const maxMb = health?.max_upload_mb || 1024;
   useEffect(() => { api.health().then(setHealth).catch(() => {}); }, []);
   useEffect(() => () => preview && URL.revokeObjectURL(preview), [preview]);
 
@@ -42,6 +42,7 @@ export default function Analyze() {
     if (!f) return;
     const ext = f.name.slice(f.name.lastIndexOf(".")).toLowerCase();
     if (!EXTS.includes(ext)) return setErr(`"${f.name}" is not a supported video. Use ${EXTS.join(", ")}.`);
+    if (f.type && !f.type.startsWith("video/")) return setErr(`"${f.name}" is not a video file. Please choose a volleyball match video.`);
     if (f.size > maxMb * MB) return setErr(`The file is ${(f.size / MB).toFixed(0)} MB. The limit is ${maxMb} MB.`);
     setFile(f);
     setMeta(null);
@@ -78,6 +79,7 @@ export default function Analyze() {
         const secs = (performance.now() - t0) / 1000;
         setUp({ sent, total, rate: secs > 0.5 ? sent / secs : 0 });
       }, abort.current.signal);
+      setUp((u) => ({ ...u, checking: true }));
       const job = await api.create({ upload_id: uid, mode, start: s ?? 0, end: e ?? null });
       trackJob(job.id);
       sendHeartbeat();
@@ -158,7 +160,7 @@ export default function Analyze() {
       {health && !health.gpu?.available && (
         <div className="alert warn" style={{ margin: "16px 0" }}>
           This analysis server runs on a cloud CPU (no GPU) with lighter detection models: about 15 minutes per
-          minute of video in Fast mode (25 in Accurate). Any video up to 500 MB is accepted; for quicker results
+          minute of video in Fast mode (25 in Accurate). Any video up to 1 GB is accepted; for quicker results
           choose Fast mode and analyse only the part you need with the time range.
         </div>
       )}
@@ -177,7 +179,7 @@ export default function Analyze() {
             >
               <div className="big">🎬</div>
               <h3>Drop your video here or click to browse</h3>
-              <p className="muted small">MP4, MOV, M4V, AVI, MKV or WEBM · up to {maxMb} MB</p>
+              <p className="muted small">MP4, MOV, M4V, AVI, MKV or WEBM · up to {maxMb >= 1024 ? `${+(maxMb / 1024).toFixed(1)} GB` : `${maxMb} MB`}</p>
             </div>
           ) : (
             <div>
@@ -196,10 +198,15 @@ export default function Analyze() {
               </div>
             </div>
           )}
-          <input ref={input} type="file" accept={EXTS.join(",") + ",video/*"} hidden
+          <input ref={input} type="file" accept={EXTS.join(",")} hidden
             onChange={(ev) => { choose(ev.target.files[0]); ev.target.value = ""; }} />
 
-          {up && (
+          {up?.checking && (
+            <div className="alert info" style={{ marginTop: 18 }}>
+              Checking that the video is a volleyball match (court lines and players)… this takes up to a minute.
+            </div>
+          )}
+          {up && !up.checking && (
             <div style={{ marginTop: 18 }}>
               <div className="row small" style={{ marginBottom: 6 }}>
                 <b>Uploading… {pct.toFixed(0)}%</b>
@@ -259,7 +266,7 @@ export default function Analyze() {
           </div>
 
           <button className="btn" style={{ width: "100%", marginTop: 22 }} disabled={!file || !!up || !!timeErr} onClick={submit}>
-            {up ? "Uploading…" : file ? "Upload and analyse" : "Choose a video first"}
+            {up?.checking ? "Checking video…" : up ? "Uploading…" : file ? "Upload and analyse" : "Choose a video first"}
           </button>
           </>}
           <p className="small faint" style={{ marginTop: 12 }}>
