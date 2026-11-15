@@ -221,7 +221,7 @@ def render(cache, out_path, max_frames=0, segment_frames=4000):
     cam_ok = _fill_runs(_fill_runs(cam_ok, False, int(0.5 * fps)), True, int(0.5 * fps))
     live = live_mask(n, fps, touches, ball, players, cam_ok)
     print("  team tactics (HGB) ...", flush=True)
-    rows = tt.raw_rows(players, ball, bc.to_court, FOCUS)
+    rows = tt.raw_rows(players, ball, (bc.MAIN_W, bc.MAIN_H), FOCUS)
     ws, we, P = tt.window_probs(rows, fps)
     lab, prob = tt.frame_calls(n, fps, ws, we, P, live)
     dist = Counter(tt.CLASSES[v] if v >= 0 else "no call" for v in lab)

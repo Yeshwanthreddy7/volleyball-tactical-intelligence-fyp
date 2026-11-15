@@ -8,8 +8,12 @@ They come from the deployed classifier (tactical_ml_v6.joblib, the calibrated
 HistGradientBoosting model, see METHODOLOGY.md / DEFENSE_MASTER.md). The input
 is built exactly as at training time:
 
-  per frame   ball + up to 6 near-team foot points in the training court plane
-              (1800 cm across x 900 cm deep, net at y = 450 cm, near half = y > 450)
+  per frame   ball + up to 6 near-team foot points in the TRAINING coordinate
+              system: the 948 training clips were extracted with
+              `--court-coords linear`, i.e. screen position scaled to 1800 x 900
+              (x = px / width * 1800, y = py / height * 900). The model must get
+              the same thing here - top-down court metres are a different
+              geometry and cost ~17 points of accuracy on the labelled moments.
   per window  29 samples (~1 s at 30 fps; 50 fps sources are resampled) ->
               features.build_model_sequence -> (29, 18) -> classifier
 
@@ -19,7 +23,10 @@ Window probabilities are prior-corrected (divided by the training class
 frequencies, 39/37/11/12 %), i.e. the balanced decision rule; without it the
 two rare classes almost never win the argmax after smoothing.
 Frames outside live play (camera change / replay, fewer than 3 near players,
-no ball touch nearby) get no call.
+no ball touch nearby) get no call, and neither do frames where the model's own
+(uncorrected) probability for its best class is below MIN_CONF: on the 115
+hand-labelled moments in the cached videos, calls at >= 0.5 agree with the
+label 85-94% of the time, calls below 0.5 only ~38%.
 """
 from __future__ import annotations
 
@@ -40,27 +47,30 @@ WIN = 29                 # samples per window (training contract)
 TRAIN_FPS = 30.0
 # class counts of the 948 training clips (ml_results_v6/ml_results.json)
 TRAIN_PRIOR = np.array([370, 355, 108, 115], np.float64) / 948.0
+MIN_CONF = 0.5           # below this the model is closer to guessing than knowing
 
 
-def court_m_to_train_cm(c):
-    """bicausal_render court metres (X 0..9 across, Y 0..18 far->near) ->
-    the training plane (x 0..1800 across, y 0..900 far->near)."""
-    c = np.asarray(c, np.float64)
-    return np.stack([c[..., 0] * 200.0, c[..., 1] * 50.0], axis=-1)
+def screen_to_train(pt, size):
+    """Pixel (x, y) -> the training plane of `--court-coords linear`."""
+    w, h = size
+    return np.array([pt[0] / w * 1800.0, pt[1] / h * 900.0], np.float64)
 
 
-def raw_rows(players, ball, to_court, team):
+def raw_rows(players, ball, size, team):
     """(n, 14) raw rows [ball_x, ball_y, p1_x, p1_y, ..., p6_x, p6_y]; missing = 0
-    (the training CSV sentinel, turned into NaN by features.raw_frame_to_arrays)."""
+    (the training CSV sentinel, turned into NaN by features.raw_frame_to_arrays).
+
+    `size` = (frame width, frame height) in pixels. Ball and feet are pixel
+    positions, scaled exactly as the training CSVs were (see module docstring)."""
     n = len(players)
     rows = np.zeros((n, 14), np.float64)
     for fi in range(n):
         b = ball[fi]
         if not np.isnan(b[0]):
-            rows[fi, 0:2] = court_m_to_train_cm(to_court(b)[0])
+            rows[fi, 0:2] = screen_to_train(b, size)
         tq = sorted((q for q in players[fi] if q["team"] == team), key=lambda q: q["id"])[:6]
         for k, q in enumerate(tq):
-            rows[fi, 2 + 2 * k: 4 + 2 * k] = court_m_to_train_cm(q["court"])
+            rows[fi, 2 + 2 * k: 4 + 2 * k] = screen_to_train(q["feet"], size)
     return rows
 
 
@@ -88,20 +98,33 @@ def window_probs(rows, fps, stride_s=1 / 3):
     return starts, starts + span - 1, P
 
 
-def frame_calls(n, fps, starts, ends, P, live, min_dwell_s=0.8, smooth_s=0.5):
-    """Per-frame label index (-1 = no call) and per-frame probability vector."""
+def frame_calls(n, fps, starts, ends, P, live, min_dwell_s=0.8, smooth_s=0.5, min_conf=MIN_CONF):
+    """Per-frame label index (-1 = no call) and per-frame probability vector.
+
+    P are the prior-corrected window probabilities from window_probs (they pick
+    the class). The returned probabilities are the model's own, uncorrected
+    ones: they are what was checked against the hand labels, so they are the
+    honest confidence, and frames whose best one is below `min_conf` get no call."""
+    raw = np.asarray(P) * TRAIN_PRIOR
+    raw = raw / np.maximum(raw.sum(1, keepdims=True), 1e-12)
     acc = np.zeros((n, 4))
+    acc_raw = np.zeros((n, 4))
     cnt = np.zeros(n)
-    for s, e, p in zip(starts, ends, P):
+    for s, e, p, r in zip(starts, ends, P, raw):
         acc[s:e + 1] += p
+        acc_raw[s:e + 1] += r
         cnt[s:e + 1] += 1
-    prob = np.where(cnt[:, None] > 0, acc / np.maximum(cnt, 1)[:, None], 0.0)
     # gaussian smoothing along time
     sig = max(1.0, smooth_s * fps / 2)
     k = np.exp(-0.5 * (np.arange(-3 * sig, 3 * sig + 1) / sig) ** 2)
     k /= k.sum()
-    prob = np.stack([np.convolve(prob[:, c], k, "same") for c in range(4)], 1)
-    lab = np.where(live & (cnt > 0), prob.argmax(1), -1)
+
+    def smooth(a):
+        a = np.where(cnt[:, None] > 0, a / np.maximum(cnt, 1)[:, None], 0.0)
+        return np.stack([np.convolve(a[:, c], k, "same") for c in range(4)], 1)
+
+    prob, conf = smooth(acc), smooth(acc_raw)
+    lab = np.where(live & (cnt > 0) & (conf.max(1) >= min_conf), prob.argmax(1), -1)
 
     # minimum dwell: a short run inside live play takes the label of its
     # longer neighbour whose summed probability over the run is higher
@@ -124,7 +147,7 @@ def frame_calls(n, fps, starts, ends, P, live, min_dwell_s=0.8, smooth_s=0.5):
     for a, b, v in _runs(lab):
         if v >= 0 and b - a + 1 < min_len:
             lab[a:b + 1] = -1
-    return lab, prob
+    return lab, conf
 
 
 def _runs(lab):

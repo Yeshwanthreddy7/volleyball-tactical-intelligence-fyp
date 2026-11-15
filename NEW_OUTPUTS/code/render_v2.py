@@ -286,7 +286,7 @@ def render(cache, out_path, labels_csv, max_frames=0, segment_frames=4000):
     # tactics from our filtered players only
     our_view = ours
     live = rally_mask(n, fps, touches, our_view, cam_ok)
-    rows = tt.raw_rows(our_view, ball, bc.to_court, OUR)
+    rows = tt.raw_rows(our_view, ball, (bc.MAIN_W, bc.MAIN_H), OUR)
     ws, we, P = tt.window_probs(rows, fps)
     lab, prob = tt.frame_calls(n, fps, ws, we, P, live)
     dist = Counter(tt.CLASSES[v] if v >= 0 else "no call" for v in lab)

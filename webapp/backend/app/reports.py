@@ -93,7 +93,8 @@ def tactical_report_txt(result: dict, video_name: str) -> str:
     L += [THIN,
           f"  Dominant tactic      : {s['dominant_tactic'] or '-'}",
           f"  Live play classified : {s['live_seconds']:.1f} s of {s['analysed_seconds']:.1f} s analysed"
-          " (no call between rallies, in replays or with fewer than 3 of your players visible)",
+          " (no call between rallies, in replays, with fewer than 3 of your players visible,",
+          "   or when the model is less than 50% sure)",
           "",
           "WHAT THE TACTICS MEAN", THIN]
     for name in TACTICS:
@@ -109,6 +110,9 @@ def tactical_report_txt(result: dict, video_name: str) -> str:
           "  * Model: the project's deployed HistGradientBoosting classifier (tactical_ml_v6.joblib).",
           "    29-sample (about 1 s) windows of your team's six court positions, sliding every 1/3 s,",
           "    balanced for class frequency, smoothed, with a minimum length of 0.8 s per call.",
+          "  * A tactic is only called when the model is at least 50% sure; CONF. is that",
+          "    probability. On hand-labelled moments, calls at 50% or more matched the label",
+          "    about 85-94% of the time; weaker guesses are left out instead of shown.",
           "  * Leave-one-video-out accuracy of this model is 67.0% (macro F1 0.51) on 948 clips;",
           "    treat short or low-confidence segments as indicative, not certain.",
           RULE]
