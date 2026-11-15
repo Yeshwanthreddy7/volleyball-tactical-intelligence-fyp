@@ -94,7 +94,7 @@ export default function History() {
               </div>
               {j.result?.summary && (
                 <div className="small" style={{ marginTop: 8 }}>
-                  {j.result.summary.tactic_segments} tactic segments · {j.result.summary.opponent_total} opponent actions
+                  {j.result.summary.tactic_segments} attack / defense moments
                   {j.result.summary.dominant_tactic && (
                     <> · <span style={{ color: TACTIC_HEX[j.result.summary.dominant_tactic] }}>{j.result.summary.dominant_tactic}</span></>
                   )}

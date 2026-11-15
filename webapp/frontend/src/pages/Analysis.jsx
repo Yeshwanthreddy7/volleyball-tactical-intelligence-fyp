@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { api, apiUrl, fileUrl, trackJob } from "../api.js";
-import { OPP_HEX, TACTICS, TACTIC_HEX } from "../content.js";
+import { TACTICS, TACTIC_HEX } from "../content.js";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import Notepad from "../components/Notepad.jsx";
 
@@ -89,65 +89,29 @@ function Timeline({ result, duration, current, onSeek }) {
           <div key={i} className="tseg" title={`${s.tactic} ${ts(s.start)}-${ts(s.end)}`}
             style={{ left: pos(s.start), width: `${(100 * (s.end - s.start)) / len}%`, background: TACTIC_HEX[s.tactic] }} />
         ))}
-        {result.events.map((e, i) => (
-          <div key={i} className="tick" title={`${ts(e.time)} opponent ${e.action}`}
-            style={{ left: pos(e.time), background: OPP_HEX[e.action] || "#fff" }} />
-        ))}
         <div className="head" style={{ left: pos(off + current) }} />
       </div>
       <div className="legend">
-        {TACTICS.map((t) => <span key={t.name}><i className="dot" style={{ background: t.hex }} />{t.name}</span>)}
-        {Object.entries(OPP_HEX).map(([a, c]) => <span key={a}><i className="dot" style={{ background: c, borderRadius: 2 }} />opponent {a.toLowerCase()}</span>)}
+        {SHOWN.map((t) => <span key={t.name}><i className="dot" style={{ background: t.hex }} />{t.name}</span>)}
       </div>
     </div>
   );
 }
 
-function EventsTable({ events, onSeek }) {
-  const [act, setAct] = useState("all");
-  const rows = events.filter((e) => act === "all" || e.action === act);
-  return (
-    <div>
-      <div className="row" style={{ marginBottom: 12 }}>
-        <div className="seg">
-          {["all", "SERVE", "SPIKE", "BLOCK"].map((k) => (
-            <button key={k} className={act === k ? "on" : ""} onClick={() => setAct(k)}>{k === "all" ? "All" : k}</button>
-          ))}
-        </div>
-        <span className="small muted">{rows.length} opponent actions</span>
-      </div>
-      <div className="table-wrap" style={{ maxHeight: 520, overflowY: "auto" }}>
-        <table>
-          <thead><tr><th>#</th><th>Time</th><th>Action</th><th>Opponent player</th><th /></tr></thead>
-          <tbody>
-            {rows.length === 0 && <tr><td colSpan={5} className="muted">No opponent serve, spike or block detected.</td></tr>}
-            {rows.map((e, i) => (
-              <tr key={i}>
-                <td className="num">{i + 1}</td>
-                <td className="num"><a href="#player" onClick={(ev) => { ev.preventDefault(); onSeek(e.time); }}>{ts(e.time)}</a></td>
-                <td><span className="chip-tactic"><i className="dot" style={{ background: OPP_HEX[e.action] }} />{e.action}</span></td>
-                <td>{e.player_track_id >= 0 ? `#${e.player_track_id}` : "-"}</td>
-                <td><button className="btn ghost sm" onClick={() => onSeek(e.time)}>▶ Play</button></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
+// Only these two actions are shown - the same moments captioned in the annotated video.
+const SHOWN_NAMES = ["Coordinated Attack", "Coordinated Defense"];
+const SHOWN = TACTICS.filter((t) => SHOWN_NAMES.includes(t.name));
 
-function AllActions({ segments, events, onSeek }) {
-  const rows = useMemo(() => [
-    ...segments.map((g) => ({ time: g.start, end: g.end, name: g.tactic, team: "Your team", hex: TACTIC_HEX[g.tactic] })),
-    ...events.map((e) => ({ time: e.time, end: null, name: e.action, team: "Opponent", hex: OPP_HEX[e.action] })),
-  ].sort((a, b) => a.time - b.time), [segments, events]);
+function AllActions({ segments, onSeek }) {
+  const rows = useMemo(() => segments
+    .map((g) => ({ time: g.start, end: g.end, name: g.tactic, team: "Your team", hex: TACTIC_HEX[g.tactic] }))
+    .sort((a, b) => a.time - b.time), [segments]);
   return (
     <div className="table-wrap" style={{ maxHeight: 520, overflowY: "auto" }}>
       <table>
         <thead><tr><th>#</th><th>Time</th><th>Team</th><th>Action</th><th /></tr></thead>
         <tbody>
-          {rows.length === 0 && <tr><td colSpan={5} className="muted">No team tactic or opponent serve, spike or block was found.</td></tr>}
+          {rows.length === 0 && <tr><td colSpan={5} className="muted">No clear Coordinated Attack or Coordinated Defense was found.</td></tr>}
           {rows.map((r, i) => (
             <tr key={i}>
               <td className="num">{i + 1}</td>
@@ -169,7 +133,7 @@ function TacticTable({ segments, onSeek }) {
       <table>
         <thead><tr><th>#</th><th>From</th><th>To</th><th>Length</th><th>Tactic</th><th>Confidence</th><th /></tr></thead>
         <tbody>
-          {segments.length === 0 && <tr><td colSpan={7} className="muted">No tactic was called (no live play with 3+ of your players visible).</td></tr>}
+          {segments.length === 0 && <tr><td colSpan={7} className="muted">No clear Coordinated Attack or Coordinated Defense was found.</td></tr>}
           {segments.map((g, i) => (
             <tr key={i}>
               <td className="num">{i + 1}</td>
@@ -188,7 +152,9 @@ function TacticTable({ segments, onSeek }) {
 }
 
 function Results({ job, onDelete }) {
-  const r = job.result;
+  // older analyses also hold the other tactics and opponent actions: hide them
+  const r = useMemo(() => ({ ...job.result, events: [], tactics: { ...job.result.tactics,
+    segments: job.result.tactics.segments.filter((g) => SHOWN_NAMES.includes(g.tactic)) } }), [job.result]);
   const player = useRef(null);
   const [tab, setTab] = useState("all");
   const [cur, setCur] = useState(0);
@@ -197,19 +163,19 @@ function Results({ job, onDelete }) {
   const seek = (t) => player.current?.seek(t - off);
   const s = r.summary;
   const renditions = r.files;
-  const tacticRows = useMemo(() => TACTICS.map((t) => ({ ...t, ...s.tactics[t.name] })), [s]);
+  const tacticRows = useMemo(() => SHOWN.map((t) => ({ ...t, ...s.tactics[t.name] })), [s]);
 
   return (
     <>
       <div className="grid cols-4" style={{ marginBottom: 22 }}>
-        <div className="stat"><div className="v">{s.tactic_segments}</div><div className="l">your team tactic segments ({s.live_seconds.toFixed(0)} s of live play)</div></div>
-        <div className="stat"><div className="v">{s.opponent_total}</div><div className="l">opponent: {s.opponent_actions.SERVE} serves · {s.opponent_actions.SPIKE} spikes · {s.opponent_actions.BLOCK} blocks</div></div>
-        <div className="stat"><div className="v">{(100 * s.live_seconds / Math.max(1, s.analysed_seconds)).toFixed(0)}%</div><div className="l">of analysed time in live play</div></div>
+        <div className="stat"><div className="v">{s.tactics["Coordinated Attack"]?.segments ?? 0}</div><div className="l">coordinated attack moments ({(s.tactics["Coordinated Attack"]?.seconds ?? 0).toFixed(0)} s)</div></div>
+        <div className="stat"><div className="v">{s.tactics["Coordinated Defense"]?.segments ?? 0}</div><div className="l">coordinated defense moments ({(s.tactics["Coordinated Defense"]?.seconds ?? 0).toFixed(0)} s)</div></div>
+        <div className="stat"><div className="v">{r.tactics.segments.length}</div><div className="l">moments in total, captioned in the video</div></div>
         <div className="stat">
           <div className="v" style={{ fontSize: "1.15rem", paddingTop: 8, color: s.dominant_tactic ? TACTIC_HEX[s.dominant_tactic] : undefined }}>
             {s.dominant_tactic || "-"}
           </div>
-          <div className="l">dominant team tactic</div>
+          <div className="l">dominant team tactic (attack vs defense)</div>
         </div>
       </div>
 
@@ -223,7 +189,7 @@ function Results({ job, onDelete }) {
       <Timeline result={r} duration={dur} current={cur} onSeek={seek} />
 
       <div className="card" style={{ marginTop: 22 }}>
-        <h3>Your team's tactics <span className="faint small">(near side, blue)</span></h3>
+        <h3>Your team: attack and defense <span className="faint small">(near side, blue)</span></h3>
         <div className="table-wrap" style={{ marginTop: 10 }}>
           <table>
             <thead><tr><th>Tactic</th><th>Segments</th><th>Time</th><th>Share of rally time</th><th>Avg. confidence</th></tr></thead>
@@ -249,11 +215,11 @@ function Results({ job, onDelete }) {
 
       <div style={{ marginTop: 28 }}>
         <div className="tabs">
-          {[["all", "All actions"], ["tactical", "📄 Team tactical report"], ["actions", "📄 Opponent action report"], ["segments", "Tactic segments"], ["table", "Opponent actions"], ["court", "Court calibration"]].map(([k, l]) => (
+          {[["all", "Attack & defense moments"], ["tactical", "📄 Notepad report"], ["segments", "Segments with confidence"], ["court", "Court calibration"]].map(([k, l]) => (
             <button key={k} className={tab === k ? "on" : ""} onClick={() => setTab(k)}>{l}</button>
           ))}
         </div>
-        {tab === "all" && <AllActions segments={r.tactics.segments} events={r.events} onSeek={seek} />}
+        {tab === "all" && <AllActions segments={r.tactics.segments} onSeek={seek} />}
         {tab === "tactical" && (
           <Notepad title="tactical_report.txt" url={fileUrl(job.id, "tactical_report.txt")} onSeek={seek}
             downloads={[
@@ -262,16 +228,7 @@ function Results({ job, onDelete }) {
               { label: "JSON", href: fileUrl(job.id, "tactical_report.json", true) },
             ]} />
         )}
-        {tab === "actions" && (
-          <Notepad title="opponent_report.txt" url={fileUrl(job.id, "opponent_report.txt")} onSeek={seek}
-            downloads={[
-              { label: "⬇ opponent_report.txt", href: fileUrl(job.id, "opponent_report.txt", true), primary: true },
-              { label: "CSV", href: fileUrl(job.id, "opponent_report.csv", true) },
-              { label: "JSON", href: fileUrl(job.id, "opponent_report.json", true) },
-            ]} />
-        )}
         {tab === "segments" && <TacticTable segments={r.tactics.segments} onSeek={seek} />}
-        {tab === "table" && <EventsTable events={r.events} onSeek={seek} />}
         {tab === "court" && (
           <div className="card">
             <p>

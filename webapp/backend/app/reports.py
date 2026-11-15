@@ -1,11 +1,10 @@
 """Plain-text (Notepad-friendly), CSV and JSON reports for one analysis.
 
-Two separate reports per video:
+One report per video, matching the annotated video exactly:
   * tactical_report  - your team (near side): when it was in Coordinated
-                       Attack, Coordinated Defense, Delayed Support or
-                       Spacing Breakdown, with timestamps and confidence.
-  * opponent_report  - the opponent (far side): only SERVE, SPIKE and BLOCK,
-                       each with its timestamp.
+                       Attack or Coordinated Defense, with timestamps and
+                       confidence. These are the moments captioned in the video;
+                       no other action is reported.
 """
 from __future__ import annotations
 
@@ -15,13 +14,11 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
-TACTICS = ["Coordinated Attack", "Coordinated Defense", "Delayed Support", "Spacing Breakdown"]
+TACTICS = ["Coordinated Attack", "Coordinated Defense"]     # = new_render.SHOWN_TACTICS
 OPP_ACTIONS = ["SERVE", "SPIKE", "BLOCK"]
 TACTIC_MEANING = {
     "Coordinated Attack": "fast approach by front-court attackers, base players held near the net",
     "Coordinated Defense": "the team shifts as a rigid unit",
-    "Delayed Support": "the nearest player reacts late after ball impact",
-    "Spacing Breakdown": "structural failure - formation too spread or too clustered",
 }
 RULE = "=" * 78
 THIN = "-" * 78
@@ -83,7 +80,7 @@ def _header(title: str, result: dict, video_name: str) -> list[str]:
 def tactical_report_txt(result: dict, video_name: str) -> str:
     s = result["summary"]
     segs = result["tactics"]["segments"]
-    L = _header("TEAM TACTICAL REPORT  -  YOUR TEAM (NEAR SIDE)", result, video_name)
+    L = _header("ATTACK / DEFENSE REPORT  -  YOUR TEAM (NEAR SIDE)", result, video_name)
     L += ["SUMMARY", THIN,
           f"  {'TACTIC':<22}{'SEGMENTS':>9}{'TIME (s)':>11}{'SHARE':>9}{'AVG CONF.':>12}", THIN]
     for name in TACTICS:
@@ -92,9 +89,10 @@ def tactical_report_txt(result: dict, video_name: str) -> str:
                  f"{x['avg_confidence'] * 100:>11.1f}%")
     L += [THIN,
           f"  Dominant tactic      : {s['dominant_tactic'] or '-'}",
-          f"  Live play classified : {s['live_seconds']:.1f} s of {s['analysed_seconds']:.1f} s analysed"
-          " (no call between rallies, in replays, with fewer than 3 of your players visible,",
-          "   or when the model is less than 50% sure)",
+          f"  Attack + defense time: {s['live_seconds']:.1f} s of {s['analysed_seconds']:.1f} s analysed",
+          "  Same moments as the captions in the annotated video. Nothing is reported between",
+          "  rallies, in replays, with fewer than 3 of your players visible, or when the model",
+          "  is less than 50% sure.",
           "",
           "WHAT THE TACTICS MEAN", THIN]
     for name in TACTICS:
@@ -102,11 +100,13 @@ def tactical_report_txt(result: dict, video_name: str) -> str:
     L += ["", "TIMELINE  (times are positions in the original video)", THIN,
           f"  {'#':>4}  {'FROM':<10} {'TO':<10} {'LENGTH':>7}  {'TACTIC':<21} {'CONF.':>6}", THIN]
     if not segs:
-        L.append("  No live play with enough visible players was found, so no tactic was called.")
+        L.append("  No clear Coordinated Attack or Coordinated Defense was found in this part of the video.")
     for i, g in enumerate(segs, 1):
         L.append(f"  {i:>4}  {ts(g['start']):<10} {ts(g['end']):<10} {g['end'] - g['start']:>6.1f}s"
                  f"  {g['tactic']:<21} {g['confidence'] * 100:>5.0f}%")
     L += ["", THIN, "Notes",
+          "  * Only Coordinated Attack and Coordinated Defense are reported, exactly as captioned",
+          "    in the annotated video. Click a time to play the video from that moment.",
           "  * Model: the project's deployed HistGradientBoosting classifier (tactical_ml_v6.joblib).",
           "    29-sample (about 1 s) windows of your team's six court positions, sliding every 1/3 s,",
           "    balanced for class frequency, smoothed, with a minimum length of 0.8 s per call.",
@@ -144,23 +144,13 @@ def opponent_report_txt(result: dict, video_name: str) -> str:
 def write_all(result: dict, out_dir: Path, video_name: str) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "tactical_report.txt").write_text(tactical_report_txt(result, video_name), encoding="utf-8")
-    (out_dir / "opponent_report.txt").write_text(opponent_report_txt(result, video_name), encoding="utf-8")
     with open(out_dir / "tactical_report.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["from", "to", "start_seconds", "end_seconds", "tactic", "confidence"])
         for g in result["tactics"]["segments"]:
             w.writerow([ts(g["start"]), ts(g["end"]), f"{g['start']:.2f}", f"{g['end']:.2f}",
                         g["tactic"], f"{g['confidence']:.3f}"])
-    with open(out_dir / "opponent_report.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(["time", "seconds", "frame", "action", "player_track_id"])
-        for e in result["events"]:
-            w.writerow([ts(e["time"]), f"{e['time']:.2f}", e["frame"], e["action"], e["player_track_id"]])
     (out_dir / "tactical_report.json").write_text(json.dumps(
         {"video": video_name, "team": "near side", "model": result["tactics"]["model"],
          "summary": result["summary"]["tactics"], "segments": result["tactics"]["segments"]},
-        indent=1), encoding="utf-8")
-    (out_dir / "opponent_report.json").write_text(json.dumps(
-        {"video": video_name, "team": "far side (opponent)",
-         "summary": result["summary"]["opponent_actions"], "events": result["events"]},
         indent=1), encoding="utf-8")

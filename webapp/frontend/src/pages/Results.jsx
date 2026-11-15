@@ -67,11 +67,8 @@ function LatestAnalysis() {
           <b className="small">Summary</b>
           <dl className="kv" style={{ marginTop: 10 }}>
             <dt>Dominant tactic</dt><dd style={{ color: s.dominant_tactic ? TACTIC_HEX[s.dominant_tactic] : undefined }}>{s.dominant_tactic || "-"}</dd>
-            <dt>Tactic segments</dt><dd>{s.tactic_segments}</dd>
-            <dt>Live play</dt><dd>{s.live_seconds?.toFixed(0)} s of {s.analysed_seconds?.toFixed(0)} s</dd>
-            <dt>Opponent serves</dt><dd>{s.opponent_actions?.SERVE ?? 0}</dd>
-            <dt>Opponent spikes</dt><dd>{s.opponent_actions?.SPIKE ?? 0}</dd>
-            <dt>Opponent blocks</dt><dd>{s.opponent_actions?.BLOCK ?? 0}</dd>
+            <dt>Attack / defense moments</dt><dd>{s.tactic_segments}</dd>
+            <dt>Attack + defense time</dt><dd>{s.live_seconds?.toFixed(0)} s of {s.analysed_seconds?.toFixed(0)} s</dd>
           </dl>
         </div>
       </div>

@@ -109,8 +109,8 @@ export default function Analyze() {
             <div className="icon-badge">💻</div>
             <h3>Desktop app (Windows)</h3>
             <p className="muted small">
-              Installs everything on your PC and analyses videos locally: annotated MP4, team tactical report
-              and opponent serve / spike / block report. Windows 10/11, 8 GB RAM, NVIDIA GPU recommended.
+              Installs everything on your PC and analyses videos locally: annotated MP4 with attack / defense
+              captions and a matching Notepad report. Windows 10/11, 8 GB RAM, NVIDIA GPU recommended.
             </p>
             {health.desktop_url
               ? <a className="btn" href={health.desktop_url} target="_blank" rel="noreferrer">⬇ Download the installer</a>
@@ -148,7 +148,7 @@ export default function Analyze() {
       <h1>Upload a volleyball video</h1>
       <p className="lead">
         Broadcast end-court footage works best (camera behind one baseline). You get an annotated MP4
-        in several qualities, a timestamped team tactical report and an opponent action report.
+        in several qualities, captions for Coordinated Attack and Coordinated Defense, and a matching timestamped Notepad report.
       </p>
 
       {health?.via && (
@@ -229,7 +229,7 @@ export default function Analyze() {
           <div className="field" style={{ marginTop: 14 }}>
             <span className="label">Your team = the team on the near side (bottom of the picture)</span>
             <span className="small muted">
-              Your team gets the four tactics; the far-side opponent gets only SERVE, SPIKE and BLOCK.
+              Only your team's Coordinated Attack and Coordinated Defense are shown; nothing is shown for the opponent.
               The tactical model was trained on the near-side team. Teams change ends between sets, so use
               the time range below to analyse the sets in which your team plays at the bottom.
             </span>

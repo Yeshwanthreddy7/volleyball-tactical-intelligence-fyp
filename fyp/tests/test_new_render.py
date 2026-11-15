@@ -47,3 +47,15 @@ def test_in_near_half():
     assert nr.in_near_half({"court": np.float32([9.3, 17.8])})      # on the line, within margin
     assert not nr.in_near_half({"court": np.float32([4.5, 5])})      # opponent half
     assert not nr.in_near_half({"court": np.float32([-2.5, 14])})    # bench / sideline
+
+
+def test_only_attack_and_defense_are_shown():
+    lab = np.array([0, 1, 2, 3, -1, 0])
+    assert nr.shown_only(lab).tolist() == [0, 1, -1, -1, -1, 0]
+    assert set(nr.SHOWN_TACTICS) == {"Coordinated Attack", "Coordinated Defense"}
+
+
+def test_caption_draws_inside_frame():
+    img = np.zeros((720, 1280, 3), np.uint8)
+    nr.draw_caption(img, "Coordinated Attack")
+    assert img[:150, :500].any() and not img[200:].any()

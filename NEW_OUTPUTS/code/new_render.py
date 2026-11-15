@@ -7,11 +7,14 @@ The annotated video shows only:
   * the ball, with gaps of up to 2 s in live play bridged along a flight arc,
     so it is tracked continuously.
 
-Nothing is drawn for the opponent, for anyone outside the court, and no text,
-tactic label or side panel is drawn. The tactics of your team (Coordinated
-Attack / Coordinated Defense / Delayed Support / Spacing Breakdown, deployed
-HGB model in team_tactics.py) and the opponent's SERVE / SPIKE / BLOCK go to
-the two CSVs only, which the website turns into the clickable reports.
+  * a caption while your team is in COORDINATED ATTACK or COORDINATED DEFENSE
+    (SHOWN_TACTICS) - the only two actions that are shown anywhere.
+
+Nothing is drawn for the opponent or for anyone outside the court, and there
+is no side panel. The tactic CSV (*_team_tactics.csv) holds exactly the
+captioned segments, so the website's report lists the same moments the video
+shows. Delayed Support / Spacing Breakdown windows get no caption and no row.
+The opponent CSV is still written for research use; the website does not show it.
 
 The detection cache, court model, ball tracker, touch detector and action
 rules are the ones from bicausal_render.py, unchanged.
@@ -47,6 +50,9 @@ FOCUS, OPP = bc.NEAR, bc.FAR
 OPP_ACTIONS = ("SERVE", "SPIKE", "BLOCK")
 COURT_MARGIN_M = 0.5        # tolerance for homography error at the lines
 BALL_MAX_GAP_S = 2.0
+# the only actions shown: caption in the video + rows in the tactic CSV / report
+SHOWN_TACTICS = ("Coordinated Attack", "Coordinated Defense")
+CAPTION_BGR = {"Coordinated Attack": (40, 110, 235), "Coordinated Defense": (150, 120, 20)}
 
 TEAM_BGR = bc.TEAM_BGR
 BALL_BGR = bc.BALL_BGR
@@ -185,6 +191,27 @@ def draw_node(img, q, team):
     cv2.ellipse(img, (fx, fy), (22, 7), 0, 0, 360, TEAM_BGR[team], 2, cv2.LINE_AA)
 
 
+def shown_only(lab):
+    """Per-frame labels with every class outside SHOWN_TACTICS set to -1 (no call)."""
+    keep = [tt.CLASSES.index(t) for t in SHOWN_TACTICS]
+    return np.where(np.isin(lab, keep), lab, -1)
+
+
+def draw_caption(img, tactic):
+    """Tactic name in a box at the top left, under where broadcast score bugs sit."""
+    h = img.shape[0]
+    scale = max(0.6, h / 720 * 0.9)
+    thick = max(1, int(round(scale * 2)))
+    text = tactic.upper()
+    (tw, th), base = cv2.getTextSize(text, cv2.FONT_HERSHEY_DUPLEX, scale, thick)
+    x, y = int(0.02 * img.shape[1]), int(0.11 * h)
+    pad = int(10 * scale)
+    box = img[y - th - pad:y + base + pad, x - pad:x + tw + pad]
+    box[:] = (box * 0.35 + np.array(CAPTION_BGR[tactic]) * 0.65).astype(np.uint8)
+    cv2.rectangle(img, (x - pad, y - th - pad), (x + tw + pad, y + base + pad), (255, 255, 255), 2, cv2.LINE_AA)
+    cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_DUPLEX, scale, (255, 255, 255), thick, cv2.LINE_AA)
+
+
 def fmt_t(s):
     return f"{int(s // 60):02d}:{s % 60:04.1f}"
 
@@ -224,6 +251,7 @@ def render(cache, out_path, max_frames=0, segment_frames=4000):
     rows = tt.raw_rows(players, ball, (bc.MAIN_W, bc.MAIN_H), FOCUS)
     ws, we, P = tt.window_probs(rows, fps)
     lab, prob = tt.frame_calls(n, fps, ws, we, P, live)
+    lab = shown_only(lab)
     dist = Counter(tt.CLASSES[v] if v >= 0 else "no call" for v in lab)
     print(f"  per-frame tactic share { {k: f'{v / n:.1%}' for k, v in dist.most_common()} }", flush=True)
 
@@ -294,6 +322,8 @@ def render(cache, out_path, max_frames=0, segment_frames=4000):
                 bp = tuple(b.astype(int))
                 cv2.circle(img, bp, 13, (0, 0, 0), 3, cv2.LINE_AA)
                 cv2.circle(img, bp, 11, BALL_BGR, 3, cv2.LINE_AA)
+            if lab[fi] >= 0:
+                draw_caption(img, tt.CLASSES[lab[fi]])
 
         frame_rgb = np.ascontiguousarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
         if writer is None:
