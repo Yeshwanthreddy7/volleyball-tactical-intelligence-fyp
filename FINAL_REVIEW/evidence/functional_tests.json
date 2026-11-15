@@ -1,0 +1,74 @@
+[
+ {
+  "id": "TC-01",
+  "case": "Server health",
+  "action": "GET /api/health",
+  "expected": 200,
+  "got": 200,
+  "detail": null,
+  "pass": true
+ },
+ {
+  "id": "TC-02",
+  "case": "Wrong file type",
+  "action": "start upload of notes.pdf",
+  "expected": 415,
+  "got": 415,
+  "detail": "Unsupported file type '.pdf'. Use one of: .avi, .m4v, .mkv, .mov, .mp4, .webm",
+  "pass": true
+ },
+ {
+  "id": "TC-03",
+  "case": "File too large",
+  "action": "start upload of a 5 GB .mp4",
+  "expected": 413,
+  "got": 413,
+  "detail": "File is larger than 1024 MB.",
+  "pass": true
+ },
+ {
+  "id": "TC-04",
+  "case": "Missing browser id",
+  "action": "start upload without X-Client-Id",
+  "expected": 400,
+  "got": 400,
+  "detail": "Missing or invalid X-Client-Id header.",
+  "pass": true
+ },
+ {
+  "id": "TC-05",
+  "case": "Valid upload start",
+  "action": "start upload of a 64-byte .mp4",
+  "expected": 200,
+  "got": 200,
+  "detail": null,
+  "pass": true
+ },
+ {
+  "id": "TC-06",
+  "case": "Renamed non-video file",
+  "action": "send text bytes named fake.mp4",
+  "expected": 415,
+  "got": 415,
+  "detail": "\"fake.mp4\" is not a video file. Please upload a volleyball match video (MP4, MOV, AVI, MKV or WebM).",
+  "pass": true
+ },
+ {
+  "id": "TC-07",
+  "case": "Unknown analysis id",
+  "action": "GET /api/analyses/<random id>",
+  "expected": 404,
+  "got": 404,
+  "detail": "Analysis not found.",
+  "pass": true
+ },
+ {
+  "id": "TC-08",
+  "case": "Path-traversal attempt",
+  "action": "GET a file named ../../config.py",
+  "expected": 404,
+  "got": 404,
+  "detail": "Not found.",
+  "pass": true
+ }
+]
