@@ -1,18 +1,17 @@
-"""NEW_OUTPUTS renderer: one-team relation graph + team tactics + opponent actions.
+"""NEW_OUTPUTS renderer: clean one-team relation graph + continuous ball.
 
-Changes from PAPER_OUTPUT (paper_output_render.py / bicausal_render.py):
+The annotated video shows only:
+  * your team (near side): at most six players standing inside the near half
+    of the court, each linked to its two neighbours around the team (a closed
+    ring, so six players give exactly six links);
+  * the ball, with gaps of up to 2 s in live play bridged along a flight arc,
+    so it is tracked continuously.
 
-  * Focus team = near (bottom, blue) team. Only this team gets the relation
-    graph (all-pair links + MST edges in court metres) and a hull.
-  * The focus team is labelled with the four tactical classes only:
-    Coordinated Attack / Coordinated Defense / Delayed Support /
-    Spacing Breakdown (team_tactics.py, deployed HGB model). Its individual
-    touch names (SET, DIG, PASS ...) are not shown.
-  * Opponent = far (top, red) team. Its players are drawn as nodes only, with
-    no connections. Only three opponent actions are shown: SERVE, SPIKE and
-    BLOCK. All other opponent touches are hidden.
-  * The random-init paper-feature HUD is removed (its edge heatmap covered
-    both teams).
+Nothing is drawn for the opponent, for anyone outside the court, and no text,
+tactic label or side panel is drawn. The tactics of your team (Coordinated
+Attack / Coordinated Defense / Delayed Support / Spacing Breakdown, deployed
+HGB model in team_tactics.py) and the opponent's SERVE / SPIKE / BLOCK go to
+the two CSVs only, which the website turns into the clickable reports.
 
 The detection cache, court model, ball tracker, touch detector and action
 rules are the ones from bicausal_render.py, unchanged.
@@ -36,7 +35,6 @@ os.environ.setdefault("LOKY_MAX_CPU_COUNT", "4")
 import cv2
 import imageio_ffmpeg
 import numpy as np
-from PIL import Image, ImageDraw
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]                              # finalyearproject/
@@ -47,27 +45,11 @@ import team_tactics as tt                           # noqa: E402
 
 FOCUS, OPP = bc.NEAR, bc.FAR
 OPP_ACTIONS = ("SERVE", "SPIKE", "BLOCK")
-PANEL_W = 480
+COURT_MARGIN_M = 0.5        # tolerance for homography error at the lines
+BALL_MAX_GAP_S = 2.0
 
 TEAM_BGR = bc.TEAM_BGR
-TEAM_RGB = bc.TEAM_RGB
 BALL_BGR = bc.BALL_BGR
-# kept clear of the two team colours (red / blue) and the yellow ball
-TAC_RGB = {
-    "Coordinated Attack": (255, 130, 0),
-    "Coordinated Defense": (20, 175, 120),
-    "Delayed Support": (225, 80, 160),
-    "Spacing Breakdown": (140, 90, 220),
-}
-TAC_BGR = {k: (v[2], v[1], v[0]) for k, v in TAC_RGB.items()}
-TAC_DEF = {
-    "Coordinated Attack": "front row approaches together, base held",
-    "Coordinated Defense": "team shifts as one unit to cover",
-    "Delayed Support": "teammates late to cover the ball player",
-    "Spacing Breakdown": "gaps / overlaps in court coverage",
-}
-OPP_TAG_RGB = (190, 40, 40)
-NO_CALL_RGB = (90, 90, 90)
 
 
 # ---------------------------------------------------------------- live-play mask
@@ -130,18 +112,71 @@ def _fill_runs(mask, value, max_len):
     return m
 
 
+def in_near_half(q, m=COURT_MARGIN_M):
+    X, Y = q["court"]
+    return -m <= X <= 9 + m and 9 - m <= Y <= 18 + m
+
+
+def team_ring(court_pts):
+    """Index pairs linking each player to its neighbours around the team centroid."""
+    k = len(court_pts)
+    if k < 2:
+        return []
+    if k == 2:
+        return [(0, 1)]
+    c = court_pts - court_pts.mean(axis=0)
+    order = np.argsort(np.arctan2(c[:, 1], c[:, 0]))
+    return [(int(order[i]), int(order[(i + 1) % k])) for i in range(k)]
+
+
+def ball_over_court(ball, m=1.5):
+    """Drop ball points that project beside the court (spare balls at the benches)."""
+    out = ball.copy()
+    have = ~np.isnan(ball[:, 0])
+    if have.any():
+        c = bc.to_court(ball[have])
+        # points near the horizon project to huge depths; only judge sane projections
+        sane = (c[:, 1] > -15) & (c[:, 1] < 35)
+        beside = sane & ((c[:, 0] < -m) | (c[:, 0] > 9 + m))
+        idx = np.where(have)[0][beside]
+        out[idx] = np.nan
+    return out
+
+
+def continuous_ball(ball, ok, max_gap, ctx=6):
+    """Bridge detection gaps of up to max_gap frames (both ends tracked, all frames ok).
+
+    The gap follows a flight arc: x linear and y quadratic in time, fitted to
+    the tracked points on both sides; a straight line when too few points.
+    """
+    out = ball.copy()
+    have = ~np.isnan(ball[:, 0])
+    idx = np.where(have)[0]
+    for a, c in zip(idx[:-1], idx[1:]):
+        if not (1 < c - a <= max_gap and ok[a:c + 1].all()):
+            continue
+        gap = np.arange(a + 1, c)
+        before = idx[(idx <= a) & (idx > a - 2 * ctx)][-ctx:]
+        after = idx[(idx >= c) & (idx < c + 2 * ctx)][:ctx]
+        known = np.concatenate([before, after])
+        if len(before) >= 2 and len(after) >= 2:
+            fx = np.polyval(np.polyfit(known, ball[known, 0], 1), gap)
+            fy = np.polyval(np.polyfit(known, ball[known, 1], 2), gap)
+            # pin the arc to both ends so it joins the track without a jump
+            t = (gap - a) / (c - a)
+            ex = ball[a] + t[:, None] * (ball[c] - ball[a])
+            fa = np.array([np.polyval(np.polyfit(known, ball[known, 0], 1), [a, c]),
+                           np.polyval(np.polyfit(known, ball[known, 1], 2), [a, c])])
+            corr = (fa[:, 0] + t[:, None] * (fa[:, 1] - fa[:, 0]))
+            out[gap, 0] = fx - corr[:, 0] + ex[:, 0]
+            out[gap, 1] = fy - corr[:, 1] + ex[:, 1]
+        else:
+            t = ((gap - a) / (c - a))[:, None]
+            out[gap] = ball[a] + t * (ball[c] - ball[a])
+    return out
+
+
 # ---------------------------------------------------------------- drawing
-def hull_outline(img, pts, bgr):
-    if len(pts) < 3:
-        return
-    hull = cv2.convexHull(np.asarray(pts, np.float32)).astype(np.int32)
-    over = img.copy()
-    cv2.fillPoly(over, [hull], bgr)
-    cv2.addWeighted(over, 0.16, img, 0.84, 0, img)
-    cv2.polylines(img, [hull], True, (30, 30, 30), 6, cv2.LINE_AA)
-    cv2.polylines(img, [hull], True, bgr, 3, cv2.LINE_AA)
-
-
 def draw_node(img, q, team):
     c = tuple(q["node"].astype(int))
     cv2.circle(img, c, 9, (255, 255, 255), -1, cv2.LINE_AA)
@@ -177,7 +212,6 @@ def render(cache, out_path, max_frames=0, segment_frames=4000):
     opp_events = [e for e in events if e["team"] == OPP and e["label"] in OPP_ACTIONS]
     print(f"  all events {Counter(e['label'] for e in events).most_common()}", flush=True)
     print(f"  opponent events kept {Counter(e['label'] for e in opp_events).most_common()}", flush=True)
-    forms = bc.formations(players, n)
     del data, frames                                 # raw detections no longer needed (RAM)
 
     print("  camera / replay mask ...", flush=True)
@@ -209,33 +243,8 @@ def render(cache, out_path, max_frames=0, segment_frames=4000):
         w.writeheader()
         w.writerows(segs_out)
 
-    f_big = bc.load_font(30, True)
-    f_mid = bc.load_font(22, True)
-    f_sm = bc.load_font(17, True)
-    sc = Hh / 720.0
-    fm_big = bc.load_font(int(30 * sc), True)
-    fm_mid = bc.load_font(int(22 * sc), True)
-    fm_sm = bc.load_font(int(17 * sc), True)
-    f_xs = bc.load_font(15)
-    f_tiny = bc.load_font(13, True)
-
-    court_near = bc.to_img(np.float32([[0, 9], [9, 9], [9, 18], [0, 18]])).astype(np.int32)
-
-    # timeline strip of the tactic calls (panel width, drawn once)
-    TL_X0, TL_W, TL_H = 16, PANEL_W - 32, 22
-    cols = np.full((TL_H, TL_W, 3), 45, np.uint8)
-    for x in range(TL_W):
-        a = int(x * n / TL_W)
-        b = max(a + 1, int((x + 1) * n / TL_W))
-        c = Counter(lab[a:b].tolist()).most_common(1)[0][0]
-        if c >= 0:
-            cols[:, x] = TAC_BGR[tt.CLASSES[c]]
-    timeline = cols
-
-    ev_frames = np.array([e["f"] for e in opp_events]) if opp_events else np.array([], int)
-    ev_at = {e["f"]: e for e in opp_events}
-    history = []
-    trail = []
+    ball_draw = continuous_ball(ball_over_court(ball), cam_ok, int(BALL_MAX_GAP_S * fps))
+    trail, held, hold = [], {}, int(0.5 * fps)
 
     seg_dir = out_path.parent / (stem.name + "_segments")
     seg_dir.mkdir(parents=True, exist_ok=True)
@@ -243,184 +252,50 @@ def render(cache, out_path, max_frames=0, segment_frames=4000):
 
     cap.set(cv2.CAP_PROP_POS_FRAMES, start)
     for fi in range(n):
-        ok, frame = cap.read()
+        ok, img = cap.read()
         if not ok:
             raise RuntimeError(f"render: could not read frame {start + fi} of {video}")
-        raw = frame.copy()
-        img = frame
-        ts = (start + fi) / fps
 
         if not cam_ok[fi]:
-            pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-            bc.text_box(ImageDraw.Draw(pil), (W // 2, Hh - 22), "camera change - overlays paused",
-                        fm_mid, (255, 255, 255), (60, 60, 60), anchor="md")
-            main_rgb = np.array(pil)
-            panel = np.full((Hh, PANEL_W, 3), 18, np.uint8)
+            trail, held = [], {}            # replay / camera cut: plain frame
         else:
-            tac = tt.CLASSES[lab[fi]] if lab[fi] >= 0 else None
-            tq = [q for q in players[fi] if q["team"] == FOCUS]
-            oq = [q for q in players[fi] if q["team"] == OPP]
-
-            # focus half tint
-            shade = img.copy()
-            cv2.fillPoly(shade, [court_near], TEAM_BGR[FOCUS])
-            cv2.addWeighted(shade, 0.12, img, 0.88, 0, img)
-
-            # focus team: hull in tactic colour + relation graph
-            nodes = np.array([q["node"] for q in tq], np.float32)
-            if tac is not None and len(tq) >= 3:
-                hull_outline(img, [q["feet"] for q in tq], TAC_BGR[tac])
-            overlay = img.copy()
-            for i in range(len(tq)):
-                for j in range(i + 1, len(tq)):
-                    cv2.line(overlay, tuple(nodes[i].astype(int)), tuple(nodes[j].astype(int)),
-                             TEAM_BGR[FOCUS], 1, cv2.LINE_AA)
-            cv2.addWeighted(overlay, 0.45, img, 0.55, 0, img)
-            if len(tq) >= 2:
-                edge_bgr = TAC_BGR[tac] if tac else (255, 255, 255)
-                for i, j in bc.mst_edges(np.array([q["court"] for q in tq], np.float32)):
-                    p, q = tuple(nodes[i].astype(int)), tuple(nodes[j].astype(int))
-                    cv2.line(img, p, q, (30, 30, 30), 7, cv2.LINE_AA)
-                    cv2.line(img, p, q, edge_bgr, 4, cv2.LINE_AA)
+            tq = [q for q in players[fi] if q["team"] == FOCUS and in_near_half(q)][:6]
             for q in tq:
-                draw_node(img, q, FOCUS)
+                if q["id"] >= 0:
+                    held[q["id"]] = (fi, q)
+            # a player missed for a few frames keeps the last position (no flicker)
+            for tid, (f0, q0) in sorted(held.items(), key=lambda kv: -kv[1][0]):
+                if len(tq) >= 6:
+                    break
+                if 0 < fi - f0 <= hold and all(q["id"] != tid for q in tq) and all(
+                        np.linalg.norm(q["court"] - q0["court"]) > 1.0 for q in tq):
+                    tq.append(q0)
+            held = {k: v for k, v in held.items() if fi - v[0] <= hold}
+            if tq:
+                nodes = np.array([q["node"] for q in tq], np.float32)
+                for i, j in team_ring(np.array([q["court"] for q in tq], np.float32)):
+                    p, r = tuple(nodes[i].astype(int)), tuple(nodes[j].astype(int))
+                    cv2.line(img, p, r, (30, 30, 30), 6, cv2.LINE_AA)
+                    cv2.line(img, p, r, TEAM_BGR[FOCUS], 3, cv2.LINE_AA)
+                for q in tq:
+                    draw_node(img, q, FOCUS)
 
-            # opponent: current SERVE / SPIKE / BLOCK
-            past = ev_frames[ev_frames <= fi + 6]
-            cur = ev_at[int(past[-1])] if len(past) and fi - past[-1] <= int(1.6 * fps) else None
-            key_q = None
-            if cur is not None:
-                same = [q for q in oq if q["id"] == cur["actor_id"] and q["id"] >= 0]
-                if same:
-                    key_q = same[0]
-                elif oq:
-                    near = min(oq, key=lambda q: np.linalg.norm(q["node"] - cur["actor"]["node"]))
-                    if np.linalg.norm(near["node"] - cur["actor"]["node"]) <= 120:
-                        key_q = near
-            # opponent: nodes only, no connections
-            for q in oq:
-                if q is not key_q:
-                    draw_node(img, q, OPP)
-
-            # ball
-            b = ball[fi]
-            has_ball = not np.isnan(b[0])
-            if has_ball:
+            b = ball_draw[fi]
+            if not np.isnan(b[0]):
                 trail.append((fi, b.copy()))
-            trail = [(f, p) for f, p in trail if fi - f <= 14]
+            trail = [(f, p) for f, p in trail if fi - f <= 10]
             for k in range(1, len(trail)):
-                if trail[k][0] - trail[k - 1][0] > 3:
+                if trail[k][0] - trail[k - 1][0] > 1:
                     continue
                 a = k / len(trail)
                 cv2.line(img, tuple(trail[k - 1][1].astype(int)), tuple(trail[k][1].astype(int)),
                          BALL_BGR, max(1, int(4 * a)), cv2.LINE_AA)
-            if key_q is not None:
-                fx, fy = key_q["feet"].astype(int)
-                cv2.ellipse(img, (fx, fy), (30, 10), 0, 0, 360, BALL_BGR, 3, cv2.LINE_AA)
-                if has_ball:
-                    tgt = min(key_q["wrists"] + [key_q["head"]], key=lambda p: np.linalg.norm(p - b))
-                    bc.dashed_line(img, b, tgt, BALL_BGR, 2, 8)
-                cx, cy = key_q["node"].astype(int)
-                cv2.fillPoly(img, [bc.star_pts(cx, cy, 20, 8)], (255, 255, 255), cv2.LINE_AA)
-                cv2.fillPoly(img, [bc.star_pts(cx, cy, 16, 6)], TEAM_BGR[OPP], cv2.LINE_AA)
-            if has_ball:
+            if not np.isnan(b[0]):
                 bp = tuple(b.astype(int))
                 cv2.circle(img, bp, 13, (0, 0, 0), 3, cv2.LINE_AA)
                 cv2.circle(img, bp, 11, BALL_BGR, 3, cv2.LINE_AA)
 
-            # snapshot of each opponent action for the side panel
-            if fi in ev_at:
-                e = ev_at[fi]
-                x1, y1, x2, y2 = e["actor"]["box"]
-                side = int(max(y2 - y1, x2 - x1) * 1.5) + 40
-                side = min(side, W, Hh)
-                cx0 = int(np.clip((x1 + x2) / 2 - side / 2, 0, W - side))
-                cy0 = int(np.clip(min(y1, e["ball"][1]) - 0.25 * side, 0, Hh - side))
-                crop = raw[cy0:cy0 + side, cx0:cx0 + side].copy()
-                bx, by = e["ball"] - np.array([cx0, cy0])
-                cv2.circle(crop, (int(bx), int(by)), max(6, side // 18), BALL_BGR, 3, cv2.LINE_AA)
-                crop = cv2.resize(crop, (112, 112), interpolation=cv2.INTER_AREA)
-                history.append(dict(e=e, crop=crop))
-                history = history[-3:]
-
-            # ---- main-frame text
-            pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-            d = ImageDraw.Draw(pil)
-            bc.text_box(d, (14, int(50 * sc)), "Far team (opponent): SERVE / SPIKE / BLOCK", fm_sm,
-                        (20, 20, 20), (255, 255, 255), TEAM_RGB[OPP])
-            bc.text_box(d, (W - 14, int(50 * sc)), f"{video_name}   {fmt_t(ts)}", fm_sm,
-                        (255, 255, 255), (20, 20, 20), anchor="ra")
-            bc.text_box(d, (14, Hh - 22), f"Near team:  {bc.fmt_formation(forms[FOCUS][fi])}", fm_sm,
-                        (20, 20, 20), (255, 255, 255), TEAM_RGB[FOCUS], anchor="ld")
-            if tac is not None:
-                bc.text_box(d, (W // 2, Hh - 22), f"{tac.upper()}  -  Near team", fm_big,
-                            (255, 255, 255), TAC_RGB[tac], (255, 255, 255), pad=10, anchor="md")
-            if cur is not None:
-                bc.text_box(d, (W // 2, int(100 * sc)), f"{cur['label']}  -  Far team (opponent)", fm_big,
-                            (255, 255, 255), OPP_TAG_RGB, (255, 255, 255), pad=10, anchor="ma")
-                if key_q is not None:
-                    x1, y1, x2, y2 = key_q["box"]
-                    bc.text_box(d, ((x1 + x2) / 2, y1 - 30), cur["label"].lower(), fm_sm,
-                                (255, 255, 255), OPP_TAG_RGB, anchor="md", pad=4)
-            main_rgb = np.array(pil)
-
-            # ---- side panel
-            panel = np.full((Hh, PANEL_W, 3), 18, np.uint8)
-            tl_y = 228
-            panel[tl_y:tl_y + TL_H, TL_X0:TL_X0 + TL_W] = timeline
-            px = TL_X0 + int(fi / max(n - 1, 1) * (TL_W - 1))
-            cv2.line(panel, (px, tl_y - 4), (px, tl_y + TL_H + 3), (255, 255, 255), 2)
-            row_y = [318, 446, 574]
-            for k in range(len(history)):
-                y = row_y[k]
-                cv2.rectangle(panel, (15, y - 1), (129, y + 113), TEAM_BGR[OPP], 2)
-            ppil = Image.fromarray(cv2.cvtColor(panel, cv2.COLOR_BGR2RGB))
-            dp = ImageDraw.Draw(ppil)
-            dp.text((16, 10), "Team tactics view", font=f_mid, fill=(255, 255, 255))
-            dp.text((16, 40), "Near team (focus) - 4 tactical classes", font=f_xs, fill=(200, 200, 200))
-            if tac is not None:
-                bc.text_box(dp, (16, 70), tac, f_sm, (255, 255, 255), TAC_RGB[tac], pad=5)
-            else:
-                bc.text_box(dp, (16, 70), "no call (between rallies)", f_sm, (220, 220, 220),
-                            NO_CALL_RGB, pad=5)
-            by_ = 104
-            for c, name in enumerate(tt.CLASSES):
-                p = float(prob[fi, c]) if lab[fi] >= 0 else 0.0
-                dp.text((16, by_), name, font=f_xs, fill=(225, 225, 225))
-                dp.rectangle([200, by_ + 3, 200 + 200, by_ + 15], fill=(50, 50, 50))
-                dp.rectangle([200, by_ + 3, 200 + int(200 * p), by_ + 15], fill=TAC_RGB[name])
-                dp.text((408, by_), f"{p:.2f}", font=f_xs, fill=(225, 225, 225))
-                by_ += 22
-            dp.text((16, 200), "Tactic timeline (this segment)", font=f_xs, fill=(200, 200, 200))
-            dp.text((16, 260), "Opponent actions (far team): SERVE / SPIKE / BLOCK", font=f_xs,
-                    fill=(200, 200, 200))
-            dp.line([(16, 284), (PANEL_W - 16, 284)], fill=(70, 70, 70), width=1)
-            if not history:
-                dp.text((16, 300), "no opponent serve / spike / block yet", font=f_xs, fill=(150, 150, 150))
-            for k, h in enumerate(reversed(history)):      # newest at the top
-                y = row_y[k]
-                e = h["e"]
-                ppil.paste(Image.fromarray(cv2.cvtColor(h["crop"], cv2.COLOR_BGR2RGB)), (16, y))
-                bc.text_box(dp, (146, y + 8), e["label"], f_mid, (255, 255, 255), OPP_TAG_RGB, pad=5)
-                dp.text((146, y + 50), f"at {fmt_t((start + e['f']) / fps)}", font=f_xs, fill=(210, 210, 210))
-                dp.text((146, y + 72), f"player #{e['actor_id']}  (far team)", font=f_xs, fill=(170, 170, 170))
-            main_rgb_panel = np.array(ppil)
-            panel = main_rgb_panel
-            # legend
-            lpil = Image.fromarray(panel)
-            dl = ImageDraw.Draw(lpil)
-            ly = Hh - 26
-            dl.ellipse([16, ly + 2, 30, ly + 16], fill=TEAM_RGB[FOCUS], outline=(255, 255, 255), width=2)
-            dl.text((36, ly), "near (graph)", font=f_tiny, fill=(230, 230, 230))
-            dl.ellipse([136, ly + 2, 150, ly + 16], fill=TEAM_RGB[OPP], outline=(255, 255, 255), width=2)
-            dl.text((156, ly), "far (nodes only)", font=f_tiny, fill=(230, 230, 230))
-            dl.polygon([tuple(p) for p in bc.star_pts(292, ly + 9, 9, 4)], fill=(255, 220, 0))
-            dl.text((305, ly), "actor", font=f_tiny, fill=(230, 230, 230))
-            dl.ellipse([360, ly + 2, 374, ly + 16], outline=(255, 225, 0), width=3)
-            dl.text((380, ly), "ball", font=f_tiny, fill=(230, 230, 230))
-            panel = np.array(lpil)
-
-        frame_rgb = np.ascontiguousarray(np.hstack([main_rgb, panel]))
+        frame_rgb = np.ascontiguousarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
         if writer is None:
             seg_path = seg_dir / f"seg{seg_idx:04d}.mp4"
             writer = imageio_ffmpeg.write_frames(
