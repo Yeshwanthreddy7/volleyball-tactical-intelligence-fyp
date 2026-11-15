@@ -25,12 +25,21 @@ def main():
     ap.add_argument("--epochs", type=int, default=40)
     ap.add_argument("--batch", type=int, default=4)
     ap.add_argument("--workers", type=int, default=1)
+    ap.add_argument("--resume", action="store_true", help="continue from runs/ball_v2/weights/last.pt")
+    ap.add_argument("--eval-only", action="store_true", help="skip training; copy best.pt and compare")
     args = ap.parse_args()
 
-    model = YOLO(str(WORK / "yolo11s.pt"))
-    model.train(data=str(DATA), imgsz=1280, epochs=args.epochs, batch=args.batch, patience=10,
-                workers=args.workers, cache=False, device=0, project=str(WORK / "runs"), name="ball_v2", exist_ok=True,
-                close_mosaic=5, degrees=0, mosaic=1.0, fliplr=0.5, hsv_h=0.02, plots=True, verbose=False)
+    last = WORK / "runs" / "ball_v2" / "weights" / "last.pt"
+    if args.eval_only:
+        pass  # use the best.pt already saved by an earlier (stopped) run
+    elif args.resume and last.exists():
+        YOLO(str(last)).train(resume=True)
+    else:
+        model = YOLO(str(WORK / "yolo11s.pt"))
+        model.train(data=str(DATA), imgsz=1280, epochs=args.epochs, batch=args.batch, patience=10,
+                    workers=args.workers, cache=False, device=0, project=str(WORK / "runs"), name="ball_v2",
+                    exist_ok=True, close_mosaic=5, degrees=0, mosaic=1.0, fliplr=0.5, hsv_h=0.02, plots=True,
+                    verbose=False)
     best = WORK / "runs" / "ball_v2" / "weights" / "best.pt"
     dst = ROOT / "fyp" / "volleyball_ball_v2.pt"
     shutil.copy2(best, dst)
