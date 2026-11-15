@@ -341,7 +341,7 @@ def run(job_dir: Path) -> dict:
     raw, summary, tac_csv, opp_csv = render_video(cache, job_dir, progress, 62, 94)
     fps = float(summary["fps"])
     segments, _ = read_outputs(tac_csv, opp_csv, fps)
-    # only Coordinated Attack / Coordinated Defense are shown (video caption, report,
+    # the four team tactics are shown (video caption, report,
     # actions list); opponent SERVE/SPIKE/BLOCK stay in the research CSV only
     events = []
     files = encode_outputs(raw, video, start, seconds, job_dir, progress, 94, 99)

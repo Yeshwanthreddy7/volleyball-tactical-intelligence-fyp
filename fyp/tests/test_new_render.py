@@ -49,10 +49,11 @@ def test_in_near_half():
     assert not nr.in_near_half({"court": np.float32([-2.5, 14])})    # bench / sideline
 
 
-def test_only_attack_and_defense_are_shown():
+def test_all_four_tactics_are_shown():
     lab = np.array([0, 1, 2, 3, -1, 0])
-    assert nr.shown_only(lab).tolist() == [0, 1, -1, -1, -1, 0]
-    assert set(nr.SHOWN_TACTICS) == {"Coordinated Attack", "Coordinated Defense"}
+    assert nr.shown_only(lab).tolist() == [0, 1, 2, 3, -1, 0]
+    assert set(nr.SHOWN_TACTICS) == set(nr.tt.CLASSES)
+    assert set(nr.CAPTION_BGR) == set(nr.SHOWN_TACTICS)
 
 
 def test_caption_draws_inside_frame():

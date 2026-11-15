@@ -98,9 +98,11 @@ function Timeline({ result, duration, current, onSeek }) {
   );
 }
 
-// Only these two actions are shown - the same moments captioned in the annotated video.
-const SHOWN_NAMES = ["Coordinated Attack", "Coordinated Defense"];
+// The four team tactics - the same moments captioned in the annotated video.
+const SHOWN_NAMES = ["Coordinated Attack", "Coordinated Defense", "Delayed Support", "Spacing Breakdown"];
 const SHOWN = TACTICS.filter((t) => SHOWN_NAMES.includes(t.name));
+// right ~26% / ~29% of the time on unseen videos (Attack / Defense ~85%)
+const LESS_RELIABLE = ["Delayed Support", "Spacing Breakdown"];
 
 function AllActions({ segments, onSeek }) {
   const rows = useMemo(() => segments
@@ -117,7 +119,8 @@ function AllActions({ segments, onSeek }) {
               <td className="num">{i + 1}</td>
               <td className="num"><a href="#player" onClick={(ev) => { ev.preventDefault(); onSeek(r.time); }}>{ts(r.time)}{r.end != null && ` - ${ts(r.end)}`}</a></td>
               <td>{r.team}</td>
-              <td><span className="chip-tactic"><i className="dot" style={{ background: r.hex }} />{r.name}</span></td>
+              <td><span className="chip-tactic"><i className="dot" style={{ background: r.hex }} />{r.name}</span>
+                {LESS_RELIABLE.includes(r.name) && <span className="small faint"> · less reliable, check by eye</span>}</td>
               <td><button className="btn ghost sm" onClick={() => onSeek(r.time)}>▶ Play</button></td>
             </tr>
           ))}
@@ -168,15 +171,12 @@ function Results({ job, onDelete }) {
   return (
     <>
       <div className="grid cols-4" style={{ marginBottom: 22 }}>
-        <div className="stat"><div className="v">{s.tactics["Coordinated Attack"]?.segments ?? 0}</div><div className="l">coordinated attack moments ({(s.tactics["Coordinated Attack"]?.seconds ?? 0).toFixed(0)} s)</div></div>
-        <div className="stat"><div className="v">{s.tactics["Coordinated Defense"]?.segments ?? 0}</div><div className="l">coordinated defense moments ({(s.tactics["Coordinated Defense"]?.seconds ?? 0).toFixed(0)} s)</div></div>
-        <div className="stat"><div className="v">{r.tactics.segments.length}</div><div className="l">moments in total, captioned in the video</div></div>
-        <div className="stat">
-          <div className="v" style={{ fontSize: "1.15rem", paddingTop: 8, color: s.dominant_tactic ? TACTIC_HEX[s.dominant_tactic] : undefined }}>
-            {s.dominant_tactic || "-"}
+        {SHOWN.map((t) => (
+          <div key={t.name} className="stat">
+            <div className="v" style={{ color: t.hex }}>{s.tactics[t.name]?.segments ?? 0}</div>
+            <div className="l">{t.name.toLowerCase()} moments ({(s.tactics[t.name]?.seconds ?? 0).toFixed(0)} s)</div>
           </div>
-          <div className="l">dominant team tactic (attack vs defense)</div>
-        </div>
+        ))}
       </div>
 
       <div id="player">
@@ -189,7 +189,7 @@ function Results({ job, onDelete }) {
       <Timeline result={r} duration={dur} current={cur} onSeek={seek} />
 
       <div className="card" style={{ marginTop: 22 }}>
-        <h3>Your team: attack and defense <span className="faint small">(near side, blue)</span></h3>
+        <h3>Your team's tactics <span className="faint small">(near side, blue · dominant: {s.dominant_tactic || "-"})</span></h3>
         <div className="table-wrap" style={{ marginTop: 10 }}>
           <table>
             <thead><tr><th>Tactic</th><th>Segments</th><th>Time</th><th>Share of rally time</th><th>Avg. confidence</th></tr></thead>
@@ -215,7 +215,7 @@ function Results({ job, onDelete }) {
 
       <div style={{ marginTop: 28 }}>
         <div className="tabs">
-          {[["all", "Attack & defense moments"], ["tactical", "📄 Notepad report"], ["segments", "Segments with confidence"], ["court", "Court calibration"]].map(([k, l]) => (
+          {[["all", "All tactic moments"], ["tactical", "📄 Notepad report"], ["segments", "Segments with confidence"], ["court", "Court calibration"]].map(([k, l]) => (
             <button key={k} className={tab === k ? "on" : ""} onClick={() => setTab(k)}>{l}</button>
           ))}
         </div>

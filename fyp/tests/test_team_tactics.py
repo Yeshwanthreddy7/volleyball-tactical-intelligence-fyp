@@ -34,3 +34,11 @@ def test_confident_window_is_called():
 def test_unsure_window_gets_no_call():
     lab, _ = _calls([0.4, 0.3, 0.15, 0.15])
     assert (lab == -1).all()
+
+
+def test_rare_tactics_use_the_lower_bar():
+    # Spacing Breakdown at 35%: below the 50% bar, above its own 20% bar -> shown
+    lab, _ = _calls([0.35, 0.2, 0.1, 0.35])
+    assert (lab[10:60] == 3).all()
+    lab, _ = _calls([0.6, 0.27, 0.05, 0.08])        # 8% Spacing Breakdown: not shown
+    assert (lab[10:60] == 0).all()

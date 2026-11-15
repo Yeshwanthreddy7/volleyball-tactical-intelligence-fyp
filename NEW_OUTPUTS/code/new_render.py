@@ -7,13 +7,14 @@ The annotated video shows only:
   * the ball, with gaps of up to 2 s in live play bridged along a flight arc,
     so it is tracked continuously.
 
-  * a caption while your team is in COORDINATED ATTACK or COORDINATED DEFENSE
-    (SHOWN_TACTICS) - the only two actions that are shown anywhere.
+  * a caption naming your team's tactic (SHOWN_TACTICS: Coordinated Attack,
+    Coordinated Defense, Delayed Support, Spacing Breakdown) while the model
+    is at least 50% sure.
 
 Nothing is drawn for the opponent or for anyone outside the court, and there
 is no side panel. The tactic CSV (*_team_tactics.csv) holds exactly the
 captioned segments, so the website's report lists the same moments the video
-shows. Delayed Support / Spacing Breakdown windows get no caption and no row.
+shows.
 The opponent CSV is still written for research use; the website does not show it.
 
 The detection cache, court model, ball tracker, touch detector and action
@@ -51,8 +52,9 @@ OPP_ACTIONS = ("SERVE", "SPIKE", "BLOCK")
 COURT_MARGIN_M = 0.5        # tolerance for homography error at the lines
 BALL_MAX_GAP_S = 2.0
 # the only actions shown: caption in the video + rows in the tactic CSV / report
-SHOWN_TACTICS = ("Coordinated Attack", "Coordinated Defense")
-CAPTION_BGR = {"Coordinated Attack": (40, 110, 235), "Coordinated Defense": (150, 120, 20)}
+SHOWN_TACTICS = ("Coordinated Attack", "Coordinated Defense", "Delayed Support", "Spacing Breakdown")
+CAPTION_BGR = {"Coordinated Attack": (40, 110, 235), "Coordinated Defense": (150, 120, 20),
+               "Delayed Support": (150, 60, 140), "Spacing Breakdown": (60, 60, 215)}
 
 TEAM_BGR = bc.TEAM_BGR
 BALL_BGR = bc.BALL_BGR

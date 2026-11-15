@@ -24,9 +24,12 @@ frequencies, 39/37/11/12 %), i.e. the balanced decision rule; without it the
 two rare classes almost never win the argmax after smoothing.
 Frames outside live play (camera change / replay, fewer than 3 near players,
 no ball touch nearby) get no call, and neither do frames where the model's own
-(uncorrected) probability for its best class is below MIN_CONF: on the 115
-hand-labelled moments in the cached videos, calls at >= 0.5 agree with the
-label 85-94% of the time, calls below 0.5 only ~38%.
+(uncorrected) probability for the chosen class is below that class's MIN_CONF.
+Leave-one-video-out (945 clips): Coordinated Attack / Defense at >= 0.5 are
+right ~85% of the time. Delayed Support / Spacing Breakdown almost never reach
+0.5 (only 11-12% of the training clips), so they use 0.2: right ~26% / ~29% of
+the time (guessing: 11% / 12%), and over a match they then appear ~1-4 times a
+minute - shown, but marked as less reliable.
 """
 from __future__ import annotations
 
@@ -47,7 +50,9 @@ WIN = 29                 # samples per window (training contract)
 TRAIN_FPS = 30.0
 # class counts of the 948 training clips (ml_results_v6/ml_results.json)
 TRAIN_PRIOR = np.array([370, 355, 108, 115], np.float64) / 948.0
-MIN_CONF = 0.5           # below this the model is closer to guessing than knowing
+# per class: Coordinated Attack, Coordinated Defense, Delayed Support, Spacing Breakdown
+MIN_CONF = np.array([0.5, 0.5, 0.2, 0.2])
+LESS_RELIABLE = ("Delayed Support", "Spacing Breakdown")
 
 
 def screen_to_train(pt, size):
@@ -104,7 +109,8 @@ def frame_calls(n, fps, starts, ends, P, live, min_dwell_s=0.8, smooth_s=0.5, mi
     P are the prior-corrected window probabilities from window_probs (they pick
     the class). The returned probabilities are the model's own, uncorrected
     ones: they are what was checked against the hand labels, so they are the
-    honest confidence, and frames whose best one is below `min_conf` get no call."""
+    honest confidence, and frames where the chosen class's one is below its
+    `min_conf` (per class, or one number for all) get no call."""
     raw = np.asarray(P) * TRAIN_PRIOR
     raw = raw / np.maximum(raw.sum(1, keepdims=True), 1e-12)
     acc = np.zeros((n, 4))
@@ -124,7 +130,9 @@ def frame_calls(n, fps, starts, ends, P, live, min_dwell_s=0.8, smooth_s=0.5, mi
         return np.stack([np.convolve(a[:, c], k, "same") for c in range(4)], 1)
 
     prob, conf = smooth(acc), smooth(acc_raw)
-    lab = np.where(live & (cnt > 0) & (conf.max(1) >= min_conf), prob.argmax(1), -1)
+    pick = prob.argmax(1)
+    thr = np.broadcast_to(np.asarray(min_conf, float), (4,))[pick]
+    lab = np.where(live & (cnt > 0) & (conf[np.arange(n), pick] >= thr), pick, -1)
 
     # minimum dwell: a short run inside live play takes the label of its
     # longer neighbour whose summed probability over the run is higher

@@ -18,7 +18,7 @@ import imageio_ffmpeg
 
 from . import config
 
-TACTICS = ["Coordinated Attack", "Coordinated Defense"]     # only the shown actions
+TACTICS = ["Coordinated Attack", "Coordinated Defense", "Delayed Support", "Spacing Breakdown"]
 MAX_PER_TACTIC = 8
 MIN_SECONDS = 1.0
 PAD = 0.5            # seconds of context before / after each segment

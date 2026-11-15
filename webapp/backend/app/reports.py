@@ -2,9 +2,9 @@
 
 One report per video, matching the annotated video exactly:
   * tactical_report  - your team (near side): when it was in Coordinated
-                       Attack or Coordinated Defense, with timestamps and
-                       confidence. These are the moments captioned in the video;
-                       no other action is reported.
+                       Attack, Coordinated Defense, Delayed Support or Spacing
+                       Breakdown, with timestamps and confidence. These are the
+                       moments captioned in the video.
 """
 from __future__ import annotations
 
@@ -14,11 +14,13 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
-TACTICS = ["Coordinated Attack", "Coordinated Defense"]     # = new_render.SHOWN_TACTICS
+TACTICS = ["Coordinated Attack", "Coordinated Defense", "Delayed Support", "Spacing Breakdown"]  # = new_render.SHOWN_TACTICS
 OPP_ACTIONS = ["SERVE", "SPIKE", "BLOCK"]
 TACTIC_MEANING = {
     "Coordinated Attack": "fast approach by front-court attackers, base players held near the net",
     "Coordinated Defense": "the team shifts as a rigid unit",
+    "Delayed Support": "the nearest player reacts late after ball impact",
+    "Spacing Breakdown": "structural failure - formation too spread or too clustered",
 }
 RULE = "=" * 78
 THIN = "-" * 78
@@ -80,7 +82,7 @@ def _header(title: str, result: dict, video_name: str) -> list[str]:
 def tactical_report_txt(result: dict, video_name: str) -> str:
     s = result["summary"]
     segs = result["tactics"]["segments"]
-    L = _header("ATTACK / DEFENSE REPORT  -  YOUR TEAM (NEAR SIDE)", result, video_name)
+    L = _header("TEAM TACTICAL REPORT  -  YOUR TEAM (NEAR SIDE)", result, video_name)
     L += ["SUMMARY", THIN,
           f"  {'TACTIC':<22}{'SEGMENTS':>9}{'TIME (s)':>11}{'SHARE':>9}{'AVG CONF.':>12}", THIN]
     for name in TACTICS:
@@ -89,10 +91,10 @@ def tactical_report_txt(result: dict, video_name: str) -> str:
                  f"{x['avg_confidence'] * 100:>11.1f}%")
     L += [THIN,
           f"  Dominant tactic      : {s['dominant_tactic'] or '-'}",
-          f"  Attack + defense time: {s['live_seconds']:.1f} s of {s['analysed_seconds']:.1f} s analysed",
+          f"  Tactic time          : {s['live_seconds']:.1f} s of {s['analysed_seconds']:.1f} s analysed",
           "  Same moments as the captions in the annotated video. Nothing is reported between",
           "  rallies, in replays, with fewer than 3 of your players visible, or when the model",
-          "  is less than 50% sure.",
+          "  is not sure enough (50% for Attack / Defense, 20% for the two rarer tactics).",
           "",
           "WHAT THE TACTICS MEAN", THIN]
     for name in TACTICS:
@@ -100,19 +102,23 @@ def tactical_report_txt(result: dict, video_name: str) -> str:
     L += ["", "TIMELINE  (times are positions in the original video)", THIN,
           f"  {'#':>4}  {'FROM':<10} {'TO':<10} {'LENGTH':>7}  {'TACTIC':<21} {'CONF.':>6}", THIN]
     if not segs:
-        L.append("  No clear Coordinated Attack or Coordinated Defense was found in this part of the video.")
+        L.append("  No clear team tactic was found in this part of the video.")
     for i, g in enumerate(segs, 1):
+        star = " *" if g["tactic"] in ("Delayed Support", "Spacing Breakdown") else ""
         L.append(f"  {i:>4}  {ts(g['start']):<10} {ts(g['end']):<10} {g['end'] - g['start']:>6.1f}s"
-                 f"  {g['tactic']:<21} {g['confidence'] * 100:>5.0f}%")
+                 f"  {g['tactic']:<21} {g['confidence'] * 100:>5.0f}%{star}")
     L += ["", THIN, "Notes",
-          "  * Only Coordinated Attack and Coordinated Defense are reported, exactly as captioned",
-          "    in the annotated video. Click a time to play the video from that moment.",
+          "  * All four tactics are reported, exactly as captioned in the annotated video.",
+          "    Click a time to play the video from that moment.",
+          "  * On videos the model never saw, Coordinated Attack / Defense calls were right about",
+          "    85% of the time, Spacing Breakdown about 29% and Delayed Support about 26% (they",
+          "    had few training examples). Rows marked (*) are less reliable: check them by eye.",
           "  * Model: the project's deployed HistGradientBoosting classifier (tactical_ml_v6.joblib).",
           "    29-sample (about 1 s) windows of your team's six court positions, sliding every 1/3 s,",
           "    balanced for class frequency, smoothed, with a minimum length of 0.8 s per call.",
-          "  * A tactic is only called when the model is at least 50% sure; CONF. is that",
-          "    probability. On hand-labelled moments, calls at 50% or more matched the label",
-          "    about 85-94% of the time; weaker guesses are left out instead of shown.",
+          "  * CONF. is the model's own probability for the called tactic. Attack / Defense",
+          "    need at least 50%, Delayed Support / Spacing Breakdown at least 20% (they are",
+          "    rarer, so their probabilities stay lower).",
           "  * Leave-one-video-out accuracy of this model is 67.0% (macro F1 0.51) on 948 clips;",
           "    treat short or low-confidence segments as indicative, not certain.",
           RULE]
