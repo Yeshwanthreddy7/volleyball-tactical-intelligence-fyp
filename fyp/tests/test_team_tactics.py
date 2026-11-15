@@ -31,14 +31,18 @@ def test_confident_window_is_called():
     assert conf[30].max() == pytest.approx(0.8, abs=0.05)
 
 
-def test_unsure_window_gets_no_call():
+def test_unsure_window_still_gets_a_call():
     lab, _ = _calls([0.4, 0.3, 0.15, 0.15])
-    assert (lab == -1).all()
+    assert (lab[10:60] >= 0).all()
+    lab, _ = tt.frame_calls(90, 30.0, np.arange(0, 60, 6), np.arange(0, 60, 6) + 28,
+                            np.repeat(np.array([[0.4, 0.3, 0.15, 0.15]]) / tt.TRAIN_PRIOR, 10, 0),
+                            np.ones(90, bool), min_conf=0.5)
+    assert (lab == -1).all()                         # a bar can still be passed explicitly
 
 
 def test_rare_tactics_use_the_lower_bar():
     # Spacing Breakdown at 35%: below the 50% bar, above its own 20% bar -> shown
     lab, _ = _calls([0.35, 0.2, 0.1, 0.35])
     assert (lab[10:60] == 3).all()
-    lab, _ = _calls([0.6, 0.27, 0.05, 0.08])        # 8% Spacing Breakdown: not shown
+    lab, _ = _calls([0.6, 0.27, 0.05, 0.08])
     assert (lab[10:60] == 0).all()

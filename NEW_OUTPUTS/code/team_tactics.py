@@ -51,7 +51,9 @@ TRAIN_FPS = 30.0
 # class counts of the 948 training clips (ml_results_v6/ml_results.json)
 TRAIN_PRIOR = np.array([370, 355, 108, 115], np.float64) / 948.0
 # per class: Coordinated Attack, Coordinated Defense, Delayed Support, Spacing Breakdown
-MIN_CONF = np.array([0.5, 0.5, 0.2, 0.2])
+# 0 = no bar: every live-play moment gets its most likely tactic (user request 2026-11-15).
+# The old bars were 0.5 / 0.5 / 0.2 / 0.2; confidence is still reported per call.
+MIN_CONF = np.array([0.0, 0.0, 0.0, 0.0])
 LESS_RELIABLE = ("Delayed Support", "Spacing Breakdown")
 
 

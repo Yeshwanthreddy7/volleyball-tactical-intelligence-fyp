@@ -93,8 +93,8 @@ def tactical_report_txt(result: dict, video_name: str) -> str:
           f"  Dominant tactic      : {s['dominant_tactic'] or '-'}",
           f"  Tactic time          : {s['live_seconds']:.1f} s of {s['analysed_seconds']:.1f} s analysed",
           "  Same moments as the captions in the annotated video. Nothing is reported between",
-          "  rallies, in replays, with fewer than 3 of your players visible, or when the model",
-          "  is not sure enough (50% for Attack / Defense, 20% for the two rarer tactics).",
+          "  rallies, in replays or with fewer than 3 of your players visible; every other",
+          "  moment gets the most likely tactic, with its confidence.",
           "",
           "WHAT THE TACTICS MEAN", THIN]
     for name in TACTICS:
@@ -111,14 +111,12 @@ def tactical_report_txt(result: dict, video_name: str) -> str:
           "  * All four tactics are reported, exactly as captioned in the annotated video.",
           "    Click a time to play the video from that moment.",
           "  * On videos the model never saw, Coordinated Attack / Defense calls were right about",
-          "    85% of the time, Spacing Breakdown about 29% and Delayed Support about 26% (they",
-          "    had few training examples). Rows marked (*) are less reliable: check them by eye.",
+          "    85% of the time when confident; Delayed Support / Spacing Breakdown far less often",
+          "    (few training examples). Rows marked (*) are less reliable: check them by eye.",
           "  * Model: the project's deployed HistGradientBoosting classifier (tactical_ml_v6.joblib).",
           "    29-sample (about 1 s) windows of your team's six court positions, sliding every 1/3 s,",
           "    balanced for class frequency, smoothed, with a minimum length of 0.8 s per call.",
-          "  * CONF. is the model's own probability for the called tactic. Attack / Defense",
-          "    need at least 50%, Delayed Support / Spacing Breakdown at least 20% (they are",
-          "    rarer, so their probabilities stay lower).",
+          "  * CONF. is the model's own probability for the called tactic (no minimum).",
           "  * Leave-one-video-out accuracy of this model is 67.0% (macro F1 0.51) on 948 clips;",
           "    treat short or low-confidence segments as indicative, not certain.",
           RULE]
@@ -150,6 +148,12 @@ def opponent_report_txt(result: dict, video_name: str) -> str:
 def write_all(result: dict, out_dir: Path, video_name: str) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "tactical_report.txt").write_text(tactical_report_txt(result, video_name), encoding="utf-8")
+    (out_dir / "opponent_report.txt").write_text(opponent_report_txt(result, video_name), encoding="utf-8")
+    with open(out_dir / "opponent_report.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["time", "seconds", "frame", "action", "player_track_id"])
+        for e in result["events"]:
+            w.writerow([ts(e["time"]), f"{e['time']:.2f}", e["frame"], e["action"], e["player_track_id"]])
     with open(out_dir / "tactical_report.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["from", "to", "start_seconds", "end_seconds", "tactic", "confidence"])
@@ -159,4 +163,8 @@ def write_all(result: dict, out_dir: Path, video_name: str) -> None:
     (out_dir / "tactical_report.json").write_text(json.dumps(
         {"video": video_name, "team": "near side", "model": result["tactics"]["model"],
          "summary": result["summary"]["tactics"], "segments": result["tactics"]["segments"]},
+        indent=1), encoding="utf-8")
+    (out_dir / "opponent_report.json").write_text(json.dumps(
+        {"video": video_name, "team": "far side (opponent)",
+         "summary": result["summary"]["opponent_actions"], "events": result["events"]},
         indent=1), encoding="utf-8")

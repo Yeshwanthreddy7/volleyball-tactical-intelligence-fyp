@@ -104,10 +104,11 @@ const SHOWN = TACTICS.filter((t) => SHOWN_NAMES.includes(t.name));
 // right ~26% / ~29% of the time on unseen videos (Attack / Defense ~85%)
 const LESS_RELIABLE = ["Delayed Support", "Spacing Breakdown"];
 
-function AllActions({ segments, onSeek }) {
-  const rows = useMemo(() => segments
-    .map((g) => ({ time: g.start, end: g.end, name: g.tactic, team: "Your team", hex: TACTIC_HEX[g.tactic] }))
-    .sort((a, b) => a.time - b.time), [segments]);
+function AllActions({ segments, events, onSeek }) {
+  const rows = useMemo(() => [
+    ...segments.map((g) => ({ time: g.start, end: g.end, name: g.tactic, team: "Your team", hex: TACTIC_HEX[g.tactic] })),
+    ...(events || []).map((e) => ({ time: e.time, end: null, name: e.action, team: "Opponent (report only)", hex: "#c0392b" })),
+  ].sort((a, b) => a.time - b.time), [segments, events]);
   return (
     <div className="table-wrap" style={{ maxHeight: 520, overflowY: "auto" }}>
       <table>
@@ -156,7 +157,7 @@ function TacticTable({ segments, onSeek }) {
 
 function Results({ job, onDelete }) {
   // older analyses also hold the other tactics and opponent actions: hide them
-  const r = useMemo(() => ({ ...job.result, events: [], tactics: { ...job.result.tactics,
+  const r = useMemo(() => ({ ...job.result, tactics: { ...job.result.tactics,
     segments: job.result.tactics.segments.filter((g) => SHOWN_NAMES.includes(g.tactic)) } }), [job.result]);
   const player = useRef(null);
   const [tab, setTab] = useState("all");
@@ -215,17 +216,24 @@ function Results({ job, onDelete }) {
 
       <div style={{ marginTop: 28 }}>
         <div className="tabs">
-          {[["all", "All tactic moments"], ["tactical", "📄 Notepad report"], ["segments", "Segments with confidence"], ["court", "Court calibration"]].map(([k, l]) => (
+          {[["all", "All tactic moments"], ["tactical", "📄 Notepad: team tactics"], ["actions", "📄 Notepad: opponent actions"], ["segments", "Segments with confidence"], ["court", "Court calibration"]].map(([k, l]) => (
             <button key={k} className={tab === k ? "on" : ""} onClick={() => setTab(k)}>{l}</button>
           ))}
         </div>
-        {tab === "all" && <AllActions segments={r.tactics.segments} onSeek={seek} />}
+        {tab === "all" && <AllActions segments={r.tactics.segments} events={r.events} onSeek={seek} />}
         {tab === "tactical" && (
           <Notepad title="tactical_report.txt" url={fileUrl(job.id, "tactical_report.txt")} onSeek={seek}
             downloads={[
               { label: "⬇ tactical_report.txt", href: fileUrl(job.id, "tactical_report.txt", true), primary: true },
               { label: "CSV", href: fileUrl(job.id, "tactical_report.csv", true) },
               { label: "JSON", href: fileUrl(job.id, "tactical_report.json", true) },
+            ]} />
+        )}
+        {tab === "actions" && (
+          <Notepad title="opponent_report.txt" url={fileUrl(job.id, "opponent_report.txt")} onSeek={seek}
+            downloads={[
+              { label: "⬇ opponent_report.txt", href: fileUrl(job.id, "opponent_report.txt", true), primary: true },
+              { label: "CSV", href: fileUrl(job.id, "opponent_report.csv", true) },
             ]} />
         )}
         {tab === "segments" && <TacticTable segments={r.tactics.segments} onSeek={seek} />}
