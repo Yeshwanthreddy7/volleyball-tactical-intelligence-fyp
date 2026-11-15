@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e4c59"/></marker><marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a1f2b"/></marker></defs>
+<rect width="1800" height="1000" fill="#ffffff"/>
+<text x="40" y="42" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">Model Overview — Tactical Coordination Classifier</text>
+<text x="40" y="66" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">From tracked players to one of four team tactics. Deployed path: HistGradientBoosting (solid, maroon). Comparison path: deep sequence models (dashed).</text>
+<text x="150" y="112" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">A. Per-frame input</text>
+<rect x="40" y="125" width="220" height="300" rx="6" fill="#f3f7f1" stroke="#9aa5b1" stroke-width="1"/>
+<rect x="70" y="150" width="160" height="170" rx="0" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<line x1="70" y1="235.0" x2="230" y2="235.0" stroke="#3e4c59" stroke-width="2"/>
+<line x1="70" y1="263.0" x2="230" y2="263.0" stroke="#9aa5b1" stroke-width="1"/>
+<line x1="70" y1="207.0" x2="230" y2="207.0" stroke="#9aa5b1" stroke-width="1"/>
+<polygon points="95,262 150,255 205,265 205,298 155,305 100,300" fill="#f6eaec" stroke="#7a1f2b" stroke-width="1" stroke-dasharray="3 2"/>
+<circle cx="95" cy="262" r="5" fill="#7a1f2b"/>
+<circle cx="150" cy="255" r="5" fill="#7a1f2b"/>
+<circle cx="205" cy="265" r="5" fill="#7a1f2b"/>
+<circle cx="100" cy="300" r="5" fill="#7a1f2b"/>
+<circle cx="155" cy="305" r="5" fill="#7a1f2b"/>
+<circle cx="205" cy="298" r="5" fill="#7a1f2b"/>
+<circle cx="95" cy="175" r="4" fill="none" stroke="#52606d" stroke-width="1.2"/>
+<circle cx="150" cy="170" r="4" fill="none" stroke="#52606d" stroke-width="1.2"/>
+<circle cx="205" cy="178" r="4" fill="none" stroke="#52606d" stroke-width="1.2"/>
+<circle cx="100" cy="210" r="4" fill="none" stroke="#52606d" stroke-width="1.2"/>
+<circle cx="150" cy="215" r="4" fill="none" stroke="#52606d" stroke-width="1.2"/>
+<circle cx="200" cy="208" r="4" fill="none" stroke="#52606d" stroke-width="1.2"/>
+<circle cx="168" cy="242" r="3.5" fill="#d9a400" stroke="#1f2933" stroke-width="0.8"/>
+<text x="150" y="345.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">≤ 6 tracked players of the</text>
+<text x="150" y="360.5" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">near (focus) team + ball,</text>
+<text x="150" y="376.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">in court coordinates</text>
+<text x="150" y="391.5" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">(homography from corners)</text>
+<text x="450" y="112" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">B. 18 channels per frame</text>
+<rect x="300" y="125" width="300" height="300" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="316" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">Permutation-invariant geometry (14)</text>
+<text x="316" y="170" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">ball_present, ball_x, ball_y</text>
+<text x="316" y="188" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">centroid_x, centroid_y</text>
+<text x="316" y="206" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">spread_x, spread_y, hull_area</text>
+<text x="316" y="224" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">nn_dist_mean, nn_dist_min, nn_dist_max</text>
+<text x="316" y="242" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">max_pair_dist, n_present</text>
+<text x="316" y="260" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">ball_to_centroid</text>
+<line x1="316" y1="285" x2="584" y2="285" stroke="#cbd2d9"/>
+<text x="316" y="306" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">Kinematic (4)</text>
+<text x="316" y="328" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">speed_top2, speed_bot4</text>
+<text x="316" y="346" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">speed_diff, sync_inst</text>
+<text x="316" y="380" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="italic" fill="#52606d" text-anchor="start">Order-independent: a formation is a set,</text>
+<text x="316" y="395" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="italic" fill="#52606d" text-anchor="start">not an ordered list of players.</text>
+<text x="450" y="440" font-family="Consolas, monospace" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">fyp/features.py</text>
+<text x="745" y="112" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">C. Window tensor</text>
+<rect x="650" y="140" width="190" height="230" rx="0" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<line x1="660.6" y1="140" x2="660.6" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="671.1" y1="140" x2="671.1" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="681.7" y1="140" x2="681.7" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="692.2" y1="140" x2="692.2" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="702.8" y1="140" x2="702.8" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="713.3" y1="140" x2="713.3" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="723.9" y1="140" x2="723.9" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="734.4" y1="140" x2="734.4" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="745.0" y1="140" x2="745.0" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="755.6" y1="140" x2="755.6" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="766.1" y1="140" x2="766.1" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="776.7" y1="140" x2="776.7" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="787.2" y1="140" x2="787.2" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="797.8" y1="140" x2="797.8" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="808.3" y1="140" x2="808.3" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="818.9" y1="140" x2="818.9" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="829.4" y1="140" x2="829.4" y2="370" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="147.9" x2="840" y2="147.9" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="155.9" x2="840" y2="155.9" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="163.8" x2="840" y2="163.8" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="171.7" x2="840" y2="171.7" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="179.7" x2="840" y2="179.7" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="187.6" x2="840" y2="187.6" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="195.5" x2="840" y2="195.5" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="203.4" x2="840" y2="203.4" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="211.4" x2="840" y2="211.4" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="219.3" x2="840" y2="219.3" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="227.2" x2="840" y2="227.2" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="235.2" x2="840" y2="235.2" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="243.1" x2="840" y2="243.1" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="251.0" x2="840" y2="251.0" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="259.0" x2="840" y2="259.0" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="266.9" x2="840" y2="266.9" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="274.8" x2="840" y2="274.8" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="282.8" x2="840" y2="282.8" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="290.7" x2="840" y2="290.7" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="298.6" x2="840" y2="298.6" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="306.6" x2="840" y2="306.6" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="314.5" x2="840" y2="314.5" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="322.4" x2="840" y2="322.4" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="330.3" x2="840" y2="330.3" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="338.3" x2="840" y2="338.3" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="346.2" x2="840" y2="346.2" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="354.1" x2="840" y2="354.1" stroke="#d5dbe1" stroke-width="0.6"/>
+<line x1="650" y1="362.1" x2="840" y2="362.1" stroke="#d5dbe1" stroke-width="0.6"/>
+<text x="745.0" y="390" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">18 channels →</text>
+<text x="640" y="255.0" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#52606d" text-anchor="middle" transform="rotate(-90 640 255.0)">29 frames (≈ 1 s) →</text>
+<text x="745.0" y="412" font-family="Consolas, monospace" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">float32 (29, 18)</text>
+<text x="745.0" y="430" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">gaps interpolated, NaN-free</text>
+<path d="M260,275 L298,275" fill="none" stroke="#3e4c59" stroke-width="1.4" marker-end="url(#ah)"/>
+<path d="M600,360 L648,360" fill="none" stroke="#3e4c59" stroke-width="1.4" marker-end="url(#ah)"/>
+<path d="M840,255 L870,255 L870,205 L898,205" fill="none" stroke="#7a1f2b" stroke-width="1.8" marker-end="url(#ahA)"/>
+<path d="M870,255 L870,585 L898,585" fill="none" stroke="#3e4c59" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+<text x="1300" y="112" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#7a1f2b" text-anchor="middle">D. Deployed path — scale-invariant aggregation + gradient boosting</text>
+<rect x="900" y="125" width="470" height="300" rx="4" fill="#ffffff" stroke="#7a1f2b" stroke-width="1.6"/>
+<text x="1135" y="148" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">132 window features (ml_classifier.py, feature_mode = invariant)</text>
+<rect x="915" y="165" width="380" height="75" rx="4" fill="#f6eaec" stroke="#c9a3a9" stroke-width="1"/>
+<text x="927" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">7 ratios × 6 stats</text>
+<text x="927" y="201" font-family="Consolas, 'Courier New', monospace" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">compactness, tightest_pair, loosest_pair,</text>
+<text x="927" y="216" font-family="Consolas, 'Courier New', monospace" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">spread_aspect, ball_offset,</text>
+<text x="927" y="231" font-family="Consolas, 'Courier New', monospace" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">speed_ratio, speed_diff_share</text>
+<rect x="1305" y="165" width="52" height="75" rx="4" fill="#ffffff" stroke="#c9a3a9" stroke-width="1"/>
+<text x="1331" y="208.5" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" font-style="normal" fill="#7a1f2b" text-anchor="middle">42</text>
+<rect x="915" y="248" width="380" height="45" rx="4" fill="#f6eaec" stroke="#c9a3a9" stroke-width="1"/>
+<text x="927" y="267" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">3 dimensionless × 6 stats</text>
+<text x="927" y="284" font-family="Consolas, 'Courier New', monospace" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">n_present, sync_inst, ball_present</text>
+<rect x="1305" y="248" width="52" height="45" rx="4" fill="#ffffff" stroke="#c9a3a9" stroke-width="1"/>
+<text x="1331" y="276.5" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" font-style="normal" fill="#7a1f2b" text-anchor="middle">18</text>
+<rect x="915" y="301" width="380" height="60" rx="4" fill="#f6eaec" stroke="#c9a3a9" stroke-width="1"/>
+<text x="927" y="320" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">18 z-scored channels × 4</text>
+<text x="927" y="337" font-family="Consolas, 'Courier New', monospace" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">temporal shape per channel:</text>
+<text x="927" y="352" font-family="Consolas, 'Courier New', monospace" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="start">min, max, slope, IQR</text>
+<rect x="1305" y="301" width="52" height="60" rx="4" fill="#ffffff" stroke="#c9a3a9" stroke-width="1"/>
+<text x="1331" y="337.0" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" font-style="normal" fill="#7a1f2b" text-anchor="middle">72</text>
+<text x="1135" y="383" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="middle">6 stats = mean, std, min, max, slope, IQR   │   42 + 18 + 72 = 132</text>
+<text x="1135" y="401" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="italic" fill="#52606d" text-anchor="middle">Ratios cancel per-camera scale, so distances do not leak camera identity.</text>
+<rect x="1410" y="125" width="350" height="105" rx="4" fill="#f6eaec" stroke="#7a1f2b" stroke-width="1.8"/>
+<text x="1585.0" y="157.75" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" fill="#7a1f2b" text-anchor="middle">HistGradientBoostingClassifier</text>
+<text x="1585.0" y="178.75" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">max_iter = 300, learning_rate = 0.06</text>
+<text x="1585.0" y="193.75" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">median imputation, no feature scaling</text>
+<text x="1585.0" y="208.75" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">winner of the 12-model LOVO zoo</text>
+<rect x="1410" y="250" width="350" height="70" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="1585.0" y="280.25" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Probability calibration</text>
+<text x="1585.0" y="301.25" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">Platt sigmoid, 5-fold CalibratedClassifierCV</text>
+<rect x="1410" y="340" width="350" height="85" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="1585.0" y="370.25" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Prior correction (renderer)</text>
+<text x="1585.0" y="391.25" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">divide by training class share</text>
+<text x="1585.0" y="406.25" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">370 / 355 / 108 / 115 clips</text>
+<path d="M1370,177 L1408,177" fill="none" stroke="#7a1f2b" stroke-width="1.8" marker-end="url(#ahA)"/>
+<path d="M1585,230 L1585,248" fill="none" stroke="#7a1f2b" stroke-width="1.6" marker-end="url(#ahA)"/>
+<path d="M1585,320 L1585,338" fill="none" stroke="#7a1f2b" stroke-width="1.6" marker-end="url(#ahA)"/>
+<text x="1135" y="470" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">E. Comparison path — deep models on raw (29 × 18)</text>
+<rect x="900" y="485" width="470" height="200" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="920" y="502" width="210" height="62" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="1025.0" y="528.25" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">InceptionTime</text>
+<text x="1025.0" y="549.25" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">multi-scale 1-D conv</text>
+<rect x="1140" y="502" width="210" height="62" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="1245.0" y="528.25" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">TCN</text>
+<text x="1245.0" y="549.25" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">dilated causal conv</text>
+<rect x="920" y="578" width="210" height="62" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="1025.0" y="604.25" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">BiLSTM + Attention</text>
+<text x="1025.0" y="625.25" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">recurrent</text>
+<rect x="1140" y="578" width="210" height="62" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="1245.0" y="604.25" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Mamba SSM</text>
+<text x="1245.0" y="625.25" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">selective state space</text>
+<text x="1135" y="670" font-family="Consolas, monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">train_deep_lovo.py → *.pt (TorchTemporalClassifier)</text>
+<text x="1585" y="470" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">F. Output</text>
+<rect x="1410" y="485" width="350" height="200" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.4"/>
+<text x="1585" y="508" font-family="Consolas, monospace" font-size="13" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">ClassificationResult</text>
+<text x="1585" y="526" font-family="Consolas, monospace" font-size="11" font-weight="normal" font-style="normal" fill="#52606d" text-anchor="middle">label, confidence, entropy, probs</text>
+<rect x="1430" y="543" width="310" height="26" rx="4" fill="#f6eaec" stroke="#c9ced6" stroke-width="1"/>
+<text x="1585" y="561" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Coordinated Attack</text>
+<rect x="1430" y="577" width="310" height="26" rx="4" fill="#f6eaec" stroke="#c9ced6" stroke-width="1"/>
+<text x="1585" y="595" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Coordinated Defense</text>
+<rect x="1430" y="611" width="310" height="26" rx="4" fill="#f4f6f8" stroke="#c9ced6" stroke-width="1"/>
+<text x="1585" y="629" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Delayed Support</text>
+<rect x="1430" y="645" width="310" height="26" rx="4" fill="#f4f6f8" stroke="#c9ced6" stroke-width="1"/>
+<text x="1585" y="663" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Spacing Breakdown</text>
+<path d="M1585,425 L1585,455 L1700,455 L1700,483" fill="none" stroke="#7a1f2b" stroke-width="1.8" marker-end="url(#ahA)"/>
+<path d="M1370,600 L1408,600" fill="none" stroke="#3e4c59" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+<rect x="40" y="485" width="800" height="150" rx="6" fill="#eef3f8" stroke="#9aa5b1" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="56" y="509" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">Shared model interface (fyp/interfaces.py)</text>
+<text x="56" y="533" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">BaseTemporalClassifier.classify(window: float32[29, 18]) → ClassificationResult</text>
+<text x="56" y="554" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">create_temporal_classifier(path):   .joblib → SklearnTemporalClassifier   |   .pt → TorchTemporalClassifier</text>
+<text x="56" y="575" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">Extraction provenance (detector, imgsz 1280, tracker, team split, feature_version</text>
+<text x="56" y="596" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">perm_invariant_v2) is stored in every model and checked at load: a mismatch aborts the run.</text>
+<text x="40" y="690" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">G. Leave-one-video-out results (948 labelled 1 s clips, 8 source videos, 4 classes)</text>
+<rect x="40" y="705" width="750" height="30" rx="0" fill="#e4e7eb" stroke="#3e4c59" stroke-width="1"/>
+<text x="52" y="725" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">Model</text>
+<text x="342" y="725" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">Path</text>
+<text x="502" y="725" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">LOVO accuracy</text>
+<text x="662" y="725" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">Macro-F1</text>
+<rect x="40" y="735" width="750" height="27" rx="0" fill="#f6eaec" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="52" y="753" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#7a1f2b" text-anchor="start">HistGradientBoosting</text>
+<text x="342" y="753" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">deployed</text>
+<text x="502" y="753" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">67.0 %</text>
+<text x="662" y="753" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">0.510</text>
+<rect x="40" y="762" width="750" height="27" rx="0" fill="#ffffff" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="52" y="780" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">InceptionTime</text>
+<text x="342" y="780" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">comparison</text>
+<text x="502" y="780" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">61.9 %</text>
+<text x="662" y="780" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">0.515</text>
+<rect x="40" y="789" width="750" height="27" rx="0" fill="#fafbfc" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="52" y="807" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">TCN</text>
+<text x="342" y="807" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">comparison</text>
+<text x="502" y="807" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">51.2 %</text>
+<text x="662" y="807" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">0.441</text>
+<rect x="40" y="816" width="750" height="27" rx="0" fill="#ffffff" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="52" y="834" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">BiLSTM + Attention</text>
+<text x="342" y="834" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">comparison</text>
+<text x="502" y="834" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">45.9 %</text>
+<text x="662" y="834" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">0.398</text>
+<rect x="40" y="843" width="750" height="27" rx="0" fill="#fafbfc" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="52" y="861" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">Mamba SSM</text>
+<text x="342" y="861" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">comparison</text>
+<text x="502" y="861" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">46.1 %</text>
+<text x="662" y="861" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">0.390</text>
+<rect x="40" y="870" width="750" height="27" rx="0" fill="#ffffff" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="52" y="888" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">Majority class (baseline)</text>
+<text x="342" y="888" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">—</text>
+<text x="502" y="888" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">39.0 %</text>
+<text x="662" y="888" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">0.140</text>
+<text x="40" y="919" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="italic" fill="#52606d" text-anchor="start">Source: ml_results_v6/ml_results.json, deep_results_v6/deep_results.json (pooled out-of-fold predictions).</text>
+<text x="40" y="937" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="italic" fill="#52606d" text-anchor="start">Tree models are preferred on small tabular-like data (Grinsztajn et al., 2022); deep arms kept for comparison.</text>
+<rect x="900" y="730" width="470" height="200" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="1135" y="753" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Training class distribution (948 clips)</text>
+<text x="1060" y="789" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="end">Coordinated Attack</text>
+<rect x="1070" y="775" width="240.0" height="20" rx="0" fill="#7a1f2b" stroke="none" stroke-width="1.2"/>
+<text x="1316.0" y="790" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">370</text>
+<text x="1060" y="825" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="end">Coordinated Defense</text>
+<rect x="1070" y="811" width="230.27027027027026" height="20" rx="0" fill="#7a1f2b" stroke="none" stroke-width="1.2"/>
+<text x="1306.2702702702702" y="826" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">355</text>
+<text x="1060" y="861" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="end">Spacing Breakdown</text>
+<rect x="1070" y="847" width="74.5945945945946" height="20" rx="0" fill="#9aa5b1" stroke="none" stroke-width="1.2"/>
+<text x="1150.5945945945946" y="862" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">115</text>
+<text x="1060" y="897" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="end">Delayed Support</text>
+<rect x="1070" y="883" width="70.05405405405406" height="20" rx="0" fill="#9aa5b1" stroke="none" stroke-width="1.2"/>
+<text x="1146.0540540540542" y="898" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="start">108</text>
+<text x="1135" y="920" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="normal" font-style="italic" fill="#52606d" text-anchor="middle">3.4 : 1 imbalance → macro-F1 used for model selection</text>
+<rect x="1410" y="730" width="350" height="200" rx="4" fill="#ffffff" stroke="#3e4c59" stroke-width="1.2"/>
+<text x="1585" y="753" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#1f2933" text-anchor="middle">Why HGB is the deployed model</text>
+<text x="1428" y="782" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">• top LOVO accuracy (67.0 %, tied</text>
+<text x="1428" y="801" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">   with LightGBM) in 12-model zoo</text>
+<text x="1428" y="820" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">• no feature scaling needed; gaps from</text>
+<text x="1428" y="839" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">   occluded players filled by median</text>
+<text x="1428" y="858" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">• fast CPU inference, small model file</text>
+<text x="1428" y="877" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">• trees beat deep nets on small</text>
+<text x="1428" y="896" font-family="Arial, Helvetica, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#1f2933" text-anchor="start">   tabular-like data (948 clips)</text>
+</svg>
