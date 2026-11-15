@@ -177,10 +177,10 @@
         \toprule
         \textbf{Application Module} & \textbf{Implemented Features \& Integration Scope} & \textbf{Status} \\
         \midrule
-Module 1: User Interface & Home, Analyze, Progress, Results, My analyses, Demos, Methodology, Documentation and Team pages; desktop app. & 100\% (Integrated) \\
-Module 2: Core Analysis & Video check, player and ball detection, tracking, team split, tactic model, opponent actions, output video, reports and clips. & 100\% (Integrated) \\
-Module 3: Data \& Storage & A database record and a folder for every analysis; old analyses deleted after 14 days. & 100\% (Integrated) \\
-Module 4: External Integration & Graphics card for fast detection, FFmpeg for video, public project website. & 100\% (Functional) \\
+Module 1: User Interface & Home, Analyze, Progress, Results, My analyses, Demos, Methodology, Documentation and Team pages; desktop app. & Complete \\
+Module 2: Core Analysis & Video check, player and ball detection, tracking, team split, tactic model, opponent actions, output video, reports and clips. & Working; known accuracy limits \\
+Module 3: Data \& Storage & A database record and a folder for every analysis; old analyses deleted after 14 days. & Complete \\
+Module 4: External Integration & Graphics card for fast detection, FFmpeg for video, public project website; Azure CPU cloud server. & Complete (GPU cloud: future) \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -279,7 +279,7 @@ TC-08: Automated tests & 266 automatic code checks & all 266 passed & Pass \\
 \scriptsize
 \begin{itemize}
   \item \textbf{Testing:} all 8 test cases passed, and 3 full analyses finished on the laptop.
-  \item \textbf{Speed \& Accuracy:} about 7 minutes per minute of video on the laptop. On videos the model never saw, it is right 63.7\% of the time, against 39.0\% by guessing.
+  \item \textbf{Speed \& Accuracy:} about 7 minutes per minute of video on the laptop. On videos the model never saw, it is right 63.7\% of the time (macro-F1 0.54), against 39.0\% by guessing. Attack and Defense are reliable (F1 about 0.76); Delayed Support and Spacing Breakdown are not yet (F1 about 0.3).
 \end{itemize}
 \end{block}
 \end{frame}
@@ -332,7 +332,7 @@ TC-08: Automated tests & 266 automatic code checks & all 266 passed & Pass \\
 \scriptsize
 \begin{itemize}
   \item Works after the match, not live; covers the near-side team.
-  \item Next: faster cloud server, more match videos, better ball detection.
+  \item Now: public site on an Azure CPU server (Fast mode). Next: a cloud server with a GPU, more match videos, better ball detection.
 \end{itemize}
 \end{block}
 \end{columns}
@@ -348,7 +348,8 @@ TC-08: Automated tests & 266 automatic code checks & all 266 passed & Pass \\
   \item Analysis is after the match, not live: about 7 minutes per minute of video.
   \item Tactics are given for the near-side team; teams change sides each set, so we analyse one set at a time.
   \item Delayed Support and Spacing Breakdown are recognised less reliably than attack and defense.
-  \item The model learned from 945 clips of 8 match videos; more data will help.
+  \item The model learned from 945 clips of 8 match videos labelled by one annotator; more data and a second annotator will help.
+  \item Opponent SERVE / SPIKE / BLOCK rules were right in 17 of 31 hand-checked events; missed events are not yet counted.
 \end{itemize}
 \end{block}
 \column{0.48\textwidth}

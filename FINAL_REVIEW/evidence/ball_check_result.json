@@ -1,0 +1,18 @@
+{
+ "play_frames": 84,
+ "frames_with_a_ball_box": 71,
+ "boxes_that_are_the_match_ball": 55,
+ "precision": 0.7746478873239436,
+ "precision_after_court_filter": 0.8208955223880597,
+ "ball_found_rate_single_frame": 0.6547619047619048,
+ "per_video_found": {
+  "usa.mp4": "4/12",
+  "videoplayback (1).mp4": "7/12",
+  "videoplayback (3).mp4": "10/12",
+  "videoplayback (4).mp4": "7/12",
+  "videoplayback (5).mp4": "8/12",
+  "videoplayback (6).mp4": "9/12",
+  "videoplayback.mp4": "10/12"
+ },
+ "note": "single frames, no tracking. In the app, gaps up to 2 s are bridged on a flight arc and balls beside the court are dropped."
+}

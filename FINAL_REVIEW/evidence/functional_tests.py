@@ -28,7 +28,7 @@ results = []
 def check(tc, name, action, resp, expect):
     ok = resp.status_code == expect
     results.append({"id": tc, "case": name, "action": action, "expected": expect,
-                    "got": resp.status_code, "detail": (resp.json().get("detail") if resp.headers.get("content-type", "").startswith("application/json") else None),
+                    "got": resp.status_code, "detail": (resp.json().get("detail") if resp.content and resp.headers.get("content-type", "").startswith("application/json") else None),
                     "pass": ok})
     print(tc, name, resp.status_code, "PASS" if ok else "FAIL")
 
@@ -49,6 +49,35 @@ check("TC-07", "Unknown analysis id", "GET /api/analyses/<random id>",
       c.get("/api/analyses/" + "0" * 32, headers=H), 404)
 check("TC-08", "Path-traversal attempt", "GET a file named ../../config.py",
       c.get("/api/analyses/" + "0" * 32 + "/files/..%2F..%2Fconfig.py", headers=H), 404)
+
+# ---- cross-user checks (added after the external review) -------------------
+# The site has no passwords: every browser gets a random secret id (X-Client-Id),
+# stored only as a SHA-256 hash. User A owns a finished analysis and an upload;
+# user B (another browser) must not be able to see, change or delete them.
+from app.db import now_iso, store  # noqa: E402
+from app.main import _owner        # noqa: E402
+
+A = H
+B = {"X-Client-Id": "another-browser-client-0002"}
+job = "a" * 32
+store.insert({"id": job, "owner": _owner(A["X-Client-Id"]), "original_name": "a.mp4", "size": 1,
+              "status": "done", "created_at": now_iso(), "updated_at": now_iso()})
+ra = c.post("/api/uploads", json={"filename": "a.mp4", "size": 64}, headers=A).json()["upload_id"]
+lst = c.get("/api/analyses", headers=B)
+results.append({"id": "TC-09", "case": "Other user's history hidden", "action": "user B lists analyses",
+                "expected": "A's job not listed", "got": [j["id"] for j in lst.json()],
+                "detail": None, "pass": job not in [j["id"] for j in lst.json()]})
+print("TC-09", results[-1]["pass"])
+check("TC-10", "Other user cannot delete", "user B deletes user A's analysis",
+      c.delete(f"/api/analyses/{job}", headers=B), 403)
+check("TC-11", "Other user cannot cancel", "user B cancels user A's analysis",
+      c.post(f"/api/analyses/{job}/cancel", headers=B), 403)
+check("TC-12", "Other user cannot write to upload", "user B sends a chunk to user A's upload",
+      c.put(f"/api/uploads/{ra}/chunks/0", content=b"\x00" * 64, headers=B), 404)
+check("TC-13", "Owner can delete", "user A deletes own analysis",
+      c.delete(f"/api/analyses/{job}", headers=A), 204)
+check("TC-14", "Forged short id refused", "X-Client-Id of 3 characters",
+      c.get("/api/analyses", headers={"X-Client-Id": "abc"}), 400)
 
 (HERE / "functional_tests.json").write_text(json.dumps(results, indent=1))
 print(sum(r["pass"] for r in results), "of", len(results), "passed")

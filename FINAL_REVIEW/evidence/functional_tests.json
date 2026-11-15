@@ -70,5 +70,59 @@
   "got": 404,
   "detail": "Not found.",
   "pass": true
+ },
+ {
+  "id": "TC-09",
+  "case": "Other user's history hidden",
+  "action": "user B lists analyses",
+  "expected": "A's job not listed",
+  "got": [],
+  "detail": null,
+  "pass": true
+ },
+ {
+  "id": "TC-10",
+  "case": "Other user cannot delete",
+  "action": "user B deletes user A's analysis",
+  "expected": 403,
+  "got": 403,
+  "detail": "Only the uploader can delete this analysis.",
+  "pass": true
+ },
+ {
+  "id": "TC-11",
+  "case": "Other user cannot cancel",
+  "action": "user B cancels user A's analysis",
+  "expected": 403,
+  "got": 403,
+  "detail": "Only the uploader can cancel this analysis.",
+  "pass": true
+ },
+ {
+  "id": "TC-12",
+  "case": "Other user cannot write to upload",
+  "action": "user B sends a chunk to user A's upload",
+  "expected": 404,
+  "got": 404,
+  "detail": "Upload not found.",
+  "pass": true
+ },
+ {
+  "id": "TC-13",
+  "case": "Owner can delete",
+  "action": "user A deletes own analysis",
+  "expected": 204,
+  "got": 204,
+  "detail": null,
+  "pass": true
+ },
+ {
+  "id": "TC-14",
+  "case": "Forged short id refused",
+  "action": "X-Client-Id of 3 characters",
+  "expected": 400,
+  "got": 400,
+  "detail": "Missing or invalid X-Client-Id header.",
+  "pass": true
  }
 ]

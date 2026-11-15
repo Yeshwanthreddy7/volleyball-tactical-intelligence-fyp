@@ -1,0 +1,256 @@
+{
+ "clips": {
+  "10/18360": {
+   "frames_scored": 20,
+   "iou0.5_raw": {
+    "gt_boxes": 240,
+    "matched": 160,
+    "misses": 80,
+    "false_boxes": 107,
+    "id_switches": 1,
+    "mota": 0.21666666666666667,
+    "idf1": 0.6272189349112426,
+    "precision": 0.599250936329588,
+    "recall": 0.6666666666666666,
+    "gt_players": 12,
+    "track_ids_used": 17
+   },
+   "iou0.5_gated": {
+    "gt_boxes": 240,
+    "matched": 160,
+    "misses": 80,
+    "false_boxes": 70,
+    "id_switches": 1,
+    "mota": 0.37083333333333335,
+    "idf1": 0.676595744680851,
+    "precision": 0.6956521739130435,
+    "recall": 0.6666666666666666,
+    "gt_players": 12,
+    "track_ids_used": 14
+   },
+   "iou0.3_raw": {
+    "gt_boxes": 240,
+    "matched": 210,
+    "misses": 30,
+    "false_boxes": 57,
+    "id_switches": 1,
+    "mota": 0.6333333333333333,
+    "idf1": 0.8244575936883629,
+    "precision": 0.7865168539325843,
+    "recall": 0.875,
+    "gt_players": 12,
+    "track_ids_used": 17
+   },
+   "iou0.3_gated": {
+    "gt_boxes": 240,
+    "matched": 210,
+    "misses": 30,
+    "false_boxes": 20,
+    "id_switches": 1,
+    "mota": 0.7875,
+    "idf1": 0.8893617021276595,
+    "precision": 0.9130434782608695,
+    "recall": 0.875,
+    "gt_players": 12,
+    "track_ids_used": 14
+   }
+  },
+  "10/20525": {
+   "frames_scored": 20,
+   "iou0.5_raw": {
+    "gt_boxes": 220,
+    "matched": 139,
+    "misses": 81,
+    "false_boxes": 78,
+    "id_switches": 3,
+    "mota": 0.26363636363636367,
+    "idf1": 0.6178489702517163,
+    "precision": 0.6405529953917051,
+    "recall": 0.6318181818181818,
+    "gt_players": 11,
+    "track_ids_used": 15
+   },
+   "iou0.5_gated": {
+    "gt_boxes": 220,
+    "matched": 139,
+    "misses": 81,
+    "false_boxes": 18,
+    "id_switches": 3,
+    "mota": 0.5363636363636364,
+    "idf1": 0.7161803713527851,
+    "precision": 0.8853503184713376,
+    "recall": 0.6318181818181818,
+    "gt_players": 11,
+    "track_ids_used": 12
+   },
+   "iou0.3_raw": {
+    "gt_boxes": 220,
+    "matched": 150,
+    "misses": 70,
+    "false_boxes": 67,
+    "id_switches": 3,
+    "mota": 0.36363636363636365,
+    "idf1": 0.6636155606407322,
+    "precision": 0.6912442396313364,
+    "recall": 0.6818181818181818,
+    "gt_players": 11,
+    "track_ids_used": 15
+   },
+   "iou0.3_gated": {
+    "gt_boxes": 220,
+    "matched": 150,
+    "misses": 70,
+    "false_boxes": 7,
+    "id_switches": 3,
+    "mota": 0.6363636363636364,
+    "idf1": 0.7692307692307693,
+    "precision": 0.9554140127388535,
+    "recall": 0.6818181818181818,
+    "gt_players": 11,
+    "track_ids_used": 12
+   }
+  },
+  "7/38025": {
+   "frames_scored": 19,
+   "iou0.5_raw": {
+    "gt_boxes": 225,
+    "matched": 146,
+    "misses": 79,
+    "false_boxes": 94,
+    "id_switches": 0,
+    "mota": 0.23111111111111116,
+    "idf1": 0.6279569892473118,
+    "precision": 0.6083333333333333,
+    "recall": 0.6488888888888888,
+    "gt_players": 12,
+    "track_ids_used": 16
+   },
+   "iou0.5_gated": {
+    "gt_boxes": 225,
+    "matched": 146,
+    "misses": 79,
+    "false_boxes": 61,
+    "id_switches": 0,
+    "mota": 0.37777777777777777,
+    "idf1": 0.6759259259259259,
+    "precision": 0.7053140096618358,
+    "recall": 0.6488888888888888,
+    "gt_players": 12,
+    "track_ids_used": 14
+   },
+   "iou0.3_raw": {
+    "gt_boxes": 225,
+    "matched": 181,
+    "misses": 44,
+    "false_boxes": 59,
+    "id_switches": 0,
+    "mota": 0.5422222222222222,
+    "idf1": 0.7784946236559139,
+    "precision": 0.7541666666666667,
+    "recall": 0.8044444444444444,
+    "gt_players": 12,
+    "track_ids_used": 16
+   },
+   "iou0.3_gated": {
+    "gt_boxes": 225,
+    "matched": 181,
+    "misses": 44,
+    "false_boxes": 26,
+    "id_switches": 0,
+    "mota": 0.6888888888888889,
+    "idf1": 0.8379629629629629,
+    "precision": 0.8743961352657005,
+    "recall": 0.8044444444444444,
+    "gt_players": 12,
+    "track_ids_used": 14
+   }
+  },
+  "7/51725": {
+   "frames_scored": 20,
+   "iou0.5_raw": {
+    "gt_boxes": 240,
+    "matched": 161,
+    "misses": 79,
+    "false_boxes": 62,
+    "id_switches": 0,
+    "mota": 0.4125,
+    "idf1": 0.673866090712743,
+    "precision": 0.7219730941704036,
+    "recall": 0.6708333333333333,
+    "gt_players": 12,
+    "track_ids_used": 15
+   },
+   "iou0.5_gated": {
+    "gt_boxes": 240,
+    "matched": 161,
+    "misses": 79,
+    "false_boxes": 32,
+    "id_switches": 0,
+    "mota": 0.5375,
+    "idf1": 0.7205542725173211,
+    "precision": 0.8341968911917098,
+    "recall": 0.6708333333333333,
+    "gt_players": 12,
+    "track_ids_used": 12
+   },
+   "iou0.3_raw": {
+    "gt_boxes": 240,
+    "matched": 167,
+    "misses": 73,
+    "false_boxes": 56,
+    "id_switches": 0,
+    "mota": 0.4625,
+    "idf1": 0.6911447084233261,
+    "precision": 0.7488789237668162,
+    "recall": 0.6958333333333333,
+    "gt_players": 12,
+    "track_ids_used": 15
+   },
+   "iou0.3_gated": {
+    "gt_boxes": 240,
+    "matched": 167,
+    "misses": 73,
+    "false_boxes": 26,
+    "id_switches": 0,
+    "mota": 0.5875,
+    "idf1": 0.7390300230946882,
+    "precision": 0.8652849740932642,
+    "recall": 0.6958333333333333,
+    "gt_players": 12,
+    "track_ids_used": 12
+   }
+  }
+ },
+ "overall_iou0.5_raw": {
+  "gt_boxes": 925,
+  "id_switches": 4,
+  "mota": 0.28216216216216217,
+  "idf1": 0.6372729753359776,
+  "recall": 0.6551351351351351,
+  "precision": 0.6399155227032735
+ },
+ "overall_iou0.5_gated": {
+  "gt_boxes": 925,
+  "id_switches": 4,
+  "mota": 0.45513513513513515,
+  "idf1": 0.6972529936848729,
+  "recall": 0.6551351351351351,
+  "precision": 0.770012706480305
+ },
+ "overall_iou0.3_raw": {
+  "gt_boxes": 925,
+  "id_switches": 4,
+  "mota": 0.5027027027027027,
+  "idf1": 0.74043380126524,
+  "recall": 0.7654054054054054,
+  "precision": 0.747624076029567
+ },
+ "overall_iou0.3_gated": {
+  "gt_boxes": 925,
+  "id_switches": 4,
+  "mota": 0.6756756756756757,
+  "idf1": 0.8092826485954587,
+  "recall": 0.7654054054054054,
+  "precision": 0.8996188055908514
+ }
+}

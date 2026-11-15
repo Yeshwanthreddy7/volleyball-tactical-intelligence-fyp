@@ -1,0 +1,464 @@
+{
+ "n_clips": 945,
+ "videos": {
+  "(1)": 126,
+  "(2)": 60,
+  "(3)": 93,
+  "(4)": 130,
+  "(5)": 106,
+  "(6)": 143,
+  "(plain)": 130,
+  "usa": 157
+ },
+ "class_order": [
+  "Coordinated Attack",
+  "Coordinated Defense",
+  "Delayed Support",
+  "Spacing Breakdown"
+ ],
+ "deployed_prior_corrected": {
+  "accuracy": 0.6370370370370371,
+  "macro_f1": 0.5405819980026269,
+  "weighted_f1": 0.6627820896105003,
+  "per_class": {
+   "Coordinated Attack": {
+    "precision": 0.8365384615384616,
+    "recall": 0.7073170731707317,
+    "f1": 0.7665198237885462,
+    "support": 369
+   },
+   "Coordinated Defense": {
+    "precision": 0.8366013071895425,
+    "recall": 0.7231638418079096,
+    "f1": 0.7757575757575758,
+    "support": 354
+   },
+   "Delayed Support": {
+    "precision": 0.24175824175824176,
+    "recall": 0.4074074074074074,
+    "f1": 0.30344827586206896,
+    "support": 108
+   },
+   "Spacing Breakdown": {
+    "precision": 0.2827586206896552,
+    "recall": 0.35964912280701755,
+    "f1": 0.3166023166023166,
+    "support": 114
+   }
+  },
+  "confusion_rows_true_cols_pred": [
+   [
+    261,
+    14,
+    58,
+    36
+   ],
+   [
+    31,
+    256,
+    39,
+    28
+   ],
+   [
+    8,
+    16,
+    44,
+    40
+   ],
+   [
+    12,
+    20,
+    41,
+    41
+   ]
+  ],
+  "folds": {
+   "(1)": {
+    "n": 126,
+    "accuracy": 0.5,
+    "macro_f1": 0.4408545874490147
+   },
+   "(2)": {
+    "n": 60,
+    "accuracy": 0.6833333333333333,
+    "macro_f1": 0.5781164477285167
+   },
+   "(3)": {
+    "n": 93,
+    "accuracy": 0.7741935483870968,
+    "macro_f1": 0.6345284781803731
+   },
+   "(4)": {
+    "n": 130,
+    "accuracy": 0.8076923076923077,
+    "macro_f1": 0.6568006629922518
+   },
+   "(5)": {
+    "n": 106,
+    "accuracy": 0.7452830188679245,
+    "macro_f1": 0.6480725623582766
+   },
+   "(6)": {
+    "n": 143,
+    "accuracy": 0.6853146853146853,
+    "macro_f1": 0.5122951430496188
+   },
+   "(plain)": {
+    "n": 130,
+    "accuracy": 0.7230769230769231,
+    "macro_f1": 0.6021390848977056
+   },
+   "usa": {
+    "n": 157,
+    "accuracy": 0.3184713375796178,
+    "macro_f1": 0.30523503654335293
+   }
+  },
+  "fold_accuracy_mean": 0.654670644281486,
+  "fold_accuracy_sd": 0.16444928202487583,
+  "fold_accuracy_min": 0.3184713375796178,
+  "fold_accuracy_max": 0.8076923076923077
+ },
+ "deployed_argmax": {
+  "accuracy": 0.6708994708994709,
+  "macro_f1": 0.4988115693640225,
+  "weighted_f1": 0.6424475449206203,
+  "per_class": {
+   "Coordinated Attack": {
+    "precision": 0.7421686746987952,
+    "recall": 0.8346883468834688,
+    "f1": 0.7857142857142857,
+    "support": 369
+   },
+   "Coordinated Defense": {
+    "precision": 0.7017114914425427,
+    "recall": 0.8107344632768362,
+    "f1": 0.7522935779816514,
+    "support": 354
+   },
+   "Delayed Support": {
+    "precision": 0.25675675675675674,
+    "recall": 0.17592592592592593,
+    "f1": 0.2087912087912088,
+    "support": 108
+   },
+   "Spacing Breakdown": {
+    "precision": 0.425531914893617,
+    "recall": 0.17543859649122806,
+    "f1": 0.2484472049689441,
+    "support": 114
+   }
+  },
+  "confusion_rows_true_cols_pred": [
+   [
+    308,
+    33,
+    22,
+    6
+   ],
+   [
+    46,
+    287,
+    16,
+    5
+   ],
+   [
+    30,
+    43,
+    19,
+    16
+   ],
+   [
+    31,
+    46,
+    17,
+    20
+   ]
+  ],
+  "folds": {
+   "(1)": {
+    "n": 126,
+    "accuracy": 0.5476190476190477,
+    "macro_f1": 0.4079313543599258
+   },
+   "(2)": {
+    "n": 60,
+    "accuracy": 0.75,
+    "macro_f1": 0.5883740883740883
+   },
+   "(3)": {
+    "n": 93,
+    "accuracy": 0.7956989247311828,
+    "macro_f1": 0.6297493145319233
+   },
+   "(4)": {
+    "n": 130,
+    "accuracy": 0.7461538461538462,
+    "macro_f1": 0.5146527085410436
+   },
+   "(5)": {
+    "n": 106,
+    "accuracy": 0.7735849056603774,
+    "macro_f1": 0.6497166890589403
+   },
+   "(6)": {
+    "n": 143,
+    "accuracy": 0.7202797202797203,
+    "macro_f1": 0.43135411574474486
+   },
+   "(plain)": {
+    "n": 130,
+    "accuracy": 0.7,
+    "macro_f1": 0.4964847142608998
+   },
+   "usa": {
+    "n": 157,
+    "accuracy": 0.46496815286624205,
+    "macro_f1": 0.3271031047365483
+   }
+  },
+  "fold_accuracy_mean": 0.687288074663802,
+  "fold_accuracy_sd": 0.11758379781170987,
+  "fold_accuracy_min": 0.46496815286624205,
+  "fold_accuracy_max": 0.7956989247311828
+ },
+ "hgb_plain": {
+  "accuracy": 0.6677248677248677,
+  "macro_f1": 0.5099658377157631,
+  "weighted_f1": 0.6483060783917429,
+  "per_class": {
+   "Coordinated Attack": {
+    "precision": 0.7487684729064039,
+    "recall": 0.8238482384823849,
+    "f1": 0.7845161290322581,
+    "support": 369
+   },
+   "Coordinated Defense": {
+    "precision": 0.7205128205128205,
+    "recall": 0.7937853107344632,
+    "f1": 0.7553763440860215,
+    "support": 354
+   },
+   "Delayed Support": {
+    "precision": 0.23255813953488372,
+    "recall": 0.18518518518518517,
+    "f1": 0.20618556701030927,
+    "support": 108
+   },
+   "Spacing Breakdown": {
+    "precision": 0.4126984126984127,
+    "recall": 0.22807017543859648,
+    "f1": 0.2937853107344633,
+    "support": 114
+   }
+  },
+  "confusion_rows_true_cols_pred": [
+   [
+    304,
+    32,
+    24,
+    9
+   ],
+   [
+    45,
+    281,
+    19,
+    9
+   ],
+   [
+    28,
+    41,
+    20,
+    19
+   ],
+   [
+    29,
+    36,
+    23,
+    26
+   ]
+  ],
+  "folds": {
+   "(1)": {
+    "n": 126,
+    "accuracy": 0.5396825396825397,
+    "macro_f1": 0.4194318645741357
+   },
+   "(2)": {
+    "n": 60,
+    "accuracy": 0.7166666666666667,
+    "macro_f1": 0.5619047619047618
+   },
+   "(3)": {
+    "n": 93,
+    "accuracy": 0.7849462365591398,
+    "macro_f1": 0.5661904761904761
+   },
+   "(4)": {
+    "n": 130,
+    "accuracy": 0.7461538461538462,
+    "macro_f1": 0.5276832591451235
+   },
+   "(5)": {
+    "n": 106,
+    "accuracy": 0.7735849056603774,
+    "macro_f1": 0.6415048764925714
+   },
+   "(6)": {
+    "n": 143,
+    "accuracy": 0.7202797202797203,
+    "macro_f1": 0.4870134320815957
+   },
+   "(plain)": {
+    "n": 130,
+    "accuracy": 0.7230769230769231,
+    "macro_f1": 0.5457738952306025
+   },
+   "usa": {
+    "n": 157,
+    "accuracy": 0.45222929936305734,
+    "macro_f1": 0.33943869944185334
+   }
+  },
+  "fold_accuracy_mean": 0.6820775171802839,
+  "fold_accuracy_sd": 0.11982406938381329,
+  "fold_accuracy_min": 0.45222929936305734,
+  "fold_accuracy_max": 0.7849462365591398
+ },
+ "deep_vs_deployed_foldwise": {
+  "inceptiontime": {
+   "fold_macro_f1": {
+    "(1)": 0.478,
+    "(2)": 0.552,
+    "(3)": 0.472,
+    "(4)": 0.476,
+    "(5)": 0.605,
+    "(6)": 0.449,
+    "(plain)": 0.529,
+    "usa": 0.363
+   },
+   "pooled_accuracy": 0.619,
+   "pooled_macro_f1": 0.5149,
+   "hgb_better_folds": 6,
+   "wilcoxon_p": 0.109375
+  },
+  "tcn": {
+   "fold_macro_f1": {
+    "(1)": 0.422,
+    "(2)": 0.309,
+    "(3)": 0.344,
+    "(4)": 0.449,
+    "(5)": 0.573,
+    "(6)": 0.43,
+    "(plain)": 0.355,
+    "usa": 0.265
+   },
+   "pooled_accuracy": 0.5122,
+   "pooled_macro_f1": 0.4408,
+   "hgb_better_folds": 8,
+   "wilcoxon_p": 0.0078125
+  },
+  "bilstm": {
+   "fold_macro_f1": {
+    "(1)": 0.232,
+    "(2)": 0.258,
+    "(3)": 0.395,
+    "(4)": 0.452,
+    "(5)": 0.463,
+    "(6)": 0.286,
+    "(plain)": 0.442,
+    "usa": 0.331
+   },
+   "pooled_accuracy": 0.4593,
+   "pooled_macro_f1": 0.398,
+   "hgb_better_folds": 7,
+   "wilcoxon_p": 0.015625
+  },
+  "mamba": {
+   "fold_macro_f1": {
+    "(1)": 0.173,
+    "(2)": 0.389,
+    "(3)": 0.351,
+    "(4)": 0.421,
+    "(5)": 0.509,
+    "(6)": 0.393,
+    "(plain)": 0.379,
+    "usa": 0.331
+   },
+   "pooled_accuracy": 0.4614,
+   "pooled_macro_f1": 0.3901,
+   "hgb_better_folds": 7,
+   "wilcoxon_p": 0.015625
+  }
+ },
+ "window_study_hgb": {
+  "8": {
+   "seconds": 0.27,
+   "accuracy": 0.6243386243386243,
+   "macro_f1": 0.40943468836418495
+  },
+  "12": {
+   "seconds": 0.4,
+   "accuracy": 0.6391534391534391,
+   "macro_f1": 0.43458579536373404
+  },
+  "16": {
+   "seconds": 0.53,
+   "accuracy": 0.6656084656084656,
+   "macro_f1": 0.4801982117515581
+  },
+  "20": {
+   "seconds": 0.67,
+   "accuracy": 0.6518518518518519,
+   "macro_f1": 0.45895761720252504
+  },
+  "24": {
+   "seconds": 0.8,
+   "accuracy": 0.6582010582010582,
+   "macro_f1": 0.47256584416366254
+  },
+  "29": {
+   "seconds": 0.97,
+   "accuracy": 0.6677248677248677,
+   "macro_f1": 0.5099658377157631
+  }
+ },
+ "class_medians": {
+  "Coordinated Attack": {
+   "team_spread_cm (nn_dist_mean)": 216.67520141601562,
+   "court_area_m2 (hull_area)": 11.95690703125,
+   "fast_two_speed_cm_per_frame": 17.248680114746094,
+   "other_four_speed_cm_per_frame": 3.787339210510254,
+   "sync_0to1": 0.043971166014671326,
+   "ball_to_team_centre_cm": 535.069091796875,
+   "team_centre_y_cm": 662.9581298828125
+  },
+  "Coordinated Defense": {
+   "team_spread_cm (nn_dist_mean)": 217.4183807373047,
+   "court_area_m2 (hull_area)": 14.1066296875,
+   "fast_two_speed_cm_per_frame": 13.075799942016602,
+   "other_four_speed_cm_per_frame": 3.0711634159088135,
+   "sync_0to1": 0.057523928582668304,
+   "ball_to_team_centre_cm": 590.1005859375,
+   "team_centre_y_cm": 687.8895263671875
+  },
+  "Delayed Support": {
+   "team_spread_cm (nn_dist_mean)": 201.325439453125,
+   "court_area_m2 (hull_area)": 13.26875625,
+   "fast_two_speed_cm_per_frame": 12.830161094665527,
+   "other_four_speed_cm_per_frame": 2.863328456878662,
+   "sync_0to1": 0.04243786633014679,
+   "ball_to_team_centre_cm": 538.5388793945312,
+   "team_centre_y_cm": 686.0636596679688
+  },
+  "Spacing Breakdown": {
+   "team_spread_cm (nn_dist_mean)": 212.42572021484375,
+   "court_area_m2 (hull_area)": 14.40083125,
+   "fast_two_speed_cm_per_frame": 13.272509574890137,
+   "other_four_speed_cm_per_frame": 3.084141969680786,
+   "sync_0to1": 0.04255463182926178,
+   "ball_to_team_centre_cm": 561.5531005859375,
+   "team_centre_y_cm": 658.8609619140625
+  }
+ }
+}

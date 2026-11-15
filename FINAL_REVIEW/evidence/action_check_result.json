@@ -1,0 +1,23 @@
+{
+ "SERVE": {
+  "checked": 12,
+  "correct": 7,
+  "precision": 0.5833333333333334
+ },
+ "SPIKE": {
+  "checked": 18,
+  "correct": 10,
+  "precision": 0.5555555555555556
+ },
+ "BLOCK": {
+  "checked": 1,
+  "correct": 0,
+  "precision": 0.0
+ },
+ "all": {
+  "checked": 31,
+  "correct": 17,
+  "precision": 0.5483870967741935
+ },
+ "recall_note": "Not measured with labels. Indication of misses: in the 5-minute 'videoplayback.mp4' segment the rules found 1 serve (both teams), while a 5-minute stretch has roughly 10-20 rallies; serves are often shown in a close-up camera shot, which the live-play filter removes."
+}

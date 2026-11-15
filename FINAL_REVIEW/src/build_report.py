@@ -84,13 +84,13 @@ ENV_ITEMS = [
 ]
 MODULES = [
     ("Module 1: User Interface", "Home, Analyze, Progress, Results, My analyses, Demos, Methodology, "
-     "Documentation and Team pages; desktop app.", "100% (Integrated)"),
+     "Documentation and Team pages; desktop app.", "Complete"),
     ("Module 2: Core Analysis", "Video check, player and ball detection, player tracking, team separation, "
-     "tactic model, opponent action detection, annotated video, reports and clips.", "100% (Integrated)"),
+     "tactic model, opponent action detection, annotated video, reports and clips.", "Working; known accuracy limits"),
     ("Module 3: Data & Storage", "A database record and a folder for every analysis; old analyses are deleted "
-     "automatically after 14 days.", "100% (Integrated)"),
+     "automatically after 14 days.", "Complete"),
     ("Module 4: External Integration", "Graphics card (GPU) for fast detection, FFmpeg for video, public project "
-     "website.", "100% (Functional)"),
+     "website.", "Complete (GPU cloud: future)"),
 ]
 DETAIL_ITEMS = [
     ("User Interface", "The Analyze page lets the user pick a video, the part to analyse and the mode (Accurate or "
@@ -100,8 +100,8 @@ DETAIL_ITEMS = [
      "server looks at a few frames to confirm that a volleyball court with players is visible; if not, it shows a "
      "clear message."),
     ("Analysis Engine", "A YOLO11 detector finds the players, and a second detector trained for volleyball finds "
-     "the ball. A tracker keeps the same ID on each player across frames. Shirt colour and court side separate the "
-     "two teams. For the near-side team, the engine measures how spread out the players are, how fast they move "
+     "the ball. A tracker keeps the same ID on each player across frames. The court mapping tells which side of the "
+     "net each player stands on, which separates the two teams even when the shirts look alike. For the near-side team, the engine measures how spread out the players are, how fast they move "
      "and where the ball is, one second at a time, and the trained model (HGB) names the tactic. Moments without "
      "live play, such as replays, are skipped. The opponent's serves, spikes and blocks are found with simple rules "
      "based on ball touches and body pose."),
@@ -119,14 +119,21 @@ TESTS = [
     ["TC-05: Fake video file", "a text file renamed to .mp4", "detected and refused", "Pass"],
     ["TC-06: File too large", "a 5 GB file", "refused before the upload starts", "Pass"],
     ["TC-07: Security check", "request for a missing analysis and for a hidden server file", "refused; nothing shown", "Pass"],
+    ["TC-07b: Cross-user security", "a second browser tries to list, cancel, delete or upload into another user's analysis",
+     "hidden or refused (403 / 404) in all 6 checks", "Pass"],
     ["TC-08: Automated tests", "266 automatic code checks", "all 266 passed", "Pass"],
 ]
 EVAL_TEXT = (
-    "All 8 test cases passed. Three full analyses of 1 to 2.5 minutes of match video finished on the laptop and "
+    "All test cases passed, including 6 cross-user security checks (evidence/functional_tests.json). Three full analyses of 1 to 2.5 minutes of match video finished on the laptop and "
     "produced every output. On the laptop's graphics card, one minute of 1080p video takes about 7 minutes to "
     "analyse, so the tool is meant for review after a match, not for live use. To measure accuracy fairly, the "
     "model was trained on 7 match videos and tested on the 8th, and this was repeated for all 8 videos (945 "
-    "labelled one-second clips). Table 4 compares our model with other models tested in the same way."
+    "labelled one-second clips). Table 4 compares our model with other models tested in the same way. On the "
+    "same folds, macro-F1 is 0.54 and weighted-F1 0.66; Attack and Defense reach F1 of about 0.77, while "
+    "Delayed Support and Spacing Breakdown reach about 0.3 and are mostly confused with each other. "
+    "InceptionTime and HGB are statistically tied (Wilcoxon over the 8 videos, p = 0.11); HGB is better on 6 of "
+    "8 videos. Player tracking reaches IDF1 0.70 on hand-labelled boxes, and court calibration predicts a hidden "
+    "court line within a median of 5 cm (evidence/*.json)."
 )
 MODEL_TABLE = (["Model", "Type", "Correct Tactic"], [
     ["HGB, our model (used in the app)", "Machine learning", "63.7%"],
@@ -146,17 +153,25 @@ JUST_ITEMS = [
     ("Security & Error Handling", "Only real video files are accepted. A user's analyses can be cancelled or "
      "deleted only by that user. Requests for anything other than a real result file are refused. If the user "
      "closes the page, the unfinished analysis is stopped after 5 minutes. If the court lines cannot be found, a "
-     "standard court layout is used."),
+     "standard court layout is used. The website has no passwords: each browser gets a random secret ID, stored "
+     "only as a hash, and another browser cannot see or change its analyses."),
+    ("Deployment", "Today the public website runs on an Azure cloud server without a graphics card (Fast mode), and "
+     "the laptop with an RTX 3050 runs Accurate mode. A cloud server with a graphics card is future work."),
 ]
 CONCLUSION = [
-    ("Conclusion", "The application meets all its requirements: it accepts an ordinary match video, finds and "
-     "follows the players and the ball, names the near-side team's tactic every second, and returns an annotated "
-     "video and reports through a working website."),
+    ("Conclusion", "The application works end to end: it accepts an ordinary match video, finds and follows the "
+     "players and the ball, names the near-side team's tactic every second, and returns an annotated video and "
+     "reports through a working website. The functional requirements are met. Accuracy is established for "
+     "Coordinated Attack and Defense (F1 about 0.77 on unseen matches) but not yet for the two rare classes, "
+     "and the opponent SERVE / SPIKE / BLOCK rules were right in 17 of 31 hand-checked events, so these parts "
+     "still need more labelled data."),
     ("Current Limitations", "The analysis is done after the match, not live (about 7 minutes per minute of video). "
      "Tactics are given for the team on the near side of the court; because teams change sides between sets, the "
      "user analyses one set at a time. The two less common tactics, Delayed Support and Spacing Breakdown, are "
      "recognised less reliably than attack and defense. The model was trained on 945 clips from 8 match videos, "
-     "so more data would improve it."),
+     "so more data would improve it. The labels come from one annotator, so no agreement score exists yet. "
+     "Missed opponent actions and full ball-detection mAP are not measured, because no frame-level hand labels exist. "
+     "Usefulness to coaches has not been tested with real coaches yet."),
     ("Future Enhancements", "Run the website on a cloud server with a graphics card for faster results. Add more "
      "match videos and labels to improve accuracy. Improve ball detection (a new ball detector is being trained). "
      "Recognise team names and follow the same team across sets."),
@@ -172,10 +187,7 @@ DELIVERABLES = [
     ("Group TEA Deliverable 3", "Open-source repository: "
      "https://github.com/Yeshwanthreddy7/volleyball-tactical-intelligence-fyp.git", "Completed"),
 ]
-REFS = [r for r in C.REFS if r[0] not in ("grinsztajn2022",)] + [
-    ("inceptiontime", "H. Ismail Fawaz \\emph{et al.}, ``InceptionTime: Finding AlexNet for time series "
-     "classification,'' \\emph{Data Mining and Knowledge Discovery}, vol. 34, pp. 1936--1962, 2020."),
-]
+REFS = list(C.REFS)          # one reference list, shared with the presentation
 
 
 URL_RE = __import__("re").compile(r"https?://[^\s;,()]+")

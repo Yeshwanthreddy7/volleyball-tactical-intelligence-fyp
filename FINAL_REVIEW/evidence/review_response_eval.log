@@ -1,0 +1,24 @@
+C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\externals\loky\backend\context.py:136: UserWarning: Could not find the number of physical cores for the following reason:
+[WinError 2] The system cannot find the file specified
+Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.
+  warnings.warn(
+  File "C:\Users\yashwanth\anaconda3\Lib\site-packages\joblib\externals\loky\backend\context.py", line 257, in _count_physical_cores
+    cpu_info = subprocess.run(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\yashwanth\anaconda3\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+945 clips {'(1)': 126, '(2)': 60, '(3)': 93, '(4)': 130, '(5)': 106, '(6)': 143, '(plain)': 130, 'usa': 157}
+deployed 181 s
+window 8 {'seconds': 0.27, 'accuracy': 0.6243386243386243, 'macro_f1': 0.40943468836418495} 51 s
+window 12 {'seconds': 0.4, 'accuracy': 0.6391534391534391, 'macro_f1': 0.43458579536373404} 48 s
+window 16 {'seconds': 0.53, 'accuracy': 0.6656084656084656, 'macro_f1': 0.4801982117515581} 39 s
+window 20 {'seconds': 0.67, 'accuracy': 0.6518518518518519, 'macro_f1': 0.45895761720252504} 40 s
+window 24 {'seconds': 0.8, 'accuracy': 0.6582010582010582, 'macro_f1': 0.47256584416366254} 35 s
+window 29 {'seconds': 0.97, 'accuracy': 0.6677248677248677, 'macro_f1': 0.5099658377157631} 40 s
+wrote C:\Users\yashwanth\OneDrive\Desktop\GROUP_56\FINAL_REVIEW\evidence\review_response_eval.json

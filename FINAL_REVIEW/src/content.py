@@ -68,13 +68,13 @@ PLATFORM = [
 
 MODULES = [
     ("Module 1: User Interface", "Home, Analyze, Progress, Results, My analyses, Demos, Methodology, "
-     "Documentation and Team pages; desktop app.", "100% (Integrated)"),
+     "Documentation and Team pages; desktop app.", "Complete"),
     ("Module 2: Core Analysis", "Video check, player and ball detection, tracking, team split, tactic model, "
-     "opponent actions, output video, reports and clips.", "100% (Integrated)"),
+     "opponent actions, output video, reports and clips.", "Working; known accuracy limits"),
     ("Module 3: Data & Storage", "A database record and a folder for every analysis; old analyses deleted "
-     "after 14 days.", "100% (Integrated)"),
+     "after 14 days.", "Complete"),
     ("Module 4: External Integration", "Graphics card for fast detection, FFmpeg for video, public project "
-     "website.", "100% (Functional)"),
+     "website; Azure CPU cloud server.", "Complete (GPU cloud: future)"),
 ]
 ENV = [
     ("Execution Platform", "Windows 11 laptop with an RTX 3050 graphics card. One script, run_website.bat, "
@@ -124,7 +124,8 @@ TESTS = (["Test Case", "Input / Action", "Result Seen", "Status"], [
 VERIFY = [
     ("Testing", "all 8 test cases passed, and 3 full analyses finished on the laptop."),
     ("Speed & Accuracy", "about 7 minutes per minute of video on the laptop. On videos the model never saw, "
-     "it is right 63.7% of the time, against 39.0% by guessing."),
+     "it is right 63.7% of the time (macro-F1 0.54), against 39.0% by guessing. Attack and Defense are "
+     "reliable (F1 about 0.76); Delayed Support and Spacing Breakdown are not yet (F1 about 0.3)."),
 ]
 DEMO = ("We open the website on the laptop, upload a one-minute match clip, choose Accurate mode and watch the "
         "progress bar. Then we play the annotated video, show the tactic timeline and download the reports.")
@@ -144,7 +145,7 @@ JUST = [
     ]),
     ("4. Limits & Future Scope", [
         "Works after the match, not live; covers the near-side team.",
-        "Next: faster cloud server, more match videos, better ball detection.",
+        "Now: public site on an Azure CPU server (Fast mode). Next: a cloud server with a GPU, more match videos, better ball detection.",
     ]),
 ]
 
@@ -152,7 +153,8 @@ LIMITS = [
     "Analysis is after the match, not live: about 7 minutes per minute of video.",
     "Tactics are given for the near-side team; teams change sides each set, so we analyse one set at a time.",
     "Delayed Support and Spacing Breakdown are recognised less reliably than attack and defense.",
-    "The model learned from 945 clips of 8 match videos; more data will help.",
+    "The model learned from 945 clips of 8 match videos labelled by one annotator; more data and a second annotator will help.",
+    "Opponent SERVE / SPIKE / BLOCK rules were right in 17 of 31 hand-checked events; missed events are not yet counted.",
 ]
 FUTURE = [
     "Run the website on a cloud server with a graphics card for faster results.",
@@ -176,6 +178,9 @@ REFS = [
     ("botsort", "N. Aharon, R. Orfaig, and B.-Z. Bobrovsky, ``BoT-SORT: Robust associations multi-pedestrian tracking,'' arXiv:2206.14651, 2022."),
     ("sklearn", "F. Pedregosa \\emph{et al.}, ``Scikit-learn: Machine learning in Python,'' \\emph{Journal of Machine Learning Research}, vol. 12, pp. 2825--2830, 2011."),
     ("grinsztajn2022", "L. Grinsztajn, E. Oyallon, and G. Varoquaux, ``Why do tree-based models still outperform deep learning on typical tabular data?,'' in \\emph{Proc. NeurIPS Datasets and Benchmarks Track}, 2022."),
+    ("inceptiontime", "H. Ismail Fawaz \\emph{et al.}, ``InceptionTime: Finding AlexNet for time series classification,'' \\emph{Data Mining and Knowledge Discovery}, vol. 34, pp. 1936--1962, 2020."),
+    ("hartley2004", "R. Hartley and A. Zisserman, \\emph{Multiple View Geometry in Computer Vision}, 2nd ed. Cambridge University Press, 2004."),
+    ("mot2008", "K. Bernardin and R. Stiefelhagen, ``Evaluating multiple object tracking performance: The CLEAR MOT metrics,'' \\emph{EURASIP Journal on Image and Video Processing}, 2008."),
     ("mamba", "A. Gu and T. Dao, ``Mamba: Linear-time sequence modeling with selective state spaces,'' arXiv:2312.00752, 2023."),
     ("fastapi", "S. Ram\\'irez, ``FastAPI documentation.'' https://fastapi.tiangolo.com, 2024."),
     ("react", "Meta Open Source, ``React documentation.'' https://react.dev, 2024."),
