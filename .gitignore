@@ -68,3 +68,7 @@ zi5nYeAc
 !docs/assets/*.mp4
 !webapp/storage/demos/*.mp4
 webapp/storage/demos/team_tactics_vp3.mp4
+
+# Local backups of replaced code (kept on disk, not in git)
+*.bak
+*.bak_*
