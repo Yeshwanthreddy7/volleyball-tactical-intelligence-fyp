@@ -19,7 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
-from . import config, project, validate
+from . import coach, config, project, validate
 from .db import now_iso, store
 from .worker import worker
 
@@ -31,7 +31,7 @@ mimetypes.add_type("text/javascript", ".js")
 OUTPUT_FILES = {
     "annotated_ultra.mp4", "annotated_high.mp4", "annotated_medium.mp4", "annotated_low.mp4",
     "poster.jpg", "opponent_report.txt", "opponent_report.csv", "opponent_report.json",
-    "tactical_report.txt", "tactical_report.csv", "tactical_report.json",
+    "tactical_report.txt", "tactical_report.csv", "tactical_report.json", "player_report.txt",
 }
 
 app = FastAPI(title=config.SITE_NAME, version="1.0.0", docs_url="/api/docs-ui", openapi_url="/api/openapi.json")
@@ -315,6 +315,50 @@ def analysis_clip(job_id: str, tactic: str, name: str):
     if not p.exists():
         raise HTTPException(404, "Clip not found.")
     return FileResponse(p, media_type="video/mp4", headers={"Cache-Control": "private, max-age=3600"})
+
+
+@app.get("/api/analyses/{job_id}/players/{name}")
+def analysis_player_picture(job_id: str, name: str):
+    _job(job_id)
+    if not re.fullmatch(r"player_\d{1,6}\.jpg", name):
+        raise HTTPException(404, "Picture not found.")
+    p = config.JOBS_DIR / job_id / "output" / "players" / name
+    if not p.exists():
+        raise HTTPException(404, "Picture not found.")
+    return FileResponse(p, media_type="image/jpeg", headers={"Cache-Control": "private, max-age=3600"})
+
+
+class CoachQuestion(BaseModel):
+    question: str = Field(..., max_length=2000)
+    history: list[dict] = Field(default_factory=list, max_length=20)
+
+
+def _done_result(job_id: str) -> dict:
+    job = _job(job_id)
+    if job.get("status") != "done" or not job.get("result"):
+        raise HTTPException(409, "The analysis is not finished yet.")
+    return job["result"]
+
+
+@app.get("/api/analyses/{job_id}/coach/summary")
+def coach_summary(job_id: str, ai: bool = False):
+    result = _done_result(job_id)
+    cache = config.JOBS_DIR / job_id / "output" / "coach_summary_ai.json"
+    if ai and cache.exists():
+        return json.loads(cache.read_text(encoding="utf-8"))
+    out = coach.summary(result, use_ai=ai)
+    out["ai_available"] = coach.ai_available()
+    if ai and out.get("mode") == "ai":
+        cache.write_text(json.dumps(out), encoding="utf-8")
+    return out
+
+
+@app.post("/api/analyses/{job_id}/coach/ask")
+def coach_ask(job_id: str, body: CoachQuestion):
+    result = _done_result(job_id)
+    out = coach.answer(result, body.question, body.history)
+    out["ai_available"] = coach.ai_available()
+    return out
 
 
 @app.get("/api/analyses/{job_id}/court.png")

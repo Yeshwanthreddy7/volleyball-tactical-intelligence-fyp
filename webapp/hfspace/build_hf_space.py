@@ -29,7 +29,8 @@ FILES = [
 ]
 GLOBS = [
     ("NEW_OUTPUTS/code", "*.py"), ("fyp", "*.py"), ("BASEFRAMES", "*.py"),
-    ("BASEFRAMES/corner_court_detection/labels", "*.json"), (".", "*.md"), ("docs", "*.md"),
+    ("BASEFRAMES/corner_court_detection/labels", "*.json"), ("BASEFRAMES/base_frame", "*.png"),
+    ("webapp/backend/app/coach_kb", "*.md"), (".", "*.md"), ("docs", "*.md"),
     ("figures_atlas", "**/*"), ("figures_perclass_f1", "*"), ("figures_workflow", "*"),
     ("model_comparison", "*"), ("PAPER_OUTPUT/action_examples", "*.png"),
     ("webapp/backend/app", "*.py"), ("webapp/frontend/dist", "**/*"), ("webapp/storage/demos", "*"),

@@ -31,7 +31,7 @@ import os
 import pickle
 import subprocess
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 os.environ.setdefault("LOKY_MAX_CPU_COUNT", "4")
@@ -46,6 +46,8 @@ sys.path.insert(0, str(ROOT / "OUTPUTS"))
 sys.path.insert(0, str(HERE))
 import bicausal_render as bc                        # noqa: E402
 import team_tactics as tt                           # noqa: E402
+import player_analytics as pa                       # noqa: E402
+import json                                         # noqa: E402
 
 FOCUS, OPP = bc.NEAR, bc.FAR
 OPP_ACTIONS = ("SERVE", "SPIKE", "BLOCK")
@@ -273,6 +275,18 @@ def render(cache, out_path, max_frames=0, segment_frames=4000):
         w.writeheader()
         w.writerows(segs_out)
 
+    # who made each tactic moment happen + player-wise performance
+    expl, pstats, best = pa.analyse(players, lab, fps, start, FOCUS, cam_ok)
+    shots = defaultdict(list)
+    for pid, (bf, box) in best.items():
+        shots[bf].append((pid, box))
+    pic_dir = Path(str(stem) + "_players")
+    pic_dir.mkdir(parents=True, exist_ok=True)
+    with open(str(stem) + "_players.json", "w", encoding="utf-8") as f:
+        json.dump({"segments": expl, "players": pstats, "opponent_events": [
+            {"time": round((start + e["f"]) / fps, 2), "action": e["label"], "player_track_id": int(e["actor_id"])}
+            for e in opp_events]}, f, indent=1)
+
     ball_draw = continuous_ball(ball_over_court(ball), cam_ok, int(BALL_MAX_GAP_S * fps))
     trail, held, hold = [], {}, int(0.5 * fps)
 
@@ -285,6 +299,13 @@ def render(cache, out_path, max_frames=0, segment_frames=4000):
         ok, img = cap.read()
         if not ok:
             raise RuntimeError(f"render: could not read frame {start + fi} of {video}")
+        for pid, (x0, y0, x1, y1) in shots.get(fi, ()):
+            pad = 0.15 * (y1 - y0)
+            crop = img[max(0, int(y0 - pad)):int(y1 + pad), max(0, int(x0 - pad)):int(x1 + pad)]
+            if crop.size:
+                h = 220
+                crop = cv2.resize(crop, (max(1, int(crop.shape[1] * h / crop.shape[0])), h))
+                cv2.imwrite(str(pic_dir / f"player_{pid}.jpg"), crop, [cv2.IMWRITE_JPEG_QUALITY, 88])
 
         if not cam_ok[fi]:
             trail, held = [], {}            # replay / camera cut: plain frame

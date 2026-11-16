@@ -3,6 +3,8 @@ fastapi>=0.115
 uvicorn[standard]>=0.30
 pymongo>=4.8
 python-multipart>=0.0.9
+# coach assistant (optional AI layer; needs ANTHROPIC_API_KEY)
+anthropic>=2.8
 # analysis engine (same stack the research code uses)
 ultralytics>=8.3
 torch>=2.2

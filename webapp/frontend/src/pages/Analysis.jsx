@@ -4,6 +4,7 @@ import { api, apiUrl, fileUrl, trackJob } from "../api.js";
 import { TACTICS, TACTIC_HEX } from "../content.js";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import Notepad from "../components/Notepad.jsx";
+import CoachPanel, { PlayersPanel } from "../components/CoachPanel.jsx";
 
 const STAGES = [
   ["queued", "Waiting in queue"],
@@ -106,7 +107,7 @@ const LESS_RELIABLE = ["Delayed Support", "Spacing Breakdown"];
 
 function AllActions({ segments, events, onSeek }) {
   const rows = useMemo(() => [
-    ...segments.map((g) => ({ time: g.start, end: g.end, name: g.tactic, team: "Your team", hex: TACTIC_HEX[g.tactic] })),
+    ...segments.map((g) => ({ time: g.start, end: g.end, name: g.tactic, team: "Your team", hex: TACTIC_HEX[g.tactic], why: g.why })),
     ...(events || []).map((e) => ({ time: e.time, end: null, name: e.action, team: "Opponent (report only)", hex: "#c0392b" })),
   ].sort((a, b) => a.time - b.time), [segments, events]);
   return (
@@ -121,7 +122,8 @@ function AllActions({ segments, events, onSeek }) {
               <td className="num"><a href="#player" onClick={(ev) => { ev.preventDefault(); onSeek(r.time); }}>{ts(r.time)}{r.end != null && ` - ${ts(r.end)}`}</a></td>
               <td>{r.team}</td>
               <td><span className="chip-tactic"><i className="dot" style={{ background: r.hex }} />{r.name}</span>
-                {LESS_RELIABLE.includes(r.name) && <span className="small faint"> · less reliable, check by eye</span>}</td>
+                {LESS_RELIABLE.includes(r.name) && <span className="small faint"> · less reliable, check by eye</span>}
+                {r.why && <div className="small muted">{r.why}</div>}</td>
               <td><button className="btn ghost sm" onClick={() => onSeek(r.time)}>▶ Play</button></td>
             </tr>
           ))}
@@ -160,7 +162,7 @@ function Results({ job, onDelete }) {
   const r = useMemo(() => ({ ...job.result, tactics: { ...job.result.tactics,
     segments: job.result.tactics.segments.filter((g) => SHOWN_NAMES.includes(g.tactic)) } }), [job.result]);
   const player = useRef(null);
-  const [tab, setTab] = useState("all");
+  const [tab, setTab] = useState("coach");
   const [cur, setCur] = useState(0);
   const off = r.video.analysed_start;
   const dur = r.video.analysed_end - off;
@@ -216,7 +218,7 @@ function Results({ job, onDelete }) {
 
       <div style={{ marginTop: 28 }}>
         <div className="tabs">
-          {[["all", "All tactic moments"], ["tactical", "📄 Notepad: team tactics"], ["actions", "📄 Notepad: opponent actions"], ["segments", "Segments with confidence"], ["court", "Court calibration"]].map(([k, l]) => (
+          {[["coach", "🧠 Coach assistant"], ["players", "👥 Players"], ["all", "All tactic moments"], ["tactical", "📄 Notepad: team tactics"], ["playersnote", "📄 Notepad: players"], ["actions", "📄 Notepad: opponent actions"], ["segments", "Segments with confidence"], ["court", "Court calibration"]].map(([k, l]) => (
             <button key={k} className={tab === k ? "on" : ""} onClick={() => setTab(k)}>{l}</button>
           ))}
         </div>
@@ -228,6 +230,12 @@ function Results({ job, onDelete }) {
               { label: "CSV", href: fileUrl(job.id, "tactical_report.csv", true) },
               { label: "JSON", href: fileUrl(job.id, "tactical_report.json", true) },
             ]} />
+        )}
+        {tab === "coach" && <CoachPanel jobId={job.id} onSeek={seek} />}
+        {tab === "players" && <PlayersPanel jobId={job.id} players={r.players} segments={r.tactics.segments} onSeek={seek} />}
+        {tab === "playersnote" && (
+          <Notepad title="player_report.txt" url={fileUrl(job.id, "player_report.txt")} onSeek={seek}
+            downloads={[{ label: "⬇ player_report.txt", href: fileUrl(job.id, "player_report.txt", true), primary: true }]} />
         )}
         {tab === "actions" && (
           <Notepad title="opponent_report.txt" url={fileUrl(job.id, "opponent_report.txt")} onSeek={seek}

@@ -267,3 +267,18 @@ tr.deployed td { background: rgba(245, 158, 11, 0.07); }
 .spinner { width: 22px; height: 22px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .avatar { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 1.3rem; background: linear-gradient(135deg, var(--accent), #b45309); color: #111; margin-bottom: 12px; }
+
+/* coach assistant + players */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.chip { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 999px; padding: 5px 11px; font: inherit; font-size: 0.82rem; cursor: pointer; }
+.chip:hover:not(:disabled) { border-color: var(--accent); }
+.chat-log { max-height: 460px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 4px 2px; }
+.msg { border-radius: 12px; padding: 10px 12px; max-width: 92%; }
+.msg.user { align-self: flex-end; background: var(--accent); color: #111827; }
+.msg.assistant { align-self: flex-start; background: var(--surface-2); border: 1px solid var(--border); }
+.input { background: var(--surface-2); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 9px 12px; font: inherit; }
+.player-pic { width: 76px; height: 100px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2); }
+.player-pic.empty { display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--muted); }
+.kpis { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font-size: 0.85rem; color: var(--muted); }
+.kpis b { color: var(--text); }
+.moments { margin: 12px 0 0; padding-left: 18px; font-size: 0.86rem; }

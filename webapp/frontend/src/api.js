@@ -109,6 +109,8 @@ export const api = {
   create: (body) => request("/api/analyses", { method: "POST", body }),
   cancel: (id) => request(`/api/analyses/${id}/cancel`, { method: "POST" }),
   remove: (id) => request(`/api/analyses/${id}`, { method: "DELETE" }),
+  coachSummary: (id, ai) => request(`/api/analyses/${id}/coach/summary${ai ? "?ai=1" : ""}`),
+  coachAsk: (id, body) => request(`/api/analyses/${id}/coach/ask`, { method: "POST", body }),
 };
 
 export const fileUrl = (id, name, download = false) =>

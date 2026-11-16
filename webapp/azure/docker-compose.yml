@@ -15,6 +15,8 @@ services:
       VTA_IMGSZ_FAST: "960"
       VTA_IMGSZ_ACCURATE: "960"
       VTA_BASEFRAME_SAMPLES: "150"
+      # coach assistant AI layer: put ANTHROPIC_API_KEY=... in /srv/vta/.env (never in git)
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
     volumes:
       - /srv/vta/data:/data
     depends_on: [mongo]

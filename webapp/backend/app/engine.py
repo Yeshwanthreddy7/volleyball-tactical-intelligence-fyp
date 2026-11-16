@@ -29,6 +29,7 @@ import io
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -268,6 +269,31 @@ def read_outputs(tactics_csv: Path, opp_csv: Path, fps: float):
     return segments, events
 
 
+def attach_players(segments: list, players_json: Path, out_dir: Path) -> list:
+    """Adds the 'why' (who made each tactic moment happen) to every segment and returns
+    the player-wise table. Player pictures are copied to output/players/."""
+    if not players_json.exists():
+        return []
+    data = json.loads(players_json.read_text(encoding="utf-8"))
+    expl = data.get("segments", [])
+    for seg in segments:
+        best = min(expl, key=lambda e: abs(e["start_s"] - seg["start"]), default=None)
+        if best and abs(best["start_s"] - seg["start"]) < 0.5 and best["tactic"] == seg["tactic"]:
+            seg["why"] = best["why"]
+            seg["credit"] = best.get("credit", [])
+            seg["fault"] = best.get("fault", [])
+    pics = players_json.with_name(players_json.stem.replace("_players", "") + "_players")
+    dst = out_dir / "players"
+    dst.mkdir(parents=True, exist_ok=True)
+    players = data.get("players", [])
+    for pl in players:
+        src = pics / f"player_{pl['id']}.jpg"
+        if src.exists():
+            shutil.copyfile(src, dst / src.name)
+            pl["picture"] = src.name
+    return players
+
+
 # ---------------------------------------------------------------- 4. encode
 def ffmpeg(args, log_path: Path):
     exe = imageio_ffmpeg.get_ffmpeg_exe()
@@ -342,6 +368,8 @@ def run(job_dir: Path) -> dict:
     fps = float(summary["fps"])
     # team tactics: video caption + report; opponent SERVE/SPIKE/BLOCK: report only
     segments, events = read_outputs(tac_csv, opp_csv, fps)
+    players = attach_players(segments, Path(str(tac_csv).replace("_team_tactics.csv", "_players.json")),
+                             job_dir / "output")
     files = encode_outputs(raw, video, start, seconds, job_dir, progress, 94, 99)
 
     progress.set("reporting", 99, "Writing reports")
@@ -358,6 +386,7 @@ def run(job_dir: Path) -> dict:
                     "segments": segments,
                     "frame_share": {k: float(v) for k, v in summary["tactics"].items()}},
         "files": files,
+        "players": players,
     }
     result["summary"] = reports.summarise(result)
     reports.write_all(result, job_dir / "output", params.get("original_name", video.name))
