@@ -119,7 +119,7 @@ def rule_summary(result: dict) -> str:
     if players:
         drivers = sorted([p for p in players if p["attacks_driven"]], key=lambda p: -p["attacks_driven"])[:2]
         if drivers:
-            L.append("Attack leaders: " + ", ".join(f"Player #{p['id']} ({p['attacks_driven']} attacks driven)" for p in drivers) + ".")
+            L.append("Attack leaders: " + ", ".join(f"Player #{p['id']} ({p['attacks_driven']} attack{'s' if p['attacks_driven'] != 1 else ''} driven)" for p in drivers) + ".")
         late = sorted([p for p in players if p["late_reactions"]], key=lambda p: -p["late_reactions"])[:2]
         if late:
             L.append("Late reactions: " + ", ".join(f"Player #{p['id']} ({p['late_reactions']}x)" for p in late)
@@ -134,7 +134,7 @@ def rule_summary(result: dict) -> str:
 
     worst = [g for g in segs if g["tactic"] in LESS_RELIABLE and g.get("why")][:3]
     if worst:
-        L.append("Moments to review: " + "; ".join(f"{ts(g['start'])} {g['tactic']} - {g['why']}" for g in worst))
+        L.append("Moments to review: " + "; ".join(f"{ts(g['start'])} {g['tactic']} - {g['why'].rstrip('.')}" for g in worst))
 
     focus = max(LESS_RELIABLE, key=lambda t: tac.get(t, {}).get("seconds", 0))
     if tac.get(focus, {}).get("seconds", 0) > 0:
